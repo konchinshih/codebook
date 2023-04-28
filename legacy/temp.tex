@@ -1,0 +1,61 @@
+\documentclass[twocolumn]{article}
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\setCJKmainfont{NotoSerifTC-Medium.otf}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\lstset{
+language=C++,
+basicstyle=\ttfamily,
+numberstyle=\footnotesize,
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=false,
+tabsize=2,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+escapeinside={\%*}{*)},
+morekeywords={*},
+literate={\ \ }{{\ }}1
+}
+
+\begin{document}
+
+\setlength\parindent{0pt}
+
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{Gino}
+\fancyhead[C]{Codebook}
+\fancyhead[R]{\thepage}
+
+\newpage
+
+\section{String}
+
+\subsection{Suffix Array - Instruction}
+\lstinputlisting{code/SuffixArray-Instruction.cpp}
+
+\subsection{Suffix Array}
+\lstinputlisting{code/SuffixArray.cpp}
+
+
+
+\end{document}

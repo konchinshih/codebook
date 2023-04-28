@@ -1,0 +1,8 @@
+short inPoly(Pt p) {
+// 0=Bound 1=In -1=Out
+REP(i, n) if (onseg(p, E[i], E[(i+1)%n])) return 0;
+int cnt = 0;
+REP(i, n) if (banana(p, Pt(p.x+1, p.y+2e9),
+                     E[i], E[(i+1)%n])) cnt ^= 1;
+return (cnt ? 1 : -1);
+}

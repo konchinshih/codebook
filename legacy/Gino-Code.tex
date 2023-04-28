@@ -1,0 +1,384 @@
+\documentclass[twocolumn]{article}
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\setCJKmainfont{NotoSerifTC-Medium.otf}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\lstset{
+language=C++,
+basicstyle=\ttfamily,
+numberstyle=\footnotesize,
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=false,
+tabsize=2,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+escapeinside={\%*}{*)},
+morekeywords={*},
+literate={\ \ }{{\ }}1
+}
+
+\begin{document}
+
+\setlength\parindent{0pt}
+
+\tableofcontents
+
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{Gino}
+\fancyhead[C]{Codebook}
+\fancyhead[R]{\thepage}
+
+\newpage
+
+\section{Reminder}
+
+\subsection{Bug List}
+
+\begin{itemize}
+    \item 沒開 long long
+    \item 陣列戳出界／陣列開不夠大
+    \item 寫好的函式忘記呼叫
+    \item 變數打錯
+    \item 0-base／1-base
+    \item 忘記初始化
+    \item ==打成=
+\end{itemize}
+
+\subsection{常見手法}
+
+\begin{itemize}
+    \item 對 OOO 排序
+    \item 對值域做事
+    \item 數值丟到數線上
+    \item 數對 (a, b) → 二維平面
+    \item 區間問題：離線、雙指針、單調性
+    \item 對答案的變動因素太多，可嘗試固定一種因素，並對它枚舉。
+\end{itemize}
+
+\subsection{策略}
+
+\subsubsection{賽前守則}
+\begin{enumerate}
+    \item 不要熬夜，11 點前就要上床。
+    \item 可以寫些水題維持手感也穩住心態。
+    \item 賽前一小時就要睡午覺，睡半小時起來才有時間讓腦袋暖機。
+    \item 深呼吸告訴自己「我超電」、「我可以的」，但不是「我一定可以拿300分」。
+\end{enumerate}
+
+\subsubsection{賽中策略}
+\begin{enumerate}
+    \item 開場讀題 15 分鐘，讀題時務必連子題配分都要讀過一遍。記得要排序難度。
+    
+    \item 打模板的時間 5 分鐘，打的時候不要一直思考有什麼忘記打，浪費腦力，反正之後要用再補就好。
+    
+    \item 時間分配：
+    \begin{itemize}
+        \item 觀察性質 3 分鐘
+        \item 思考解法 7 分鐘
+        \item 總實作時間 20 分鐘
+        \item debug 10 分鐘
+    \end{itemize}
+    拿分間隔控制在 20 分鐘，最多不超過 30 分鐘。
+    停損點：思考 10 分鐘連 subtask 都沒想法就跳，卡了 40 分鐘一定要跳，不要一直想「"應該"還差一點就 AC 了」。
+    
+    \item 觀察性質：
+    \begin{itemize}
+        \item 注意變數範圍，誰特別大／特別小，作法 80\% 跟它有關。
+        \item 題目「保證」某種性質 → 作法 99\% 跟它有關。
+        \item 常見手法：參照 Reminder 的常見手法。
+    \end{itemize}
+    
+    \item 思考解法：
+    \begin{itemize}
+        \item 寫下範測，釐清題目。
+        \item 可以構造複雜點的測資幫助思考。
+    \end{itemize}
+    停損點：10 分鐘。
+    
+    \item 實作：
+    \begin{itemize}
+        \item 想到什麼 subtask 就寫什麼。
+        \item 評估實作細節 2 $\sim$ 3 分鐘。
+        \item 分段 check 程式。
+    \end{itemize}
+    停損點：20 分鐘。
+    
+    \item debug：
+    \begin{itemize}
+        \item 先用 1 分鐘檢查有沒有智障 bug。見 Reminder 的 Bug List。
+        \item 構造測資，可以試試邊界測資，不要一直盯著 code。
+        有可能假解只是自己沒發現。
+    \end{itemize}
+    停損點：10 分鐘。
+    
+    debug 的時候不要做一些無謂的事，不只找不到 bug 還會產生「debug 那麼久還是找不到問題」的錯覺，事實上那不叫 debug，只是浪費時間。
+\end{enumerate}
+
+\subsubsection{賽中心態調整}
+\begin{enumerate}
+    \item 把比賽想成是跟出題者決鬥，AC 了代表運氣好決鬥獲勝，WA 了也只代表沒有打贏出題者，滿正常的事，絕對不要認為是因為自己實作爛實力爛，換一題跟他打就好。
+    \item 不要急著想拿滿分，大部分的 AC 都是一點一點分數累積上去的，就算想到滿分解也是一樣。
+    \item 丟一筆 submission 就去廁所，過半場吃點心。
+    \item 換題的時候，一切重新 reset，剛剛發生了什麼事都不重要，不要掛在心上。
+    \item 你炸掉大家也都會炸掉。
+\end{enumerate}
+
+\newpage
+
+\section{Basic}
+
+
+\subsection{PBDS}
+\lstinputlisting{code/PBDS.cpp}
+
+\subsection{Random}
+\lstinputlisting{code/Random.cpp}
+
+\section{Data Structure}
+
+\section{Graph}
+
+\subsection{SPFA}
+\lstinputlisting{code/SPFA.cpp}
+
+\subsection{Bellman-Ford}
+\lstinputlisting{code/BellmanFord.cpp}
+
+\subsection{MST - Kruskal}
+\lstinputlisting{code/MST-kruskal.cpp}
+
+\subsection{MST - prim}
+\lstinputlisting{code/MST-prim.cpp}
+
+\subsection{SCC - Tarjan}
+\lstinputlisting{code/SCC-Tarjan.cpp}
+
+\subsection{Eulerian Path - Undir}
+\lstinputlisting{code/EulerianPath-Undir.cpp}
+
+\subsection{Eulerian Path - Dir}
+\lstinputlisting{code/EulerianPath-Dir.cpp}
+
+\subsection{Hamilton Path}
+\lstinputlisting{code/HamiltonPath.cpp}
+
+\section{Tree}
+
+\subsection{LCA}
+\lstinputlisting{code/LCA.cpp}
+
+\section{String}
+
+\subsection{Rolling Hash}
+\lstinputlisting{code/RollingHash.cpp}
+
+\subsection{Suffix Array - Instruction}
+\lstinputlisting{code/SuffixArray-Instruction.cpp}
+
+\subsection{Suffix Array}
+\lstinputlisting{code/SuffixArray.cpp}
+
+\section{Geometry}
+
+\subsection{Basic Operations}
+\lstinputlisting{code/BasicOperator.cpp}
+
+\subsection{Sort by Angle}
+\lstinputlisting{code/SortByAngle.cpp}
+
+\subsection{Line Intersection}
+\lstinputlisting{code/LineIntersect.cpp}
+
+\subsection{In-polygon Test}
+\lstinputlisting{code/InPolygon.cpp}
+
+\subsection{Polygon Area}
+\lstinputlisting{code/PolygonArea.cpp}
+
+\subsection{Convex Hull}
+\lstinputlisting{code/ConvexHull.cpp}
+
+\subsection{Closest Pair of Point}
+\lstinputlisting{code/ClosestPointPair.cpp}
+
+\subsection{Pick's Theorem}
+
+Consider a polygon which vertices are all lattice points.
+
+Let $i$ = number of points inside the polygon.
+
+Let $b$ = number of points on the boundary of the polygon.
+
+Then we have the following formula:
+
+$$
+Area = i + \frac{b}{2} - 1
+$$
+
+\section{Number Theory}
+
+\subsection{Fast Power}
+Note: $a^n \equiv a^{(n \ mod \ p-1)} (mod \ p)$
+\lstinputlisting{code/FastPow.cpp}
+
+\subsection{Matrix Fast Power}
+\lstinputlisting{code/MatrixFastPow.cpp}
+
+\subsection{Extend GCD}
+\lstinputlisting{code/ExtGCD.cpp}
+
+\subsection{Prime Seive + Defactor}
+\lstinputlisting{code/PrimeSeive+Defactor.cpp}
+
+\subsection{Other Formulas}
+\begin{itemize}
+    \item Inversion:\\ $aa^{-1} \equiv 1 \pmod{m}$. $a^{-1}$ exists iff $\gcd(a,m)=1$.
+    
+    \item Linear inversion:\\ $a^{-1} \equiv (m - \lfloor\frac{m}{a}\rfloor) \times (m \bmod a)^{-1} \pmod{m}$
+    
+    \item Fermat's little theorem:\\ $a^p \equiv a \pmod{p}$ if $p$ is prime.
+    
+    \item Euler function:\\ $\phi(n)=n \prod_{p|n} \frac{p-1}{p}$
+    
+    \item Euler theorem:\\ $a^{\phi(n)} \equiv 1 \pmod{n}$ if $\gcd(a,n) = 1$.
+    
+    \item Extended Euclidean algorithm:\\
+    $ax+by=\gcd(a,b)=\gcd(b, a \bmod b)=\gcd(b, a-\lfloor\frac{a}{b}\rfloor b)=bx_1+(a-\lfloor\frac{a}{b}\rfloor b)y_1=ay_1+b(x_1-\lfloor\frac{a}{b}\rfloor y_1)$
+    
+    \item Divisor function:\\ $\sigma_x(n) = \sum_{d|n}d^x$. $n=\prod_{i=1}^r p_i^{a_i}$.\\ $\sigma_x(n)=\prod_{i=1}^r \frac{p_i^{(a_i+1)x}-1}{p_i^x-1}$ if $x \neq 0$. $\sigma_0(n)=\prod_{i=1}^r (a_i+1)$.
+    
+    \item Chinese remainder theorem:\\ $x \equiv a_i \pmod{m_i}$.\\
+        $M=\prod m_i$. $M_i=M/m_i$. $t_i=M_i^{-1}$.\\
+        $x = kM + \sum a_i t_i M_i$, $k \in \mathbb{Z}$.
+\end{itemize}
+
+\section{Combinatorics}
+
+\subsection{Basic Formulas}
+
+\begin{itemize}
+    \item $P^n_k=\frac{n!}{(n-k)!}$
+    \item $C^n_k=\frac{n!}{(n-k)!k!}$
+    \item $H^n_k=C^{n+k-1}_k=\frac{(n+k-1)!}{k!(n-1)!}$
+\end{itemize}
+
+\subsection{Catalan Number}
+
+$$
+C_0=1, C_n=\sum_{i=0}^{n-1} C_i C_{n-1-i}
+$$
+$$
+C_n=C_n^{2n}-C_{n-1}^{2n}
+$$
+\begin{center}
+    \begin{tabular}{r|lllll}
+        0 & 1 & 1 & 2 & 5 \\
+        4 & 14 & 42 & 132 & 429 \\
+        8 & 1430 & 4862 & 16796 & 58786 \\
+        12 & 208012 & 742900 & 2674440 & 9694845
+    \end{tabular}
+\end{center}
+
+\subsection{Burnside's Lemma}
+
+Let $X$ be the original set.
+
+Let $G$ be the group of operations acting on $X$.
+
+Let $X^g$ be the set of $x$ not affected by $g$.
+
+Let $X/G$ be the set of orbits.
+
+Then the following equation holds:
+
+$$
+|X/G| = \frac{1}{|G|} \sum_{g \in G} |X^g|
+$$
+
+\section{Special Numbers}
+
+\subsection{Fibonacci Series}
+
+$$f(n)=f(n-1)+f(n-2)$$
+
+\begin{equation*}
+    \begin{bmatrix}
+        f(n) \\
+        f(n - 1)
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\end{equation*}
+
+\begin{center}
+    \begin{tabular}{r|lllll}
+        1 & 1 & 1 & 2 & 3 \\
+        5 & 5 & 8 & 13 & 21 \\
+        9 & 34 & 55 & 89 & 144 \\
+        13 & 233 & 377 & 610 & 987 \\
+        17 & 1597 & 2584 & 4181 & 6765 \\
+        21 & 10946 & 17711 & 28657 & 46368 \\
+        25 & 75025 & 121393 & 196418 & 317811 \\
+        29 & 514229 & 832040 & 1346269 & 2178309 \\
+        33 & 3524578 & 5702887 & 9227465 & 14930352
+    \end{tabular}
+\end{center}
+
+$f(45) \approx 10^9$\\
+$f(88) \approx 10^{18}$
+
+
+\subsection{Prime Numbers}
+
+First 50 prime numbers:\\
+\begin{center}
+    \begin{tabular}{r|llllllllll}
+        1 & 2 & 3 & 5 & 7 & 11 \\
+        6 & 13 & 17 & 19 & 23 & 29 \\
+        11 & 31 & 37 & 41 & 43 & 47 \\
+        16 & 53 & 59 & 61 & 67 & 71 \\
+        21 & 73 & 79 & 83 & 89 & 97 \\
+        26 & 101 & 103 & 107 & 109 & 113 \\
+        31 & 127 & 131 & 137 & 139 & 149 \\
+        36 & 151 & 157 & 163 & 167 & 173 \\
+        41 & 179 & 181 & 191 & 193 & 197 \\
+        46 & 199 & 211 & 223 & 227 & 229
+    \end{tabular}
+\end{center}
+
+Very large prime numbers:\\
+\begin{tabular}{ccc}
+    1000001333 & 1000500889 & 2500001909 \\
+    2000000659 & 900004151 & 850001359
+\end{tabular}
+
+
+
+\end{document}

@@ -1,0 +1,18 @@
+from itertools import count
+from math import gcd
+from sys import stdin
+
+for s in stdin:
+    number, x = int(s), 2
+    break2 = False
+    for cycle in count(1):
+        y = x
+        if break2:
+            break
+        for i in range(1 << cycle):
+            x = (x * x + 1) % number
+            factor = gcd(x - y, number)
+            if factor > 1:
+                print(factor)
+                break2 = True
+                break

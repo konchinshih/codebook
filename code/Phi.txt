@@ -1,0 +1,21 @@
+const int maxn = 1e6 + 5;
+ll phi[maxn];
+vector<int> lpf, prime;
+void buildPhi() {
+    lpf.clear(); lpf.resize(maxn, 1);
+    prime.clear();
+    phi[1] = 1;
+    for (int i = 2; i < maxn; i++) {
+        if (lpf[i] == 1) {
+            lpf[i] = i; prime.emplace_back(i);
+            phi[i] = i-1;
+        }
+        Each(j, prime) {
+            if (i*j >= maxn) break;
+            lpf[i*j] = j;
+            if (i % j == 0) phi[i*j] = phi[i]*j;
+            else phi[i*j] = phi[i]*phi[j];
+            if (j >= lpf[i]) break;
+        }
+    }
+}

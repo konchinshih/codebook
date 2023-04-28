@@ -1,0 +1,21 @@
+const int maxn = 1e6 + 5;
+ll mu[maxn];
+vector<int> lpf, prime;
+void buildMu() {
+    lpf.clear(); lpf.resize(maxn, 1);
+    prime.clear();
+    mu[1] = 1;
+    for (int i = 2; i < maxn; i++) {
+        if (lpf[i] == 1) {
+            lpf[i] = i; prime.emplace_back(i);
+            mu[i] = -1;
+        }
+        Each(j, prime) {
+            if (i*j >= maxn) break;
+            lpf[i*j] = j;
+            if (i % j == 0) mu[i*j] = 0;
+            else mu[i*j] = -mu[i];
+            if (j >= lpf[i]) break;
+        }
+    }
+}
