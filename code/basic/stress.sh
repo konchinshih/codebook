@@ -1,6 +1,6 @@
-g++ pC.cpp -o gen.out
-g++ pB.cpp -o ac.out
-g++ pA.cpp -o wa.out
+g++ gen.cpp -o gen.out
+g++ ac.cpp -o ac.out
+g++ wa.cpp -o wa.out
 for ((i=0;;i++))
 do
     echo "$i"
