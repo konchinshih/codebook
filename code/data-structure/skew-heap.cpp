@@ -1,8 +1,7 @@
-template<typename T>
 struct node{
     node *l,*r;
-    T v;
-    node(T x):v(x){
+    int v;
+    node(int x):v(x){
         l=r=nullptr;
     }
 };
