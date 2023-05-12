@@ -205,3 +205,10 @@ void mod(vector<T>& a, vector<T>& b) {
     a -= q;
     resize(a);
 }
+
+/* Kitamasa Method (Fast Linear Recurrence):
+Find a[K] (Given a[j] = c[0]a[j-N] + ... + c[N-1]a[j-1])
+Let B(x) = x^N - c[N-1]x^(N-1) - ... - c[1]x^1 - c[0]
+Let R(x) = x^K mod B(x)   (get x^K using fast pow and use poly mod to get R(x))
+Let r[i] = the coefficient of x^i in R(x)
+=> a[K] = a[0]r[0] + a[1]r[1] + ... + a[N-1]r[N-1] */
