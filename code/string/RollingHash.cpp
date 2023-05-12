@@ -1,32 +1,25 @@
-// count how many times t occurs in s
-string s, t;
-int ns, nt;
-const ll C = 26;
-const ll MOD = 1e9 + 7;
-ll Cexp[maxn], ht[maxn], hs;
-
-void build_Cexp() {
-    Cexp[0] = 1;
-    FOR(i, 1, nt, 1) {
-        Cexp[i] = Cexp[i-1] * C;
-        if (Cexp[i] >= MOD) Cexp[i] %= MOD;
-    }
-}
-
-void build_hash() {
-    REP(i, ns) {
-        hs += Cexp[ns-1-i] * (s[i] - 'a');
-        if (hs >= MOD) hs %= MOD;
-    }
-    ht[0] = (t[0] - 'a');
-    FOR(i, 1, nt, 1) {
-        ht[i] = ht[i-1] * C + (t[i] - 'a');
-        if (ht[i] >= MOD) ht[i] %= MOD;
-    }
-}
-
-inline ll ht_query(int l, int r) {
-    ll res = ht[r] - (l ? ht[l-1] * Cexp[len(l, r)] : 0);
-    res = (res%MOD + MOD) % MOD;
-    return res;
-}
+const ll C = 27;
+inline int id(char c) {return c-'a'+1;}
+struct RollingHash {
+    string s; int n; ll mod;
+    vector<ll> Cexp, hs;
+    RollingHash(string& _s, ll _mod):
+        s(_s), n((int)_s.size()), mod(_mod)
+    {
+        Cexp.assign(n, 0);
+        hs.assign(n, 0);
+        Cexp[0] = 1;
+        for (int i = 1; i < n; i++) {
+            Cexp[i] = Cexp[i-1] * C;
+            if (Cexp[i] >= mod) Cexp[i] %= mod;
+        }
+        hs[0] = id(s[0]);
+        for (int i = 1; i < n; i++) {
+            hs[i] = hs[i-1] * C + id(s[i]);
+            if (hs[i] >= mod) hs[i] %= mod;
+    } }
+    inline ll query(int l, int r) {
+        ll res = hs[r] - (l ? hs[l-1] * Cexp[r-l+1] : 0);
+        res = (res % mod + mod) % mod;
+        return res; }
+};
