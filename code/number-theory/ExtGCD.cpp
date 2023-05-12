@@ -7,7 +7,6 @@ pll extgcd(ll a, ll b) {
     pll ans = extgcd(b, a % b);
     return pll{ans.S, ans.F - a/b * ans.S};
 }
-
 pll bezout(ll a, ll b, ll c) {
     bool negx = (a < 0), negy = (b < 0);
     pll ans = extgcd(abs(a), abs(b));
@@ -15,7 +14,6 @@ pll bezout(ll a, ll b, ll c) {
     return pll{ans.F * c/GCD * (negx ? -1 : 1),
                ans.S * c/GCD * (negy ? -1 : 1)};
 }
-
 ll inv(ll a, ll p) {
     if (p == 1) return -1;
     pll ans = bezout(a % p, -p, 1);
