@@ -42,6 +42,7 @@ void get_suffix(string &s, int pos[], vector<int> &lcp){
 	int k = 0;
 	for(int i = 0;i < n;i++){
 		int pi = rank[i];
+		if (pi == 0) continue;
 		int j = pos[pi-1];
 		while(i+k<n && j+k<n && s[i+k]==s[j+k]) k++;
 		lcp[pi] = k;
