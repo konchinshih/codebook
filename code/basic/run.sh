@@ -4,7 +4,7 @@ echo File Name: $2
 echo ============================================
 echo Start compiling \"$2\"...
 echo
-g++ $1/$2 -std=c++20 -I ~/Desktop/cpp/include -Ofast -Wall -Wextra -g -fsanitize=address,undefined -o$1/a.out
+g++ $1/$2 -std=c++20 -Ofast -Wall -Wextra -g -fsanitize=address,undefined -o$1/a.out
 if [ "$?" -ne 0 ]
 then
         exit 1
