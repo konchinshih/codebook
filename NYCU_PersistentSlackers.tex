@@ -184,6 +184,9 @@ numbers=left
 \subsection{Li Chao Tree}
 \lstinputlisting{code/data-structure/li-chao-tree.cpp}
 
+\subsection{Time Segment Tree}
+\lstinputlisting{code/data-structure/time-segtree.cpp}
+
 \section{DP}
 
 \subsection{Aliens}
@@ -214,6 +217,19 @@ numbers=left
 
 \subsection{Kth Shortest Path}
 \lstinputlisting{code/graph/KSP.txt}
+
+\subsection{System of Difference Constraints}
+\lstinputlisting{code/graph/DiffConstraints.cpp}
+\begin{itemize}
+	\item $x_u - x_v \le c \Rightarrow$ \texttt{add(v, u, c)}
+	\item $x_u - x_v \ge c \Rightarrow$ \texttt{add(u, v, -c)}
+	\item $x_u - x_v = c \Rightarrow$ \texttt{add(v, u, c), add(u, v -c)}
+	\item $x_u \ge c \Rightarrow$ add super vertex $x_0 = 0$, then $x_u - x_0 \ge c$ $\Rightarrow$ \texttt{add(u, 0, -c)}
+	\item Don't for get non-negative constraints for every variable if specified implicitly.
+	\item Interval sum $\Rightarrow$ Use prefix sum to transform into differential constraints.  Don't for get $S_{i+1} - S_{i} \ge 0$ if $x_i$ needs to be non-negative.
+	\item $\frac{x_u}{x_v} \le c \Rightarrow$ $\log{x_u} - \log{x_v} \le \log{c}$
+\end{itemize}
+
 
 \section{String}
 
@@ -266,6 +282,9 @@ numbers=left
 
 \subsection{Convex Hull}
 \lstinputlisting{code/geometry/ConvexHull.txt}
+
+\subsection{Lower Concave Hull}
+\lstinputlisting{code/geometry/LowerConcaveHull.cpp}
 
 \subsection{Polygon Area}
 \lstinputlisting{code/geometry/PolygonArea.txt}
@@ -502,3 +521,4 @@ $\pi(10^6) = 78498, \pi(10^7) = 664579$ \\
 }
 
 \end{document}
+
