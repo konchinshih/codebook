@@ -1,0 +1,10 @@
+syn on
+se si nu rnu ru cul mouse=a
+se cin et ts=4 sw=4 sts=4 re=0
+colo koehler # evening, wildcharm 
+set autochdir
+
+no <F1> :!%:p:h/a.out < %:p:h/input > %:p:h/output; echo "------------"; cat %:p:h/output<CR>
+no <F2> :!g++ -std=c++20 -fsanitize=address,undefined -g -Wextra -Wall %:p<CR>
+no <F3> :!%:p:h/a.out > %:p:h/output; echo "------------"; cat %:p:h/output<CR>
+
