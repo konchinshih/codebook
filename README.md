@@ -15,8 +15,8 @@ Codebook for ICPC team NYCU_PersistentSlackers from National Yang Ming Chiao Tun
 - 交大程式設計競賽 新生賽 **Rank 2**
 - 交大程式設計競賽 年度賽 **Rank 5**
 - ICPC Asia Taiwan Online Programming Contest **Rank 61**
-- [National Collegiate Programming Contest **Rank 20** (佳作 1)](https://web.archive.org/web/20221017103207/https://reg.ncpc.ntnu.edu.tw/ncpc2022/NCPC_final/)
-- [International Collegiate Programming Contest - Asia Taoyuan Site **Rank 22** (銀牌)](https://icpc2022.ntub.edu.tw/final-scoreboard/)
+- [National Collegiate Programming Contest](https://web.archive.org/web/20221017103207/https://reg.ncpc.ntnu.edu.tw/ncpc2022/NCPC_final/) **Rank 20** (佳作 1)
+- [International Collegiate Programming Contest - Asia Taoyuan Site](https://icpc2022.ntub.edu.tw/final-scoreboard/) **Rank 22** (銀牌)
 - 中區大專院校程式設計競賽 **Rank 1**
 - 中山大學程式研習社 酒醉程式競賽 大一組 **Rank 1**
 
