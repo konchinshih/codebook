@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+
+#define endl '\n'
+
+#define F first
+#define S second
+#define ep emplace
+#define pb push_back
+#define eb emplace_back
+#define ALL(x) x.begin(), x.end()
+#define SZ(x) (int)x.size()
+
+namespace{
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3f;
+
+template<typename T> using V=vector<T>;
+template<typename T1,typename T2=T1> using P = pair<T1,T2>;
+
+void _debug() {}
+template<typename A,typename... B> void _debug(A a,B... b){
+    cerr<<a<<' ',_debug(b...);
+}
+#define debug(...) cerr<<#__VA_ARGS__<<": ",_debug(__VA_ARGS__),cerr<<endl;
+template<typename T>
+ostream& operator<<(ostream& os,const vector<T>& v){
+    for(const auto& i:v) 
+        os<<i<<' ';
+    return os;
+}
+}
+/*---------------------------------------------------*/
+
+const ll MOD = 1e9 + 7;
+const int maxn = 2e5 + 5;
+
+
+void init() {
+    ;
+}
+
+void solve() {
+    ;
+}
+
+/*
+
+
+*/
+
+signed main() {
+    cin.tie(0), ios::sync_with_stdio(0);
+
+int T = 1;
+// cin >> T;
+while (T--) {
+    init();
+    solve();
+}
+
+    return 0;
+}

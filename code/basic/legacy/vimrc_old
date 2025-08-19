@@ -1,0 +1,7 @@
+syn on
+se si nu rnu ru cul mouse=a
+se cin et ts=4 sw=4 sts=4 re=0
+colo koehler # evening, wildcharm 
+set autochdir
+set clipboard=unnamedplus
+

@@ -1,0 +1,7 @@
+syn on
+se ai nu rnu ru cul mouse=a
+se cin et ts=4 sw=4 sts=4
+colo desert
+set autochdir
+no <F5> :!./a.out<CR>
+no <F9> :!~/run.sh %:p:h %:p:t<CR>

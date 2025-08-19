@@ -10,6 +10,7 @@ RUN mkdir ttf-dmcasansserif && cd ttf-dmcasansserif && \
       ls | grep .ttf | xargs -I% -n1 install -Dm644 % /usr/share/fonts/TTF/% && \
       cd - && rm -rf ttf-dmcasansserif
 
+
 WORKDIR /work
 ENV PATH="/usr/bin/vendor_perl:${PATH}"
 ENTRYPOINT ["sh", "-c"]

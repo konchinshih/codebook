@@ -35,6 +35,7 @@
     urlcolor=black
 }
 
+
 %\renewcommand\listfigurename{圖目錄}
 %\renewcommand\listtablename{表目錄} 
 
@@ -47,8 +48,10 @@
   ] {NotoSans}
 
 \setmonofont [
-    UprightFont = *-Regular
-  ] {DMCA Sans Serif}
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic
+  ] {CodeNewRomanNerdFontPropo}[Path=./]
 
 \setCJKmainfont{NotoSerifTC-Medium.otf} %中文字型
 %\setmainfont{sourcecodepro}
@@ -84,6 +87,7 @@ stringstyle=\itshape\color{Green4},
 numbers=left
 }
 
+
 % ================================================ %
 
 \begin{document}
@@ -102,6 +106,20 @@ numbers=left
 \tableofcontents}
 
 \section{Reminder}
+
+\subsection{Observations and Tricks}
+\begin{itemize}[nolistsep]
+    \item Contribution Technique
+    \item 二分圖/Spanning Tree/DFS Tree
+    \item 行、列操作互相獨立
+    \item 奇偶性
+    \item 當 $s, t$ 遞增並且 $t = f(s)$，對 $s$ 二分搜不好做，可以改成對 $t$ 二分搜，再算 $f(t)$
+    \item 啟發式合併
+    \item Permutation Normalization （做一些平移對齊兩個 permutation）
+    \item 枚舉 $a_1 \sim a_n$ 再枚舉 $a_n \sim a_1$ 可以包在一個迴圈
+    \item 兩個凸型函數相加還是凸型函數，相減不一定
+\end{itemize}
+
 \subsection{Bug List}
 \begin{itemize}[nolistsep]
 \item 沒開 long long
@@ -121,6 +139,7 @@ numbers=left
 \item unsigned int128
 \item 多筆測資不能沒讀完直接 return
 \item 記得刪 cerr
+\item vector 超級肥， 小 vector 請用 array， 例如矩陣快速冪
 \end{itemize}
 
 % \subsection{常見手法}
@@ -134,26 +153,38 @@ numbers=left
 % \item 把條件列出來分 case (ex. 三維偏序)
 % \end{itemize}
 
-\subsection{OwO}
-\begin{itemize}[nolistsep]
+
+%\subsection{OwO}
+%\begin{itemize}[nolistsep]
 % \item 注意變數範圍，誰特別大／特別小，作法 80\% 跟它有關。
 % \item 題目「保證」某種性質作法 99\% 跟它有關。
 % \item 寫下範測，釐清題目。
 % \item 可以構造複雜點的測資幫助思考。
-\item Enjoy The Game!
-\end{itemize}
+% \item Enjoy The Game!
+%\end{itemize}
+
+\section{Init}
+
+\subsection{vimrc}
+\lstinputlisting[language=sh]{code/basic/vimrc}
+
+\subsection{template.cpp}
+\lstinputlisting{code/basic/template.cpp}
+
+\subsection{init.sh}
+\lstinputlisting[language=sh]{code/basic/init.sh}
+
+\subsection{run.sh}
+\lstinputlisting[language=sh]{code/basic/run.sh}
+
+\subsection{run\_stdio.sh}
+\lstinputlisting[language=sh]{code/basic/run\_stdio.sh}
+
+\subsection{init.sh}
+\lstinputlisting[language=sh]{code/basic/init.sh}
 
 
 \section{Basic}
-
-\subsection{Default}
-\lstinputlisting{code/basic/Default.txt}
-
-\subsection{Vimrc}
-\lstinputlisting[language=sh]{code/basic/vimrc}
-
-% \subsection{Run.sh}
-% \lstinputlisting[language=sh]{code/basic/run.sh}
 
 \subsection{Stress}
 \lstinputlisting[language=sh]{code/basic/stress.sh}
