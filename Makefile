@@ -7,8 +7,8 @@ INTERMEDIATE_FILES += _minted-main main.aux main.bbl main.bcf main.blg \
 all: main.pdf
 
 docker:
-	docker build -t latex .
-	docker run -v ".:/work" --rm -u "$(shell id -u):$(shell id -g)" latex
+	docker build --platform=linux/amd64 -t latex .
+	docker run --platform=linux/amd64 -v ".:/work" --rm -u "$(shell id -u):$(shell id -g)" latex
 
 main.pdf: main.tex code/**
 	xelatex -shell-escape main.tex
