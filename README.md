@@ -44,5 +44,4 @@ Codebook for ICPC team NYCU_PersistentSlackers from National Yang Ming Chiao Tun
 ## Codebook Compile
 
 0. Install & Start docker (optionally install docker-buildx in archlinux).
-1. Build the docker image (only need to run once): `docker build -t archlatex .` 
-2. Compile the codebook: `docker run -v ".:/work" --rm -u "$(id -u):$(id -g)" archlatex`
+1. Run `make docker`.
