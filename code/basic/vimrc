@@ -1,16 +1,11 @@
 syn on
-set ai nu rnu ru cul mouse=a
+set nu rnu ru cul mouse=a
 set cin et ts=4 sw=4 sts=4
 set autochdir
-set smartindent
 set clipboard=unnamedplus
 
-" Color "
-"colo evening
-colo wildcharm
-"colo koehler
+colo koehler
 
-" Faster Cursor Navigation "
 no h b
 no l e
 no b l
@@ -19,18 +14,12 @@ no <C-h> ^
 no <C-l> $
 no <C-k> 4<C-y>4k
 no <C-j> 4<C-e>4j
+no ; :
 
-" Bracket "
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>ko
 
-" For CP "
-" Run (file input)
 :command! Run :!clear && %:p:h/run.sh %:p<CR>
-" Run (standard input)
-:command! Ron :!clear && %:p:h/run_stdio.sh %:p<CR>
-:command! -nargs=1 Goto execute 'buffer ' . (char2nr('<args>') - char2nr('A') + 1) | execute "normal! 120G"
+:command! Stdio :!clear && %:p:h/run_stdio.sh %:p -stdio<CR>
 
-" Fix the problem that I always mistype ':' as ';' "
-nno ; :
 

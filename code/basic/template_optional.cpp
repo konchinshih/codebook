@@ -1,8 +1,5 @@
-typedef long long ll;
-typedef pair<int, int> pii;
 typedef pair<int, ll> pil;
 typedef pair<ll, int> pli;
-typedef pair<ll, ll> pll;
 
 /* ============================================= */
 // STL and I/O

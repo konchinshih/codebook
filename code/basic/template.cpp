@@ -36,7 +36,7 @@ int main() {
     int TEST = 1; init(TEST);
     for (int kase = 1; kase <= TEST; kase++) {
         input();
-        solve();
+        solve(kase);
     }
     return 0;
 }

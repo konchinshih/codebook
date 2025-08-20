@@ -125,7 +125,6 @@ numbers=left
 \item 沒開 long long
 \item 陣列戳出界／陣列開不夠大
 \item 寫好的函式忘記呼叫
-\item 變數打錯
 \item 0-base / 1-base
 \item 忘記初始化
 \item == 打成 =
@@ -165,20 +164,26 @@ numbers=left
 
 \section{Init}
 
+開場流程：
+\begin{enumerate}[nolistsep]
+    \item 打好 ~/.vimrc
+    \item 新資料夾 contest，打好 template.cpp、run.sh，chmod +x run.sh
+    \item 打好 init.sh，chmod +x init.sh
+    \item ./init.sh
+    \item vim */*.cpp
+\end{enumerate}
+
 \subsection{vimrc}
 \lstinputlisting[language=sh]{code/basic/vimrc}
 
 \subsection{template.cpp}
 \lstinputlisting{code/basic/template.cpp}
 
-\subsection{init.sh}
-\lstinputlisting[language=sh]{code/basic/init.sh}
-
 \subsection{run.sh}
 \lstinputlisting[language=sh]{code/basic/run.sh}
 
-\subsection{run\_stdio.sh}
-\lstinputlisting[language=sh]{code/basic/run\_stdio.sh}
+\subsection{init.sh}
+\lstinputlisting[language=sh]{code/basic/init.sh}
 
 \subsection{template (optional)}
 \lstinputlisting{code/basic/template\_optional.cpp}
