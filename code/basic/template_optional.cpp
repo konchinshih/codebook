@@ -1,3 +1,4 @@
+typedef pair<ll, ll> pll;
 typedef pair<int, ll> pil;
 typedef pair<ll, int> pli;
 
@@ -27,6 +28,12 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 #define RED        "\x1b[31m"
 #define GREEN      "\x1b[32m"
 #define YELLOW     "\x1b[33m"
+#define GRAY       "\x1b[90m"
+#define COLOREND   "\x1b[0m"
+
+void _debug() {}
+template<typename A,typename... B> void _debug(A a,B... b) { cerr << a << ' ', _debug(b...); }
+#define debug(...) cerr<<GRAY<<#__VA_ARGS__<<": "<<COLOREND,_debug(__VA_ARGS__),cerr<<endl
 
 void _output() {}
 template<typename A,typename... B> void _output(A a,B... b) { cout << a << ' ', _output(b...); }
@@ -43,6 +50,8 @@ string binary(ll x, int b = -1) {
 }
 /* ============================================= */
 // CONSTANT
+const int INF = 1.05e9;
+const ll LINF = 4e18;
 const int MOD = 1e9 + 7;
 //const int MOD = 998244353;
 const int maxn = 2e5 + 3;

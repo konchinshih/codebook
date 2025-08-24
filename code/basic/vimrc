@@ -12,14 +12,7 @@ no b l
 no e h
 no <C-h> ^
 no <C-l> $
-no <C-k> 4<C-y>4k
-no <C-j> 4<C-e>4j
 no ; :
 
-inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>ko
-
-:command! Run :!clear && %:p:h/run.sh %:p<CR>
-:command! Stdio :!clear && %:p:h/run_stdio.sh %:p -stdio<CR>
-
 
