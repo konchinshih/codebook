@@ -6,10 +6,6 @@ set clipboard=unnamedplus
 
 colo koehler
 
-no h b
-no l e
-no b l
-no e h
 no <C-h> ^
 no <C-l> $
 no ; :

@@ -1,3 +1,12 @@
+#define F first
+#define S second
+#define ep emplace
+#define eb emplace_back
+#define endl '\n'
+
+template<class T> using V=vector<T>;
+typedef long long ll;
+typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef pair<int, ll> pil;
 typedef pair<ll, int> pli;

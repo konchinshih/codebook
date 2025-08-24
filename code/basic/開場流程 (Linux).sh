@@ -7,4 +7,3 @@ for c in {A..P}; do
 done
 
 vim run.sh && chmod 777 run.sh
-vim *.cpp
