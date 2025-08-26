@@ -1,3 +1,4 @@
+// Author: Gino
 const int lgmx = 19;
 int n, q;
 int spt[lgmx][maxn];

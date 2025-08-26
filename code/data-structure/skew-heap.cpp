@@ -1,3 +1,5 @@
+// Author: Ian
+// Function: 插入、刪除最小值、合併兩個左偏樹都能 O(log n)
 struct node{
     node *l,*r;
     int v;

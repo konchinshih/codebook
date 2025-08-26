@@ -1,3 +1,4 @@
+// Author: Gino
 const int maxn = 1e6 + 5;
 ll f[maxn];
 vector<int> lpf, prime;

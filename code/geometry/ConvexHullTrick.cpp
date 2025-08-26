@@ -1,3 +1,4 @@
+// Author: Unknown
 /* Given a convexhull,answer querys in O(\lg N)
 CH should not contain identical points,the area should
 be>0,min pair(x,y) should be listed first */

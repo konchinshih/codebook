@@ -1,3 +1,5 @@
+// Author: Unknown
+// Function: First Maximize flow, then minimize flow cost
 struct MCMF {
     struct Edge {
         int to, cap, rev;

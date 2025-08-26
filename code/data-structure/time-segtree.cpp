@@ -1,3 +1,4 @@
+// Author: Ian
 constexpr int maxn = 1e5 + 5;
 V<P<int>> arr[(maxn + 1) << 2];
 V<int> dsu, sz;

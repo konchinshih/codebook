@@ -1,3 +1,4 @@
+// Author: Gino
 const int maxc = 1e6 + 1;
 vector<int> lpf;
 vector<int> prime;

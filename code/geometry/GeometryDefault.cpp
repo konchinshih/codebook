@@ -1,3 +1,4 @@
+// Author: Gino
 typedef long long T;
 // typedef long double T;
 const long double eps = 1e-8;
@@ -15,7 +16,7 @@ Pt operator-(Pt a) { return Pt(x-a.x, y-a.y); }
 Pt operator*(T a)  { return Pt(x*a, y*a); }
 Pt operator/(T a)  { return Pt(x/a, y/a); }
 T operator*(Pt a)  { return x*a.x + y*a.y; }
-T operator^(Pt a)  { return x*a.y - y*a.x; }
+T operator^(Pt a)  { return x*a.y - y*a.x; }  // 不要打反
 bool operator<(Pt a)
     { return x < a.x || (x == a.x && y < a.y); }
 //return sgn(x-a.x) < 0 || (sgn(x-a.x) == 0 && sgn(y-a.y) < 0); }

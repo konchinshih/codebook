@@ -1,3 +1,6 @@
+// Author: Unknown
+// Function: Query maximum value of L_i(x), L_i is the i-th line.
+typedef long double ld;
 constexpr int maxn = 5e4 + 5;
 struct line {
 	ld a, b;

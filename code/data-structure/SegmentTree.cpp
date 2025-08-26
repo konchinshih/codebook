@@ -1,3 +1,4 @@
+// Author: Gino
 struct node {
     ll sum, add, mod; int ln;
     node(): sum(0), add(0), mod(0), ln(0) {}

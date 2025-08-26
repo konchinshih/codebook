@@ -1,3 +1,4 @@
+// Author: Gino
 int ud(Pt a) {  // up or down half plane
     if (a.y > 0) return 0;
     if (a.y < 0) return 1;

@@ -1,3 +1,6 @@
+// Author: Gino
+// Function: Max Bipartite Matching in O(V sqrt(E))
+// init() -> get() -> Ans = hk.MXCNT
 struct HopcroftKarp {
     // id: X = [1, nx], Y = [nx+1, nx+ny]
     int n, nx, ny, m, MXCNT;
@@ -14,7 +17,7 @@ struct HopcroftKarp {
     }
     bool dfs(int x) {
         vis[x] = true;
-        Each(y, g[x]) {
+        for (auto& y : g[x]) {
             int px = my[y];
             if (px == -1 ||
                 (dis[px] == dis[x]+1 &&
@@ -41,7 +44,7 @@ struct HopcroftKarp {
             }
             while (!q.empty()) {
                 int x = q.front(); q.pop();
-                Each(y, g[x]) {
+                for (auto& y : g[x]) {
                     if (my[y] != -1 && dis[my[y]] == -1) {
                         dis[my[y]] = dis[x] + 1;
                         q.push(my[y]);

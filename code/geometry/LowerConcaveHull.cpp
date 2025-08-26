@@ -1,3 +1,4 @@
+// Author: Unknown
 struct Line {
   mutable ll m, b, p;
   bool operator<(const Line& o) const { return m < o.m; }

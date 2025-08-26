@@ -1,3 +1,4 @@
+// Author: Gino
 // T: long double
 Pt bananaPoint(Pt p1, Pt p2, Pt q1, Pt q2) {
 if (onseg(q1, p1, p2)) return q1;

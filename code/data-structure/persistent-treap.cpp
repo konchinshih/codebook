@@ -1,3 +1,4 @@
+// Author: Ian
 struct node {
 	node *l, *r;
 	char c; int v, sz;

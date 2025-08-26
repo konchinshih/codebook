@@ -1,3 +1,7 @@
+// Author: Gino
+// Function: Find closest pair of points in O(n log n)
+#define x first
+#define y second
 int N;
 T ans = 9e18;  // don't use LINF!!!
 vector<Pt> p, tmp;
@@ -5,7 +9,7 @@ vector<Pt> p, tmp;
 void init() {
     cin >> N;
     p.clear(); p.resize(N);
-    Each(i, p) cin >> i.x >> i.y;
+    for (auto& i : p) cin >> i.x >> i.y;
     sort(p.begin(), p.end());
 }
 
@@ -44,7 +48,8 @@ sort(tmp.begin(), tmp.end(),
 });
 
 int nt = (int)tmp.size();
-REP(i, nt) for (int j = i+1, cnt = 0; j < nt && cnt < 3; j++, cnt++)
-    ans = min(ans, dis(tmp[i], tmp[j]));
+for (int i = 0; i < nt; i++)
+    for (int j = i+1, cnt = 0; j < nt && cnt < 3; j++, cnt++)
+        ans = min(ans, dis(tmp[i], tmp[j]));
 
 }

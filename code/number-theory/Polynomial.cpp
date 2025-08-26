@@ -1,3 +1,4 @@
+// Author: Gino
 const int maxk = 20;
 const int maxn = 1<<maxk;
 const ll LINF = 1e18;

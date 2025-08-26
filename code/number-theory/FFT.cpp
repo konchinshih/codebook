@@ -1,3 +1,4 @@
+// Author: Unknown
 typedef complex<double> cp;
 
 const double pi = acos(-1);

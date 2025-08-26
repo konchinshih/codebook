@@ -1,3 +1,4 @@
+// Author: Unknown
 /* convex hull Minkowski Sum*/
 #define INF 100000000000000LL
 int pos( const Pt& tp ){

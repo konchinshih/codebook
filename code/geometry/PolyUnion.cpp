@@ -1,3 +1,4 @@
+// Author: Unknown
 struct PY{
   int n; Pt pt[5]; double area;
   Pt& operator[](const int x){ return pt[x]; }

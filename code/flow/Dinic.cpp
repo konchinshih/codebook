@@ -1,3 +1,5 @@
+// Author: Benson
+// Function: Max Flow, O(V^2 E)
 struct Dinic {
     struct Edge {
         int t, c, r;

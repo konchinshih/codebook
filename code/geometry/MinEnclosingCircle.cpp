@@ -1,3 +1,5 @@
+// Author: Gino
+// Function: Find Min Enclosing Circle using Randomized O(n) Algorithm
 Pt circumcenter(Pt A, Pt B, Pt C) {
 // a1(x-A.x) + b1(y-A.y) = c1
 // a2(x-A.x) + b2(y-A.y) = c2
@@ -11,6 +13,7 @@ if (D == 0) return Pt(-INF, -INF);
 return A + Pt(Dx/D, Dy/D);
 }
 Pt center; T r2;
+
 void minEncloseCircle() {
 mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
 shuffle(ALL(E), gen);

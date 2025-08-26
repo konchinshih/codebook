@@ -1,4 +1,5 @@
-// Count the number of divisors for all  x <= 10^6
+// Author: Gino
+// Function: Count the number of divisors for all x <= 10^6 using harmonic series
 const int maxc = 1e6;
 vector<int> facs;
 

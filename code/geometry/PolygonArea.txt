@@ -1,5 +1,0 @@
-T dbarea(vector<Pt>& e) {
-ll res = 0;
-REP(i, SZ(e)) res += e[i]^e[(i+1)%SZ(e)];
-return abs(res);
-}

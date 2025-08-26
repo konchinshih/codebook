@@ -1,3 +1,7 @@
+// Author: Unknown
+// Function: Check if a number is a prime in O(100 * log^2(n))
+//      miller_rabin(): return 1 if prime, 0 otherwise
+
 // n < 4,759,123,141        3 :  2, 7, 61
 // n < 1,122,004,669,633    4 :  2, 13, 23, 1662803
 // n < 3,474,749,660,383          6 :  pirmes <= 13
@@ -15,7 +19,6 @@ bool witness(ll a,ll n,ll u,int t){
 }
 bool miller_rabin(ll n,int s=100) {
 	// iterate s times of witness on n
-	// return 1 if prime, 0 otherwise
 	if(n<2) return 0;
 	if(!(n&1)) return n == 2;
 	ll u=n-1; int t=0;
