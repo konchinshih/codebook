@@ -1,3 +1,5 @@
+// Author: Ian
+// TODO: (2025/08/26) Debug Lazy Segment Tree
 constexpr int maxn=2e5+5;
 int arr[(maxn+1)<<2];
 #define m ((l+r)>>1)
