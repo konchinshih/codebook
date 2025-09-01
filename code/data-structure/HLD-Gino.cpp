@@ -1,3 +1,7 @@
+// Author: Gino
+// usage: call HLD() and modify code in query()
+// when apply update to subtree, maintain mxi (max id of u's subtree),
+// but don't forget leverage mxi[mxkid[u]]!!! this is tricky!!!
 int n;
 vector<vector<int>> G;
 vector<int> sz;  // size of subtree
@@ -50,13 +54,12 @@ void HLD() {
 }
 
 void query(int a, int b) {
-    int ta = top[a], tb = top[b];
-    while (ta != tb) {
+    while (top[a] != top[b]) {
         // W.L.O.G. a is deeper than b
-        if (dep[ta] < dep[tb]) swap(a, b), swap(ta, tb);
+        if (dep[top[a]] < dep[top[b]]) swap(a, b);
         /* [CODE] some operations on interval [id[ta], id[a]] */
         // leverage "a" to above chain
-        a = pa[ta]; ta = top[a];
+        a = pa[top[a]];
     }
     if (dep[a] < dep[b]) swap(a, b);
     /* [CODE] some operations on interval [id[b], id[a]] */

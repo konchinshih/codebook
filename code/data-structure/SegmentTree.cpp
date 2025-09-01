@@ -40,6 +40,8 @@ struct segT {
         build(l, mid, cl);
         build(mid + 1, r, cr);
         pull(cl, cr, i);
+        // DONT FORGET THIS
+        st[i].ln = st[cl].ln + st[cr].ln;
     }
     void addval(int ql, int qr, ll val, int l, int r, int i) {
         if (qr < l || r < ql) return;
