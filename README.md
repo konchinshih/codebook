@@ -27,9 +27,9 @@ Codebook for ICPC team NYCU_PersistentSlackers from National Yang Ming Chiao Tun
 - National Collegiate Programming Contest **Rank 13**
 - HP Codewars 大學組 **Rank 1**
 
-### 2024
+### 2025
 
-- 
+- 交大程式設計競賽 年度賽 **Rank 4**
 
 ## Names
 
