@@ -40,6 +40,7 @@ Codebook for ICPC team NYCU_PersistentSlackers from National Yang Ming Chiao Tun
 - NYCU_Ramenholics
 - NYCU_Alcoholic
 - NYCU_PersistentSlackers (Naming policy: 演算法或資結相關)
+- NYCU_LLLemonade_Jam (Naming policy: 樂團)
 
 ## Codebook Compile
 
