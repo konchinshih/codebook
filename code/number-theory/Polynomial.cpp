@@ -1,8 +1,7 @@
 // Author: Gino
-// Preparation: first implement pw(a, n), then call init_ntt()
+// Preparation: first implement pw(a, n), then call set_mod() and init_ntt() in order
  
 // [Usage]
-// call init_ntt() and set_mod(998244353) first!
 // polynomial: vector<ll> a, b
 // negation: -a
 // add/subtract: a += b, a -= b
