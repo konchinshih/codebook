@@ -1,4 +1,13 @@
 // Author: Gino
+// Preparation: first implement pw(a, n), then call init_ntt()
+ 
+// [Usage]
+// polynomial: vector<ll> a, b
+// negation: -a
+// add/subtract: a += b, a -= b
+// convolution: a *= b
+// in-place modulo: mod(a, b)
+// in-place inversion under mod x^N: inv(ia, N)
 const int maxk = 20;
 const int maxn = 1<<maxk;
 const ll LINF = 1e18;
@@ -110,8 +119,14 @@ void init_ntt() {
 } }
 
 template<typename T>
-void NTT(vector<T>& a, bool inv=false) {
+inline void resize(vector<T>& a) {
+    int cnt = (int)a.size();
+    for (; cnt > 0; cnt--) if (a[cnt-1]) break;
+    a.resize(max(cnt, 1));
+}
 
+template<typename T>
+void NTT(vector<T>& a, bool inv=false) {
     int _n = (int)a.size();
     int k = __lg(_n) + ((1<<__lg(_n)) != _n);
     int n = 1<<k;
@@ -138,12 +153,6 @@ void NTT(vector<T>& a, bool inv=false) {
             if (x >= MOD) x %= MOD;
 } } }
 
-template<typename T>
-inline void resize(vector<T>& a) {
-    int cnt = (int)a.size();
-    for (; cnt > 0; cnt--) if (a[cnt-1]) break;
-    a.resize(max(cnt, 1));
-}
 
 template<typename T>
 vector<T>& operator*=(vector<T>& a, vector<T> b) {
