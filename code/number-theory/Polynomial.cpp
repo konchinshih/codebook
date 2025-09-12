@@ -2,6 +2,7 @@
 // Preparation: first implement pw(a, n), then call init_ntt()
  
 // [Usage]
+// call init_ntt() and set_mod(998244353) first!
 // polynomial: vector<ll> a, b
 // negation: -a
 // add/subtract: a += b, a -= b
