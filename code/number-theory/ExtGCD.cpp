@@ -11,6 +11,7 @@
 //      return {-LINF, -LINF} if no solution
 
 const ll LINF = 4e18;
+typedef pair<ll, ll> pll;
 template<typename T1, typename T2>
 T1 chmod(T1 a, T2 m) {
     return (a % m + m) % m;
