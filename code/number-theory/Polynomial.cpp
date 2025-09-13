@@ -1,5 +1,5 @@
 // Author: Gino
-// Preparation: first implement pw(a, n), then call set_mod() and init_ntt() in order
+// Preparation: first implement pw(a, n), then call set_mod(), set g to corresponding primitive root and init_ntt() in order
  
 // [Usage]
 // polynomial: vector<ll> a, b
