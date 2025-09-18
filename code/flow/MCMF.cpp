@@ -1,76 +1,66 @@
-// Author: Unknown
-// Function: First Maximize flow, then minimize flow cost
-struct MCMF {
-  struct Edge {
-    int to, cap, rev;
-    ll cost;
-    Edge() {}
-    Edge(int _to, int _cap, int _rev, ll _cost) :
-      to(_to), cap(_cap), rev(_rev), cost(_cost) {}
+// Author: CRyptoGRapheR
+typedef int Tcost;
+static const int MAXV = 20010;
+static const int INFf = 1000000;
+static const Tcost INFc  = 1e9;
+struct MinCostMaxFlow{
+  struct Edge{
+    int v, cap;
+    Tcost w;
+    int rev;
+    Edge(){}
+    Edge(int t2, int t3, Tcost t4, int t5)
+    : v(t2), cap(t3), w(t4), rev(t5) {}
   };
-  static const int N = 2000;
-  vector<Edge> G[N];
-  int n, s, t;
-  void init(int _n, int _s, int _t) {
-    n = _n, s = _s, t = _t;
-    for(int i = 0; i <= n; ++i)
-      G[i].clear();
+  int V, s, t;
+  vector<Edge> g[MAXV];
+  void init(int n, int _s, int _t){
+    V = n; s = _s; t = _t;
+    for(int i = 0; i <= V; i++) g[i].clear();
   }
-  void add_edge(int from, int to, int cap, ll cost) {
-    G[from].eb(to, cap, (int)G[to].size(), cost);
-    G[to].eb(from, 0, (int)G[from].size() - 1, -cost);
+  void addEdge(int a, int b, int cap, Tcost w){
+    g[a].push_back(Edge(b, cap, w, (int)g[b].size()));
+    g[b].push_back(Edge(a, 0, -w, (int)g[a].size()-1));
   }
-
-  bool vis[N];
-  int iter[N];
-  ll dis[N];
-  bool SPFA() {
-    for(int i = 0; i <= n; ++i)
-      vis[i] = 0, dis[i] = LINF;
-
-    dis[s] = 0; vis[s] = 1;
-    queue<int> que; que.push(s);
-    while(!que.empty()) {
-      int u = que.front(); que.pop();
-      vis[u] = 0;
-      for(auto& e : G[u]) if(e.cap > 0 && dis[e.to] > dis[u] + e.cost) {
-        dis[e.to] = dis[u] + e.cost;
-        if(!vis[e.to]) {
-          que.push(e.to);
-          vis[e.to] = 1;
+  Tcost d[MAXV];
+  int id[MAXV], mom[MAXV];
+  bool inqu[MAXV];
+  queue<int> q;
+  Tcost solve(){
+    int mxf = 0; Tcost mnc = 0;
+    while(1){
+      fill(d, d+1+V, INFc); // need to use type cast
+      fill(inqu, inqu+1+V, 0);
+      fill(mom, mom+1+V, -1);
+      mom[s] = s;
+      d[s] = 0;
+      q.push(s); inqu[s] = 1;
+      while(q.size()){
+        int u = q.front(); q.pop();
+        inqu[u] = 0;
+        for(int i = 0; i < (int) g[u].size(); i++){
+          Edge &e = g[u][i];
+          int v = e.v;
+          if(e.cap > 0 && d[v] > d[u]+e.w){
+            d[v] = d[u]+e.w;
+            mom[v] = u;
+            id[v] = i;
+            if(!inqu[v]) q.push(v), inqu[v] = 1;
+          }
         }
       }
-    }
-    return dis[t] != LINF;
-  }
-
-  int dfs(int u, int cur) {
-    if(u == t) return cur;
-    int ret = 0; vis[u] = 1;
-    for(int &i = iter[u]; i < (int)G[u].size(); ++i) {
-      auto &e = G[u][i];
-      if(e.cap > 0 && dis[e.to] == dis[u] + e.cost && !vis[e.to]) {
-        int tmp = dfs(e.to, min(cur, e.cap));
-        e.cap -= tmp;
-        G[e.to][e.rev].cap += tmp;
-        cur -= tmp;
-        ret += tmp;
-        if(cur == 0) {
-          vis[u] = 0;
-          return ret;
-        }
+      if(mom[t] == -1) break ;
+      int df = INFf;
+      for(int u = t; u != s; u = mom[u])
+        df = min(df, g[mom[u]][id[u]].cap);
+      for(int u = t; u != s; u = mom[u]){
+        Edge &e = g[mom[u]][id[u]];
+        e.cap             -= df;
+        g[e.v][e.rev].cap += df;
       }
+      mxf += df;
+      mnc += df*d[t];
     }
-    vis[u] = 0;
-    return ret;
+    return mnc;
   }
-  pair<int, ll> flow() {
-    int flow = 0; ll cost = 0;
-    while(SPFA()) {
-      memset(iter, 0, sizeof(iter));
-      int tmp = dfs(s, INF);
-      flow += tmp, cost += tmp * dis[t];
-    }
-    return {flow, cost};
-  }
-};
+} flow;
