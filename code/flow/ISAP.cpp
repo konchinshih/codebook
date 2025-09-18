@@ -1,8 +1,8 @@
 // Author: CRyptoGRapheR
 #define SZ(c) ((int)(c).size())
+static const int MAXV=50010;
+static const int INF =1000000;
 struct Maxflow{
-  static const int MAXV=50010;
-  static const int INF =1000000;
   struct Edge{
     int v,c,r;
     Edge(int _v,int _c,int _r):v(_v),c(_c),r(_r){}
