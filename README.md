@@ -1,6 +1,6 @@
-# NYCU PersistentSlackers
+# NYCU LLLemonade Jam
 
-Codebook for ICPC team NYCU_PersistentSlackers from National Yang Ming Chiao Tung University.
+Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung University.
 
 ## Members
 
