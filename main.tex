@@ -428,6 +428,8 @@ Note: $a^n \equiv a^{(n \ mod \ (p-1))} (mod \ p)$
 
 \subsection{Other Formulas}
 {\normalsize \begin{itemize}
+    \item Pisano Period: 任何線性遞迴（比如費氏數列）模任何一個數字 $M$ 都會循環，找循環節 $\pi(M)$ 先質因數分解 $M = \Pi p_i^{e_i}$，然後 $\pi(M) = lcm(\pi(p_i^{e_i}))$，
+
     \item Inversion:\\ $aa^{-1} \equiv 1 \pmod{m}$. $a^{-1}$ exists iff $\gcd(a,m)=1$.
     
     \item Linear inversion:\\ $a^{-1} \equiv (m - \lfloor\frac{m}{a}\rfloor) \times (m \bmod a)^{-1} \pmod{m}$
@@ -436,7 +438,7 @@ Note: $a^n \equiv a^{(n \ mod \ (p-1))} (mod \ p)$
     
     \item Euler function:\\ $\phi(n)=n \prod_{p|n} \frac{p-1}{p}$
     
-    \item Euler theorem:\\ $a^{\phi(n)} \equiv 1 \pmod{n}$ if $\gcd(a,n) = 1$.
+    \item Euler theorem:\\ $a^{\phi(n)} \equiv 1 \pmod{n}$ if $\gcd(a,n) = 1$.  If a, n are not coprime: 質因數分解 $n = \Pi p_i^{e_i}$，對每個 $p_i^{e^i}$ 分開看他們跟 $a$ 是否互質（互質：Fermat／不互質：夠大的指數會直接削成 $0$），最後用 CRT 合併。
     
     \item Extended Euclidean algorithm:\\
     $ax+by=\gcd(a,b)=\gcd(b, a \bmod b)=\gcd(b, a-\lfloor\frac{a}{b}\rfloor b)=bx_1+(a-\lfloor\frac{a}{b}\rfloor b)y_1=ay_1+b(x_1-\lfloor\frac{a}{b}\rfloor y_1)$
