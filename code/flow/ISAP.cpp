@@ -1,5 +1,4 @@
-// Author: Unknown
-// Faster Version of Dinic
+// Author: CRyptoGRapheR
 #define SZ(c) ((int)(c).size())
 struct Maxflow{
   static const int MAXV=50010;
