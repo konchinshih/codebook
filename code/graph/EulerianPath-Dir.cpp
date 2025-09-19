@@ -1,37 +1,42 @@
-// from node 1 to node n
-#define gg return cout << "IMPOSSIBLE\n", 0
+// Author: Gino
+// Usage: build ind, oud, G first, then eulerian()
+int n, m;  // number of vertices, edges
+vector<int> ind, oud;  // indegree, outdegree
+vector<vector<pii>> G;  // G[u] := {(v, edge id)}
 
-int n, m;
-vector<int> g[maxn];
-stack<int> stk;
-int in[maxn], out[maxn];
- 
-void init() {
-cin >> n >> m;
-for (int i = 0; i < m; i++) {
-	int u, v; cin >> u >> v;
-	g[u].emplace_back(v);
-	out[u]++, in[v]++;
-}
-for (int i = 1; i <= n; i++) {
-	if (i == 1 && out[i]-in[i] != 1) gg;
-	if (i == n && in[i]-out[i] != 1) gg;
-	if (i != 1 && i != n && in[i] != out[i]) gg;
-} }
+vector<int> path_u, path_e;
 void dfs(int u) {
-    while (!g[u].empty()) {
-        int v = g[u].back();
-        g[u].pop_back();
+    while (!G[u].empty()) {
+        auto [v, i] = G[u].back(); G[u].pop_back();
         dfs(v);
+        path_u.emplace_back(v);
+        path_e.emplace_back(i);
     }
-    stk.push(u);
 }
-void solve() {
-	dfs(1)
-    for (int i = 1; i <= n; i++)
-        if ((int)g[i].size()) gg;
-    while (!stk.empty()) {
-        int u = stk.top();
-        stk.pop();
-        cout << u << ' ';
-} }
+void gogo(int s) {
+    path_u.clear(); path_e.clear();
+    dfs(s); path_u.emplace_back(s);
+    reverse(path_u.begin(), path_u.end());
+    reverse(path_e.begin(), path_e.end());
+}
+bool eulerian() {
+    int s = -1;
+    for (int u = 1; u <= n; u++) {
+        if (abs(oud[u] - ind[u]) > 1) return false;
+        if (oud[u] - ind[u] == 1) {
+            if (s != -1) return false;
+            s = u;
+        }
+    }
+    if (s == -1) {
+        s = 1; for (int u = 1; u <= n; u++) 
+            if (ind[u] > 0)
+                s = u;
+    }
+    gogo(s);
+    for (int u = 1; u <= n; u++)
+        if ((int)G[u].size() > 0)
+            return false;
+
+    return true;
+}

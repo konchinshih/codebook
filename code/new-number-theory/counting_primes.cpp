@@ -1,7 +1,6 @@
 // prime_count — #primes in [1..n] (O(n^{2/3}) time, O(sqrt(n)) memory)
 
 using u64 = unsigned long long;
-
 static inline u64 prime_count(u64 n){
   if(n<=1) return 0;
   int v = (int)floor(sqrt((long double)n));

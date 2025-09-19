@@ -4,8 +4,9 @@
 // otherwise returns false.  The other root (if x != 0) is p - x.
 // Complexity: O(log p) modular multiplications.
 //
-// Requires: pow_mod_ll(long long a, long long e, long long m)
+// Requires: pow_mod_ll(ll a, ll e, ll m)
 
+using ll = long long;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
 
@@ -15,11 +16,11 @@ static inline bool tonelli_shanks(u64 a, u64 p, u64 &x){
   if (a == 0) { x = 0; return true; }
 
   // Euler criterion: a^{(p-1)/2} ≡ 1 (mod p) iff quadratic residue
-  if (pow_mod_ll((long long)a, (long long)((p - 1) >> 1), (long long)p) != 1) return false;
+  if (pow_mod_ll((ll)a, (ll)((p - 1) >> 1), (ll)p) != 1) return false;
 
   // Shortcut p ≡ 3 (mod 4): x = a^{(p+1)/4} mod p
   if ((p & 3ULL) == 3ULL) {
-    x = (u64)pow_mod_ll((long long)a, (long long)((p + 1) >> 2), (long long)p);
+    x = (u64)pow_mod_ll((ll)a, (ll)((p + 1) >> 2), (ll)p);
     return true;
   }
 
@@ -29,12 +30,12 @@ static inline bool tonelli_shanks(u64 a, u64 p, u64 &x){
 
   // Find a quadratic non-residue z
   u64 z = 2;
-  while (pow_mod_ll((long long)z, (long long)((p - 1) >> 1), (long long)p) != p - 1) ++z;
+  while (pow_mod_ll((ll)z, (ll)((p - 1) >> 1), (ll)p) != p - 1) ++z;
 
   // Initialize
-  u64 c = (u64)pow_mod_ll((long long)z, (long long)q, (long long)p);
-  u64 t = (u64)pow_mod_ll((long long)a, (long long)q, (long long)p);
-  u64 r = (u64)pow_mod_ll((long long)a, (long long)((q + 1) >> 1), (long long)p);
+  u64 c = (u64)pow_mod_ll((ll)z, (ll)q, (ll)p);
+  u64 t = (u64)pow_mod_ll((ll)a, (ll)q, (ll)p);
+  u64 r = (u64)pow_mod_ll((ll)a, (ll)((q + 1) >> 1), (ll)p);
   u64 m = s;
 
   // Loop until t == 1
