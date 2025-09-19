@@ -209,6 +209,9 @@ numbers=left
 
 \section{Data Structure}
 
+\subsection{Mo's Algorithm}
+\lstinputlisting{code/data-structure/Mo-algorithm.cpp}
+
 \subsection{Segment Tree}
 \lstinputlisting{code/data-structure/SegmentTree.cpp}
 
@@ -241,12 +244,127 @@ numbers=left
 
 \section{DP}
 
+\begin{itemize}[nolistsep]
+    \item 區間 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態：$dp[l][r]$ = 區間 $[l,r]$ 的最佳值/方案數  
+            \item 轉移：枚舉劃分點 $k$  
+            \item 思考：是否滿足四邊形不等式、Knuth 優化可加速  
+        \end{itemize}
+    \item 背包 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態：$dp[i][w]$ = 前 $i$ 個物品容量 $w$ 的最佳值  
+            \item 判斷是 0/1、多重、分組 $\rightarrow$ 決定轉移方式  
+            \item 若容量大 $\rightarrow$ bitset / 數學變形 / meet-in-the-middle  
+        \end{itemize}
+    \item 樹形 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態：$dp[u][\text{flag}]$ = 子樹 $u$ 的最佳值  
+            \item 合併子樹資訊 $\rightarrow$ 小到大合併 / 捲積式轉移  
+            \item 注意 reroot 技巧（dp on tree + dp2 上傳）  
+        \end{itemize}
+    \item 數位 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態：$(pos, tight, property)$  
+            \item tight 控制是否貼上界  
+            \item property 常為「餘數、數字和、相鄰限制」  
+        \end{itemize}
+    \item 狀壓 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態：$dp[mask][last]$  
+            \item 常見於 TSP / Hamiltonian path / 覆蓋問題  
+            \item $n \le 20$ 可做，否則要容斥 / FFT  
+        \end{itemize}
+    \item 期望 / 機率 DP  
+        \begin{itemize}[nolistsep]
+            \item 狀態 $E[s]$ = 從狀態 $s$ 到終點的期望  
+            \item 式子：$E[s] = c + \sum P(s \to s') E[s']$  
+            \item 線性期望：能拆就拆，少算分布  
+            \item 輸出 mod $\rightarrow$ 分數化 $\rightarrow$  模逆元  
+        \end{itemize}
+    \item 計數 DP / 組合數  
+        \begin{itemize}[nolistsep]
+            \item 狀態表示方案數，常搭配「模數取餘」  
+            \item 若轉移是捲積型 $\rightarrow$ FFT/NTT 加速  
+            \item 若能公式化（Catalan / Ballot / Stirling） $\rightarrow$ 直接套公式  
+        \end{itemize}
+    \item 優化 DP  
+        \begin{itemize}[nolistsep]
+            \item 判斷轉移方程 $dp[i] = \min_j (dp[j] + C(j,i))$ 的性質  
+            \item 單調性 $\rightarrow$ 分治優化  
+            \item 凸性 $\rightarrow$ Convex Hull Trick / 斜率優化  
+            \item 四邊形不等式 $\rightarrow$ Knuth 優化  
+        \end{itemize}
+\end{itemize}
+
 \subsection{Aliens}
 \lstinputlisting{code/dp/Aliens.cpp}
 
 \subsection{SOS DP}
 \lstinputlisting{code/dp/SOS\_DP.cpp}
 
+\subsection{期望 DP (Expected Value DP)}
+
+\begin{itemize}[nolistsep]
+    \item 狀態設計：$E[s]$ = 從狀態 $s$ 出發到終點的期望值
+    \item 列式子：
+    \[
+        E[s] = \text{(當前代價)} + \sum_{s'} P(s \to s') \cdot E[s']
+    \]
+    \item 若存在自環，把 $E[s]$ 移到左邊，整理成
+    \[
+        (1 - P(s \to s)) E[s] = c + \sum_{s' \neq s} P(s \to s') \cdot E[s']
+    \]
+    \item 線性期望技巧：能拆就拆，避免處理整個分布
+    \item 輸出 mod 時，分母要用模逆元：$q^{-1} \equiv q^{M-2} \pmod{M}$ (質數模數)
+\end{itemize}
+
+\paragraph{常見題型}
+\begin{itemize}[nolistsep]
+    \item 擲骰子遊戲（到達終點的期望步數）
+    \item 隨機遊走 hitting time
+    \item 重複試驗直到成功
+    \item 博弈遊戲的期望值
+    \item 機率 DP：計算到某步時在某狀態的機率
+\end{itemize}
+
+\paragraph{範例：擲骰子到 $n$ 格}
+\[
+    E[i] = 1 + \tfrac{1}{6}\sum_{d=1}^6 E[i+d], \quad (i<n), 
+    \quad E[n] = 0
+\]
+
+\lstinputlisting{code/dp/dice\_expectation.cpp}
+
+\subsection{數位 DP (Digit DP)}
+
+\begin{itemize}[nolistsep]
+    \item 狀態：$(pos, tight, property)$
+    \begin{itemize}[nolistsep]
+        \item pos = 當前處理到第幾位
+        \item tight = 是否受限於上界 $N$
+        \item property = 額外屬性（如數位和、餘數、相鄰限制…）
+    \end{itemize}
+    \item 遞迴：枚舉當前位數字，遞迴下一位
+    \item 終止條件：$pos == \text{長度}$ $\to$ 回傳屬性是否滿足
+    \item 記憶化：$dp[pos][tight][property]$
+\end{itemize}
+
+\paragraph{常見題型}
+\begin{itemize}[nolistsep]
+    \item 計算 $[0,N]$ 中數位和可被 $k$ 整除的數字個數
+    \item 不含連續相同數字的數字個數
+    \item 含特定數字次數的數字個數
+    \item 位數和 / 餘數 / mod pattern
+\end{itemize}
+
+\paragraph{範例：計算 $[0,N]$ 中數位和 $\bmod k = 0$ 的數字個數}
+
+\[
+    dp[pos][tight][\text{sum mod } k]
+\]
+
+\lstinputlisting{code/dp/digit\_dp\_sum\_mod.cpp}
 
 
 \section{Graph}
