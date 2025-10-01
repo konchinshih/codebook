@@ -1,17 +1,5 @@
-V(E) Cover: choose some V(E) to cover all E(V)
-V(E) Independ: set of V(E) not adj to each other
-
-M = Max Matching
-Cv = Min V Cover
-Ce = Min E Cover
-Iv = Max V Ind
-Ie = Max E Ind (equiv to M)
-
-M = Cv (Konig Theorem)
-Iv = V \ Cv
-Ce = V - M
-
-Construct Cv:
-1. Run Dinic
-2. Find s-t min cut
-3. Cv = {X in T} + {Y in S}
+最大邊獨立集 (Ie) 就是最大匹配 (M)
+二分圖上，M 和 Cv 對偶
+對任何圖都有 |Iv| + |Cv| = |V|
+對任何圖都有 |Ie| + |Ce| = |V|
+二分圖最小帶權點覆蓋 => 建模 (s, u, w[u]) (u, v, INF) (v, t, w[v]) 算最小割
