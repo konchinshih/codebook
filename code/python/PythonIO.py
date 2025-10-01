@@ -4,18 +4,10 @@ input = sys.stdin.readline
 # Input
 def readInt():
     return int(input())
-def readList():
+def readIntList():
     return list(map(int,input().split()))
 def readStr():
     s = input()
     return list(s[:len(s) - 1])
-def readVars():
+def readInts():
     return map(int,input().split())
-
-# Output
-sys.stdout.write(string)
-
-# faster
-def main():
-    pass
-main()
