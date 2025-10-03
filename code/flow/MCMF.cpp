@@ -1,9 +1,10 @@
 // Author: CRyptoGRapheR
+// Usage: MCMF.init(n, s, t) -> Tcost ans = MCMF.solve()
 typedef int Tcost;
 static const int MAXV = 20010;
 static const int INFf = 1000000;
 static const Tcost INFc  = 1e9;
-struct MinCostMaxFlow{
+struct MCMF {
   struct Edge{
     int v, cap;
     Tcost w;
@@ -63,4 +64,4 @@ struct MinCostMaxFlow{
     }
     return mnc;
   }
-} flow;
+};

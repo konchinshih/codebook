@@ -54,7 +54,21 @@ Maximum closed subgraph
 3. make capacity of the original edges = inf
 4. ans = sum(positive weighted vertex weight) - (max flow)
 
-Minimum Path Cover of DAG
-1. For each vertex v, split it to v_in and v_out.
-2. For each edge (u->v), add an edge between u_out and v_in
-3. |Minimum Path Cover| = |V| - |Maximum Matching| of the new bipartite graph
+(Node-disjoint) Min DAG Path Cover（用最少路徑覆蓋所有點）
+Node disjoint: 拆出來的路徑不能共用同一個點
+將一個點 u 裂成 u+ 和 u-，代表進入和出去
+對於一條邊 (u, v) 建邊 u- => v+
+1. +點們和 -點們形成一張二分圖
+2. 最差的答案是 n，代表每個點自己一個點就是一條路徑
+3. 只要一組 (u-, v+) 匹配成功那對應到的答案恰好會 -1
+>>> ans = n - 這張二分圖的最大匹配
+
+General DAG Path Cover
+跟 Node-disjoint 版本差在點可以被很多條路共用
+建邊方式 Node-disjoint 差別在條件比較鬆
+Node-disjoint: u- => v+ 只能在 (u, v) 有邊時建
+      General: u- => v+ 在 u 能走到 v 的時候就建
+
+Dilworth Theorem
+反鏈：一些節點的集合，滿足這些節點互相無法抵達
+最大反鏈 = 最小 General DAG Path Cover
