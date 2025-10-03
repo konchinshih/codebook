@@ -1,4 +1,4 @@
-// Author: Benson
+// Author: Benson (Extensions by Gino)
 // Function: Max Flow, O(V^2 E)
 // Usage: Call init(n) first, then add(u, v, w) based on your model
 // (!) vertices 0-based
