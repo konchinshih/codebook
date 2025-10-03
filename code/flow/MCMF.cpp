@@ -1,33 +1,38 @@
 // Author: CRyptoGRapheR
-// Usage: MCMF.init(n, s, t) -> Tcost ans = MCMF.solve()
+// Usage:
+// 1. MCMF.init(n, s, t)
+// 2. MCMF.add(u, v, cap, cost)
+// 3. auto [max_flow, min_cost] = MCMF.flow()
 typedef int Tcost;
-static const int MAXV = 20010;
-static const int INFf = 1000000;
-static const Tcost INFc  = 1e9;
+const int MAXV = 20010;
+const int INFf = 1000000;
+const Tcost INFc  = 1e9;
 struct MCMF {
   struct Edge{
     int v, cap;
     Tcost w;
     int rev;
+    bool fw;
     Edge(){}
-    Edge(int t2, int t3, Tcost t4, int t5)
-    : v(t2), cap(t3), w(t4), rev(t5) {}
+    Edge(int t2, int t3, Tcost t4, int t5, bool t6)
+    : v(t2), cap(t3), w(t4), rev(t5), fw(t6) {}
   };
   int V, s, t;
-  vector<Edge> g[MAXV];
-  void init(int n, int _s, int _t){
-    V = n; s = _s; t = _t;
-    for(int i = 0; i <= V; i++) g[i].clear();
+  vector<Edge> G[MAXV];
+  void init(int n){
+    V = n;
+    for(int i = 0; i <= V; i++) G[i].clear();
   }
-  void addEdge(int a, int b, int cap, Tcost w){
-    g[a].push_back(Edge(b, cap, w, (int)g[b].size()));
-    g[b].push_back(Edge(a, 0, -w, (int)g[a].size()-1));
+  void add(int a, int b, int cap, Tcost w){
+    G[a].push_back(Edge(b, cap, w, (int)G[b].size(), true));
+    G[b].push_back(Edge(a, 0, -w, (int)G[a].size()-1, false));
   }
   Tcost d[MAXV];
   int id[MAXV], mom[MAXV];
   bool inqu[MAXV];
   queue<int> q;
-  Tcost solve(){
+  pair<int, Tcost> flow(int _s, int _t){
+    s = _s, t = _t;
     int mxf = 0; Tcost mnc = 0;
     while(1){
       fill(d, d+1+V, INFc); // need to use type cast
@@ -39,8 +44,8 @@ struct MCMF {
       while(q.size()){
         int u = q.front(); q.pop();
         inqu[u] = 0;
-        for(int i = 0; i < (int) g[u].size(); i++){
-          Edge &e = g[u][i];
+        for(int i = 0; i < (int) G[u].size(); i++){
+          Edge &e = G[u][i];
           int v = e.v;
           if(e.cap > 0 && d[v] > d[u]+e.w){
             d[v] = d[u]+e.w;
@@ -53,15 +58,15 @@ struct MCMF {
       if(mom[t] == -1) break ;
       int df = INFf;
       for(int u = t; u != s; u = mom[u])
-        df = min(df, g[mom[u]][id[u]].cap);
+        df = min(df, G[mom[u]][id[u]].cap);
       for(int u = t; u != s; u = mom[u]){
-        Edge &e = g[mom[u]][id[u]];
+        Edge &e = G[mom[u]][id[u]];
         e.cap             -= df;
-        g[e.v][e.rev].cap += df;
+        G[e.v][e.rev].cap += df;
       }
       mxf += df;
       mnc += df*d[t];
     }
-    return mnc;
+    return make_pair(mxf, mnc);
   }
 };
