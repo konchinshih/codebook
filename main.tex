@@ -96,7 +96,7 @@ numbers=left
 
 \pagestyle{fancy}
 \fancyfoot{}
-\fancyhead[L]{NYCU PersistentSlackers}
+\fancyhead[L]{NYCU\_LLLemonade\_Jam}
 \fancyhead[C]{Codebook}
 \fancyhead[R]{\thepage}
 
@@ -105,25 +105,6 @@ numbers=left
 {\scriptsize
 \tableofcontents}
 
-
-\section{Init (Linux)}
-
-開場流程：
-\lstinputlisting[language=sh]{code/basic/開場流程 (Linux).sh}
-
-\subsection{vimrc}
-\lstinputlisting[language=sh]{code/basic/vimrc}
-
-\subsection{template.cpp}
-\lstinputlisting{code/basic/template.cpp}
-
-\subsection{run.sh}
-\lstinputlisting[language=sh]{code/basic/run.sh}
-
-%\section{Init (Windows)}
-
-%開場流程：
-%\lstinputlisting[language=sh]{code/basic/開場流程 (Windows).sh}
 
 
 \section{Reminder}
@@ -162,6 +143,8 @@ numbers=left
 \item vector 超級肥， 小 vector 請用 array， 例如矩陣快速冪
 \end{itemize}
 
+\newpage
+
 % \subsection{常見手法}
 % \begin{itemize}[nolistsep]
 % \item 對 OOO 排序
@@ -184,10 +167,32 @@ numbers=left
 %\end{itemize}
 
 
+
+
+\section{Init (Linux)}
+
+開場流程：
+\lstinputlisting[language=sh]{code/basic/開場流程 (Linux).sh}
+
+\subsection{vimrc}
+\lstinputlisting[language=sh]{code/basic/vimrc}
+
+% \subsection{template.cpp}
+% \lstinputlisting{code/basic/template.cpp}
+
+\subsection{run.sh}
+\lstinputlisting[language=sh]{code/basic/run.sh}
+
+%\section{Init (Windows)}
+
+%開場流程：
+%\lstinputlisting[language=sh]{code/basic/開場流程 (Windows).sh}
+
+
 \section{Basic}
 
-\subsection{template (optional)}
-\lstinputlisting{code/basic/template\_optional.cpp}
+% \subsection{template (optional)}
+% \lstinputlisting{code/basic/template\_optional.cpp}
 
 % \subsection{Stress}
 % \lstinputlisting[language=sh]{code/basic/stress.sh}
@@ -227,8 +232,8 @@ numbers=left
 %\subsection{Heavy Light Decomposition (Gino)}
 %\lstinputlisting{code/data-structure/HLD-Gino.cpp}
 
-\subsection{Skew Heap}
-\lstinputlisting{code/data-structure/skew-heap.cpp}
+% \subsection{Skew Heap}
+% \lstinputlisting{code/data-structure/skew-heap.cpp}
 
 \subsection{Leftist Heap}
 \lstinputlisting{code/data-structure/leftist-heap.cpp}
@@ -372,6 +377,15 @@ numbers=left
 
 \section{Graph}
 
+\subsection{Blossom}
+\lstinputlisting{code/graph/Blossom.cpp}
+
+\subsection{Weighted Blossom}
+\lstinputlisting{code/graph/WeightedBlossom.cpp}
+
+\subsection{Max Clique}
+\lstinputlisting{code/graph/MaxClique.cpp}
+
 % \subsection{Tree Centroid}
 % \lstinputlisting{code/graph/tree\_centroid.cpp}
 
@@ -457,29 +471,19 @@ numbers=left
 
 \section{Geometry}
 
-\subsection{Basic Operations}
+\subsection{Template}
 \lstinputlisting{code/geometry/GeometryDefault.cpp}
 
-\subsection{InPoly}
+\subsection{Basic Operations}
 \lstinputlisting{code/geometry/InPoly.cpp}
-
-\subsection{Sort by Angle}
 \lstinputlisting{code/geometry/SortByAngle.cpp}
-
-\subsection{Line Intersect Check}
 \lstinputlisting{code/geometry/LineIntersectCheck.cpp}
-
-\subsection{Line Intersection}
 \lstinputlisting{code/geometry/LineIntersection.cpp}
-
-\subsection{Convex Hull}
 \lstinputlisting{code/geometry/ConvexHull.cpp}
+\lstinputlisting{code/geometry/PolygonArea.cpp}
 
 \subsection{Lower Concave Hull}
 \lstinputlisting{code/geometry/LowerConcaveHull.cpp}
-
-\subsection{Polygon Area}
-\lstinputlisting{code/geometry/PolygonArea.cpp}
 
 \subsection{Pick's Theorem}
 Consider a polygon which vertices are all lattice points.
@@ -516,8 +520,8 @@ $$
 
 \section{Number Theory}
 
-\subsection{Basic}
-\lstinputlisting{code/number-theory/Basic.cpp}
+%\subsection{Basic}
+%\lstinputlisting{code/number-theory/Basic.cpp}
 
 \subsection{Prime Sieve and Defactor}
 \lstinputlisting{code/number-theory/PrimeSeive+Defactor.cpp}
@@ -540,10 +544,12 @@ $$
 \lstinputlisting{code/number-theory/MillerRabin.cpp}
 
 \subsection{Discrete Log}
-\lstinputlisting{code/new-number-theory/exbsgs.cpp}
+\lstinputlisting{code/number-theory/DiscreteLog.cpp}
+%\lstinputlisting{code/new-number-theory/exbsgs.cpp}
 
 \subsection{Discrete Sqrt}
-\lstinputlisting{code/new-number-theory/sqrt\_mod\_p.cpp}
+\lstinputlisting{code/number-theory/DiscreteSqrt.cpp}
+%\lstinputlisting{code/new-number-theory/sqrt\_mod\_p.cpp}
 
 \subsection{Fast Power}
 { \normalsize
@@ -616,8 +622,8 @@ Note: $a^n \equiv a^{(n \ mod \ (p-1))} (mod \ p)$
 \subsection{Linear Sieve for Other Number Theoretic Functions}
 \lstinputlisting{code/new-number-theory/linear\_sieve.cpp}
 
-\subsection{GCD Convolution}
-\lstinputlisting{code/new-number-theory/gcd\_convolution.cpp}
+% \subsection{GCD Convolution}
+% \lstinputlisting{code/new-number-theory/gcd\_convolution.cpp}
 
 
 \section{Linear Algebra}
