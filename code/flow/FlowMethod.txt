@@ -1,4 +1,4 @@
-// Author: CRyptoGRapheR
+// Author: CRyptoGRapheR (some modified by Gino)
 Maximize c^T x subject to Ax ≤ b, x ≥ 0;
 with the corresponding symmetric dual problem,
 Minimize b^T y subject to A^T y ≥ c, y ≥ 0.

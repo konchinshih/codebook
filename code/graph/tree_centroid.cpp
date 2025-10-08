@@ -1,9 +1,7 @@
 int n;
 vector<vector<int>> G;
-
 pii centroid;
 vector<int> sz, mxcc;  // mxcc[u]: max component size after removing u
-
 void dfs(int u, int p) {
     sz[u] = 1;
     for (auto& v : G[u]) {
@@ -14,7 +12,6 @@ void dfs(int u, int p) {
     }
     mxcc[u] = max(mxcc[u], n - sz[u]);
 }
-
 void find_centroid() {
     centroid = pii{-1, -1};
     reset(sz, n + 1, 0);
@@ -24,6 +21,4 @@ void find_centroid() {
         if (mxcc[u] <= n / 2) {
             if (centroid.first != -1) centroid.second = u;
             else centroid.first = u;
-        }
-    }
-}
+} } }
