@@ -30,6 +30,8 @@ Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung Un
 ### 2025
 
 - 交大程式設計競賽 年度賽 **Rank 4**
+- ICPC Asia Taiwan Online Programming Contest **Rank 23**
+- National Collegiate Programming Contest **Rank 11** [link](https://web.archive.org/web/20251028135558/https://ncpc.nsysu.edu.tw/static/file/62/1062/img/ScoreboardNCPC2025_FINAL-DOMjudge.pdf)
 
 ## Names
 
