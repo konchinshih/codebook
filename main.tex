@@ -20,6 +20,7 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{amsmath}
+\usepackage{tikz}  % 格子紙
 \usepackage[CheckSingle, CJKmath]{xeCJK}
 % \usepackage{CJKulem}
 %\usepackage[T1]{fontenc}
@@ -92,18 +93,22 @@ numbers=left
 
 \begin{document}
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\contentsname}{Contents} 
+%\renewcommand{\contentsname}{Contents} 
+\makeatletter
+\renewcommand{\tableofcontents}{%
+  \@starttoc{toc}%
+}
+\makeatother
 
 \pagestyle{fancy}
 \fancyfoot{}
 \fancyhead[L]{NYCU\_LLLemonade\_Jam}
-\fancyhead[C]{Codebook}
+\fancyhead[C]{National Yang Ming Chiao Tung University}
 \fancyhead[R]{\thepage}
 
 % ================================================ %
 
-{\scriptsize
-\tableofcontents}
+{\scriptsize \tableofcontents}
 
 
 
@@ -120,6 +125,7 @@ numbers=left
     \item Permutation Normalization （做一些平移對齊兩個 permutation）
     \item 枚舉 $a_1 \sim a_n$ 再枚舉 $a_n \sim a_1$ 可以包在一個迴圈
     \item 兩個凸型函數相加還是凸型函數，相減不一定
+    \item 一個區間的 mex $= k$，表示這個區間包含 $0 \sim k - 1$ 所有數字，並且「$U -$ 區間」的最小值 $= k$。
 \end{itemize}
 
 \subsection{Bug List}
@@ -142,6 +148,18 @@ numbers=left
 \item 記得刪 cerr
 \item vector 超級肥， 小 vector 請用 array， 例如矩陣快速冪
 \end{itemize}
+
+\begin{tikzpicture}[remember picture, overlay]
+  % 在頁面底部右下方開始畫格線區域
+  \begin{scope}[shift={(0,0)}, x=0.5cm, y=0.5cm]
+    % 垂直線 (x 固定)
+    \foreach \x in {0,...,18}
+      \draw[gray!50, very thin] (\x,0) -- (\x,-19);
+    % 水平線 (y 下降)
+    \foreach \y in {0,...,19}
+      \draw[gray!50, very thin] (0,-\y) -- (18,-\y);
+  \end{scope}
+\end{tikzpicture}
 
 \newpage
 
@@ -741,27 +759,28 @@ $f(45) \approx 10^9, f(88) \approx 10^{18}$
 {\normalsize
 \begin{itemize}
 
-\item First 50 prime numbers:
-\begin{center}
-    \begin{tabular}{r|llllllllll}
-        1 & 2 & 3 & 5 & 7 & 11 \\
-        6 & 13 & 17 & 19 & 23 & 29 \\
-        11 & 31 & 37 & 41 & 43 & 47 \\
-        16 & 53 & 59 & 61 & 67 & 71 \\
-        21 & 73 & 79 & 83 & 89 & 97 \\
-        26 & 101 & 103 & 107 & 109 & 113 \\
-        31 & 127 & 131 & 137 & 139 & 149 \\
-        36 & 151 & 157 & 163 & 167 & 173 \\
-        41 & 179 & 181 & 191 & 193 & 197 \\
-        46 & 199 & 211 & 223 & 227 & 229
-    \end{tabular}
-\end{center}
+%\item First 50 prime numbers:
+%\begin{center}
+%    \begin{tabular}{r|llllllllll}
+%        1 & 2 & 3 & 5 & 7 & 11 \\
+%        6 & 13 & 17 & 19 & 23 & 29 \\
+%        11 & 31 & 37 & 41 & 43 & 47 \\
+%        16 & 53 & 59 & 61 & 67 & 71 \\
+%        21 & 73 & 79 & 83 & 89 & 97 \\
+%        26 & 101 & 103 & 107 & 109 & 113 \\
+%        31 & 127 & 131 & 137 & 139 & 149 \\
+%        36 & 151 & 157 & 163 & 167 & 173 \\
+%        41 & 179 & 181 & 191 & 193 & 197 \\
+%        46 & 199 & 211 & 223 & 227 & 229
+%    \end{tabular}
+%\end{center}
 
-\item Very large prime numbers:\\
-\begin{tabular}{ccc}
-    1000001333 & 1000500889 & 2500001909 \\
-    2000000659 & 900004151 & 850001359
-\end{tabular}
+
+%\item Very large prime numbers:\\
+%\begin{tabular}{ccc}
+%    1000001333 & 1000500889 & 2500001909 \\
+%    2000000659 & 900004151 & 850001359
+%\end{tabular}
 
 \item $\pi(n) \equiv$ Number of primes $\leq n \approx n/((\ln n) - 1)$ \\
 $\pi(100) = 25, \pi(200) = 46$ \\
@@ -769,9 +788,24 @@ $\pi(500) = 95, \pi(1000) = 168$ \\
 $\pi(2000) = 303, \pi(4000) = 550$ \\
 $\pi(10^4) = 1229, \pi(10^5) = 9592$ \\
 $\pi(10^6) = 78498, \pi(10^7) = 664579$ \\
-
+ 
 \end{itemize}
 }
+
+\newpage
+
+\begin{tikzpicture}[remember picture, overlay]
+  % 在頁面底部右下方開始畫格線區域
+  \begin{scope}[shift={(0,0)}, x=0.5cm, y=0.5cm]
+    % 垂直線 (x 固定)
+    \foreach \x in {0,...,18}
+      \draw[gray!50, very thin] (\x,0) -- (\x,-55);
+    % 水平線 (y 下降)
+    \foreach \y in {0,...,55}
+      \draw[gray!50, very thin] (0,-\y) -- (18,-\y);
+  \end{scope}
+\end{tikzpicture}
+
 
 \end{document}
 
