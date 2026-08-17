@@ -18,5 +18,9 @@ main.pdf: main.tex code/**
 	xelatex -shell-escape main.tex
 	-rm -rf $(INTERMEDIATE_FILES)
 
+fast:
+	xelatex --shell-escape main.tex
+	xelatex --shell-escape main.tex
+
 clean:
 	-rm -rf main.pdf $(INTERMEDIATE_FILES)
