@@ -1,0 +1,48 @@
+{
+  "styles": {
+    "Comment": {
+      "foreground": "hsl(300.00, 0.88%, 44.31%)",
+      "fontStyle": "italic"
+    },
+    "String": {
+      "foreground": "hsl(108, 46%, 36%)"
+    },
+    "Number and Constant": {
+      "foreground": "hsl(108, 46%, 36%)",
+      "fontStyle": "bold"
+    },
+    "Keyword": {
+      "foreground": "hsl(221, 100%, 55%)",
+      "fontStyle": "bold"
+    },
+    "Function": {
+      "foreground": "hsl(275, 65%, 47%)",
+      "fontStyle": "regular"
+    },
+    "Variable and Parameter": {
+      "foreground": "hsl(0, 0%, 0%)",
+      "fontStyle": "regular"
+    },
+    "Operator": {
+      "foreground": "hsl(27, 67%, 53%)"
+    },
+    "Preprocessor": {
+      "foreground": "hsl(345, 59%, 56%)"
+    },
+    "Punctuation": {
+      "foreground": "hsl(0, 0%, 70%)"
+    },
+    "Curly Braces": {
+      "foreground": "hsl(0, 0%, 70%)"
+    },
+    "Round Brackets": {
+      "foreground": "hsl(0, 0%, 70%)"
+    },
+    "Square Brackets": {
+      "foreground": "hsl(105, 0%, 70%)"
+    },
+    "Invalid": {
+      "foreground": "hsl(345.19, 100.00%, 69.02%)"
+    }
+  }
+}

@@ -1,2 +1,22 @@
 DMCAsansserif*
 code/basic/test*
+legacy-main.pdf
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.toc
+*.vrb
+missfont.log
+_minted-*/
+
+# Editor swap files
+*.swp

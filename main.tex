@@ -37,25 +37,41 @@
 }
 
 
+
 %\renewcommand\listfigurename{圖目錄}
 %\renewcommand\listtablename{表目錄} 
 
 % ================================================ %
 
-\setmainfont [ %主要字型
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic
-  ] {NotoSans}
+%\setmainfont[
+%    Path=./fonts/,
+%    UprightFont=AnthropicSerif-Text-Regular-Static.otf,
+%    BoldFont=AnthropicSerif-Text-SemiBold-Static.otf,
+%    ItalicFont=AnthropicSerif-Text-RegularItalic-Static.otf,
+%    BoldItalicFont=AnthropicSerif-Text-SemiBoldItalic-Static.otf
+%]{AnthropicSerif-Text-Regular-Static.otf}
 
-\setmonofont [
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic
-  ] {CodeNewRomanNerdFontPropo}[Path=./]
+\setmainfont[
+    Path=./fonts/,
+    UprightFont=CodeNewRomanNerdFontPropo-Regular.otf,
+    BoldFont=CodeNewRomanNerdFontPropo-Bold.otf,
+    ItalicFont=CodeNewRomanNerdFontPropo-Italic.otf
+]{CodeNewRomanNerdFontPropo-Regular.otf}
 
-\setCJKmainfont{NotoSerifTC-Medium.otf} %中文字型
-%\setmainfont{sourcecodepro}
+\setmonofont[
+    Path=./fonts/,
+    UprightFont=CodeNewRomanNerdFontPropo-Regular.otf,
+    BoldFont=CodeNewRomanNerdFontPropo-Bold.otf,
+    ItalicFont=CodeNewRomanNerdFontPropo-Italic.otf
+]{CodeNewRomanNerdFontPropo-Regular.otf}
+
+\setCJKmainfont[
+    Path=./fonts/
+]{NotoSerifTC-Medium.otf}
+
+
+
+
 \XeTeXlinebreaklocale "zh" %中文自動換行
 \XeTeXlinebreakskip = 0pt plus 1pt %設定段落之間的距離
 \setcounter{secnumdepth}{3} %目錄顯示第三層
@@ -791,6 +807,8 @@ $\pi(10^6) = 78498, \pi(10^7) = 664579$ \\
  
 \end{itemize}
 }
+
+
 
 \newpage
 
