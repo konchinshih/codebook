@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>ListingsLike</string>
+	<key>settings</key>
+	<array>
+		<dict>
+			<key>settings</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Comment</string>
+			<key>scope</key>
+			<string>comment, punctuation.definition.comment</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#727072</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>String</string>
+			<key>scope</key>
+			<string>string, constant.other.symbol</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#428632</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Number and Constant</string>
+			<key>scope</key>
+			<string>constant.numeric, constant.language, constant.character, constant.other</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#428632</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Keyword</string>
+			<key>scope</key>
+			<string>keyword.control, storage.modifier, keyword.other, storage.type, storage.class, storage.function</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#1A62FF</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function</string>
+			<key>scope</key>
+			<string>entity.name.function, support.function, variable.function</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#852AC6</string>
+				<key>fontStyle</key>
+				<string>regular</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Variable and Parameter</string>
+			<key>scope</key>
+			<string>variable.parameter, variable.other, variable.language, entity.name.variable</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#000000</string>
+				<key>fontStyle</key>
+				<string>regular</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Operator</string>
+			<key>scope</key>
+			<string>keyword.operator, keyword.operator.assignment, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.logical, keyword.operator.bitwise, keyword.operator.c, keyword.operator.new, keyword.operator.delete, keyword.operator.cast</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#D77F37</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Preprocessor</string>
+			<key>scope</key>
+			<string>meta.preprocessor, entity.name.function.preprocessor, keyword.control.directive</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#D14D6E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Punctuation</string>
+			<key>scope</key>
+			<string>punctuation.separator, punctuation.terminator, punctuation.accessor, punctuation.separator.delimiter</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#B3B3B3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Curly Braces</string>
+			<key>scope</key>
+			<string>meta.brace.curly, punctuation.section.block, punctuation.definition.block</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#B3B3B3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Round Brackets</string>
+			<key>scope</key>
+			<string>meta.brace.round, punctuation.definition.parameters, punctuation.section.parameters</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#B3B3B3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Square Brackets</string>
+			<key>scope</key>
+			<string>meta.brace.square, punctuation.definition.array, punctuation.section.brackets</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#B3B3B3</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invalid</string>
+			<key>scope</key>
+			<string>invalid, invalid.illegal</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FF6188</string>
+			</dict>
+		</dict>
+	</array>
+	<key>uuid</key>
+	<string>12345678-1234-1234-1234-123456789012</string>
+</dict>
+</plist>

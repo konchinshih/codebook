@@ -1,6 +1,6 @@
 FROM pandoc/extra:3.7-alpine
 
-RUN apk add texlive-full font-noto font-noto-cjk biber make unzip \
+RUN apk add --no-cache texlive-full font-noto font-noto-cjk biber make typst unzip \
       python3 py3-pygments curl
 #RUN apk add biber make unzip python3 py3-pygments curl
 
@@ -13,5 +13,5 @@ RUN mkdir ttf-dmcasansserif && cd ttf-dmcasansserif && \
 
 WORKDIR /work
 ENV PATH="/usr/bin/vendor_perl:${PATH}"
-ENTRYPOINT ["sh", "-c"]
-CMD ["make"]
+ENTRYPOINT ["make"]
+CMD ["all"]
