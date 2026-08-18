@@ -1,5 +1,6 @@
 .PHONY: all clean docker fast typst
 
+DOCKER_IMAGE ?= ghcr.io/konchinshih/codebook:main
 DOCKER_MAKE_GOALS := $(filter-out docker,$(MAKECMDGOALS))
 
 INTERMEDIATE_FILES += _minted-main main.aux main.bbl main.bcf main.blg \
@@ -14,7 +15,7 @@ docker:
 		-u "$(shell id -u):$(shell id -g)" \
 		--platform=linux/amd64 \
 		--entrypoint make \
-		ghcr.io/konchinshih/codebook:main $(DOCKER_MAKE_GOALS)
+		$(DOCKER_IMAGE) $(DOCKER_MAKE_GOALS)
 
 ifneq ($(filter docker,$(MAKECMDGOALS)),)
 ifneq ($(strip $(DOCKER_MAKE_GOALS)),)

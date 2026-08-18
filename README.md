@@ -74,6 +74,14 @@ Foreground colors can be written as `hsl(H, S%, L%)`; the script converts them
 to the hexadecimal format required by TextMate. Hex colors such as `#FF6188`
 are also accepted.
 
+To test the Dockerfile locally on an arm64 machine, build the project's amd64
+image first, then override the image name when running the Docker recipe:
+
+```sh
+docker buildx build --platform linux/amd64 --load --tag codebook:local .
+DOCKER_IMAGE=codebook:local make docker typst
+```
+
 
 
 
