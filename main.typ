@@ -87,15 +87,21 @@
   breakable: true,
 )[
   #set text(font: ("CodeNewRoman Nerd Font Propo", "Hiragino Mincho ProN"), size: code-size)
-  #set par(justify: false, leading: 0.4em)
+  #set par(justify: false, leading: 0.4em, spacing: 0pt)
   #show raw.line: it => {
-    box(width: 1.5em, align(right, text(fill: code-line-number-color, size: line-number-size)[#it.number]))
-    h(0.5em)
-    it.body
+    grid(
+      columns: (1.5em, 1fr),
+      column-gutter: 0.5em,
+      [#align(right, text(fill: code-line-number-color, size: line-number-size)[#it.number])],
+      //align: (right + horizon, left + top),
+      //[#text(fill: code-line-number-color, size: line-number-size)[#it.number]],
+      [#it.body],
+    )
   }
   #body
 ]
-#let listing(path, lang: "cpp") = codebox(raw(read(path), lang: lang, block: true))
+// Trim only the rendered source so trailing blank lines remain untouched on disk.
+#let listing(path, lang: "cpp") = codebox(raw(read(path).trim(at: end), lang: lang, block: true))
 #let sh(path) = listing(path, lang: "bash")
 #let py(path) = listing(path, lang: "python")
 #let txt(path) = listing(path, lang: none)
