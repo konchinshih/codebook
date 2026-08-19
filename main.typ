@@ -7,11 +7,13 @@
 
 #let heading1-size = 15pt
 #let heading2-size = 11.5pt
-#let body-size = 10pt
+#let body-size = 9pt
 
-#let code-size = 10pt
-#let line-number-size = 5pt
-#let code-line-number-color = rgb("#7d8590")
+#let code-size = 9pt
+#let line-number-size = 6pt
+#let code-line-number-color = rgb("#c0c7d2")
+#let code-line-spacing = -0.3em
+#let code-wrap-leading = 0.3em
 
 #let table-of-contents-size = 7pt
 #let table-of-contents-section-spacing = 0.5em
@@ -47,14 +49,14 @@
       align: (left, center, right),
       [#team], [#univ], [#counter(page).display()],
     )
-    #v(-0.3em)
+    #v(-0.7em)
     #line(length: 100%, stroke: 0.4pt)
   ],
 )
 
 #set heading(numbering: "1.1")
 #show heading.where(level: 1): it => {
-  v(1em, weak: true)
+  v(0.2em, weak: true)
   block(
     fill: heading1-background,
     width: 100%,
@@ -65,7 +67,7 @@
   v(-0.35em)
 }
 #show heading.where(level: 2): it => {
-  v(1em, weak: true)
+  v(0.2em, weak: true)
   block(
     fill: heading2-background,
     width: 100%,
@@ -87,11 +89,12 @@
   breakable: true,
 )[
   #set text(font: ("CodeNewRoman Nerd Font Propo", "Hiragino Mincho ProN"), size: code-size)
-  #set par(justify: false, leading: 0.4em, spacing: 0pt)
+  #set par(justify: false, leading: code-wrap-leading, spacing: 0pt)
   #show raw.line: it => {
     grid(
-      columns: (1.5em, 1fr),
-      column-gutter: 0.5em,
+      columns: (0em, 1fr),
+      column-gutter: 0.2em,
+      inset: (bottom: code-line-spacing),
       [#align(right, text(fill: code-line-number-color, size: line-number-size)[#it.number])],
       //align: (right + horizon, left + top),
       //[#text(fill: code-line-number-color, size: line-number-size)[#it.number]],
