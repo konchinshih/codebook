@@ -585,10 +585,10 @@ Note: $a^n equiv a^((n mod (p-1))) (mod p)$
   == Bipartite Weighted Matching
   #listing("code/matching/BipartiteWeightedMatching.cpp")
 
-  == General Matching ()
+  == General Matching
   #listing("code/matching/GeneralMatching.cpp")
 
-  == General Weighted Matching (, hs1/hs2/hs3)
+  == General Weighted Matching
   #listing("code/matching/GeneralWeightedMatching.cpp")
 
 
