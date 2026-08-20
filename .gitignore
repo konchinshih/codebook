@@ -2,6 +2,8 @@ DMCAsansserif*
 code/basic/test*
 legacy-main.pdf
 .DS_Store
+.vscode
+test-local/
 
 # LaTeX build artifacts
 *.aux

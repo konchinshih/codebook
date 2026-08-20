@@ -1,16 +1,18 @@
 // Author: ckiseki
-// usage: first build 0-based graph vector<vector<int>> g on your own
-// then construct the object: Matching M(g)
-// => M.ans
-// to check matching status: M.match[x]  (== n if not matched)
-struct Matching {
+// 0. build 1-based graph vector<vector<int>> G(n + 1);
+// 1. construct (solve at same time):
+//      GeneralMatching M(G, n);  => M.ans
+// status: M.match[x] (== -1 if not matched, 1 <= x <= n)
+// Time: O(V^3), Space: O(V + E)
+// Test: V <= 500, 11ms
+struct GeneralMatching {
   queue<int> q; int ans, n;
   vector<int> fa, s, v, pre, match;
   int Find(int u) {
     return u == fa[u] ? u : fa[u] = Find(fa[u]); }
   int LCA(int x, int y) {
     static int tk = 0; tk++; x = Find(x); y = Find(y);
-    for (;; swap(x, y)) if (x != n) {
+    for (;; swap(x, y)) if (x != 0) {
       if (v[x] == tk) return x;
       v[x] = tk;
       x = Find(pre[match[x]]);
@@ -20,7 +22,7 @@ struct Matching {
     for (; Find(x) != l; x = pre[y]) {
       pre[x] = y, y = match[x];
       if (s[y] == 1) q.push(y), s[y] = 0;
-      for (int z: {x, y}) if (fa[z] == z) fa[z] = l;
+      for (int z : {x, y}) if (fa[z] == z) fa[z] = l;
     }
   }
   bool Bfs(auto &&g, int r) {
@@ -29,9 +31,9 @@ struct Matching {
     for (; !q.empty(); q.pop()) {
       for (int x = q.front(); int u : g[x])
         if (s[u] == -1) {
-          if (pre[u] = x, s[u] = 1, match[u] == n) {
+          if (pre[u] = x, s[u] = 1, match[u] == 0) {
             for (int a = u, b = x, last;
-                b != n; a = last, b = pre[a])
+                b != 0; a = last, b = pre[a])
               last = match[b], match[b] = a, match[a] = b;
             return true;
           }
@@ -43,9 +45,11 @@ struct Matching {
     }
     return false;
   }
-  Matching(auto &&g) : ans(0), n(int(g.size())),
-  fa(n+1), s(n+1), v(n+1), pre(n+1, n), match(n+1, n) {
-    for (int x = 0; x < n; ++x)
-      if (match[x] == n) ans += Bfs(g, x);
-  } // match[x] == n means not matched
-}; // test @ yosupo judge
+  GeneralMatching(auto &&g, int n_) : ans(0), n(n_),
+  fa(n + 1), s(n + 1), v(n + 1), pre(n + 1, 0), match(n + 1, 0) {
+    for (int x = 1; x <= n; ++x)
+      if (match[x] == 0) ans += Bfs(g, x);
+    for (int x = 1; x <= n; ++x)
+      if (match[x] == 0) match[x] = -1;
+  }
+}; // tested @ yosupo judge

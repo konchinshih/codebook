@@ -98,6 +98,8 @@ DOCKER_IMAGE=codebook:local make docker typst
 
 This codebook incorporates adapted code and materials from:
 
+- CRyptoGRapheR
+  https://github.com/robert1003/CRyptoGRapheR
 - KACTL — KTH Algorithm Competition Template Library  
   https://github.com/kth-competitive-programming/kactl
 - ckiseki  

@@ -1,5 +1,11 @@
 // Author: CRyptoGRapheR
-#define SZ(c) ((int)(c).size())
+// 1-based: vertices are numbered 1 ~ n
+// 1. flow.init(n, s, t);
+//    n = #vertices, s, t = source, sink
+// 2. flow.addEdge(u, v, c);  // u, v in [1, n]
+// 3. call: int ans = flow.flow();
+// => ans = max flow value from s to t
+// Time: O(V^2 * E) worst case, usually much faster in practice
 static const int MAXV=50010;
 static const int INF =1000000;
 struct Maxflow{
@@ -11,7 +17,7 @@ struct Maxflow{
   int iter[MAXV],d[MAXV],gap[MAXV],tot;
   void init(int n,int _s,int _t){
     tot=n,s=_s,t=_t;
-    for(int i=0;i<=tot;i++){
+    for(int i=1;i<=tot;i++){
       G[i].clear(); iter[i]=d[i]=gap[i]=0;
     }
   }
@@ -36,5 +42,8 @@ struct Maxflow{
     int res=0;
     for(res=0,gap[0]=tot;d[s]<tot;res+=DFS(s,INF));
     return res;
-  } // reset: set iter,d,gap to 0
+  }
+  void reset(){
+    for(int i=1;i<=tot;i++) iter[i]=d[i]=gap[i]=0;
+  }
 } flow;

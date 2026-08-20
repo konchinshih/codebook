@@ -1,8 +1,10 @@
 // Author: CRyptoGRapheR
-// Usage:
-// 1. MCMF.init(n, s, t)
-// 2. MCMF.add(u, v, cap, cost)
-// 3. auto [max_flow, min_cost] = MCMF.flow()
+// MCMF (supports negative edges without negative cycles)
+// <!> 1-based: vertices are numbered 1 ~ n.
+// 1. MCMF.init(n);   // n = #vertices (1 ~ n)
+// 2. MCMF.add(u, v, cap, cost);
+// 3. auto [max_flow, min_cost] = MCMF.flow(s, t); // s, t in [1, n]
+// Time: O(F * E), Space: O(V + E)
 typedef int Tcost;
 const int MAXV = 20010;
 const int INFf = 1000000;
