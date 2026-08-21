@@ -341,14 +341,10 @@ $ DP[pos][tight]["sum mod " k] $
 #listing("code/dp/digit_dp_sum_mod.cpp")
 
 = Graph
-
-
   == Max Clique
   #listing("code/graph/MaxClique.cpp")
-
-== Bellman-Ford + SPFA
-
-#listing("code/graph/BellmanFord + SPFA.cpp")
+  == Bellman-Ford
+  #listing("code/graph/BellmanFord.cpp")
 
 == BCC - AP
 
@@ -593,34 +589,24 @@ Note: $a^n equiv a^((n mod (p-1))) (mod p)$
 
 
 = Flow
-
   == Flow Methods
   #txt("code/flow/FlowMethod.txt")
-
   == Dinic
   #listing("code/flow/Dinic.cpp")
-
   == ISAP
   #listing("code/flow/ISAP.cpp")
-
   == Bounded Max Flow
   #listing("code/flow/BoundedMaxFlow.cpp")
-
   == MCMF
   #listing("code/flow/MCMF.cpp")
-
   == Push-Relabel
   #listing("code/flow/PushRelabel.cpp")
-
   == Gomory-Hu Tree
   #listing("code/flow/GomoryHuTree.cpp")
-
   == Global Min Cut
   #listing("code/flow/StoerWagner.cpp")
-
-
-//== Cover / Independent Set
-//#txt("code/flow/CoverIndepend.txt")
+  //== Cover / Independent Set
+  //#txt("code/flow/CoverIndepend.txt")
 
 = Combinatorics
 
