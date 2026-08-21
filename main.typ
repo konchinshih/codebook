@@ -56,7 +56,7 @@
 
 #set heading(numbering: "1.1")
 #show heading.where(level: 1): it => {
-  v(0.2em, weak: true)
+  v(0.4em, weak: true)
   block(
     fill: heading1-background,
     width: 100%,
@@ -64,10 +64,10 @@
   )[
     #text(size: heading1-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
   ]
-  v(-0.35em)
+  v(-0.25em)
 }
 #show heading.where(level: 2): it => {
-  v(0.2em, weak: true)
+  v(0.3em, weak: true)
   block(
     fill: heading2-background,
     width: 100%,
@@ -75,7 +75,7 @@
   )[
     #text(size: heading2-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
   ]
-  v(-0.35em)
+  v(-0.25em)
 }
 
 #set list(marker: [•], indent: 0.3em, spacing: 0.5em, tight: true)
@@ -198,27 +198,19 @@
 #sh("code/basic/run.sh")
 
 = Basic
-
   == Template (Using Codebook)
   #listing("code/basic/template_codebook.cpp")
-
-== PBDS
-
-#listing("code/basic/PBDS.cpp")
-
-== Random
-
-#listing("code/basic/Random.cpp")
-
-= Python
-
-== I/O
-
-#py("code/python/PythonIO.py")
-
-== Decimal
-
-#py("code/python/PythonDecimal.py")
+  == PBDS
+  #listing("code/basic/PBDS.cpp")
+  == SVG Writer
+  #listing("code/basic/SVGWriter.cpp")
+  #listing("code/basic/SVGWriterUsage.cpp")
+  == Random
+  #listing("code/basic/Random.cpp")
+  == Python I/O
+  #py("code/python/PythonIO.py")
+  == Decimal
+  #py("code/python/PythonDecimal.py")
 
 = Data Structure
 
@@ -345,11 +337,21 @@ $ DP[pos][tight]["sum mod " k] $
   #listing("code/graph/MaxClique.cpp")
   == Bellman-Ford
   #listing("code/graph/BellmanFord.cpp")
+  == System of Difference Constraints
+  #listing("code/graph/DiffConstraints.cpp")
+  - $x_u - x_v <= c =>$ `add(v, u, c)`
+  - $x_u - x_v >= c =>$ `add(u, v, -c)`
+  - $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
+  - $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
+  - Don't for get non-negative constraints for every variable if specified implicitly.
+  - Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
+  - $x_u/x_v <= c =>$ $log x_u - log x_v <= log c$
+  == Graph Girth
+  Run BFS for every node, when encountered non-BFS-tree edge, update with `dis[u] + dis[v] + 1`.  Time O(VE).
 
 == BCC - AP
-
 #listing("code/graph/BCC-AP.cpp")
-
+GAY
 == BCC - Bridge
 
 #listing("code/graph/BCC-Bridge.cpp")
@@ -370,17 +372,19 @@ $ DP[pos][tight]["sum mod " k] $
 
 #listing("code/graph/KSP.cpp")
 
-== System of Difference Constraints
 
-#listing("code/graph/DiffConstraints.cpp")
+= Tree
+  == Tree Isomorphism (Rooted Trees)
+  #listing("code/tree/RootedTreeIsomorphism.cpp") 
+  == Tree Isomorphism (Unrooted Trees)
+  Find the centroid(s) of $T_1$, $T_2$. \
+  Case 1: $T_1, T_2$ have different number of centroids $->$ NO \
+  Case 2: $T_1$ has centroid $c_1$, $T_2$ has centroid $c_2$ \
+  $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ \
+  Case 3: $T_1$ has centroids $c_1, c'_1$, $T_2$ has centroids $c_2, c'_2$ \
+  $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ `||` $r o o t e d \_ i s o m o r p h i c(c'_1, c_2)$
 
-- $x_u - x_v <= c =>$ `add(v, u, c)`
-- $x_u - x_v >= c =>$ `add(u, v, -c)`
-- $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
-- $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
-- Don't for get non-negative constraints for every variable if specified implicitly.
-- Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
-- $x_u/x_v <= c =>$ $log x_u - log x_v <= log c$
+
 
 = String
 
