@@ -1,14 +1,5 @@
 syn on
-set nu rnu ru cul mouse=a
-set cin et ts=4 sw=4 sts=4
-set autochdir
-set clipboard=unnamedplus
-
-colo koehler
-
-no <C-h> ^
-no <C-l> $
+set nu rnu cul mouse=a cin et ts=2 sw=2 sts=2 autochdir cb=unnamedplus
 no ; :
-
-inoremap {<CR> {<CR>}<Esc>ko
-
+ino {<CR> {<CR>}<Esc>ko
+ca Hash w !cpp -dD -P \| tr -d '[:space:]' \| md5sum \| cut -c-6

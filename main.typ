@@ -181,36 +181,30 @@
 - 記得刪 cerr
 - vector 超級肥，小 vector 請用 array，例如矩陣快速冪
 
-#gridbox(11cm)
+#gridbox(9cm)
 
 = Init (Linux)
-
-開場流程：
-
-#sh("code/basic/開場流程 (Linux).sh")
-
-== vimrc
-
-#sh("code/basic/vimrc")
-
-== run.sh
-
-#sh("code/basic/run.sh")
+  == vimrc
+  #sh("code/basic/vimrc")
+  #sh("code/basic/vimrc-gino")
+  == bashrc
+  #sh("code/basic/bashrc")
 
 = Basic
   == Template (Using Codebook)
   #listing("code/basic/template_codebook.cpp")
-  == PBDS
-  #listing("code/basic/PBDS.cpp")
+  == PBDS, Random
+  #listing("code/basic/PBDS_and_Random.cpp")
+  == Debug
+  #listing("code/basic/debug.cpp")
   == SVG Writer
   #listing("code/basic/SVGWriter.cpp")
   #listing("code/basic/SVGWriterUsage.cpp")
-  == Random
-  #listing("code/basic/Random.cpp")
-  == Python I/O
-  #py("code/python/PythonIO.py")
-  == Decimal
-  #py("code/python/PythonDecimal.py")
+
+  == Python
+  #py("code/basic/Python.py")
+
+
 
 = Data Structure
 
@@ -345,9 +339,12 @@ $ DP[pos][tight]["sum mod " k] $
   - $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
   - Don't for get non-negative constraints for every variable if specified implicitly.
   - Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
-  - $x_u/x_v <= c =>$ $log x_u - log x_v <= log c$
+  - $x_u \/ x_v <= c =>$ $log x_u - log x_v <= log c$
   == Graph Girth
-  Run BFS for every node, when encountered non-BFS-tree edge, update with `dis[u] + dis[v] + 1`.  Time O(VE).
+  Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
+  == Euler Trail
+  #listing("code/graph/Eulerian.cpp")
+
 
 == BCC - AP
 #listing("code/graph/BCC-AP.cpp")
@@ -360,13 +357,6 @@ GAY
 
 #listing("code/graph/2SAT-SCC.cpp")
 
-== Eulerian Path - Undir
-
-#listing("code/graph/EulerianPath-Undir.cpp")
-
-== Eulerian Path - Dir
-
-#listing("code/graph/EulerianPath-Dir.cpp")
 
 == Kth Shortest Path
 

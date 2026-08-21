@@ -1,12 +1,11 @@
 // CRyptoGRapheR
 #define SZ(c) ((int)(c).size())
-
 // kactl
 #define sz(x) (int)(x).size()
 #define rep(i,a,b) for(int i=(a);i<(b);i++)
 using ll = long long;
 using vi = vector<int>;
-
+using pii = pair<int, int>;
 // ckiseki
 #define all(x) begin(x), end(x)
 #define pb emplace_back

@@ -1,0 +1,4 @@
+gogo() {
+  g++ -std=c++20 -O2 "$1" && echo run && ./a.out
+}
+alias vig='vim -u ~/.vimrc-gino'
