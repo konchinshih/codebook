@@ -315,7 +315,7 @@
   == Manacher
   #listing("code/string/Manacher.txt")
   == Suffix Array
-  #listing("code/string/SA-Optimized.cpp")
+  #listing("code/string/SA.cpp")
   == Suffix Automaton
   #listing("code/string/SAM.cpp")
   //== SA-IS
@@ -572,6 +572,6 @@
   - Number of square-free divisors $= 2^omega(n)$
     - $n <= 10^9 => <= 512$, $n <= 10^18 => <= 32768$
 
-#gridbox(12cm)
+#gridbox(16cm)
 
 ]
