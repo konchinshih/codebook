@@ -1,6 +1,6 @@
 // Author: Gino
 // Preparation: first set_mod(mod, g), then init_ntt()
-// everytime you change the mod, you have to call init_ntt() again
+// everytime you change modulus, you have to call init_ntt() again
 //
 // [Usage]
 // polynomial: vector<ll> a, b

@@ -200,9 +200,11 @@
   == SVG Writer
   #listing("code/basic/SVGWriter.cpp")
   #listing("code/basic/SVGWriterUsage.cpp")
-
   == Python
   #py("code/basic/Python.py")
+  == Stress Tests
+  #py("code/stress-test/gen.py")
+  #sh("code/stress-test/test.sh")
 
 
 
@@ -344,23 +346,21 @@ $ DP[pos][tight]["sum mod " k] $
   Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
   == Euler Trail
   #listing("code/graph/Eulerian.cpp")
+  == BCC - AP
+  #listing("code/graph/BCC-AP.cpp")
+  == BCC - Bridge
+  #listing("code/graph/BCC-Bridge.cpp")
+  == Kth Shortest Path
+  #listing("code/graph/KSP.cpp")
 
 
-== BCC - AP
-#listing("code/graph/BCC-AP.cpp")
-GAY
-== BCC - Bridge
 
-#listing("code/graph/BCC-Bridge.cpp")
+
 
 == SCC - Tarjan with 2-SAT
 
 #listing("code/graph/2SAT-SCC.cpp")
 
-
-== Kth Shortest Path
-
-#listing("code/graph/KSP.cpp")
 
 
 = Tree

@@ -104,6 +104,8 @@ This codebook incorporates adapted code and materials from:
   https://github.com/kth-competitive-programming/kactl
 - ckiseki  
   https://github.com/OmeletWithoutEgg/ckiseki
+- std_abs
+  https://github.com/abc864197532/std_abs
 
 We sincerely thank the original authors and contributors for their excellent work.
 
