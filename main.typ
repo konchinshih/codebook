@@ -209,20 +209,16 @@
 
 
 = Data Structure
+  == Mo's Algorithm
+  #listing("code/data-structure/Mo-algorithm.cpp")
+
+
 
 == CDQ
-
 #listing("code/data-structure/CDQ.cpp")
 
-== Mo's Algorithm
-
-#listing("code/data-structure/Mo-algorithm.cpp")
 
 
-
-== Leftist Heap
-
-#listing("code/data-structure/leftist-heap.cpp")
 
 == Persistent Treap
 
@@ -318,12 +314,8 @@
 
 
 = String
-
   == Rolling Hash
   #listing("code/string/RollingHash.cpp")
-
-  == Trie
-  #listing("code/string/Trie.cpp")
 
   == KMP
   #listing("code/string/KMP.cpp")
