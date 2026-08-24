@@ -7,11 +7,13 @@
 
 #let heading1-size = 15pt
 #let heading2-size = 11.5pt
-#let body-size = 10pt
+#let body-size = 9pt
 
-#let code-size = 10pt
-#let line-number-size = 5pt
-#let code-line-number-color = rgb("#7d8590")
+#let code-size = 9pt
+#let line-number-size = 6pt
+#let code-line-number-color = rgb("#c0c7d2")
+#let code-line-spacing = -0.3em
+#let code-wrap-leading = 0.3em
 
 #let table-of-contents-size = 7pt
 #let table-of-contents-section-spacing = 0.5em
@@ -47,14 +49,14 @@
       align: (left, center, right),
       [#team], [#univ], [#counter(page).display()],
     )
-    #v(-0.3em)
+    #v(-0.7em)
     #line(length: 100%, stroke: 0.4pt)
   ],
 )
 
 #set heading(numbering: "1.1")
 #show heading.where(level: 1): it => {
-  v(1em, weak: true)
+  v(0.4em, weak: true)
   block(
     fill: heading1-background,
     width: 100%,
@@ -62,10 +64,10 @@
   )[
     #text(size: heading1-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
   ]
-  v(-0.35em)
+  v(-0.25em)
 }
 #show heading.where(level: 2): it => {
-  v(1em, weak: true)
+  v(0.3em, weak: true)
   block(
     fill: heading2-background,
     width: 100%,
@@ -73,7 +75,7 @@
   )[
     #text(size: heading2-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
   ]
-  v(-0.35em)
+  v(-0.25em)
 }
 
 #set list(marker: [•], indent: 0.3em, spacing: 0.5em, tight: true)
@@ -86,12 +88,13 @@
   width: 100%,
   breakable: true,
 )[
-  #set text(font: ("CodeNewRoman Nerd Font Propo", "Hiragino Mincho ProN"), size: code-size)
-  #set par(justify: false, leading: 0.4em, spacing: 0pt)
+  #set text(font: ("Hiragino Mincho ProN"), size: code-size)
+  #set par(justify: false, leading: code-wrap-leading, spacing: 0pt)
   #show raw.line: it => {
     grid(
-      columns: (1.5em, 1fr),
-      column-gutter: 0.5em,
+      columns: (0em, 1fr),
+      column-gutter: 0.2em,
+      inset: (bottom: code-line-spacing),
       [#align(right, text(fill: code-line-number-color, size: line-number-size)[#it.number])],
       //align: (right + horizon, left + top),
       //[#text(fill: code-line-number-color, size: line-number-size)[#it.number]],
@@ -178,41 +181,32 @@
 - 記得刪 cerr
 - vector 超級肥，小 vector 請用 array，例如矩陣快速冪
 
-#gridbox(11cm)
+#gridbox(9cm)
 
 = Init (Linux)
-
-開場流程：
-
-#sh("code/basic/開場流程 (Linux).sh")
-
-== vimrc
-
-#sh("code/basic/vimrc")
-
-== run.sh
-
-#sh("code/basic/run.sh")
+  == vimrc
+  #sh("code/basic/vimrc")
+  #sh("code/basic/vimrc-gino")
+  == bashrc
+  #sh("code/basic/bashrc")
 
 = Basic
+  == Template (Using Codebook)
+  #listing("code/basic/template_codebook.cpp")
+  == PBDS, Random
+  #listing("code/basic/PBDS_and_Random.cpp")
+  == Debug
+  #listing("code/basic/debug.cpp")
+  == SVG Writer
+  #listing("code/basic/SVGWriter.cpp")
+  #listing("code/basic/SVGWriterUsage.cpp")
+  == Python
+  #py("code/basic/Python.py")
+  == Stress Tests
+  #py("code/stress-test/gen.py")
+  #sh("code/stress-test/test.sh")
 
-== PBDS
 
-#listing("code/basic/PBDS.cpp")
-
-== Random
-
-#listing("code/basic/Random.cpp")
-
-= Python
-
-== I/O
-
-#py("code/python/PythonIO.py")
-
-== Decimal
-
-#py("code/python/PythonDecimal.py")
 
 = Data Structure
 
@@ -335,58 +329,52 @@ $ DP[pos][tight]["sum mod " k] $
 #listing("code/dp/digit_dp_sum_mod.cpp")
 
 = Graph
+  == Max Clique
+  #listing("code/graph/MaxClique.cpp")
+  == Bellman-Ford
+  #listing("code/graph/BellmanFord.cpp")
+  == System of Difference Constraints
+  #listing("code/graph/DiffConstraints.cpp")
+  - $x_u - x_v <= c =>$ `add(v, u, c)`
+  - $x_u - x_v >= c =>$ `add(u, v, -c)`
+  - $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
+  - $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
+  - Don't for get non-negative constraints for every variable if specified implicitly.
+  - Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
+  - $x_u \/ x_v <= c =>$ $log x_u - log x_v <= log c$
+  == Graph Girth
+  Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
+  == Euler Trail
+  #listing("code/graph/Eulerian.cpp")
+  == BCC - AP
+  #listing("code/graph/BCC-AP.cpp")
+  == BCC - Bridge
+  #listing("code/graph/BCC-Bridge.cpp")
+  == Kth Shortest Path
+  #listing("code/graph/KSP.cpp")
 
-== Blossom
 
-#listing("code/graph/Blossom.cpp")
 
-== Weighted Blossom
 
-#listing("code/graph/WeightedBlossom.cpp")
-
-== Max Clique
-
-#listing("code/graph/MaxClique.cpp")
-
-== Bellman-Ford + SPFA
-
-#listing("code/graph/BellmanFord + SPFA.cpp")
-
-== BCC - AP
-
-#listing("code/graph/BCC-AP.cpp")
-
-== BCC - Bridge
-
-#listing("code/graph/BCC-Bridge.cpp")
 
 == SCC - Tarjan with 2-SAT
 
 #listing("code/graph/2SAT-SCC.cpp")
 
-== Eulerian Path - Undir
 
-#listing("code/graph/EulerianPath-Undir.cpp")
 
-== Eulerian Path - Dir
+= Tree
+  == Tree Isomorphism (Rooted Trees)
+  #listing("code/tree/RootedTreeIsomorphism.cpp") 
+  == Tree Isomorphism (Unrooted Trees)
+  Find the centroid(s) of $T_1$, $T_2$. \
+  Case 1: $T_1, T_2$ have different number of centroids $->$ NO \
+  Case 2: $T_1$ has centroid $c_1$, $T_2$ has centroid $c_2$ \
+  $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ \
+  Case 3: $T_1$ has centroids $c_1, c'_1$, $T_2$ has centroids $c_2, c'_2$ \
+  $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ `||` $r o o t e d \_ i s o m o r p h i c(c'_1, c_2)$
 
-#listing("code/graph/EulerianPath-Dir.cpp")
 
-== Kth Shortest Path
-
-#listing("code/graph/KSP.cpp")
-
-== System of Difference Constraints
-
-#listing("code/graph/DiffConstraints.cpp")
-
-- $x_u - x_v <= c =>$ `add(v, u, c)`
-- $x_u - x_v >= c =>$ `add(u, v, -c)`
-- $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
-- $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
-- Don't for get non-negative constraints for every variable if specified implicitly.
-- Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
-- $x_u/x_v <= c =>$ $log x_u - log x_v <= log c$
 
 = String
 
@@ -580,39 +568,39 @@ Note: $a^n equiv a^((n mod (p-1))) (mod p)$
   - Row Operation 2 - $k accent(r_i, arrow)$: $k times det$
   - Row Operation 3 - $k accent(r_i, arrow)$ add to $accent(r_j, arrow)$: Unchanged
 
-= Flow / Matching
+= Matching
+  == Bipartite Matching
+  #listing("code/matching/BipartiteMatching.cpp")
 
-== Flow Methods
+  == Bipartite Weighted Matching
+  #listing("code/matching/BipartiteWeightedMatching.cpp")
 
-#txt("code/flow/FlowMethod.txt")
+  == General Matching
+  #listing("code/matching/GeneralMatching.cpp")
 
-== Dinic
+  == General Weighted Matching
+  #listing("code/matching/GeneralWeightedMatching.cpp")
 
-#listing("code/flow/Dinic.cpp")
 
-== ISAP
-
-#listing("code/flow/ISAP.cpp")
-
-== Bounded Max Flow
-
-#listing("code/flow/BoundedMaxFlow.cpp")
-
-== MCMF
-
-#listing("code/flow/MCMF.cpp")
-
-== Hopcroft-Karp
-
-#listing("code/flow/HopcroftKarp.cpp")
-
-== Cover / Independent Set
-
-#txt("code/flow/CoverIndepend.txt")
-
-== Kuhn Munkres
-
-#listing("code/flow/KM2.cpp")
+= Flow
+  == Flow Methods
+  #txt("code/flow/FlowMethod.txt")
+  == Dinic
+  #listing("code/flow/Dinic.cpp")
+  == ISAP
+  #listing("code/flow/ISAP.cpp")
+  == Bounded Max Flow
+  #listing("code/flow/BoundedMaxFlow.cpp")
+  == MCMF
+  #listing("code/flow/MCMF.cpp")
+  == Push-Relabel
+  #listing("code/flow/PushRelabel.cpp")
+  == Gomory-Hu Tree
+  #listing("code/flow/GomoryHuTree.cpp")
+  == Global Min Cut
+  #listing("code/flow/StoerWagner.cpp")
+  //== Cover / Independent Set
+  //#txt("code/flow/CoverIndepend.txt")
 
 = Combinatorics
 

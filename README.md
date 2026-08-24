@@ -90,3 +90,24 @@ DOCKER_IMAGE=codebook:local make docker typst
 
 0. Install & Start docker (optionally install docker-buildx in archlinux).
 1. Run `make docker`.
+
+
+
+
+## Credits
+
+This codebook incorporates adapted code and materials from:
+
+- CRyptoGRapheR
+  https://github.com/robert1003/CRyptoGRapheR
+- KACTL — KTH Algorithm Competition Template Library  
+  https://github.com/kth-competitive-programming/kactl
+- ckiseki  
+  https://github.com/OmeletWithoutEgg/ckiseki
+- std_abs
+  https://github.com/abc864197532/std_abs
+
+We sincerely thank the original authors and contributors for their excellent work.
+
+
+
