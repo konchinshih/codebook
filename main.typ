@@ -346,10 +346,10 @@ $ DP[pos][tight]["sum mod " k] $
   Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
   == Euler Trail
   #listing("code/graph/Eulerian.cpp")
-  == BCC - AP
-  #listing("code/graph/BCC-AP.cpp")
-  == BCC - Bridge
-  #listing("code/graph/BCC-Bridge.cpp")
+  == Vertex BCC (Round Square Tree)
+  #listing("code/graph/RoundSquareTree.cpp")
+  == Edge BCC
+  #listing("code/graph/EBCC.cpp")
   == Kth Shortest Path
   #listing("code/graph/KSP.cpp")
 
