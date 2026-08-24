@@ -24,9 +24,9 @@
 #let heading2-background = rgb("#e3e3e3")
 
 #set text(
-  // The W3 and W6 files are registered as one family. Typst selects W3
-  // for normal text and W6 when weight: "bold" is requested.
-  font: "Hiragino Mincho ProN",
+  // Keep Latin text consistent with the LaTeX version and use the
+  // Traditional-Chinese font for characters that the Latin font lacks.
+  font: ("Hiragino Mincho ProN", "Noto Serif TC", "CodeNewRoman Nerd Font Propo"),
   size: body-size,
 )
 #set raw(theme: "themes/codeblock-theme.tmTheme")
@@ -88,7 +88,7 @@
   width: 100%,
   breakable: true,
 )[
-  #set text(font: ("Hiragino Mincho ProN"), size: code-size)
+  #set text(font: ("CodeNewRoman Nerd Font Propo", "Noto Serif TC"), size: code-size)
   #set par(justify: false, leading: code-wrap-leading, spacing: 0pt)
   #show raw.line: it => {
     grid(
