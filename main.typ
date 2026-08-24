@@ -218,9 +218,7 @@
 
 #listing("code/data-structure/Mo-algorithm.cpp")
 
-== Heavy Light Decomposition
 
-#listing("code/data-structure/HLD-Ian.cpp")
 
 == Leftist Heap
 
@@ -239,94 +237,9 @@
 #listing("code/data-structure/time-segtree.cpp")
 
 = DP
+  == SOS DP
+  #listing("code/dp/SOS_DP.cpp")
 
-- 區間 DP
-  - 狀態：$DP[l][r]$ = 區間 $[l,r]$ 的最佳值/方案數
-  - 轉移：枚舉劃分點 $k$
-  - 思考：是否滿足四邊形不等式、Knuth 優化可加速
-- 背包 DP
-  - 狀態：$DP[i][w]$ = 前 $i$ 個物品容量 $w$ 的最佳值
-  - 判斷是 0/1、多重、分組 $=>$ 決定轉移方式
-  - 若容量大 $=>$ bitset / 數學變形 / meet-in-the-middle
-- 樹形 DP
-  - 狀態：$DP[u]["flag"]$ = 子樹 $u$ 的最佳值
-  - 合併子樹資訊 $=>$ 小到大合併 / 捲積式轉移
-  - 注意 reroot 技巧（dp on tree + dp2 上傳）
-- 數位 DP
-  - 狀態：$(pos, tight, property)$
-  - tight 控制是否貼上界
-  - property 常為「餘數、數字和、相鄰限制」
-- 狀壓 DP
-  - 狀態：$DP["mask"]["last"]$
-  - 常見於 TSP / Hamiltonian path / 覆蓋問題
-  - $n <= 20$ 可做，否則要容斥 / FFT
-- 期望 / 機率 DP
-  - 狀態 $E[s]$ = 從狀態 $s$ 到終點的期望
-  - 式子：$E[s] = c + sum P(s -> s') E[s']$
-  - 線性期望：能拆就拆，少算分布
-  - 輸出 mod $=>$ 分數化 $=>$ 模逆元
-- 計數 DP / 組合數
-  - 狀態表示方案數，常搭配「模數取餘」
-  - 若轉移是捲積型 $=>$ FFT/NTT 加速
-  - 若能公式化（Catalan / Ballot / Stirling） $=>$ 直接套公式
-- 優化 DP
-  - 判斷轉移方程 $DP[i] = min_j (DP[j] + C(j,i))$ 的性質
-  - 單調性 $=>$ 分治優化
-  - 凸性 $=>$ Convex Hull Trick / 斜率優化
-  - 四邊形不等式 $=>$ Knuth 優化
-
-== Aliens
-
-#listing("code/dp/Aliens.cpp")
-
-== SOS DP
-
-#listing("code/dp/SOS_DP.cpp")
-
-== 期望 DP (Expected Value DP)
-
-- 狀態設計：$E[s]$ = 從狀態 $s$ 出發到終點的期望值
-- 列式子：$E[s] = "(當前代價)" + sum_(s') P(s -> s') dot E[s']$
-- 若存在自環，把 $E[s]$ 移到左邊，整理成 $(1 - P(s -> s)) E[s] = c + sum_(s' != s) P(s -> s') dot E[s']$
-- 線性期望技巧：能拆就拆，避免處理整個分布
-- 輸出 mod 時，分母要用模逆元：$q^(-1) equiv q^(M-2) (mod M)$（質數模數）
-
-*常見題型*
-
-- 擲骰子遊戲（到達終點的期望步數）
-- 隨機遊走 hitting time
-- 重複試驗直到成功
-- 博弈遊戲的期望值
-- 機率 DP：計算到某步時在某狀態的機率
-
-*範例：擲骰子到 $n$ 格*
-
-$ E[i] = 1 + 1/6 sum_(d=1)^6 E[i+d], quad (i<n), quad E[n] = 0 $
-
-#listing("code/dp/dice_expectation.cpp")
-
-== 數位 DP (Digit DP)
-
-- 狀態：$(pos, tight, property)$
-  - $pos$ = 當前處理到第幾位
-  - $tight$ = 是否受限於上界 $N$
-  - $property$ = 額外屬性（如數位和、餘數、相鄰限制…）
-- 遞迴：枚舉當前位數字，遞迴下一位
-- 終止條件：$pos == "長度"$ $=>$ 回傳屬性是否滿足
-- 記憶化：$DP[pos][tight][property]$
-
-*常見題型*
-
-- 計算 $[0,N]$ 中數位和可被 $k$ 整除的數字個數
-- 不含連續相同數字的數字個數
-- 含特定數字次數的數字個數
-- 位數和 / 餘數 / mod pattern
-
-*範例：計算 $[0,N]$ 中數位和 $mod k = 0$ 的數字個數*
-
-$ DP[pos][tight]["sum mod " k] $
-
-#listing("code/dp/digit_dp_sum_mod.cpp")
 
 = Graph
   == Max Clique
@@ -354,9 +267,6 @@ $ DP[pos][tight]["sum mod " k] $
   #listing("code/graph/KSP.cpp")
 
 
-
-
-
 == SCC - Tarjan with 2-SAT
 
 #listing("code/graph/2SAT-SCC.cpp")
@@ -373,7 +283,38 @@ $ DP[pos][tight]["sum mod " k] $
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ \
   Case 3: $T_1$ has centroids $c_1, c'_1$, $T_2$ has centroids $c_2, c'_2$ \
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ `||` $r o o t e d \_ i s o m o r p h i c(c'_1, c_2)$
+  == Heavy Light Decomposition
+  #listing("code/tree/HLD-Ian.cpp")
 
+= Matching
+  == Bipartite Matching
+  #listing("code/matching/BipartiteMatching.cpp")
+  == Bipartite Weighted Matching
+  #listing("code/matching/BipartiteWeightedMatching.cpp")
+  == General Matching
+  #listing("code/matching/GeneralMatching.cpp")
+  == General Weighted Matching
+  #listing("code/matching/GeneralWeightedMatching.cpp")
+
+= Flow
+  == Flow Methods
+  #txt("code/flow/FlowMethod.txt")
+  == Dinic
+  #listing("code/flow/Dinic.cpp")
+  == ISAP
+  #listing("code/flow/ISAP.cpp")
+  == Bounded Max Flow
+  #listing("code/flow/BoundedMaxFlow.cpp")
+  == MCMF
+  #listing("code/flow/MCMF.cpp")
+  == Push-Relabel
+  #listing("code/flow/PushRelabel.cpp")
+  == Gomory-Hu Tree
+  #listing("code/flow/GomoryHuTree.cpp")
+  == Global Min Cut
+  #listing("code/flow/StoerWagner.cpp")
+  //== Cover / Independent Set
+  //#txt("code/flow/CoverIndepend.txt")
 
 
 = String
@@ -568,39 +509,7 @@ Note: $a^n equiv a^((n mod (p-1))) (mod p)$
   - Row Operation 2 - $k accent(r_i, arrow)$: $k times det$
   - Row Operation 3 - $k accent(r_i, arrow)$ add to $accent(r_j, arrow)$: Unchanged
 
-= Matching
-  == Bipartite Matching
-  #listing("code/matching/BipartiteMatching.cpp")
 
-  == Bipartite Weighted Matching
-  #listing("code/matching/BipartiteWeightedMatching.cpp")
-
-  == General Matching
-  #listing("code/matching/GeneralMatching.cpp")
-
-  == General Weighted Matching
-  #listing("code/matching/GeneralWeightedMatching.cpp")
-
-
-= Flow
-  == Flow Methods
-  #txt("code/flow/FlowMethod.txt")
-  == Dinic
-  #listing("code/flow/Dinic.cpp")
-  == ISAP
-  #listing("code/flow/ISAP.cpp")
-  == Bounded Max Flow
-  #listing("code/flow/BoundedMaxFlow.cpp")
-  == MCMF
-  #listing("code/flow/MCMF.cpp")
-  == Push-Relabel
-  #listing("code/flow/PushRelabel.cpp")
-  == Gomory-Hu Tree
-  #listing("code/flow/GomoryHuTree.cpp")
-  == Global Min Cut
-  #listing("code/flow/StoerWagner.cpp")
-  //== Cover / Independent Set
-  //#txt("code/flow/CoverIndepend.txt")
 
 = Combinatorics
 
