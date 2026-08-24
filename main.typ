@@ -218,15 +218,9 @@
 
 #listing("code/data-structure/Mo-algorithm.cpp")
 
-
-
 == Leftist Heap
 
 #listing("code/data-structure/leftist-heap.cpp")
-
-== Persistent Treap
-
-#listing("code/data-structure/persistent-treap.cpp")
 
 == Li Chao Tree
 
@@ -267,11 +261,13 @@
   #listing("code/graph/KSP.cpp")
 
 
-== SCC - Tarjan with 2-SAT
+== SCC - Tarjan
 
-#listing("code/graph/2SAT-SCC.cpp")
+#listing("code/graph/SCC.cpp")
 
+== 2SAT
 
+#listing("code/graph/2SAT.cpp")
 
 = Tree
   == Tree Isomorphism (Rooted Trees)
@@ -321,9 +317,6 @@
 
   == Rolling Hash
   #listing("code/string/RollingHash.cpp")
-
-  == Trie
-  #listing("code/string/Trie.cpp")
 
   == KMP
   #listing("code/string/KMP.cpp")

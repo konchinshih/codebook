@@ -3,16 +3,8 @@ void build(V<int>&v);
 void modify(int p, int k);
 int query(int ql, int qr);
 // Insert [ql, qr) segment tree here
-inline void solve(){
-  int n, q; cin >> n >> q;
-  V<int> v(n);
-  for (auto& i: v) cin >> i;
-  V<V<int>> e(n);
-  for(int i = 1; i < n; i++){
-    int a, b; cin >> a >> b, a--, b--;
-    e[a].emplace_back(b);
-    e[b].emplace_back(a);
-  }
+void solve(){
+  // Input with adjacency list ...
   V<int> d(n, 0), f(n, 0), sz(n, 1), son(n, -1);
   F<void(int, int)> dfs1 = [&](int x, int pre) {
     for (auto i: e[x]) if (i != pre) {
