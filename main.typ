@@ -263,11 +263,13 @@
   #listing("code/graph/KSP.cpp")
 
 
-== SCC - Tarjan with 2-SAT
+== SCC - Tarjan
 
-#listing("code/graph/2SAT-SCC.cpp")
+#listing("code/graph/SCC.cpp")
 
+== 2SAT
 
+#listing("code/graph/2SAT.cpp")
 
 = Tree
   == Tree Isomorphism (Rooted Trees)
