@@ -1,10 +1,6 @@
-/**
- * Author: David Rydh, Per Austrin
- * Date: 2003-03-16
- * Description:
- */
+/* Author: David Rydh, Per Austrin
+* Description: */
 #pragma once
-
 struct Poly {
   vector<double> a;
   double operator()(double x) const {

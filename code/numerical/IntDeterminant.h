@@ -1,14 +1,8 @@
-/**
- * Author: Unknown
- * Date: 2014-11-27
- * Source: somewhere on github
- * Description: Calculates determinant using modular arithmetics.
- * Modulos can also be removed to get a pure-integer version.
- * Time: $O(N^3)$
- * Status: bruteforce-tested for N <= 3, mod <= 7
- */
-#pragma once
-
+/* Author: Unknown
+* Description: Calculates determinant using modular arithmetics.
+* Modulos can also be removed to get a pure-integer version.
+* Time: $O(N^3)$
+* Status: bruteforce-tested for N <= 3, mod <= 7 */
 const ll mod = 12345;
 ll det(vector<vector<ll>>& a) {
   int n = sz(a); ll ans = 1;

@@ -1,16 +1,9 @@
-/**
- * Author: Lucian Bicsi
- * Date: 2015-06-25
- * License: GNU Free Documentation License 1.2
- * Source: csacademy
- * Description: Transform to a basis with fast convolutions of the form
- * $\displaystyle c[z] = \sum\nolimits_{z = x \oplus y} a[x] \cdot b[y]$,
- * where $\oplus$ is one of AND, OR, XOR. The size of $a$ must be a power of two.
- * Time: O(N \log N)
- * Status: stress-tested
- */
-#pragma once
-
+/* Author: Lucian Bicsi (License: GNU Free Documentation License 1.2)
+* Description: Transform to a basis with fast convolutions of the form
+ *   c[z] = \sum_{z = x \oplus y} a[x] * b[y]
+ * where \oplus is one of AND, OR, XOR.
+ * The size of $a$ must be a power of 2.
+* Time: O(N \log N), Status: stress-tested */
 void FST(vi& a, bool inv) {
   for (int n = sz(a), step = 1; step < n; step *= 2) {
     for (int i = 0; i < n; i += 2 * step) rep(j,i,i+step) {

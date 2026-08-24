@@ -1,14 +1,8 @@
-
-/**
- * Author: koukanni
- * Date: 2025
- * License: CC0
- * Source: 
- * Description: Lagrange interpolation for polynomial evaluation at integer points.
- * Given polynomial values f[0], f[1], ..., f[n-1], computes f(c).
- * Time: O(n)
- * Status: tested
- */
+/* Author: koukanni (License: CC0)
+* Description: Lagrange interpolation for polynomial evaluation at integer points.
+* Given polynomial values f[0], f[1], ..., f[n-1], computes f(c).
+* Time: O(n)
+* Status: tested */
 Mint lagrange_iota(const vector<Mint> &f, const int c) {
   const int n = int(size(f));
   if (c < n) {

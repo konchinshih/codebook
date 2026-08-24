@@ -1,21 +1,13 @@
-/**
- * Author: Simon Lindholm
- * Date: 2015-02-11
- * License: CC0
- * Source: Wikipedia
- * Description: Fast integration using an adaptive Simpson's rule.
- * Usage:
-  double sphereVolume = quad(-1, 1, [](double x) {
-  return quad(-1, 1, [\&](double y) {
-  return quad(-1, 1, [\&](double z) {
-  return x*x + y*y + z*z < 1; });});});
- * Status: mostly untested
- */
-#pragma once
-
+/* Author: Simon Lindholm (License: CC0)
+* Description: Fast integration using an adaptive Simpson's rule.
+* Usage:
+* double sphereVolume = quad(-1, 1, [](double x) {
+* return quad(-1, 1, [\&](double y) {
+* return quad(-1, 1, [\&](double z) {
+* return x*x + y*y + z*z < 1; });});});
+Status: mostly untested */
 typedef double d;
 #define S(a,b) (f(a) + 4*f((a+b) / 2) + f(b)) * (b-a) / 6
-
 template <class F>
 d rec(F& f, d a, d b, d eps, d S) {
   d c = (a + b) / 2;

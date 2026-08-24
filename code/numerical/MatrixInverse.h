@@ -1,20 +1,14 @@
-/**
- * Author: Max Bennedich
- * Date: 2004-02-08
- * Description: Invert matrix $A$. Returns rank; result is stored in $A$ unless singular (rank < n).
- * Can easily be extended to prime moduli; for prime powers, repeatedly
- * set $A^{-1} = A^{-1} (2I - AA^{-1})\  (\text{mod }p^k)$ where $A^{-1}$ starts as
- * the inverse of A mod p, and k is doubled in each step.
- * Time: O(n^3)
- * Status: Slightly tested
- */
-#pragma once
-
+/* Author: Max Bennedich
+* Description: Invert matrix $A$. Returns rank; result is stored in $A$ unless singular (rank < n).
+* Can easily be extended to prime moduli; for prime powers, repeatedly
+* set $A^{-1} = A^{-1} (2I - AA^{-1})\  (\text{mod }p^k)$ where $A^{-1}$ starts as
+* the inverse of A mod p, and k is doubled in each step.
+* Time: O(n^3)
+* Status: Slightly tested */
 int matInv(vector<vector<double>>& A) {
   int n = sz(A); vi col(n);
   vector<vector<double>> tmp(n, vector<double>(n));
   rep(i,0,n) tmp[i][i] = 1, col[i] = i;
-
   rep(i,0,n) {
     int r = i, c = i;
     rep(j,i,n) rep(k,i,n)
@@ -36,13 +30,11 @@ int matInv(vector<vector<double>>& A) {
     rep(j,0,n) tmp[i][j] /= v;
     A[i][i] = 1;
   }
-
   /// forget A at this point, just eliminate tmp backward
   for (int i = n-1; i > 0; --i) rep(j,0,i) {
     double v = A[j][i];
     rep(k,0,n) tmp[j][k] -= v*tmp[i][k];
   }
-
   rep(i,0,n) rep(j,0,n) A[col[i]][col[j]] = tmp[i][j];
   return n;
 }

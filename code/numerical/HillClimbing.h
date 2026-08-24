@@ -1,15 +1,7 @@
-/**
- * Author: Simon Lindholm
- * Date: 2015-02-04
- * License: CC0
- * Source: Johan Sannemo
- * Description: Poor man's optimization for unimodal functions.
- * Status: used with great success
- */
-#pragma once
-
+/* Author: Simon Lindholm (License: CC0)
+* Description: Poor man's optimization for unimodal functions.
+* Status: used with great success */
 typedef array<double, 2> P;
-
 template<class F> pair<double, P> hillClimb(P start, F f) {
   pair<double, P> cur(f(start), start);
   for (double jmp = 1e9; jmp > 1e-20; jmp /= 2) {
