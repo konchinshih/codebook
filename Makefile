@@ -1,4 +1,4 @@
-.PHONY: all clean docker fast typst
+.PHONY: all docker typst latex clean distclean
 
 DOCKER_IMAGE ?= ghcr.io/konchinshih/codebook:main
 DOCKER_MAKE_GOALS := $(filter-out docker,$(MAKECMDGOALS))
@@ -23,18 +23,25 @@ $(DOCKER_MAKE_GOALS):
 	@:
 endif
 else
-typst:
-	python3 make-palette.py && typst compile main.typ main.pdf --font-path fonts
-endif
 
-main.pdf: main.tex code/**
+main.pdf: typst
+
+typst: main.typ hash.sha256 code/**
+	python3 make-palette.py
+	typst compile main.typ main.pdf --font-path fonts --creation-timestamp 0
+
+hash.sha256: hash.sh code/**
+	./hash.sh
+
+latex: main.tex code/**
 	xelatex -shell-escape main.tex
 	xelatex -shell-escape main.tex
 	-rm -rf $(INTERMEDIATE_FILES)
 
-fast:
-	xelatex --shell-escape main.tex
-	xelatex --shell-escape main.tex
+endif
 
 clean:
-	-rm -rf main.pdf $(INTERMEDIATE_FILES)
+	-rm -rf $(INTERMEDIATE_FILES)
+
+distclean:
+	-rm -rf main.pdf hash.sha256 $(INTERMEDIATE_FILES)

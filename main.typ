@@ -15,6 +15,23 @@
 #let code-line-number-color = rgb("#c0c7d2")
 #let code-line-spacing = -0.3em
 #let code-wrap-leading = 0.3em
+#let hash-size = 6pt
+#let hash-color = black
+
+// ---- hash.sha256 lookup: "path" -> "sha256sum", parsed once at compile time ----
+// Each line is "<right-padded path> <hash>"; the hash never contains spaces,
+// so it's always the last whitespace-separated token on the line.
+#let code-hashes = {
+  let table = (:)
+  for line in read("hash.sha256").split("\n") {
+    let trimmed = line.trim()
+    if trimmed == "" { continue }
+    let parts = trimmed.split(" ")
+    if parts.len() < 2 { continue }
+    table.insert(parts.slice(0, -1).join(" "), parts.last())
+  }
+  table
+}
 
 #let table-of-contents-size = 7pt
 #let table-of-contents-section-spacing = 0.5em
@@ -67,6 +84,11 @@
   ]
   v(-0.25em)
 }
+// Set right before a heading whose title should carry a hash badge (see
+// `sub` below), and cleared immediately after — read only by the level-2
+// show rule, so it never leaks into outline()'s reuse of heading bodies.
+#let heading-hash = state("codebook-heading-hash", none)
+
 #show heading.where(level: 2): it => {
   v(0.3em, weak: true)
   block(
@@ -75,6 +97,12 @@
     inset: (x: 4pt, y: 2pt),
   )[
     #text(size: heading2-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
+    #context {
+      let hash = heading-hash.get()
+      if hash != none {
+        place(right + horizon, text(size: hash-size, weight: "bold", fill: hash-color, font: "CodeNewRoman Nerd Font Propo")[#hash])
+      }
+    }
   ]
   v(-0.25em)
 }
@@ -109,6 +137,26 @@
 #let sh(path) = listing(path, lang: "bash")
 #let py(path) = listing(path, lang: "python")
 #let txt(path) = listing(path, lang: none)
+
+// ---- "== Title" + single-file listing, collapsed into one call ----
+// Builds a normal (numbered, outlined) level-2 heading via heading(level: 2),
+// so it goes through the same #show heading.where(level: 2) rule as a
+// manually written "==" heading — only the hash overlay and language
+// auto-detection are new.
+#let lang-for(path) = {
+  if path.ends-with(".py") { "python" }
+  else if path.ends-with(".sh") { "bash" }
+  else if path.ends-with(".txt") { none }
+  else { "cpp" }
+}
+#let sub(title, path) = {
+  let hash = code-hashes.at(path, default: none)
+  let hash-short = if hash != none { hash.slice(0, 6) } else { none }
+  heading-hash.update(hash-short)
+  heading(level: 2)[#title]
+  heading-hash.update(none)
+  listing(path, lang: lang-for(path))
+}
 
 // ---- math helpers (Typst requires multi-letter bare words to resolve to
 // a binding; these stand in for LaTeX's un-\text'd multi-letter variables) ----
@@ -182,44 +230,32 @@
   == vimrc
   #sh("code/basic/vimrc")
   #sh("code/basic/vimrc-gino")
-  == bashrc
-  #sh("code/basic/bashrc")
+  #sub("bashrc", "code/basic/bashrc")
 
 
 = Basic
-  == Template (Using Codebook)
-  #listing("code/basic/template_codebook.cpp")
-  == PBDS, Random
-  #listing("code/basic/PBDS_and_Random.cpp")
-  == Debug
-  #listing("code/basic/debug.cpp")
+  #sub("Template (Using Codebook)", "code/basic/template_codebook.cpp")
+  #sub("PBDS, Random", "code/basic/PBDS_and_Random.cpp")
+  #sub("Debug", "code/basic/debug.cpp")
   == SVG Writer
   #listing("code/basic/SVGWriter.cpp")
   #listing("code/basic/SVGWriterUsage.cpp")
-  == Python
-  #py("code/basic/Python.py")
+  #sub("Python", "code/basic/Python.py")
   == Stress Tests
   #py("code/stress-test/gen.py")
   #sh("code/stress-test/test.sh")
 
 
 = Data Structure
-  == Mo's Algorithm
-  #listing("code/data-structure/Mo-algorithm.cpp")
-  == CDQ
-  #listing("code/data-structure/CDQ.cpp")
-  == Persistent Treap
-  #listing("code/data-structure/persistent-treap.cpp")
-  == Li Chao Tree
-  #listing("code/data-structure/li-chao-tree.cpp")
-  == Time Segment Tree
-  #listing("code/data-structure/time-segtree.cpp")
+  #sub("Mo's Algorithm", "code/data-structure/Mo-algorithm.cpp")
+  #sub("CDQ", "code/data-structure/CDQ.cpp")
+  #sub("Persistent Treap", "code/data-structure/persistent-treap.cpp")
+  #sub("Li Chao Tree", "code/data-structure/li-chao-tree.cpp")
+  #sub("Time Segment Tree", "code/data-structure/time-segtree.cpp")
 
 = DP
-  == SOS DP
-  #listing("code/dp/SOS_DP.cpp")
-  == Divide and Conquer DP
-  #listing("code/dp/DivideAndConquerDP.cpp")
+  #sub("SOS DP", "code/dp/SOS_DP.cpp")
+  #sub("Divide and Conquer DP", "code/dp/DivideAndConquerDP.cpp")
   == Dynamic DP
   - 適用情境：$d p_i = M_i dot d p_(i-1) arrow.double d p_i = M_i M_(i-1) dots.c M_1 d p_0$
   - 當 $M_i$ 需要動態修改，且 $M_i$ 是廣義矩陣乘法：
@@ -232,12 +268,9 @@
   
 
 = Graph
-  == Max Clique
-  #listing("code/graph/MaxClique.cpp")
-  == Bellman-Ford
-  #listing("code/graph/BellmanFord.cpp")
-  == System of Difference Constraints
-  #listing("code/graph/DiffConstraints.cpp")
+  #sub("Max Clique", "code/graph/MaxClique.cpp")
+  #sub("Bellman-Ford", "code/graph/BellmanFord.cpp")
+  #sub("System of Difference Constraints", "code/graph/DiffConstraints.cpp")
   - $x_u - x_v <= c =>$ `add(v, u, c)`
   - $x_u - x_v >= c =>$ `add(u, v, -c)`
   - $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
@@ -247,22 +280,15 @@
   - $x_u \/ x_v <= c =>$ $log x_u - log x_v <= log c$
   == Graph Girth
   Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
-  == Euler Trail
-  #listing("code/graph/Eulerian.cpp")
-  == Vertex BCC (Round Square Tree)
-  #listing("code/graph/RoundSquareTree.cpp")
-  == Edge BCC
-  #listing("code/graph/EBCC.cpp")
-  == Kth Shortest Path
-  #listing("code/graph/KSP.cpp")
-  == SCC - Tarjan
-  #listing("code/graph/SCC.cpp")
-  == 2SAT
-  #listing("code/graph/2SAT.cpp")
+  #sub("Euler Trail", "code/graph/Eulerian.cpp")
+  #sub("Vertex BCC (Round Square Tree)", "code/graph/RoundSquareTree.cpp")
+  #sub("Edge BCC", "code/graph/EBCC.cpp")
+  #sub("Kth Shortest Path", "code/graph/KSP.cpp")
+  #sub("SCC - Tarjan", "code/graph/SCC.cpp")
+  #sub("2SAT", "code/graph/2SAT.cpp")
 
 = Tree
-  == Tree Isomorphism (Rooted Trees)
-  #listing("code/tree/RootedTreeIsomorphism.cpp") 
+  #sub("Tree Isomorphism (Rooted Trees)", "code/tree/RootedTreeIsomorphism.cpp")
   == Tree Isomorphism (Unrooted Trees)
   Find the centroid(s) of $T_1$, $T_2$. \
   Case 1: $T_1, T_2$ have different number of centroids $->$ NO \
@@ -270,67 +296,46 @@
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ \
   Case 3: $T_1$ has centroids $c_1, c'_1$, $T_2$ has centroids $c_2, c'_2$ \
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ `||` $r o o t e d \_ i s o m o r p h i c(c'_1, c_2)$
-  == Heavy Light Decomposition
-  #listing("code/tree/HLD-Ian.cpp")
-  == Virtual Tree
-  #listing("code/tree/VirtualTree.cpp")
+  #sub("Heavy Light Decomposition", "code/tree/HLD-Ian.cpp")
+  #sub("Virtual Tree", "code/tree/VirtualTree.cpp")
 
 = Matching
-  == Bipartite Matching
-  #listing("code/matching/BipartiteMatching.cpp")
-  == Bipartite Weighted Matching
-  #listing("code/matching/BipartiteWeightedMatching.cpp")
-  == General Matching
-  #listing("code/matching/GeneralMatching.cpp")
-  == General Weighted Matching
-  #listing("code/matching/GeneralWeightedMatching.cpp")
+  #sub("Bipartite Matching", "code/matching/BipartiteMatching.cpp")
+  #sub("Bipartite Weighted Matching", "code/matching/BipartiteWeightedMatching.cpp")
+  #sub("General Matching", "code/matching/GeneralMatching.cpp")
+  #sub("General Weighted Matching", "code/matching/GeneralWeightedMatching.cpp")
 
 = Flow
-  == Flow Methods
-  #txt("code/flow/FlowMethod.txt")
-  == Dinic
-  #listing("code/flow/Dinic.cpp")
-  == ISAP
-  #listing("code/flow/ISAP.cpp")
-  == Bounded Max Flow
-  #listing("code/flow/BoundedMaxFlow.cpp")
-  == MCMF
-  #listing("code/flow/MCMF.cpp")
-  == Push-Relabel
-  #listing("code/flow/PushRelabel.cpp")
-  == Gomory-Hu Tree
-  #listing("code/flow/GomoryHuTree.cpp")
-  == Global Min Cut
-  #listing("code/flow/StoerWagner.cpp")
+  #sub("Flow Methods", "code/flow/FlowMethod.txt")
+  #sub("Dinic", "code/flow/Dinic.cpp")
+  #sub("ISAP", "code/flow/ISAP.cpp")
+  #sub("Bounded Max Flow", "code/flow/BoundedMaxFlow.cpp")
+  #sub("MCMF", "code/flow/MCMF.cpp")
+  #sub("Push-Relabel", "code/flow/PushRelabel.cpp")
+  #sub("Gomory-Hu Tree", "code/flow/GomoryHuTree.cpp")
+  #sub("Global Min Cut", "code/flow/StoerWagner.cpp")
   //== Cover / Independent Set
   //#txt("code/flow/CoverIndepend.txt")
 
 
 = String
-  == Rolling Hash
-  #listing("code/string/RollingHash.cpp")
+  #sub("Rolling Hash", "code/string/RollingHash.cpp")
   == KMP, Z Value
   #listing("code/string/KMP.cpp")
   #listing("code/string/Zval.cpp")
-  == Manacher
-  #listing("code/string/Manacher.txt")
-  == Suffix Array
-  #listing("code/string/SA.cpp")
-  == Suffix Automaton
-  #listing("code/string/SAM.cpp")
+  #sub("Manacher", "code/string/Manacher.txt")
+  #sub("Suffix Array", "code/string/SA.cpp")
+  #sub("Suffix Automaton", "code/string/SAM.cpp")
   //== SA-IS
   //#listing("code/string/SA-IS.cpp")
-  == Minimum Rotation
-  #listing("code/string/MinRotation.cpp")
-  == Aho Corasick
-  #listing("code/string/ACAutomaton.txt")
+  #sub("Minimum Rotation", "code/string/MinRotation.cpp")
+  #sub("Aho Corasick", "code/string/ACAutomaton.txt")
 
 
 
 
 = Geometry
-  == Template
-  #listing("code/geometry/GeometryDefault.cpp")
+  #sub("Template", "code/geometry/GeometryDefault.cpp")
   == Basic Operations
   #listing("code/geometry/InPoly.cpp")
   #listing("code/geometry/SortByAngle.cpp")
@@ -338,50 +343,35 @@
   #listing("code/geometry/LineIntersection.cpp")
   #listing("code/geometry/ConvexHull.cpp")
   #listing("code/geometry/PolygonArea.cpp")
-  == Lower Concave Hull
-  #listing("code/geometry/LowerConcaveHull.cpp")
+  #sub("Lower Concave Hull", "code/geometry/LowerConcaveHull.cpp")
   == Pick's Theorem
   Consider a polygon which vertices are all lattice points.\
   Let $i$ = number of points inside the polygon.\
   Let $b$ = number of points on the boundary of the polygon.\
   Then we have the following formula:\
   $ "Area" = i + b \/ 2 - 1 $
-  == Minimum Enclosing Circle
-  #listing("code/geometry/MinEnclosingCircle.cpp")
-  == PolyUnion
-  #listing("code/geometry/PolyUnion.cpp")
-  == Minkowski Sum
-  #listing("code/geometry/MinkowskiSum.cpp")
+  #sub("Minimum Enclosing Circle", "code/geometry/MinEnclosingCircle.cpp")
+  #sub("PolyUnion", "code/geometry/PolyUnion.cpp")
+  #sub("Minkowski Sum", "code/geometry/MinkowskiSum.cpp")
 
 
 = Number Theory
-  == Mod Sum
-  #listing("code/new-number-theory/modSum.cpp")
-  == Extended Lucas Theorem
-  #listing("code/new-number-theory/ex-lucas.cpp")
-  == Prime Sieve and Defactor
-  #listing("code/number-theory/PrimeSeive+Defactor.cpp")
-  == Harmonic Series
-  #listing("code/number-theory/Harmonic_Series.cpp")
-  == Count Number of Divisors
-  #listing("code/number-theory/Number_of_Divisors.cpp")
-  == 數論分塊
-  #listing("code/number-theory/數論分塊.cpp")
+  #sub("Mod Sum", "code/new-number-theory/modSum.cpp")
+  #sub("Extended Lucas Theorem", "code/new-number-theory/ex-lucas.cpp")
+  #sub("Prime Sieve and Defactor", "code/number-theory/PrimeSeive+Defactor.cpp")
+  #sub("Harmonic Series", "code/number-theory/Harmonic_Series.cpp")
+  #sub("Count Number of Divisors", "code/number-theory/Number_of_Divisors.cpp")
+  #sub("數論分塊", "code/number-theory/數論分塊.cpp")
   == Pollard's rho
   #listing("code/number-theory/PollardRho.cpp")
   #py("code/number-theory/PollardRho.py")
-  == Miller Rabin
-  #listing("code/number-theory/MillerRabin.cpp")
-  == Discrete Log
-  #listing("code/number-theory/DiscreteLog.cpp")
-  == Discrete Sqrt
-  #listing("code/number-theory/DiscreteSqrt.cpp")
+  #sub("Miller Rabin", "code/number-theory/MillerRabin.cpp")
+  #sub("Discrete Log", "code/number-theory/DiscreteLog.cpp")
+  #sub("Discrete Sqrt", "code/number-theory/DiscreteSqrt.cpp")
   == Fast Power
   Note: $a^n equiv a^((n mod (p-1))) (mod p)$
-  == Extend GCD
-  #listing("code/number-theory/ExtGCD.cpp")
-  == Mu + Phi
-  #listing("code/number-theory/Mu + Phi.cpp")
+  #sub("Extend GCD", "code/number-theory/ExtGCD.cpp")
+  #sub("Mu + Phi", "code/number-theory/Mu + Phi.cpp")
 
   == Other Formulas
   - Pisano Period: 任何線性遞迴（比如費氏數列）模任何一個數字 $M$ 都會循環，找循環節 $pi(M)$ 先質因數分解 $M = product p_i^(e_i)$，然後 $pi(M) = lcm(pi(p_i^(e_i)))$，
@@ -422,12 +412,9 @@
     + $[gcd=1] = sum_(d|gcd) mu(d)$
   - Möbius inversion: $f = g * 1 <=> g = f * mu$
 
-    == Polynomial
-    #listing("code/number-theory/Polynomial.cpp")
-    == Counting Primes
-    #listing("code/new-number-theory/counting_primes.cpp")
-    == Linear Sieve for Other Number Theoretic Functions
-    #listing("code/new-number-theory/linear_sieve.cpp")
+    #sub("Polynomial", "code/number-theory/Polynomial.cpp")
+    #sub("Counting Primes", "code/new-number-theory/counting_primes.cpp")
+    #sub("Linear Sieve for Other Number Theoretic Functions", "code/new-number-theory/linear_sieve.cpp")
 
 // = Linear Algebra
 
