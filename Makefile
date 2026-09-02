@@ -2,6 +2,12 @@
 
 DOCKER_IMAGE ?= ghcr.io/konchinshih/codebook:main
 DOCKER_MAKE_GOALS := $(filter-out docker,$(MAKECMDGOALS))
+# Rootless Podman remaps the bind-mounted working dir to root inside its user
+# namespace, so the -u UID:GID process below can't write to it (e.g. the
+# make-palette.py tempfile in themes/) unless we ask Podman to keep the
+# caller's UID mapped 1:1. Real Docker doesn't understand --userns=keep-id
+# (and doesn't need it), so only add it when the `docker` binary is Podman.
+DOCKER_USERNS := $(if $(findstring podman,$(shell docker --version 2>&1)),--userns=keep-id,)
 
 INTERMEDIATE_FILES += _minted-main main.aux main.bbl main.bcf main.blg \
 											main.log main.nav main.out main.run.xml main.snm \
@@ -13,6 +19,7 @@ docker:
 	docker run \
 		-v ".:/work" --rm \
 		-u "$(shell id -u):$(shell id -g)" \
+		$(DOCKER_USERNS) \
 		--platform=linux/amd64 \
 		--entrypoint make \
 		$(DOCKER_IMAGE) $(DOCKER_MAKE_GOALS)
@@ -28,7 +35,7 @@ main.pdf: typst
 
 typst: main.typ hash.sha256 code/**
 	python3 make-palette.py
-	typst compile main.typ main.pdf --font-path fonts --creation-timestamp 0
+	typst compile main.typ main.pdf --font-path fonts --ignore-system-fonts --creation-timestamp 0
 
 hash.sha256: hash.sh code/**
 	./hash.sh
