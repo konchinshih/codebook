@@ -347,19 +347,15 @@
 
 = String
   #sub("Rolling Hash", "code/string/RollingHash.cpp")
-  == KMP
-  #listing("code/string/KMP.cpp")
-  == Z Value
-  #listing("code/string/Z.cpp")
+  #sub("KMP", "code/string/KMP.cpp")
+  #sub("Z Value", "code/string/Z.cpp")
   #sub("Manacher", "code/string/Manacher.cpp")
   #sub("Suffix Array + LCP", "code/string/SA.cpp")
   #sub("Suffix Automaton", "code/string/SAM.cpp")
   #sub("Minimum Rotation", "code/string/MinRotation.cpp")
-  #sub("AC Automaton
-  #listing("code/string/AC.cpp")
-  == AC Automaton - Dict Links", "code/string/AC-DictLink.cpp")
-  == AC Automaton - Counting Patterns
-  #listing("code/string/AC-CountPatterns.cpp")
+  #sub("AC Automaton", "code/string/AC.cpp")
+  #sub("AC Automaton - Dict Links", "code/string/AC-DictLink.cpp")
+  #sub("AC Automaton - Counting Patterns", "code/string/AC-CountPatterns.cpp")
   == AC Automaton - Pattern Position
   輸出每個 pattern 在 text 中第一次出現的位置，若不存在則輸出 -1。\
   走 AC 自動機時 `if val[ptr] == -1 val[ptr] = i;` 接著 pull DP\
