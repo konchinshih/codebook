@@ -16,7 +16,6 @@
                                             code/basic/vimrc 016d2c5407f18a1399820a33d00f100b5966264b164a5c6d944407db6a10e6ac
                                        code/basic/vimrc-gino 6ecd623617f043789d162b1e03fdd004f060d9d5460c52eb53692682bc4e298c
                     code/data-structure/persistent-treap.cpp da623bece51ea9b3011972880d9defc78126de75940ee0de7a8796193a19d6d0
-                        code/data-structure/time-segtree.cpp de40062eb93635d597f183840b72f3a7cf23e1c92633575a1bc500892df567b5
                          code/data-structure/SegmentTree.cpp 3615cafab9f739e6a7fe502ac53ee4650a4948d633b7ca5c785ca2b6474ef9de
                         code/data-structure/leftist-heap.cpp 1d8a301b401f38a09eb70f2f8dd0a90eb8005e9d93105ed62436474c0789b5ea
                         code/data-structure/li-chao-tree.cpp 584e74f2e78ffb4aff8733616204eaadf25fa1128d37e2ca3e1f5ead354baf07
@@ -27,6 +26,7 @@
                  code/data-structure/old_files/skew-heap.cpp 4730da36631a3da1af42a24dc2255d7443eaebe4bb348f7744f5c2133f2c99d0
                                  code/data-structure/CDQ.cpp 6841a2b6888340dae676181b1d73410b92bb15f7241473502121568cd57a53ae
                        code/data-structure/LineContainer.cpp e62910bc2ec3bf2ad5c02b488f9572dd10c7039ec5e0c0fdb40d8af35d98143b
+                        code/data-structure/time-segtree.cpp 8311ca0df025b627c6e12bed591d54ed522e96cc6507c9decb1d033fcbd59a6e
                                           code/dp/SOS_DP.cpp 6f34a57d412c327a0262c63b481667f23abe9cdcd674b92b7914930f7fbed432
                                 code/dp/old_files/Aliens.cpp eecc00d0da355e0336205b78ad4efb91d812456897f38e4341ed0e4255aec278
                       code/dp/old_files/dice_expectation.cpp 0aae872d13cefac3495d85db9bc80fe5eba75fb54f92c2be9ebed7e758796a06
