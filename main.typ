@@ -323,7 +323,7 @@
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ \
   Case 3: $T_1$ has centroids $c_1, c'_1$, $T_2$ has centroids $c_2, c'_2$ \
   $->$ $r o o t e d \_ i s o m o r p h i c(c_1, c_2)$ `||` $r o o t e d \_ i s o m o r p h i c(c'_1, c_2)$
-  #sub("Heavy Light Decomposition", "code/tree/HLD-Ian.cpp")
+  #sub("Heavy Light Decomposition", "code/tree/HLD.cpp")
   #sub("Virtual Tree", "code/tree/VirtualTree.cpp")
 
 = Matching
