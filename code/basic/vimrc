@@ -2,4 +2,4 @@ syn on
 set nu rnu cul mouse=a cin et ts=2 sw=2 sts=2 autochdir cb=unnamedplus
 no ; :
 ino {<CR> {<CR>}<Esc>ko
-ca Hash w !cpp -dD -P \| tr -d '[:space:]' \| md5sum \| cut -c-6
+ca Hash w !cpp -dD -P \| tr -d '[:space:]' \| openssl sha256 -r \| cut -c-6
