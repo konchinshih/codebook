@@ -1,13 +1,14 @@
-// lexicographically minimal rotation
-// rotate(begin(s), begin(s)+minRotation(s), end(s))
-int minRotation(string s) {
-int a = 0, n = s.size(); s += s;
-for(int b = 0; b < n; b++) for(int k = 0; k < n; k++) {
-    if(a + k == b || s[a + k] < s[b + k]) {
-        b += max(0, k - 1);
-        break; }
-    if(s[a + k] > s[b + k]) {
-        a = b;
-        break;
-    } } 
-return a; }
+// Author: std_abs
+string rotate(const string &s) {
+  int n = (int)s.size(), i = 0, j = 1;
+  string t = s + s;
+  while (i < n && j < n) {
+    int k = 0;
+    while (k < n && t[i + k] == t[j + k]) ++k;
+    if (t[i + k] <= t[j + k]) j += k + 1;
+    else i += k + 1;
+    if (i == j) ++j;
+  }
+  int pos = (i < n ? i : j);
+  return t.substr(pos, n);
+}

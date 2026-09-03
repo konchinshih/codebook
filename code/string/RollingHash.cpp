@@ -1,25 +1,19 @@
-const ll C = 27;
-inline int id(char c) {return c-'a'+1;}
-struct RollingHash {
-    string s; int n; ll mod;
-    vector<ll> Cexp, hs;
-    RollingHash(string& _s, ll _mod):
-        s(_s), n((int)_s.size()), mod(_mod)
-    {
-        Cexp.assign(n, 0);
-        hs.assign(n, 0);
-        Cexp[0] = 1;
-        for (int i = 1; i < n; i++) {
-            Cexp[i] = Cexp[i-1] * C;
-            if (Cexp[i] >= mod) Cexp[i] %= mod;
-        }
-        hs[0] = id(s[0]);
-        for (int i = 1; i < n; i++) {
-            hs[i] = hs[i-1] * C + id(s[i]);
-            if (hs[i] >= mod) hs[i] %= mod;
-    } }
-    inline ll query(int l, int r) {
-        ll res = hs[r] - (l ? hs[l-1] * Cexp[r-l+1] : 0);
-        res = (res % mod + mod) % mod;
-        return res; }
+// Author: ckiseki
+// Usage: RH<Sigma, Mod> Hs(s);
+template <ll C = 127, ll Q = 1051762951>
+class RH {
+  vector<ll> h, p;
+  static ll add(ll a, ll b) { return a + b >= Q ? a + b - Q : a + b; }
+  static ll sub(ll a, ll b) { return a - b < 0  ? a - b + Q : a - b; }
+  static ll mul(ll a, ll b) { return (__int128)a * b % Q; }
+public:
+  RH(const auto &s) : h(s.size()+1), p(s.size()+1) {
+    for (size_t i = 0; i < s.size(); ++i)
+      h[i + 1] = add(mul(h[i], C), s[i]);
+    generate(all(p), [x = 1LL, y = 1LL, this]() mutable {
+      return y = x, x = mul(x, C), y; });
+  }
+  ll query(int l, int r) const { // 0-base [l, r)
+    return sub(h[r], mul(h[l], p[r - l]));
+  }
 };

@@ -1,4 +1,6 @@
 // Author: std_abs
+// Tested @yosupo, N <= 5e5, 123ms
+const int N = 5e5 + 10;
 int sa[N], tmp[2][N], c[N], rk[N], lcp[N];
 void buildSA(string s) {
   int *x = tmp[0], *y = tmp[1], m = 256, n = s.size();

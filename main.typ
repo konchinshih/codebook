@@ -24,10 +24,9 @@
 #let heading1-background = rgb("#c9c9c9")
 #let heading2-background = rgb("#e3e3e3")
 
+
 #set text(
-  // Keep Latin text consistent with the LaTeX version and use the
-  // Traditional-Chinese font for characters that the Latin font lacks.
-  font: ("Hiragino Mincho ProN", "Noto Serif TC", "CodeNewRoman Nerd Font Propo"),
+  font: ("Libertinus Serif", "Anthropic Serif Text"),
   size: body-size,
 )
 #set raw(theme: "themes/codeblock-theme.tmTheme")
@@ -212,6 +211,34 @@
   #listing("code/data-structure/persistent-treap.cpp")
   == Li Chao Tree
   #listing("code/data-structure/li-chao-tree.cpp")
+//   目前這份 沒有支援線段／射線插入；insert(line x) 代表這條線在整個 \([0,\text{maxn})\) 都有效。
+
+// 但這份結構很好改，直接外掛一個 range insert：
+
+// void insert_seg(line x, int ql, int qr,
+//                 int i = 1, int l = 0, int r = maxn) {
+//     if (qr <= l || r <= ql) return;
+//     if (ql <= l && r <= qr) {
+//         insert(x, i, l, r);
+//         return;
+//     }
+//     insert_seg(x, ql, qr, i << 1, l, m);
+//     insert_seg(x, ql, qr, i << 1 | 1, m, r);
+// }
+
+// 這樣：
+
+// insert_seg(L, l, r);     // L 只在 [l,r) 有效
+// insert_seg(L, x, maxn);  // 向右射線
+// insert_seg(L, 0, x + 1); // 向左射線（若 x 是整數且含端點）
+
+// 複雜度大約變成
+
+// $$ O(\log^2 C) $$
+
+// 每次 segment insertion；point query 還是 \(O(\log C)\)。
+
+// 不過你們這份還有一個值得修的地方：arr 是 global static，所以預設 line 是 \(y=0\)。如果合法答案可能是負數，空節點會錯誤貢獻 0。最好加 bool has[] 或初始化成真正的 \(-\infty\) line。
   == Time Segment Tree
   #listing("code/data-structure/time-segtree.cpp")
 
@@ -309,22 +336,30 @@
 = String
   == Rolling Hash
   #listing("code/string/RollingHash.cpp")
-  == KMP, Z Value
+  == KMP
   #listing("code/string/KMP.cpp")
-  #listing("code/string/Zval.cpp")
+  == Z Value
+  #listing("code/string/Z.cpp")
   == Manacher
-  #listing("code/string/Manacher.txt")
-  == Suffix Array
+  #listing("code/string/Manacher.cpp")
+  == Suffix Array + LCP
   #listing("code/string/SA.cpp")
   == Suffix Automaton
   #listing("code/string/SAM.cpp")
-  //== SA-IS
-  //#listing("code/string/SA-IS.cpp")
   == Minimum Rotation
   #listing("code/string/MinRotation.cpp")
-  == Aho Corasick
-  #listing("code/string/ACAutomaton.txt")
-
+  == AC Automaton
+  #listing("code/string/AC.cpp")
+  == AC Automaton - Dict Links
+  #listing("code/string/AC-DictLink.cpp")
+  == AC Automaton - Counting Patterns
+  #listing("code/string/AC-CountPatterns.cpp")
+  == AC Automaton - Pattern Position
+  輸出每個 pattern 在 text 中第一次出現的位置，若不存在則輸出 -1。\
+  走 AC 自動機時 `if val[ptr] == -1 val[ptr] = i;` 接著 pull DP\
+  `if val[x] == -1 continue;`\
+  `if (val[fail[x]] == -1) val[fail[x]] = val[x];`\
+  `else val[fail[x]] = min(val[fail[x]], val[x]);`\
 
 
 
