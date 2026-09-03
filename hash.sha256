@@ -20,13 +20,13 @@
                          code/data-structure/SegmentTree.cpp 3615cafab9f739e6a7fe502ac53ee4650a4948d633b7ca5c785ca2b6474ef9de
                         code/data-structure/leftist-heap.cpp 1d8a301b401f38a09eb70f2f8dd0a90eb8005e9d93105ed62436474c0789b5ea
                         code/data-structure/li-chao-tree.cpp 584e74f2e78ffb4aff8733616204eaadf25fa1128d37e2ca3e1f5ead354baf07
-                                 code/data-structure/CDQ.cpp 6841a2b6888340dae676181b1d73410b92bb15f7241473502121568cd57a53ae
-                       code/data-structure/LineContainer.cpp e62910bc2ec3bf2ad5c02b488f9572dd10c7039ec5e0c0fdb40d8af35d98143b
                         code/data-structure/Mo-algorithm.cpp 7b8a83a4a64e7bdfb07439a97808fb58096818b70a4a34cf245465e070de9b93
                          code/data-structure/SparseTable.cpp ff7b3d57e96d445d2bcccf91ee6e203353b42cbf48a0cb6574206233ec6025a9
                        code/data-structure/old_files/BIT.cpp 9a15c3bfb9e7db49ab73d33d464c922f8f558396dda33ac421198cedd4db6c36
    code/data-structure/old_files/SegmentTree-Instruction.cpp ca6569302b57f76d27bc6e11353d8745eb64a08f678b203b7039990db9c9461d
                  code/data-structure/old_files/skew-heap.cpp 4730da36631a3da1af42a24dc2255d7443eaebe4bb348f7744f5c2133f2c99d0
+                                 code/data-structure/CDQ.cpp 6841a2b6888340dae676181b1d73410b92bb15f7241473502121568cd57a53ae
+                       code/data-structure/LineContainer.cpp e62910bc2ec3bf2ad5c02b488f9572dd10c7039ec5e0c0fdb40d8af35d98143b
                                           code/dp/SOS_DP.cpp 6f34a57d412c327a0262c63b481667f23abe9cdcd674b92b7914930f7fbed432
                                 code/dp/old_files/Aliens.cpp eecc00d0da355e0336205b78ad4efb91d812456897f38e4341ed0e4255aec278
                       code/dp/old_files/dice_expectation.cpp 0aae872d13cefac3495d85db9bc80fe5eba75fb54f92c2be9ebed7e758796a06
@@ -73,10 +73,10 @@
                        code/graph/old_files/HamiltonPath.cpp e970d7a1eb23c1331f10fde64b8c6e95e6ba29f8e94154a3f06a8777343da32b
                         code/graph/old_files/MST-kruskal.cpp 8b596087b7c89ac1428921c76a50aff77ea76d3c9feedb71ae7272484b366ace
                            code/graph/old_files/MST-prim.cpp 2eb8d60bf4b62d965a28e325420da5e02ee83bbede24c09adde78c87b2a6dc43
-                                         code/graph/2SAT.cpp b7f00cdb85921cad0a30237a224c3be1b95f72ad583a141bd2604c20866442bc
-                                         code/graph/VBCC.cpp 04286d44c0b11dc61c558a09c9df87ef2630ffd6363a4254294bd8fdd63a58e2
                                          code/graph/EBCC.cpp 6c2e14ece3c6e4f7672228361bfb1c8e7031ea6011eb87db0633bc135ebbe906
                                           code/graph/SCC.cpp be3d9367fe7dbddca2e7dbd7e7ad0eb565a6462c96be28a3a09f75935e1e1db0
+                                         code/graph/VBCC.cpp 04286d44c0b11dc61c558a09c9df87ef2630ffd6363a4254294bd8fdd63a58e2
+                                         code/graph/2SAT.cpp b340801f61cbdb22b578bc7ce17be2785c8ffd9814c61cc3603b42bf41b4679a
                     code/linear-algebra/GaussElimination.cpp 4145cbb513a2222f7e04450a8d0040d2c4e3a41661900e465e0a2ae69286d0c1
                                 code/number-theory/Basic.cpp f1d846c00905c924ee12ae92c4509dafb5c889c8ea5a3b186e6e61c958ad134e
                                   code/number-theory/FFT.cpp cad0e3eb848ed7bcb1eae0de18ad14791eea401e65567b0c8ce71655b089012a
@@ -98,12 +98,6 @@
                                code/number-theory/ModPow.cpp 4b5d4d682174c8f372a5b0269c21f1e03d44b40bbf86aa93a537308de1248ec4
           code/number-theory/old_files/Legacy-Polynomial.cpp a74805e30d8e61611300e3eedba749439ee6a4e563421508102623d34f82a3c5
                                          code/string/SAM.cpp 232d0d16a07204624ab5f9278bcbfb00ae5a3ae86207eba7554e748749def104
-                                code/string/old_files/SA.cpp dba64385d97592d59e83ad8f1f39faec273c60335b063ae025b655bae1e087c8
-                              code/string/old_files/Trie.cpp ed87421123f8e4c7ff6e5a02b8956c07a1a356b6e237bf12819d48ccae85fdbe
-                       code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
-                             code/string/old_files/SA-IS.cpp 92048a03ef64a563856e8378b02fc802288aa44e11a975dc4fe65efa3ab22a67
-                      code/string/old_files/SA-Optimized.cpp 96223cb8d888eef86350a0c92e810d9790431ffde3ff532bb44df98ba0f1c24e
-           code/string/old_files/SuffixArray-Instruction.cpp 9d1f770fb26555c5f2fe48114fd0dfc66f491a2868c88c3e7a6d838854339cbb
                             code/string/AC-CountPatterns.cpp b01b7a586c8db87e97853290d37991cb077b1ffcd4c30a847f14bd4933a9df12
                                  code/string/AC-DictLink.cpp bc1d79f63b892b6b253f8218a6c869187b453e0b4e13ab20e9fb6a011c78fbd9
                           code/string/AC-PatternPosition.cpp 9c425c9c3bd4c674c57bbdf7324b42785f72a2896a89089dbf8f08aed0780d7e
@@ -114,6 +108,12 @@
                                  code/string/RollingHash.cpp 1c3c95382fba604c54dc11083b21e59d2d1a0f92e2b3d09cf03e1bd85adfed9f
                                           code/string/SA.cpp 395ec366f7448984570786750d64fca9962646d5b20de59bf803dd21136099a1
                                            code/string/Z.cpp 52b8c5094d3611b532187fe4ee84f85ff94c89aa6a2c43ddb06cafe1c1f722b7
+                       code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
+                             code/string/old_files/SA-IS.cpp 92048a03ef64a563856e8378b02fc802288aa44e11a975dc4fe65efa3ab22a67
+                      code/string/old_files/SA-Optimized.cpp 96223cb8d888eef86350a0c92e810d9790431ffde3ff532bb44df98ba0f1c24e
+                                code/string/old_files/SA.cpp dba64385d97592d59e83ad8f1f39faec273c60335b063ae025b655bae1e087c8
+           code/string/old_files/SuffixArray-Instruction.cpp 9d1f770fb26555c5f2fe48114fd0dfc66f491a2868c88c3e7a6d838854339cbb
+                              code/string/old_files/Trie.cpp ed87421123f8e4c7ff6e5a02b8956c07a1a356b6e237bf12819d48ccae85fdbe
                             code/new-number-theory/Combo.cpp 6ec9cb8a5e654dccfd929f5307d738cdf5a8f3144339dccdc513c6a3abdeee15
               code/new-number-theory/Enumerate_Quotients.cpp 5a22742c0b90d83507ec4e3fcbb39c840c04cf61f3b1c370febcb057890eeb05
                              code/new-number-theory/bsgs.cpp b3ce94a18cc5b5df26dc30ddc4c8e60f06564111e6b5be6f13e5c248cf9d5ed3
@@ -182,5 +182,5 @@
                           code/tree/old_files/HLD-Benson.cpp 3b3cef49d1609327b25e741ae3bf05751e0e49949424e5e189bce2515fc7c766
                             code/tree/old_files/HLD-Gino.cpp 878964579eb848574ba6b27c7c1374176aaac91279ffaebab8552417c9cc290f
                        code/tree/old_files/tree_centroid.cpp 2f2f6df602172a02ba8ee94376694253a7c972321fdbf043784e6023c6307aab
-                                       code/tree/HLD-Ian.cpp 7f7e31fd071ab0dcdd8ed5bfe7eeb47f6c18e89e2d428d729e0a8a55bd9c7b61
+                                           code/tree/HLD.cpp f227cb85fa87ec69a4831d6c2f24f78b4be3c659e8175f5cbe6ae2611906c511
                                    code/tree/VirtualTree.cpp 5f3963d166d0ca576d7694901212bd6f7f9fb29ab80a826cf58063baa75d1f12
