@@ -1,6 +1,6 @@
-# NYCU LLLemonade Jam
+# NYCU Trick or TREE
 
-Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung University.
+Codebook for ICPC team NYCU_Trick_or_TREE from National Yang Ming Chiao Tung University.
 
 ## Members
 
@@ -36,6 +36,10 @@ Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung Un
 - [ICPC Asia Bangkok Regional](https://icpc.global/regionals/finder/Bangkok-2026/standings) **Rank 16**
 - [ICPC Asia Taichung Regional](https://taichung2025.icpc.tw/) **Rank 22** (silver medal)
 
+### 2026
+
+- 交大程式設計競賽 年度賽 **Rank 8**
+
 ## Names
 
 每年想好隊名結果都有新的取名 policy ，又要重想 zzz
@@ -47,6 +51,7 @@ Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung Un
 - NYCU_PersistentSlackers (Naming policy: 演算法或資結相關)
 - NYCU_LLLemonade_Jam (Naming policy: 樂團)
 - NYCU_This_Page_Was_Intentionally_Left_Blank (暫定)
+- NYCU_Trick_or_TREE (Naming policy: Tree)
 
 
 ## Compile (Typst)
@@ -93,6 +98,8 @@ This codebook incorporates adapted code and materials from:
 
 - CRyptoGRapheR
   https://github.com/robert1003/CRyptoGRapheR
+- HongLongLongLong
+  https://github.com/jakao0907/CompetitiveProgrammingCodebook
 - KACTL — KTH Algorithm Competition Template Library  
   https://github.com/kth-competitive-programming/kactl
 - ckiseki  
@@ -101,6 +108,3 @@ This codebook incorporates adapted code and materials from:
   https://github.com/abc864197532/std_abs
 
 We sincerely thank the original authors and contributors for their excellent work.
-
-
-

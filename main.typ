@@ -49,7 +49,7 @@
 #set raw(theme: "themes/codeblock-theme.tmTheme")
 
 
-#let team = "NYCU_This_Page_Was_Intentionally_Left_Blank"
+#let team = "NYCU_Trick_or_TREE"
 #let univ = "National Yang Ming Chiao Tung University"
 
 #set page(
@@ -308,7 +308,7 @@
   == Graph Girth
   Run BFS for every node, when encountered non-BFS-tree edge, update answer (min cycle length) with `dis[u] + dis[v] + 1`.  Time O(VE).
   #sub("Euler Trail", "code/graph/Eulerian.cpp")
-  #sub("Vertex BCC (Round Square Tree)", "code/graph/RoundSquareTree.cpp")
+  #sub("Vertex BCC (Round Square Tree)", "code/graph/VBCC.cpp")
   #sub("Edge BCC", "code/graph/EBCC.cpp")
   #sub("Kth Shortest Path", "code/graph/KSP.cpp")
   #sub("SCC - Tarjan", "code/graph/SCC.cpp")

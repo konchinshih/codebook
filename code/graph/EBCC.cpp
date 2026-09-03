@@ -1,45 +1,42 @@
-// Author: std_abs
-// Vertices 1-based
-// Edge ID 0-based, BCCID 0-based
+// Author: Ian, https://judge.yosupo.jp/submission/399295
+// Edge BCC, 0-based; Edge ID 0-based
 // 1. EBCC ebcc(n);  // n = #(vertices)
 // 2. ebcc.add_edge(u, v);
 // 3. ebcc.build();
-// => nbcc: number of EBCC
-// => bccs: stores all edge bccs
-// => bcc_id[u], is_bridge[Edge ID]
-struct EBCC { // 1-based, remember to build
-  int n, m, nbcc;
-  vector<vector<pair<int, int>>> G;
-  vector<vector<int>> bccs;
-  vector<int> pa, low, dep, bcc_id, stk, is_bridge;
-  void dfs(int v, int p, int f) {
-    low[v] = dep[v] = ~p ? dep[p] + 1 : 0;
-    stk.push_back(v), pa[v] = p;
-    for (auto [u, e] : G[v]) {
-      if (low[u] == -1)
-        dfs(u, v, e), low[v] = min(low[v], low[u]);
-      else if (e != f)
-        low[v] = min(low[v], dep[u]);
+// => bcc[i]: each edge bcc
+// => bccn[x]: in which bcc is x
+// => isbr[e]: whether edge e is a bridge
+struct EBCC {
+  int n, m, t, ncnt;
+  vector<vector<pii>> G;
+  vector<vector<int>> bcc;
+  vector<bool> isbr;
+  vector<int> dep, low, bccn, s;
+  EBCC(int n): n(n), m(0), t(0), ncnt(0), G(n),
+    dep(n, -1), low(n), bccn(n) {}
+  void add_edge(int u, int v) {
+    G[u].eb(v, m), G[v].eb(u, m++); }
+  void dfs(int x, int f) {
+    if (~dep[x]) return;
+    dep[x] = low[x] = t++;
+    s.push_back(x);
+    for (auto [y, e]: G[x]) if (e != f) {
+      if (dep[y] == -1)
+        dfs(y, e), low[x] = min(low[x], low[y]);
+      else
+        low[x] = min(low[x], dep[y]);
     }
-    if (low[v] == dep[v]) {
-      if (~f) is_bridge[f] = true;
-      bccs.push_back({});
-      int id = nbcc++, x;
-      do {
-        x = stk.back(), stk.pop_back();
-        bcc_id[x] = id;
-        bccs[id].emplace_back(x);
-      } while (x != v);
+    if (dep[x] == low[x]) {
+      if (~f) isbr[f] = true;
+      bcc.resize(bcc.size()+1);
+      int p; do {
+        bccn[p = s.back()] = ncnt;
+        s.pop_back();
+        bcc.back().push_back(p);
+      } while (p != x); ncnt++;
     }
   }
   void build() {
-    is_bridge.assign(m, 0);
-    for (int i = 1; i <= n; ++i) if (low[i] == -1)
-      dfs(i, -1, -1);
-  }
-  void add_edge(int u, int v) {
-    G[u].emplace_back(v, m), G[v].emplace_back(u, m++);
-  }
-  EBCC (int _n) : n(_n), m(0), nbcc(0), G(n + 1), pa(n + 1),
-    low(n + 1, -1), dep(n + 1), bcc_id(n + 1), stk() {}
+    isbr.assign(m, false);
+    for (int i=0; i<n; i++) dfs(i, -1); }
 };

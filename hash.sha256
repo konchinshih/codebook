@@ -57,28 +57,26 @@
                                code/geometry/PolygonArea.cpp c0a1812c7add152d946d7c4996af87b22a41c99aa60e5e683ab77e4c4dc6523b
                                code/geometry/SortByAngle.cpp 259184a94aa16b6ab718f1796e64ca61ab3b60d57fb94292ab877fb44b4c1fd3
                        code/geometry/SomeBasicAlgorithms.cpp e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-                                code/graph/FloydWarshall.cpp f372e124739640cdb4430906b1752ba0646451431b60fef7c1166e4f7b2688e7
-                                 code/graph/HamiltonPath.cpp e970d7a1eb23c1331f10fde64b8c6e95e6ba29f8e94154a3f06a8777343da32b
                                           code/graph/LCA.cpp 1581ed73902f0c6292c1ac8dc9afb28c89fe075d4755b62dd2ecf3a67c21d549
-                                  code/graph/MST-kruskal.cpp 8b596087b7c89ac1428921c76a50aff77ea76d3c9feedb71ae7272484b366ace
-                                     code/graph/MST-prim.cpp 2eb8d60bf4b62d965a28e325420da5e02ee83bbede24c09adde78c87b2a6dc43
-                                   code/graph/SCC-Tarjan.cpp 5e719f11c4984de42588a6a6a7ad254eec9ff600f5e03c10bd6b23669c322e7e
                                           code/graph/KSP.cpp 277d6e4796b540f8c9707e79d534369f1f85e63bb8a48bc2d95eb06da842b25e
                                     code/graph/MaxClique.cpp 43ed943d4834d3f71198381b76ead75914e70ac36992fee544a6ce743ed9197a
-                                code/graph/tree_centroid.cpp 2f2f6df602172a02ba8ee94376694253a7c972321fdbf043784e6023c6307aab
                                   code/graph/BellmanFord.cpp 62b666c523bcedf5ff4988f8a61bb3930f71aa79e6a6c38541b4b83dbc0234ac
                               code/graph/DiffConstraints.cpp 8876152dd780a4d17537922729ae9a69272e12f4d5d3d45aab5b09aa6d5dd8b4
-                                         code/graph/EBCC.cpp 9895c2dd6d47ae659f7514443bf66486b4097a7341d524c84606e46970ee2ae5
                                      code/graph/Eulerian.cpp 242d2cbde9b38e08c367a0aab1f54e93b220856394ff45762924bd6a1882f20d
-                              code/graph/RoundSquareTree.cpp 1eaa1372347e19b76ae60d57b3a82d874195baacfe25f49ac58f2b3dd5654a12
                              code/graph/old_files/BCC-AP.cpp 38a1f24fe78dc6eba70187dc249f9a9386f15c13d80f88e5ea49f0a5fe1e1b34
                          code/graph/old_files/BCC-Bridge.cpp e79d7a18a7bd1686c6668db3dc64fbf8ae5a00d99946ebb842b7317623531eec
                            code/graph/old_files/Dijkstra.cpp 6cf917883867bb6090dfa08c4204cdf0fe664b5fa39efe74e0263935f1641361
                    code/graph/old_files/EulerianPath-Dir.cpp 800330d354fbb641b118224e9e215a328b77ee74f37be6f111e8a3729b85a289
                  code/graph/old_files/EulerianPath-Undir.cpp 820023a54ef818f4d482712dd2f0adf36f89a2db190876eab9db76b232893088
                                code/graph/old_files/SPFA.cpp f2fa6e13da1fe033a0e84f9f2fd9b618bbee5e5fe12d977ab4ac9e4ec374e5d8
+                      code/graph/old_files/FloydWarshall.cpp f372e124739640cdb4430906b1752ba0646451431b60fef7c1166e4f7b2688e7
+                       code/graph/old_files/HamiltonPath.cpp e970d7a1eb23c1331f10fde64b8c6e95e6ba29f8e94154a3f06a8777343da32b
+                        code/graph/old_files/MST-kruskal.cpp 8b596087b7c89ac1428921c76a50aff77ea76d3c9feedb71ae7272484b366ace
+                           code/graph/old_files/MST-prim.cpp 2eb8d60bf4b62d965a28e325420da5e02ee83bbede24c09adde78c87b2a6dc43
                                          code/graph/2SAT.cpp b7f00cdb85921cad0a30237a224c3be1b95f72ad583a141bd2604c20866442bc
-                                          code/graph/SCC.cpp 41dbee9c6c3656b7b6025f11c3186fecb000514a0aec5630f665b3e70557fabe
+                                         code/graph/VBCC.cpp 04286d44c0b11dc61c558a09c9df87ef2630ffd6363a4254294bd8fdd63a58e2
+                                         code/graph/EBCC.cpp 6c2e14ece3c6e4f7672228361bfb1c8e7031ea6011eb87db0633bc135ebbe906
+                                          code/graph/SCC.cpp be3d9367fe7dbddca2e7dbd7e7ad0eb565a6462c96be28a3a09f75935e1e1db0
                     code/linear-algebra/GaussElimination.cpp 4145cbb513a2222f7e04450a8d0040d2c4e3a41661900e465e0a2ae69286d0c1
                                 code/number-theory/Basic.cpp f1d846c00905c924ee12ae92c4509dafb5c889c8ea5a3b186e6e61c958ad134e
                                   code/number-theory/FFT.cpp cad0e3eb848ed7bcb1eae0de18ad14791eea401e65567b0c8ce71655b089012a
@@ -92,27 +90,30 @@
                   code/number-theory/PrimeSeive+Defactor.cpp 4c4e08e5e3670ed82cd26889a604fdc5418ee09f0c7a257022408c71f98ddeaf
                          code/number-theory/數論分塊.cpp fbf87130564ff693892625b12dc0696235f20f2e2c6002bf18e268e82bda0fe3
                                code/number-theory/ExtGCD.cpp aa5d5588ab9a143c7046bf4b49007abd1e72eb9ccab9494098fd1ac6a31fa618
-                    code/number-theory/Legacy-Polynomial.cpp a74805e30d8e61611300e3eedba749439ee6a4e563421508102623d34f82a3c5
                           code/number-theory/DiscreteLog.cpp 6d0dfbc2dfd6597393e030f49e90a814fd45920f71aa4d96b3063201f2e4e372
                          code/number-theory/DiscreteSqrt.cpp 222b47501af2baed0af4b5e37c7901d4c933b503bc3e43db775d16f9870fd753
                           code/number-theory/MillerRabin.cpp b77c0294a6865cbc0c23f6983e54cf77595dad83507406334e7344a1f802a963
                           code/number-theory/Polynomial2.cpp 60362a21dd3b8edcce2606ab71a3aa8a9d2e0221d9397ccb3aa2b0644d26cd45
                            code/number-theory/Polynomial.cpp b4f5664a9941d2d03ceaa9ad1387291d34735ae43a83828baca24cfccffcc0d7
                                code/number-theory/ModPow.cpp 4b5d4d682174c8f372a5b0269c21f1e03d44b40bbf86aa93a537308de1248ec4
-                                 code/string/ACAutomaton.cpp 9f43fb1cf2d9422edc8f7288ab3de39cfc1305e8ae6fe618791938f1008b9cbf
-                                 code/string/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
-                                         code/string/KMP.cpp 05acf6008cf7180b3938520c188d251d7253553ea6d15773fec9e12995d26d9c
-                                    code/string/Manacher.txt b037c47a8e62bf024bf1660852025492e723ff201a86c8d62ce69705b30f4a50
-                                 code/string/RollingHash.cpp 5d0dad53129e51684664de70a29e3de05da2e4c0c9c449faa627b9176bbe8d7c
-                                code/string/SA-Optimized.cpp 96223cb8d888eef86350a0c92e810d9790431ffde3ff532bb44df98ba0f1c24e
-                     code/string/SuffixArray-Instruction.cpp 9d1f770fb26555c5f2fe48114fd0dfc66f491a2868c88c3e7a6d838854339cbb
-                                        code/string/Zval.cpp c828fcffc79e8d40b45abb9f84834096ac4bc3f4c83b60c90086bbaa36b2f1a8
-                                 code/string/MinRotation.cpp 4dee0691fd6c2739145ce7d96d1f02fc131feb827983226765c92a5b4bc8620e
-                                       code/string/SA-IS.cpp 92048a03ef64a563856e8378b02fc802288aa44e11a975dc4fe65efa3ab22a67
+          code/number-theory/old_files/Legacy-Polynomial.cpp a74805e30d8e61611300e3eedba749439ee6a4e563421508102623d34f82a3c5
                                          code/string/SAM.cpp 232d0d16a07204624ab5f9278bcbfb00ae5a3ae86207eba7554e748749def104
-                                          code/string/SA.cpp 0ff3ec2b36c6875a1518ecd03d5e9b2f873f68c687a4ce4ebca074a13ddb39ce
                                 code/string/old_files/SA.cpp dba64385d97592d59e83ad8f1f39faec273c60335b063ae025b655bae1e087c8
                               code/string/old_files/Trie.cpp ed87421123f8e4c7ff6e5a02b8956c07a1a356b6e237bf12819d48ccae85fdbe
+                       code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
+                             code/string/old_files/SA-IS.cpp 92048a03ef64a563856e8378b02fc802288aa44e11a975dc4fe65efa3ab22a67
+                      code/string/old_files/SA-Optimized.cpp 96223cb8d888eef86350a0c92e810d9790431ffde3ff532bb44df98ba0f1c24e
+           code/string/old_files/SuffixArray-Instruction.cpp 9d1f770fb26555c5f2fe48114fd0dfc66f491a2868c88c3e7a6d838854339cbb
+                            code/string/AC-CountPatterns.cpp b01b7a586c8db87e97853290d37991cb077b1ffcd4c30a847f14bd4933a9df12
+                                 code/string/AC-DictLink.cpp bc1d79f63b892b6b253f8218a6c869187b453e0b4e13ab20e9fb6a011c78fbd9
+                          code/string/AC-PatternPosition.cpp 9c425c9c3bd4c674c57bbdf7324b42785f72a2896a89089dbf8f08aed0780d7e
+                                          code/string/AC.cpp 63921124b2dd51d53aa45304923f13b71fa95bc8c136b14f552054f33b53e4e8
+                                         code/string/KMP.cpp 6370ed1c939ccb94ab1da9c7d67973830e3b69ce632e6520776613dee9bd8a50
+                                    code/string/Manacher.cpp 992e1791252ded53d0e30f8c9dad6ef96f6cb253551c4cf74c0130be564cc49f
+                                 code/string/MinRotation.cpp 4a732de858b0ae1e7acf69218aeaddfb3f1b11d4fc3866988f217d0d79782ea8
+                                 code/string/RollingHash.cpp 1c3c95382fba604c54dc11083b21e59d2d1a0f92e2b3d09cf03e1bd85adfed9f
+                                          code/string/SA.cpp 395ec366f7448984570786750d64fca9962646d5b20de59bf803dd21136099a1
+                                           code/string/Z.cpp 52b8c5094d3611b532187fe4ee84f85ff94c89aa6a2c43ddb06cafe1c1f722b7
                             code/new-number-theory/Combo.cpp 6ec9cb8a5e654dccfd929f5307d738cdf5a8f3144339dccdc513c6a3abdeee15
               code/new-number-theory/Enumerate_Quotients.cpp 5a22742c0b90d83507ec4e3fcbb39c840c04cf61f3b1c370febcb057890eeb05
                              code/new-number-theory/bsgs.cpp b3ce94a18cc5b5df26dc30ddc4c8e60f06564111e6b5be6f13e5c248cf9d5ed3
@@ -180,5 +181,6 @@
                          code/tree/RootedTreeIsomorphism.cpp b92fb846b654e971c8090769c66651f2f21bddead9455f8cb8da79eae46040a7
                           code/tree/old_files/HLD-Benson.cpp 3b3cef49d1609327b25e741ae3bf05751e0e49949424e5e189bce2515fc7c766
                             code/tree/old_files/HLD-Gino.cpp 878964579eb848574ba6b27c7c1374176aaac91279ffaebab8552417c9cc290f
+                       code/tree/old_files/tree_centroid.cpp 2f2f6df602172a02ba8ee94376694253a7c972321fdbf043784e6023c6307aab
                                        code/tree/HLD-Ian.cpp 7f7e31fd071ab0dcdd8ed5bfe7eeb47f6c18e89e2d428d729e0a8a55bd9c7b61
                                    code/tree/VirtualTree.cpp 5f3963d166d0ca576d7694901212bd6f7f9fb29ab80a826cf58063baa75d1f12
