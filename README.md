@@ -54,13 +54,12 @@ Codebook for ICPC team NYCU_LLLemonade_Jam from National Yang Ming Chiao Tung Un
 For Docker:
 
 0. Install & Start docker (optionally install docker-buildx in archlinux).
-1. Run `make typst`.
+1. Run `make docker typst`.
 
 For VSCode:
 
 0. Install the extension `Tinymist`.
 1. Run `make typst` in VSCode terminal.
-
 
 ### Code Block Palette
 
@@ -82,16 +81,10 @@ docker buildx build --platform linux/amd64 --load --tag codebook:local .
 DOCKER_IMAGE=codebook:local make docker typst
 ```
 
-
-
-
-
 ## Compile (LaTeX)
 
 0. Install & Start docker (optionally install docker-buildx in archlinux).
-1. Run `make docker`.
-
-
+1. Run `make docker latex`.
 
 
 ## Credits

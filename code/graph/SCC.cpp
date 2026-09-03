@@ -1,25 +1,34 @@
 // Author: Ian
-// tarjan SCC
-void solve() {
-  V<bool> ins(n, false);
-  V<int> scc(n), dfn(n, -1), low(n, inf);
+// Tarjan SCC, 0-based
+// 1. Init with n = #(vertices)
+// 2. Fill in adj list G
+// 3. build()
+// => scc[i]: each scc
+// => sccn[x]: in which scc is x
+struct SCC {
+  const int inf = 1e9+5;
+  int n, t, ncnt;
+  vector<vector<int>> G, scc;
+  vector<bool> ins;
+  vector<int> sccn, dfn, low;
   stack<int> s;
-  function<void(int)> dfs = [&](int x) {
+  SCC(int n): n(n), t(0), ncnt(0), G(n),
+    ins(n, false), sccn(n), dfn(n, -1), low(n, inf) {}
+  void dfs(int x) {
     if (~dfn[x]) return;
-    static int t = 0;
     dfn[x] = low[x] = t++;
     s.push(x), ins[x] = true;
-    for (auto i : e[x])
+    for (auto i: G[x])
       if (dfs(i), ins[i])
         low[x] = min(low[x], low[i]);
     if (dfn[x] == low[x]) {
-      static int ncnt = 0;
+      scc.resize(scc.size()+1);
       int p; do {
         ins[p = s.top()] = false;
-        s.pop(), scc[p] = ncnt;
+        s.pop(); sccn[p] = ncnt;
+        scc.back().push_back(p);
       } while (p != x); ncnt++;
     }
-  };
-  for (int i = 0; i < n; i++)
-    dfs(i);
-}
+  }
+  void build() { for (int i=0; i<n; i++) dfs(i); }
+};
