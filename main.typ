@@ -334,7 +334,7 @@
 
 = Flow
   #sub("Flow Methods", "code/flow/FlowMethod.txt")
-  #sub("Dinic", "code/flow/Dinic.cpp")
+  #sub("Dinic (Flow Decomposition)", "code/flow/Dinic.cpp")
   #sub("ISAP", "code/flow/ISAP.cpp")
   #sub("Bounded Max Flow", "code/flow/BoundedMaxFlow.cpp")
   #sub("MCMF", "code/flow/MCMF.cpp")

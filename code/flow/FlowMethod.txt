@@ -72,3 +72,15 @@ Node-disjoint: u- => v+ 只能在 (u, v) 有邊時建
 Dilworth Theorem
 反鏈：一些節點的集合，滿足這些節點互相無法抵達
 最大反鏈 = 最小 General DAG Path Cover
+
+Min Cut reconstruction (after running max flow s -> t):
+From s, BFS/DFS through residual edges with remaining
+capacity > 0, marking reached vertices as visited.
+The cut set is every original edge (u, v) with u visited
+and v not visited; its capacity sum equals the max flow.
+
+Bipartite Matching reconstruction (after running max flow
+on source -> X -> Y -> sink model):
+For each edge (x, y) between the X-side and Y-side, it is
+part of the matching iff. its residual capacity is 0
+(i.e. it is saturated).
