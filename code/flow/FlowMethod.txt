@@ -84,3 +84,21 @@ on source -> X -> Y -> sink model):
 For each edge (x, y) between the X-side and Y-side, it is
 part of the matching iff. its residual capacity is 0
 (i.e. it is saturated).
+
+Max/Min Flow with Lower Bound (Circulation Problem):
+1. Construct super source S and super sink T.
+2. For each edge (x, y, l, u), connect x -> y with capacity u - l.
+3. For each vertex v, let in(v) = (sum of incoming lower bounds)
+   - (sum of outgoing lower bounds).
+4. If in(v) > 0, connect S -> v with capacity in(v);
+   otherwise connect v -> T with capacity -in(v).
+   To maximize: connect t -> s with capacity inf (skip this edge
+   for a pure circulation problem), let f = maxflow(S, T). If
+   f != sum of in(v) over all in(v) > 0, no solution exists.
+   Otherwise maxflow(s, t) (found after adding t -> s) is the answer.
+   To minimize: let f = maxflow(S, T) (without any s-t edge yet).
+   Then connect t -> s with capacity inf and let f' be the extra
+   flow pushed from S to T. If f + f' != sum of in(v) over all
+   in(v) > 0, no solution exists. Otherwise f' is the answer.
+5. The flow on each original edge e is l_e + f_e, where f_e is
+   e's flow in the constructed graph.
