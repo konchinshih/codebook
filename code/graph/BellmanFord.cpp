@@ -13,51 +13,36 @@ const ll LINF = 4e18;
 struct BellmanFord {
   const vector<vector<pair<int, ll>>>& G;
   int n, m;  // #(vertices), #(edges)
-  BellmanFord(const auto& G, int n, int m):
-    G(G), n(n), m(m) {}
-
-  vector<ll> dis;
-  vector<int> nth_relax, pa;
+  BellmanFord(const auto& G, int n, int m): G(G), n(n), m(m) {}
+  vector<ll> dis; vector<int> nth_relax, pa;
   void run_bf(const auto& src) {
-    dis.assign(n + 1, LINF);
-    nth_relax.assign(n + 1, 0);
-    pa.assign(n + 1, -1);
+dis.assign(n+1,LINF);nth_relax.assign(n+1,0);pa.assign(n+1,-1);
     for (auto& s : src) dis[s] = 0;
     for (int rlx = 1; rlx <= n; rlx++) {
       for (int u = 1; u <= n; u++) {
         if (dis[u] == LINF) continue; // !important
         for (auto& [v, w] : G[u]) {
           if (dis[v] > dis[u] + w) {
-            dis[v] = dis[u] + w;
-            pa[v] = u;
+            dis[v] = dis[u] + w; pa[v] = u;
             if (rlx == n) nth_relax[v] = 1;
   } } } } }  // 5 brackets
   void calcDis(int s) {
-    run_bf(vector<int>{s});
-    queue<int> q;
-    for (int u = 1; u <= n; u++)
-      if (nth_relax[u]) q.push(u);
-    while (!q.empty()) {
-      int u = q.front(); q.pop();
+    run_bf(vector<int>{s}); queue<int> q;
+    for (int u=1;u<=n;u++) if (nth_relax[u]) q.push(u);
+    while (!q.empty()) { int u = q.front(); q.pop();
       for (auto& [v, w] : G[u]) {
         if (!nth_relax[v]) {
-          nth_relax[v] = 1;
-          q.push(v);
+          nth_relax[v] = 1; q.push(v);
     } } }
-    for (int u = 1; u <= n; u++)
-      if (nth_relax[u]) dis[u] = -LINF;
+    for (int u=1;u<=n;u++) if (nth_relax[u]) dis[u]= -LINF;
   }
   vector<int> neg_cycle;
   bool findNegCycle() {
-    auto src = views::iota(1, n + 1);
-    run_bf(src);
+    auto src = views::iota(1, n + 1); run_bf(src);
     auto it = ranges::find_if(src, [&](int s){ return nth_relax[s]; });
     if (it == src.end()) return false;
-    int ptr = *it;
-    for (int i = 0; i < n; i++) ptr = pa[ptr];
-
-    neg_cycle.clear();
-    int cur = ptr;
+    int ptr = *it; for (int i=0; i<n; i++) ptr = pa[ptr];
+    neg_cycle.clear(); int cur = ptr;
     while (true) {
       neg_cycle.emplace_back(cur);
       if (cur == ptr && neg_cycle.size() > 1) break;
@@ -65,5 +50,4 @@ struct BellmanFord {
     }
     ranges::reverse(neg_cycle);
     return true;
-  }
-};
+  } };
