@@ -60,7 +60,6 @@
                                           code/graph/LCA.cpp 50473690dbf43f257d3566018ad00694f0919dad8da6201ff2b0691cf58843a9
                                           code/graph/KSP.cpp 34bacd201e5cb4dc865fcd3475ae3d2db0079f996e83d0d881c18e937428c6fd
                                     code/graph/MaxClique.cpp 3a1fe577ae0050358f496d94c2c6e4d5446e227221398dd1af3a948dfc5f249c
-                                  code/graph/BellmanFord.cpp 92b21ff7edc8e91cd33b6ad5c911e35014c69a61026a0a97b48a64ec2760b58a
                               code/graph/DiffConstraints.cpp fe55f941dcc9c55b7e58ca652218470efe4df86ecdde84fc2be36c0189e85e06
                                      code/graph/Eulerian.cpp 11c393b9710f17554efb7f3fb39113542218a502a60b64ec1bef2eeccf517bea
                              code/graph/old_files/BCC-AP.cpp d0d832d9004f9fb7e4de56db6b1380a3334c96eec2cac9e5338e8141fbac6967
@@ -77,6 +76,7 @@
                                           code/graph/SCC.cpp 7a063d525b6c0f081183cc17b1996e7247062b079a50a76d0cdde86109aa89da
                                          code/graph/VBCC.cpp e85b0a3c1bcf0ef92453635ec1d2e18d19edd9172eb7e5240fb3b4cd990b8d79
                                          code/graph/2SAT.cpp 130351363977f2eb999ea7725bb7455c690737ad1b7ed6cf765839af4360e586
+                                  code/graph/BellmanFord.cpp 92b21ff7edc8e91cd33b6ad5c911e35014c69a61026a0a97b48a64ec2760b58a
                     code/linear-algebra/GaussElimination.cpp 34be788078d5642fd995fb85de062fe2f6a3499a94b52c01b4872040492a2fd4
                                 code/number-theory/Basic.cpp baf27431bfdbe180125b7e1da172de44e381e702e6950fe0b8bad24ed47d8135
                                   code/number-theory/FFT.cpp a1c829199635fd12430e20eeacc6fc7d491e15069579eb84a0e9e50cd8d449f9
@@ -97,23 +97,23 @@
                            code/number-theory/Polynomial.cpp 57318bc26ecfbc98fcbf19f66514b335c2a482bbe36d913cb2ea3dc74008e5b1
                                code/number-theory/ModPow.cpp 98cfb183959e1db0ca1c8ff6f007b06714122d86d9dfcf23193d6e03855e96e5
           code/number-theory/old_files/Legacy-Polynomial.cpp cac4fb23fecbd01f38cf52239aa1aa1a9d2710cac8d657668baf9b91122fffbf
-                                         code/string/SAM.cpp 98a627d6fb2b338bf44c3cec9cc05f75de9e4ff6100f01890448dcef36e21ca7
-                            code/string/AC-CountPatterns.cpp 58fd32de502727555f35b4a9c1127f177ad31a9afe1af52a234d25c6728fa7e0
                                  code/string/AC-DictLink.cpp a62cfaa88c64a0a1414cdec8603a97f5e8d67335d90b45398a58142312626133
                           code/string/AC-PatternPosition.cpp fdc328df9cb981685415b163295b9a97b77b3c0d2e8b110c39f48430ea5746fd
-                                          code/string/AC.cpp 285968e2f83b8b368babf3f2562cb8818e2746cc8af872ba12baec8c7fed3a7c
-                                         code/string/KMP.cpp 11d3e2bbbaf46f5b889c0292ed1e8bba669498a2c47f686b627faace8ad9d540
                                     code/string/Manacher.cpp 193b086689b32a8a1155b15cec30df291ebbd0fa24ada407c75a3f8bbceb1d89
-                                 code/string/MinRotation.cpp e5ef4eb90cbde34faa184c8e84217f3960a290ecb0548f685748fc25cf2719ab
-                                 code/string/RollingHash.cpp 19b27e5005de38d05ac9ae2853408e8e9fd7839936dd35fafeddaba9647d0ce7
-                                          code/string/SA.cpp 76449352c2ae06fdf1845cf618da50c75434c28dbcabeba112061a2fc343d11d
-                                           code/string/Z.cpp 686b785ab3a7ae2cd1f525a59a8c6f0ac8d37ff7e14b461ca684b2a7013eca63
                        code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
                              code/string/old_files/SA-IS.cpp 0a6b298987135a8048a5d1fc7188644df541827997ba92cd1ee2d46398ccf37d
                       code/string/old_files/SA-Optimized.cpp 2aff40536e5224c746929550b3ee538a102025eea7cc5dd6f5704d4ad6ed5ee8
                                 code/string/old_files/SA.cpp 17cdaa43d3dc106b548d5dd97de127d1b7398e3268af27cb761bcfcd4ba019bf
            code/string/old_files/SuffixArray-Instruction.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
                               code/string/old_files/Trie.cpp 7b57041b0b2e00b74d6c4ee382a37dad8577c543f9e8ad205eb5d24d99271e01
+                            code/string/AC-CountPatterns.cpp 58fd32de502727555f35b4a9c1127f177ad31a9afe1af52a234d25c6728fa7e0
+                                          code/string/AC.cpp 285968e2f83b8b368babf3f2562cb8818e2746cc8af872ba12baec8c7fed3a7c
+                                         code/string/KMP.cpp 376cdf842345ead434eb21e2855bdf9ff91e72cbb743c4d9f8e8b5916ee1fbee
+                                 code/string/MinRotation.cpp bb235fe6a4e1dbc1f6150be1f48ac5d601a792732fb735461ba7a3fbf0a6d814
+                                 code/string/RollingHash.cpp c156595d07022cb2b075f4e041aaf72700f14e5a8707358719764742ab6d192b
+                                          code/string/SA.cpp c1df5b81d7b178c0301f3ed5946ea341fb462cff85e64636e55d2266c9f48751
+                                         code/string/SAM.cpp 10f751b7fa905fbb72858b95d2e7b874fe67b11af564f84e6be026756d0895de
+                                           code/string/Z.cpp d5b3b9b21d052b21ee430c09d20b9634fcf86c25d491af960f559f7d11f65e48
                             code/new-number-theory/Combo.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
               code/new-number-theory/Enumerate_Quotients.cpp a20856311ed868e3e3800fe4b6a8aedc75e3aab8113f38aa5b62c3d918590cca
                              code/new-number-theory/bsgs.cpp 4bc15b25fed5d706ba02b57b9838d52cda298adeaa4b298759ce20e7295ef3d3

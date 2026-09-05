@@ -19,31 +19,24 @@ struct AC {
     fail[_id] = 0; return _id++;
   }
   AC () { reset(); }
-
   void insert(string s) {
-    int ptr = 0;
-    for (char c : s) {
-      if (!ch[ptr][c - 'a'])
-        ch[ptr][c - 'a'] = newnode();
+    int ptr = 0; for (char c : s) {
+      if (!ch[ptr][c - 'a']) ch[ptr][c - 'a'] = newnode();
       ptr = ch[ptr][c - 'a'];
-    }
-    np++; pid.emplace_back(ptr);
+    } np++; pid.emplace_back(ptr);
   }
   void build_fail() {
-    queue <int> q;
-    order_cnt = 0;
+    queue <int> q; order_cnt = 0;
     for (int i = 0; i < C; ++i) if (ch[0][i])
       q.push(ch[0][i]), to[0][i] = ch[0][i];
     while (!q.empty()) {
-      int u = q.front(); q.pop();
-      order[order_cnt++] = u;
+      int u = q.front(); q.pop(); order[order_cnt++] = u;
       for (int i = 0; i < C; ++i) {
         if (!ch[u][i]) to[u][i] = to[fail[u]][i];
-        else {
-          int v = ch[u][i], k = fail[u];
-          while (k && !ch[k][i]) k = fail[k];
-          if (ch[k][i]) k = ch[k][i];
-          fail[v] = k, to[u][i] = v;
-          q.push(v);
+        else { int v = ch[u][i], k = fail[u];
+               while (k && !ch[k][i]) k = fail[k];
+               if (ch[k][i]) k = ch[k][i];
+               fail[v] = k, to[u][i] = v;
+               q.push(v);
   } } } }
 } ac;

@@ -21,7 +21,7 @@ void buildSA(string s) {
     y[sa[0]] = p = 0;
     for (int i = 1; i < n; ++i) {
       int a = sa[i], b = sa[i - 1];
-      if (!(x[a] == x[b] && a + k < n && b + k < n && x[a + k] == x[b + k])) p++;
+      p+= !(x[a]==x[b] && a+k<n && b+k<n && x[a+k]==x[b+k]);
       y[sa[i]] = p;
     }
     if (n == p + 1) break;
@@ -30,13 +30,12 @@ void buildSA(string s) {
 void buildLCP(string s) {
   // lcp[i] = LCP(sa[i - 1], sa[i])
   // lcp(i, j) = query_lcp_min [rk[i] + 1, rk[j] + 1)
-  int n = s.length(), val = 0;
+  int n = s.length(), x = 0;
   for (int i = 0; i < n; ++i) rk[sa[i]] = i;
   for (int i = 0; i < n; ++i) {
     if (!rk[i]) lcp[rk[i]] = 0;
-    else {
-      if (val) val--;
-      int p = sa[rk[i] - 1];
-      while (val + i < n && val + p < n && s[val + i] == s[val + p]) val++;
-      lcp[rk[i]] = val;
+    else { if (x) x--;
+           int p = sa[rk[i] - 1];
+           while (x+i<n && x+p<n && s[x+i]==s[x+p]) x++;
+           lcp[rk[i]] = x;
 } } }
