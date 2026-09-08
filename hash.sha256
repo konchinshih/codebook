@@ -3,7 +3,6 @@
                                     code/basic/SVGWriter.cpp f58f9e56e4ee5520f72f54a4c957ce0b1f2b5e8c05963ebaac4b8f8a343c444e
                                code/basic/SVGWriterUsage.cpp 030e6899e575852702df19c87f1d57c6b4379a84289a5964a004589595750b5a
                                            code/basic/bashrc c08ff498c1fc25b38fd8ca175d8990f53981319ab5378e5234c0f72644d4b957
-                                        code/basic/debug.cpp a265e167d590907eab67be44c7720d6f82cf8b2d2aaa18be1af482edb97d9781
                             code/basic/old_files/Default.txt e4c4c3e721cf24e98214dd6524c5e74c4142cba1b55932a7d5b41ce8ae086b05
                               code/basic/old_files/Vimrc.txt 3d6058f82eb25e76f721a6400d4561d670bbd47d53a52d0976139395e8b98ee1
                       code/basic/old_files/c++.sublime-build 86c1d30df131f45c96951aa652c1f1a6e20a2594d9deaf45b64ec980c3f9ad29
@@ -15,23 +14,25 @@
                             code/basic/template_codebook.cpp 9f92044028ae524d9987e7e789602a01b7b5420a60b60633d3808a5b6d09fbf7
                                        code/basic/vimrc-gino 6ecd623617f043789d162b1e03fdd004f060d9d5460c52eb53692682bc4e298c
                                             code/basic/vimrc 541bffc240da488529248a3f75f2ed6ae953866c2b7c9ae4002c64b5be1cd5a3
+                                        code/basic/debug.cpp a265e167d590907eab67be44c7720d6f82cf8b2d2aaa18be1af482edb97d9781
                     code/data-structure/persistent-treap.cpp 803cce841a5fb6c2817dc4dec7e162a5516f998d793dc6b4485ae9331fb874ed
-                         code/data-structure/SegmentTree.cpp 732a5bf9dce3d67f25f4dbb9ba577c7ea74d9f124ac617b14fe0d7150275f0ff
-                        code/data-structure/leftist-heap.cpp 60886b33044eb9df63b74875fbd552f06c90e8bb5a60ad8634c38a1e5d42d16a
                         code/data-structure/li-chao-tree.cpp 6c33c234f3c24a7e6f58f5b4b5322ae4bf63b04e97707d6cb92fcb9734188874
                         code/data-structure/Mo-algorithm.cpp 8d7194392737fffc28d3599e9279088cb3961fcc09144822d73222d6a1d580a8
-                         code/data-structure/SparseTable.cpp 0573bb71aa54f0aa605b3f3069be30191432127542a7f68d95b23821fedcafb6
                        code/data-structure/old_files/BIT.cpp d68266c4d1964b255e9504d582bda8112ad27b06b27420a35b18e80a7372a9d5
    code/data-structure/old_files/SegmentTree-Instruction.cpp ea16d82226cf639c19ec5d96cfe8bb374df67df99c96592937c23b7df3f82c09
                  code/data-structure/old_files/skew-heap.cpp a14c90d8ac360de57bc9da2070e19aa39f65b47cb3dd0b62ef1f6f8b2d83d14f
+               code/data-structure/old_files/SegmentTree.cpp 732a5bf9dce3d67f25f4dbb9ba577c7ea74d9f124ac617b14fe0d7150275f0ff
+               code/data-structure/old_files/SparseTable.cpp 0573bb71aa54f0aa605b3f3069be30191432127542a7f68d95b23821fedcafb6
+              code/data-structure/old_files/leftist-heap.cpp 60886b33044eb9df63b74875fbd552f06c90e8bb5a60ad8634c38a1e5d42d16a
                                  code/data-structure/CDQ.cpp 744a8004c7b736f096f3967dc4c896a5ef16ac3b92acf87809a2a40c4eb6ff17
-                       code/data-structure/LineContainer.cpp a215096613dc4d0286be38a59021aaa721d00229a34e5941eec2885880fff883
                         code/data-structure/time-segtree.cpp 5197758763d65d3fde4a53973dbf17432de9c139e54509e4bbde97357e7cf770
+                  code/data-structure/segment-tree-beats.cpp f686aae9c15934dc24ceecfd9bd436e2b78836f1afcfa5397496b55e9d8525ff
                                           code/dp/SOS_DP.cpp 623a0889c4a7600c9326c0f5f35a71f8a4db8edc09cb05bcee504af5883421fc
                                 code/dp/old_files/Aliens.cpp 58a8c81c832065249f3b148b1c1aca5e6b5578975bf52fa93dd0485948410c08
                       code/dp/old_files/dice_expectation.cpp 9e4d170c89d9131735293ba63e0c626da7d89d409e12cd2746b8af19ccb80d5f
                       code/dp/old_files/digit_dp_sum_mod.cpp 73d99f27703389d4e9268d70dce601312a04de38655d783496cacd8edaeea3f8
                               code/dp/DivideAndConquerDP.cpp d36c77e15b7dd3481cc37a5e7535c00b82329c5fcec9fb0184631eff6f8aee84
+                                   code/dp/LineContainer.cpp bb4a1c56ff3c2240bcb687b627a236884bda976542833e88c385cafd8f0ad388
                                  code/flow/CoverIndepend.txt 3b64c4883d23c40f94144f399122b182268796374517e5089d7a17dd75040d90
                                   code/flow/HopcroftKarp.cpp 504e6d1cb30194199d4499b2a459410a3640b107714bfdfd89638ddf71652f69
                                 code/flow/BoundedMaxFlow.cpp aaf8c33acbf3e3a4c4d96233f12183b91886a23e24b242ba8fedf0f328106c85
@@ -39,29 +40,54 @@
                                           code/flow/ISAP.cpp c13d55364c229dc2cdee2b085b915692af2e73d667cdeb08c41bf415d36b008d
                                           code/flow/MCMF.cpp 472be6914e9624ede4b5506084a57123aa94348a1768885fff19324ef1144936
                                    code/flow/PushRelabel.cpp fae237ea7f2df7ef915d1807c86b301ee60ff31e7d2e98dcb23ac681a554bfa7
-                                   code/flow/StoerWagner.cpp a040ee5e3f2770ecbf5163c436fcc05011a7c0dc907cde845cbb5ff55723941d
                               code/flow/old_files/KM_old.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
                                          code/flow/Dinic.cpp b8e775dc5da2429589bd0cbb8d93830a4d5b777d61c58707ca0840c9720da601
                                     code/flow/FlowMethod.txt c5090eaaa3054b26cadd9fb55f570f868fad2bf4100b603f0a8d61e02a0aa180
-                          code/geometry/ClosestPointPair.cpp 49d695cca8488f2eac45d8a939ce77f0a6c5d08fe2ee31a7ef316040ae351b01
-                                code/geometry/ConvexHull.cpp 8c9888aad04f32aa7c1530e59f197ff30947488cac7d47687cb00f671fd1aa47
-                           code/geometry/ConvexHullTrick.cpp e2902511d2d94d36938801c3617e956487cd0a625bbf602f44fa4f3afd816b4c
-                           code/geometry/GeometryDefault.cpp 2229b38a74a81ec919be701fa8f42fff5b1e6b327447f37a0b56f922398bc057
-                                    code/geometry/InPoly.cpp 2293a256cc89f54ea826c4eb7ee524cab4a8439549887c253f4c7e1ba950a91d
-                        code/geometry/LineIntersectCheck.cpp c9e19ae18e595cab5157ccedc795c33d9059fe00c2e1676de841dc99bd525cce
-                          code/geometry/LineIntersection.cpp d15de9fd503253e70536a81ca45c0afdb8feb42a162a7739b97cafc4de4a9fcd
-                          code/geometry/LowerConcaveHull.cpp 2a96ed6177ec22d1d87a376f4166a3753fb8ca9d859d10ccab5661a2bbfaf480
-                        code/geometry/MinEnclosingCircle.cpp 533348a0dcb02c9e7431e2e5eeadb51e514d88d7156230de8fbf24acd71a15a7
-                              code/geometry/MinkowskiSum.cpp 7762c5db4f3ccd9536f85b9c17882f22a5c2511ff230396a15256f86a383a7b0
-                                 code/geometry/PolyUnion.cpp 673fdd60ddd6d6918994e565bf7a7165e33a843bc7bc2c30ea9dc885112157a7
-                               code/geometry/PolygonArea.cpp 53a6a0ba8bb8e320150012c8b9115a04a0bb64c29bffbbc567cdf897b2e27e0e
-                               code/geometry/SortByAngle.cpp 73c489c461e27149612aba87e06920beaf57a95b9899e310bb32d6dde40556e2
-                       code/geometry/SomeBasicAlgorithms.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
-                                          code/graph/LCA.cpp 50473690dbf43f257d3566018ad00694f0919dad8da6201ff2b0691cf58843a9
-                                          code/graph/KSP.cpp 34bacd201e5cb4dc865fcd3475ae3d2db0079f996e83d0d881c18e937428c6fd
+                                   code/flow/StoerWagner.cpp a040ee5e3f2770ecbf5163c436fcc05011a7c0dc907cde845cbb5ff55723941d
+                              code/geometry/3DConvexHull.cpp c9657bc38cfd048ce68acdce44017104418c40d5be8407bac932914f53bd7794
+                                   code/geometry/3DPoint.cpp 1e44fd528b8f58ba46c8b697a2415eb3b973f06c09de71b020f9a1ff6d8a5f5c
+                                  code/geometry/Bisector.cpp 5348b94709fa2931b0e1b8fe2fb6280985e0aea1518b09d46387e8b5b2a0a386
+                          code/geometry/ClosestPointPair.cpp ad1bba06e508a67aa33887ee2aeefc9b2dfac76b9bc490a1c9470d56af0dbdef
+                                code/geometry/ConvexHull.cpp 37fe2b54d11b83bdc5d829eb4b0b43f56869ce87d4327922b83652388e786daa
+                            code/geometry/ConvexHullDist.cpp f7df29d9251afa915a3a55d6a3d9036953ff9e2ee7eef493092ece7fd5b024aa
+                                code/geometry/CycTsearch.cpp e3165d5fd3c81404236ced2516feca099e460b73887e88874746643b8d89ac5f
+                     code/geometry/DelaunayTriangulation.cpp 30b89dbb05f770fbb33dbc7e7e8283eeed08af57f6d57a54b831e12f924bbd81
+                     code/geometry/HalfPlaneIntersection.cpp c710703301d3d7adcaa08193b5150e73c2f468f955daebf31b7a334a03cb555e
+                                     code/geometry/Heart.cpp 9c22fc3ba459abbd49ccc28fa416cfa69e3b1ff026356b2cd37f03adabe0ec0e
+        code/geometry/Intersection_of_Polygon_and_Circle.cpp 18454b36c66cb1cf3733f5c4423c0641a26cc73828b36c591b31a9d9ff5fc0df
+                             code/geometry/Intersections.cpp 7e8b65c8b3c0fbb3a5858445dccf0ad2e22ffded2a37321753c39e65e691c73f
+                            code/geometry/Intersections2.cpp 734f650a5ee15f24757af51efca17c9994e253e2bb03e36b29f3f332dfe9d289
+                  code/geometry/Minimum_Enclosing_Circle.cpp 04b498fc4e70ecffc86f796eb1484b4cfb200236194231717b4eddb180afe241
+                              code/geometry/MinkowskiSum.cpp fdd91587d91dedb20f19b42b8575b81eaac3d0cd5037815ebddcfa23a9cb1bc4
+                           code/geometry/PointInTriangle.cpp 144fc01e9d2faa84500cbac47688b415203f5c03d2bc367cb1a676bbd17f3830
+                               code/geometry/PointInside.cpp 109f6becb9e1f7e410d6af104bbb873dff5afcd29ce645191749769443e05eaa
+                          code/geometry/PointLineSegDist.cpp 8b23e456a9f821272eb6eab3d0aceebde55ed22fcb5d86c1bd0747d857529b5a
+                                   code/geometry/PolyCut.cpp c08d26cbabf23633498f7655ba9e50a85b688e7941df85efd3e39d555a709bcc
+                         code/geometry/RotatingSweepLine.cpp 769b9b4655667acc33859280774165ae1abcc58b165008994dad651f07b23347
+                                      code/geometry/Sort.cpp 63db4f3552c07cfefe02c40b846e80db85bdc231d3d1ebfa470b2dd8d8bfd314
+                                  code/geometry/Tangents.cpp 8def22f51e3a6f52aa943e3247dc4e42e8f0f9edee0850741653439ac5b31433
+                     code/geometry/Triangulation_Voronoi.cpp ff9197eca0ef311479b6b66d29dadcc8d1734b0a0f46d0f520660d7a913cdc89
+                          code/geometry/Union_of_Circles.cpp fdf2ffe5f09b603cb619e16372ced9966e3a7c6b80bb780c976edd9fadc8a584
+                         code/geometry/Union_of_Polygons.cpp 9d72655b68fa1102d28cfa47dbab9dbdf8034fd100e467ed8312b859f8730c59
+                              code/geometry/VectorInPoly.cpp 1b2dce423a643f90d11db3f3b87c67539f537091e9684c7454df1c6333055aa5
+                                     code/geometry/basic.cpp 8507af9770082a8bba770d491077e6fe9f8991a421b597fe7da3c4177dd79a9a
+                                   code/geometry/default.cpp acaf6b91e3315d1d31eeac7fe6e0b378d250ab69bd73313bb826b536c420c377
+                         code/geometry/geometry-main-typ.typ 0cfacf5d92756a6b0f81527998c6274dfe6460614d9486425be43b7a94a0e41b
+     code/geometry/old_files/basic-operations/01-default.cpp f63ea3ae93909cfb861ae6534c6425e48dfaf270cd6942960a07ba77338ec84e
+       code/geometry/old_files/basic-operations/02-onseg.cpp 132de609df37620800195be83ed0b2d4133cb372529be8448811435c726e42ba
+      code/geometry/old_files/basic-operations/03-banana.cpp 82f93a3e34c7920463c31c1372a560604a72cfa93ecc2de2d221bfad76e55edc
+ code/geometry/old_files/basic-operations/04-bananaPoint.cpp d8c5d037aa83b1dc13a168a21316123a5b989da5aa6ada6048d3bf84f971a523
+code/geometry/old_files/basic-operations/ClosestPointPair.cpp 49d695cca8488f2eac45d8a939ce77f0a6c5d08fe2ee31a7ef316040ae351b01
+     code/geometry/old_files/basic-operations/ConvexHull.cpp 8c9888aad04f32aa7c1530e59f197ff30947488cac7d47687cb00f671fd1aa47
+code/geometry/old_files/basic-operations/ConvexHullTrick.cpp e2902511d2d94d36938801c3617e956487cd0a625bbf602f44fa4f3afd816b4c
+         code/geometry/old_files/basic-operations/InPoly.cpp 2293a256cc89f54ea826c4eb7ee524cab4a8439549887c253f4c7e1ba950a91d
+code/geometry/old_files/basic-operations/LowerConcaveHull.cpp 2a96ed6177ec22d1d87a376f4166a3753fb8ca9d859d10ccab5661a2bbfaf480
+code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e7431e2e5eeadb51e514d88d7156230de8fbf24acd71a15a7
+   code/geometry/old_files/basic-operations/MinkowskiSum.cpp 7762c5db4f3ccd9536f85b9c17882f22a5c2511ff230396a15256f86a383a7b0
+      code/geometry/old_files/basic-operations/PolyUnion.cpp 673fdd60ddd6d6918994e565bf7a7165e33a843bc7bc2c30ea9dc885112157a7
+    code/geometry/old_files/basic-operations/PolygonArea.cpp 53a6a0ba8bb8e320150012c8b9115a04a0bb64c29bffbbc567cdf897b2e27e0e
+    code/geometry/old_files/basic-operations/SortByAngle.cpp 73c489c461e27149612aba87e06920beaf57a95b9899e310bb32d6dde40556e2
                                     code/graph/MaxClique.cpp 3a1fe577ae0050358f496d94c2c6e4d5446e227221398dd1af3a948dfc5f249c
-                              code/graph/DiffConstraints.cpp fe55f941dcc9c55b7e58ca652218470efe4df86ecdde84fc2be36c0189e85e06
-                                     code/graph/Eulerian.cpp 11c393b9710f17554efb7f3fb39113542218a502a60b64ec1bef2eeccf517bea
                              code/graph/old_files/BCC-AP.cpp d0d832d9004f9fb7e4de56db6b1380a3334c96eec2cac9e5338e8141fbac6967
                          code/graph/old_files/BCC-Bridge.cpp 6f03a99b5a1725bb6267ab7f5495f6825d816e62448a107589c192eb7c45f046
                            code/graph/old_files/Dijkstra.cpp 1b3766705143fab90ee5ee2db887a49bddb229e7dd73e00d44dcfe27a62f2c2a
@@ -72,11 +98,15 @@
                        code/graph/old_files/HamiltonPath.cpp 0bd21cb42ee28a62914ac2d568b0cc17fa89665676cc9ad0851dfe012bb7001c
                         code/graph/old_files/MST-kruskal.cpp 09dceb9c93c76b7ea8d4b0a02e7ea1dd45defc797aec06a05a47962ed4090596
                            code/graph/old_files/MST-prim.cpp 7ee9fa3550ed7f8a96e2a948e9e9a4ba4befd789f337aa7656974b3833a0225a
-                                         code/graph/EBCC.cpp 26729d43880bc4dff5d1e783a91525c69fc1c2c13a611e30475986ecf2fc7ff8
+                                code/graph/old_files/LCA.cpp 50473690dbf43f257d3566018ad00694f0919dad8da6201ff2b0691cf58843a9
                                           code/graph/SCC.cpp 7a063d525b6c0f081183cc17b1996e7247062b079a50a76d0cdde86109aa89da
                                          code/graph/VBCC.cpp e85b0a3c1bcf0ef92453635ec1d2e18d19edd9172eb7e5240fb3b4cd990b8d79
                                          code/graph/2SAT.cpp 130351363977f2eb999ea7725bb7455c690737ad1b7ed6cf765839af4360e586
                                   code/graph/BellmanFord.cpp 92b21ff7edc8e91cd33b6ad5c911e35014c69a61026a0a97b48a64ec2760b58a
+                              code/graph/DiffConstraints.cpp fe55f941dcc9c55b7e58ca652218470efe4df86ecdde84fc2be36c0189e85e06
+                                         code/graph/EBCC.cpp 26729d43880bc4dff5d1e783a91525c69fc1c2c13a611e30475986ecf2fc7ff8
+                                     code/graph/Eulerian.cpp 11c393b9710f17554efb7f3fb39113542218a502a60b64ec1bef2eeccf517bea
+                                          code/graph/KSP.cpp 34bacd201e5cb4dc865fcd3475ae3d2db0079f996e83d0d881c18e937428c6fd
                     code/linear-algebra/GaussElimination.cpp 34be788078d5642fd995fb85de062fe2f6a3499a94b52c01b4872040492a2fd4
                                 code/number-theory/Basic.cpp baf27431bfdbe180125b7e1da172de44e381e702e6950fe0b8bad24ed47d8135
                                   code/number-theory/FFT.cpp a1c829199635fd12430e20eeacc6fc7d491e15069579eb84a0e9e50cd8d449f9
@@ -97,8 +127,6 @@
                            code/number-theory/Polynomial.cpp 57318bc26ecfbc98fcbf19f66514b335c2a482bbe36d913cb2ea3dc74008e5b1
                                code/number-theory/ModPow.cpp 98cfb183959e1db0ca1c8ff6f007b06714122d86d9dfcf23193d6e03855e96e5
           code/number-theory/old_files/Legacy-Polynomial.cpp cac4fb23fecbd01f38cf52239aa1aa1a9d2710cac8d657668baf9b91122fffbf
-                                 code/string/AC-DictLink.cpp a62cfaa88c64a0a1414cdec8603a97f5e8d67335d90b45398a58142312626133
-                          code/string/AC-PatternPosition.cpp fdc328df9cb981685415b163295b9a97b77b3c0d2e8b110c39f48430ea5746fd
                                     code/string/Manacher.cpp 193b086689b32a8a1155b15cec30df291ebbd0fa24ada407c75a3f8bbceb1d89
                        code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
                              code/string/old_files/SA-IS.cpp 0a6b298987135a8048a5d1fc7188644df541827997ba92cd1ee2d46398ccf37d
@@ -106,14 +134,16 @@
                                 code/string/old_files/SA.cpp 17cdaa43d3dc106b548d5dd97de127d1b7398e3268af27cb761bcfcd4ba019bf
            code/string/old_files/SuffixArray-Instruction.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
                               code/string/old_files/Trie.cpp 7b57041b0b2e00b74d6c4ee382a37dad8577c543f9e8ad205eb5d24d99271e01
+                code/string/old_files/AC-PatternPosition.cpp fdc328df9cb981685415b163295b9a97b77b3c0d2e8b110c39f48430ea5746fd
                             code/string/AC-CountPatterns.cpp 58fd32de502727555f35b4a9c1127f177ad31a9afe1af52a234d25c6728fa7e0
-                                          code/string/AC.cpp 285968e2f83b8b368babf3f2562cb8818e2746cc8af872ba12baec8c7fed3a7c
                                          code/string/KMP.cpp 376cdf842345ead434eb21e2855bdf9ff91e72cbb743c4d9f8e8b5916ee1fbee
                                  code/string/MinRotation.cpp bb235fe6a4e1dbc1f6150be1f48ac5d601a792732fb735461ba7a3fbf0a6d814
                                  code/string/RollingHash.cpp c156595d07022cb2b075f4e041aaf72700f14e5a8707358719764742ab6d192b
                                           code/string/SA.cpp c1df5b81d7b178c0301f3ed5946ea341fb462cff85e64636e55d2266c9f48751
                                          code/string/SAM.cpp 10f751b7fa905fbb72858b95d2e7b874fe67b11af564f84e6be026756d0895de
                                            code/string/Z.cpp d5b3b9b21d052b21ee430c09d20b9634fcf86c25d491af960f559f7d11f65e48
+                                 code/string/AC-DictLink.cpp a62cfaa88c64a0a1414cdec8603a97f5e8d67335d90b45398a58142312626133
+                                          code/string/AC.cpp 285968e2f83b8b368babf3f2562cb8818e2746cc8af872ba12baec8c7fed3a7c
                             code/new-number-theory/Combo.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
               code/new-number-theory/Enumerate_Quotients.cpp a20856311ed868e3e3800fe4b6a8aedc75e3aab8113f38aa5b62c3d918590cca
                              code/new-number-theory/bsgs.cpp 4bc15b25fed5d706ba02b57b9838d52cda298adeaa4b298759ce20e7295ef3d3
@@ -148,10 +178,10 @@
                            code/new-number-theory/modSum.cpp 60beb8541b575ffb45107966c72acc4ce5cbf835a3a0682f30308f25616d5e05
                             code/new-number-theory/Black.cpp 22e0fdb9dd626717faefa4c722d1f44bf11c3e50a12de127d0554b70a8b152dc
                              code/new-number-theory/Lucy.cpp 0218eef55d671a0940275b2ec2d6e0cc4d1c3c3d129e4d31a9dfe38bb24ccf9e
-                         code/matching/BipartiteMatching.cpp e341264fa7bfa3ec20ea611ba424b4d94d96cab09a59b32f2eadd0012ba42dd9
+                         code/matching/BipartiteMatching.cpp f4292183551e550b24cb177b48372f81486faf06e476372057e269a9c7066c05
                  code/matching/BipartiteWeightedMatching.cpp 5933aa50bf728cfd8887093e4bbdc43359e40019e2aad68a35e0a8ba08812842
                            code/matching/GeneralMatching.cpp 93f94864a961aac960c5fc72d7008306be02759e8c1b9abcab380f8029f32b47
-                   code/matching/GeneralWeightedMatching.cpp 9660ba7da54a3d9bc25c0045a092675215b74bef2d4d2aba0afcec953f194a38
+                   code/matching/GeneralWeightedMatching.cpp f9ce59f8f54b6b64883850c779f792f993be3b4dfd03da248b06ce12171537bf
                                   code/numerical/chapter.tex b21ef52b80bafab0d523c0426764ba78c513f3cfec4ecd3599eb9f499e1b98d0
                             code/numerical/BerlekampMassey.h fa69b755a850229dcca0ee1a8fd9a6c1d13db10a667a08886ec158adb2936d59
                                 code/numerical/Determinant.h 6bef730383da59c2de51ec76829fcb62c0e683f41a341152382053c6bfd448ca

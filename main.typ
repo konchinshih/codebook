@@ -279,6 +279,7 @@
 
 // 不過你們這份還有一個值得修的地方：arr 是 global static，所以預設 line 是 \(y=0\)。如果合法答案可能是負數，空節點會錯誤貢獻 0。最好加 bool has[] 或初始化成真正的 \(-\infty\) line。
   #sub("Time Segment Tree", "code/data-structure/time-segtree.cpp")
+  #sub("Segment Tree Beats", "code/data-structure/segment-tree-beats.cpp")
 
 = DP
   #sub("SOS DP", "code/dp/SOS_DP.cpp")
