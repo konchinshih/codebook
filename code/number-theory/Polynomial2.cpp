@@ -29,13 +29,11 @@ void inv(vector<T>& ia, int N) {
     vector<T> _a(move(ia));
     ia.resize(1, pw(_a[0], MOD-2));
     vector<T> a(1, -_a[0] + (-_a[0] < 0 ? MOD : 0));
-
     for (int n = 1; n < N; n<<=1) {
         // n -> 2*n
         // ia' = ia(2-a*ia);
         for (int i = n; i < min(siz(_a), (n<<1)); i++)
             a.emplace_back(-_a[i] + (-_a[i] < 0 ? MOD : 0));
-
         vector<T> tmp = ia;
         ia *= a;
         ia.resize(n<<1);
@@ -49,17 +47,14 @@ template<typename T>
 void mod(vector<T>& a, vector<T>& b) {
     int n = (int)a.size()-1, m = (int)b.size()-1;
     if (n < m) return;
-
     vector<T> ra = a, rb = b;
     reverse(ra.begin(), ra.end()); ra.resize(min(n+1, n-m+1));
     reverse(rb.begin(), rb.end()); rb.resize(min(m+1, n-m+1));
     inv(rb, n-m+1);
-
     vector<T> q = move(ra);
     q *= rb;
     q.resize(n-m+1);
     reverse(q.begin(), q.end());
-
     q *= b;
     a -= q;
     resize(a);

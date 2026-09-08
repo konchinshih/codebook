@@ -17,4 +17,3 @@ static inline std::vector<T> dirichlet_convolution(const std::vector<T>& f,
   }
   return h;
 }
-

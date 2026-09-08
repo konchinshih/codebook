@@ -24,7 +24,6 @@ k = int(sqrt(n))
 edges = [(randint(max(1, u-k), u-1), u) for u in range(2, n + 1)]
 for e in edges:
     print(*e)
-
 edges = [(1, i) for i in range(2, n + 1)]  ## star
 edges = [(i, i + 1) for i in range(1, n)]  ## chain
 edges = [(i // 2, i) for i in range(2, n + 1)]  ## complete binary tree

@@ -5,39 +5,31 @@
 // Complexity: O(log p) modular multiplications.
 //
 // Requires: pow_mod_ll(ll a, ll e, ll m)
-
 using ll = long long;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
-
 static inline bool tonelli_shanks(u64 a, u64 p, u64 &x){
   a %= p;
   if (p == 2) { x = a; return true; }
   if (a == 0) { x = 0; return true; }
-
   // Euler criterion: a^{(p-1)/2} ≡ 1 (mod p) iff quadratic residue
   if (pow_mod_ll((ll)a, (ll)((p - 1) >> 1), (ll)p) != 1) return false;
-
   // Shortcut p ≡ 3 (mod 4): x = a^{(p+1)/4} mod p
   if ((p & 3ULL) == 3ULL) {
     x = (u64)pow_mod_ll((ll)a, (ll)((p + 1) >> 2), (ll)p);
     return true;
   }
-
   // Write p-1 = q * 2^s with q odd
   u64 q = p - 1, s = 0;
   while ((q & 1) == 0) { q >>= 1; ++s; }
-
   // Find a quadratic non-residue z
   u64 z = 2;
   while (pow_mod_ll((ll)z, (ll)((p - 1) >> 1), (ll)p) != p - 1) ++z;
-
   // Initialize
   u64 c = (u64)pow_mod_ll((ll)z, (ll)q, (ll)p);
   u64 t = (u64)pow_mod_ll((ll)a, (ll)q, (ll)p);
   u64 r = (u64)pow_mod_ll((ll)a, (ll)((q + 1) >> 1), (ll)p);
   u64 m = s;
-
   // Loop until t == 1
   while (t != 1) {
     // Find least i in [1..m-1] s.t. t^(2^i) == 1
@@ -46,14 +38,12 @@ static inline bool tonelli_shanks(u64 a, u64 p, u64 &x){
       t2i = (u64)((u128)t2i * t2i % p);
       if (t2i == 1) break;
     }
-
     // b = c^{2^{m-i-1}}
     u64 e = m - i - 1;
     u64 b = 1;
     u64 c_pow = c;
     while (e--) c_pow = (u64)((u128)c_pow * c_pow % p); // c^{2^{m-i-1}}
     b = c_pow;
-
     // Update r, t, c, m
     r = (u64)((u128)r * b % p);
     u64 bb = (u64)((u128)b * b % p);
@@ -61,8 +51,6 @@ static inline bool tonelli_shanks(u64 a, u64 p, u64 &x){
     c = bb;
     m = i;
   }
-
   x = r;
   return true;
 }
-

@@ -9,7 +9,6 @@
  * Time : $O(N^{3/4} / \log N)$
  * Status: tested
  */
-
  template<class T, class F1, class F2>
  T Black(const i64 N, const F1 f_prime, const F2 f_k) {
    const i64 sqrtN = sqrtl(N);

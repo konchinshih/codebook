@@ -13,4 +13,3 @@ static inline void divisor_zeta_transform(std::vector<T>& a){
     for (int j = i + i; j <= n; j += i)
       a[j] += a[i];
 }
-

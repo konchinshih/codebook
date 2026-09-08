@@ -4,7 +4,6 @@
  * as long as N\log_2N * mod < 8.6e14 (in practice 10^16 or higher).
  * Inputs must be in [0, mod).
  * Time: O(N \log N), where N = |A| + |B| (twice as slow as NTT or normal FFT), Status: stress-tested */
-
 typedef complex<double> C;
 typedef vector<ll> vl;
 void fft(vector<C>& a) {

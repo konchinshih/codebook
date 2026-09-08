@@ -3,7 +3,6 @@
 from itertools import count
 from math import gcd
 from sys import stdin
-
 for s in stdin:
     number, x = int(s), 2
     brk = False

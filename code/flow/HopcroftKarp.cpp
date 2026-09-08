@@ -22,7 +22,6 @@ struct HopcroftKarp {
     vector<int> dis, vis;
     mx.clear(); mx.resize(n, -1);
     my.clear(); my.resize(n, -1);
-
     function<bool(int)> dfs = [&](int x) {
       vis[x] = true;
       for (auto& y : G[x]) {
@@ -36,7 +35,6 @@ struct HopcroftKarp {
       } }
       return false;
     };
-    
     while (true) {
       queue<int> q;
       dis.clear(); dis.resize(n, -1);
@@ -67,7 +65,6 @@ struct HopcroftKarp {
   int min_vertex_cover() {
     int ans = max_matching();
     vcover.clear();
-
     vector<int> vis(n, 0);
     function<void(int)> dfs = [&](int x) {
       vis[x] = true;
@@ -77,7 +74,6 @@ struct HopcroftKarp {
         dfs(my[y]);
       }
     };
-
     for (int x = 0; x < nx; x++) if (mx[x] == -1) dfs(x);
     for (int x = 0; x < nx; x++) if (!vis[x]) vcover.emplace_back(x);
     for (int y = nx; y < nx + ny; y++) if (vis[y]) vcover.emplace_back(y);

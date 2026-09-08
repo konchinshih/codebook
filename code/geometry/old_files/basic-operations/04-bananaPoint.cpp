@@ -8,4 +8,3 @@ Pt intersect_point(Pt a, Pt b, Pt c, Pt d) {
   T t = abs(mv(a, b) ^ mv(a, d));
   return d * (s/(s+t)) + c * (t/(s+t));
 }
-

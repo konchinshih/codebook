@@ -12,4 +12,3 @@ static inline void eratosthenes_sieve(int n, std::vector<int>& primes, std::vect
   for (int i = 3; i <= n; i += 2) if (is_prime[i])
     primes.push_back(i);
 }
-

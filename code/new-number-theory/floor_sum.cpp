@@ -2,7 +2,6 @@
 // Assumes: n >= 0, m > 0. Supports negative a,b (normalized).
 // Returns __int128; wrapper returns ll.  Time: O(log max(|a|, m)).
 // uses: using ll = long long;
-
 static inline __int128 floor_sum_i128(ll n, ll m, ll a, ll b){
   __int128 ans = 0;
   if(a < 0){ ll a2=a%m; if(a2<0) a2+=m; ans += (__int128)(a-a2)/m * n*(n-1)/2; a=a2; }
@@ -21,4 +20,3 @@ static inline __int128 floor_sum_i128(ll n, ll m, ll a, ll b){
 static inline ll floor_sum(ll n, ll m, ll a, ll b){
   return (ll)floor_sum_i128(n, m, a, b); // beware overflow in caller
 }
-

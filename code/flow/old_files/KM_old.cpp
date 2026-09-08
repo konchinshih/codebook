@@ -1,10 +1,8 @@
 // Author: Unknown
 // Function: Weighted Max Bipartite Matching in O(V^3)
 #include <bits/stdc++.h>
-
 using namespace std;
 const int inf = 1e9;
-
 struct KuhnMunkres {
   int n;
   vector<vector<int>> g;

@@ -52,4 +52,3 @@ struct SAM {
 //     if (!ch[p][c - 'a']) return false;
 //     p = ch[p][c - 'a'];
 //   } return true; }
-

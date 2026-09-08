@@ -2,15 +2,12 @@
 // Complexity: O(#prime factors * log M) per prime power + factorization.
 // Requires from your codebook: factorize_u64(u64 n, vector<pair<u64,int>>& pf)
 // Uses local: pow_mod_ll (128-bit safe), simple CRT merge for coprime prime powers.
-
 using ll = long long;
 using u64 = unsigned long long;
 using i128 = __int128_t;
-
 // ---------- forward decls ----------
 static inline ll tetration_mod(ll A, ll B, ll M);            // used inside prime-power case
 extern void factorize_u64(u64 n, vector<pair<u64,int>>& pf); // bring your MR+Rho here
-
 // ---------- utils ----------
 static inline ll norm_mod_ll(ll a, ll m){ a%=m; if(a<0) a+=m; return a; }
 static inline ll pow_mod_ll(ll a, long long e, ll m){
@@ -59,7 +56,6 @@ static ll tower_bounded_value(ll A, ll b, ll CAP){ // returns min(A↑↑b, CAP+
   ll val = ipow_ll(A, exp);
   return (val <= CAP ? val : CAP+1);
 }
-
 // ---------- CRT for coprime moduli ----------
 static inline long long exgcd_ll(long long a,long long b,long long& x,long long& y){
   if(b==0){ x=(a>=0?1:-1); y=0; return a>=0?a:-a; }
@@ -76,14 +72,12 @@ static inline bool crt_pair(ll r1, ll m1, ll r2, ll m2, ll &r, ll &m){
   res %= mod; if(res<0) res += mod;
   r = (ll)res; m = (ll)mod; return true;
 }
-
 // ---------- per prime-power ----------
 static ll tetration_mod_prime_power(ll A, ll B, ll p, int k){
   ll pk = 1; for(int i=0;i<k;i++) pk = (ll)((i128)pk * p);
   if(B<=0) return 1 % pk;
   if(B==1) return norm_mod_ll(A, pk);
   if(pk==1) return 0;
-
   ll a = norm_mod_ll(A, pk);
   if(a==0){
     // FIX: handle 0^0 = 1 when the exponent E = A↑↑(B-1) equals 0.
@@ -95,7 +89,6 @@ static ll tetration_mod_prime_power(ll A, ll B, ll p, int k){
   int s=0; ll tmp=a;
   while(tmp % p == 0){ tmp/=p; ++s; if(s>=k) break; }
   ll A1 = tmp % pk;
-
   if(s>0){
     ll need = (k + s - 1) / s;
     if(tower_ge(A, B-1, need)) return 0;
@@ -110,15 +103,12 @@ static ll tetration_mod_prime_power(ll A, ll B, ll p, int k){
   ll r = tetration_mod(A, B-1, ph);    // only need exponent mod φ(p^k)
   return pow_mod_ll(a, r + ph, pk);
 }
-
 // ---------- main wrapper ----------
 static inline ll tetration_mod(ll A, ll B, ll M){
   if(M==1) return 0;
   if(B<=0) return 1 % M;
   if(B==1) return norm_mod_ll(A, M);
-
   vector<pair<u64,int>> pf; factorize_u64((u64)M, pf);
-
   ll R = 0, MOD = 1;
   for(auto [pp, kk] : pf){
     ll pk = 1; for(int i=0;i<kk;i++) pk = (ll)((i128)pk * (ll)pp);

@@ -13,12 +13,10 @@ if (D == 0) return Pt(-INF, -INF);
 return A + Pt(Dx/D, Dy/D);
 }
 Pt center; T r2;
-
 void minEncloseCircle() {
 mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
 shuffle(ALL(E), gen);
 center = E[0], r2 = 0;
-
 for (int i = 0; i < n; i++) {
     if (dis2(center, E[i]) <= r2) continue;
     center = E[i], r2 = 0;

@@ -9,15 +9,12 @@
 //   - Internal arithmetic uses unsigned __int128 to avoid overflow.
 //   - Return type is unsigned long long; Φ(n) ~ 3 n^2 / π^2. For very large n
 //     (e.g., > 10^10) consider changing the return type to unsigned __int128.
-
 using u64 = unsigned long long;
 using u128 = __uint128_t;
-
 static inline u64 sum_phi_1_to_n(u64 n){
   static std::unordered_map<u64, u64> memo;
   auto it = memo.find(n);
   if (it != memo.end()) return it->second;
-
   u128 ans = (u128)n * (n + 1) / 2;     // n(n+1)/2
   for (u64 l = 2, r, q; l <= n; l = r + 1){
     q = n / l;
@@ -29,4 +26,3 @@ static inline u64 sum_phi_1_to_n(u64 n){
   memo.emplace(n, ret);
   return ret;
 }
-

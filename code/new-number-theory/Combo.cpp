@@ -10,13 +10,11 @@
 //   - extgcd(a,b,x,y)               // from your gcd/extgcd snippet
 //   - factorize_u64(M, pf)          // from MR+Rho factorization snippet
 //   - crt_general(...)              // from exCRT snippet
-
 #include <bits/stdc++.h>
 using namespace std;
 using u64 = unsigned long long;
 using i64 = long long;
 using u128 = __uint128_t;
-
 // ---------- factorial_invfac_table (prime MOD) ----------
 static inline void factorial_invfac_table(int N, int MOD, vector<int>& fact, vector<int>& ifact){
   fact.resize(N+1); ifact.resize(N+1);
@@ -25,13 +23,11 @@ static inline void factorial_invfac_table(int N, int MOD, vector<int>& fact, vec
   ifact[N]=modpow(fact[N], MOD-2);
   for(int i=N;i>0;i--) ifact[i-1]=(int)(1LL*ifact[i]*i%MOD);
 }
-
 // O(1) after table; assumes 0<=k<=n and MOD prime
 static inline int nCk_mod_prime_table(int n,int k,int MOD,const vector<int>& fact,const vector<int>& ifact){
   if(k<0||k>n) return 0;
   return (int)(1LL*fact[n]*ifact[k]%MOD*ifact[n-k]%MOD);
 }
-
 // ---------- Lucas’s theorem (prime p), no large pretable needed ----------
 static inline int nCk_mod_prime_lucas(long long n, long long k, int p){
   if(k<0||k>n) return 0;
@@ -55,7 +51,6 @@ static inline int nCk_mod_prime_lucas(long long n, long long k, int p){
   }
   return res;
 }
-
 // ---------- derangement D_n mod MOD (Montmort) ----------
 static inline int derangement_number_mod(int n, int MOD){
   if(n==0) return 1%MOD;
@@ -67,7 +62,6 @@ static inline int derangement_number_mod(int n, int MOD){
   }
   return (int)Dm1;
 }
-
 // ---------- Stirling numbers of the 2nd kind S2(n,k) table up to N ----------
 static inline void stirling2_table(int N, int MOD, vector<vector<int>>& S){
   S.assign(N+1, vector<int>(N+1,0));
@@ -78,25 +72,20 @@ static inline void stirling2_table(int N, int MOD, vector<vector<int>>& S){
     }
   }
 }
-
 // (optional) Bell number from S2 row: B_n = sum_{k=0..n} S2(n,k) mod MOD
 static inline int bell_from_s2_row(const vector<int>& row, int MOD){
   long long s=0; for(int x:row) s+=x; return (int)(s%MOD);
 }
-
 // ---------- nCk mod any positive M via prime-power + CRT ----------
 static inline i64 exgcd(i64 a,i64 b,i64& x,i64& y){ if(b==0){ x=(a>=0?1:-1); y=0; return a>=0?a:-a; } i64 x1,y1; i64 g=exgcd(b,a%b,x1,y1); x=y1; y=x1-(a/b)*y1; return g; }
 static inline i64 mod_inv_coprime(i64 a, i64 mod){ i64 x,y; i64 g=exgcd(a,mod,x,y); (void)g; x%=mod; if(x<0) x+=mod; return x; }
-
 // count v_p(n!)
 static inline u64 vp_fact(u64 n, u64 p){ u64 v=0; while(n){ n/=p; v+=n; } return v; }
-
 // unit product per full block (product of units mod p^e) — known values
 static inline u64 unit_block_prod(u64 p, int e){
   if(p==2 && e>=3) return 1ULL;
   return (u64)((p==2 && e==1) ? 1 : (u64)(-1)); // for 2^1 => 1; for odd p^e => -1 (≡ p^e−1)
 }
-
 // factorial modulo p^e, removing p-factors
 // returns product_{i=1..n, p∤i} i  (mod pe)
 static inline u64 factmod_pe_without_p(u64 n, u64 p, int e, u64 pe){
@@ -112,7 +101,6 @@ static inline u64 factmod_pe_without_p(u64 n, u64 p, int e, u64 pe){
   }
   return res%pe;
 }
-
 // C(n,k) mod p^e
 static inline u64 nCk_mod_primepower(u64 n,u64 k,u64 p,int e){
   if(k>n) return 0;
@@ -130,7 +118,6 @@ static inline u64 nCk_mod_primepower(u64 n,u64 k,u64 p,int e){
   for(u64 i=0;i<v;i++) res = (u64)((u128)res * p % pe);
   return res;
 }
-
 // nCk mod any M>0 via factorization + CRT (general CRT from your snippet)
 static inline u64 nCk_mod_any(u64 n, u64 k, u64 M){
   if(M==1) return 0;
@@ -155,7 +142,6 @@ static inline u64 nCk_mod_any(u64 n, u64 k, u64 M){
   }
   return R % M;
 }
-
 // ---------- nCk_mod_prime (table-based) convenience wrapper ----------
 struct CombPrime {
   int P; vector<int> fact, ifact;
@@ -167,4 +153,3 @@ struct CombPrime {
     return nCk_mod_prime_lucas(n,k,P);
   }
 };
-

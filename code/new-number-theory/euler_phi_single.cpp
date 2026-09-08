@@ -8,4 +8,3 @@ static inline long long euler_phi_single(unsigned long long n){
   for(auto &kv : pf){ unsigned long long p = kv.first; r = r / p * (p - 1); }
   return (long long)r;
 }
-

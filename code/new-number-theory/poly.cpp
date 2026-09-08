@@ -2,14 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 using u32 = uint32_t; using u64 = uint64_t; using u128 = __uint128_t; using ll = long long;
-
 // --- pow mod (64-bit) ---
 static inline u32 pow_mod_u32(u32 a, u64 e, u32 mod){
   u64 r = 1, x = a;
   while(e){ if(e&1) r = (r * x) % mod; x = (x * x) % mod; e >>= 1; }
   return (u32)r;
 }
-
 // --- FastNTT over friendly prime P with primitive root G (Cooley–Tukey, cached twiddles)
 template<u32 P, u32 G>
 struct FastNTT {
@@ -17,7 +15,6 @@ struct FastNTT {
   static vector<u32> roots;   // roots[1] == 1, roots[2].. filled by ensure_base
   static vector<int>  rev;    // bitrev indices for last n
   static int last_n;
-
   static void ensure_base(int need){
     int have = (int)roots.size();
     if(have >= (1<<need)) return;
@@ -85,7 +82,6 @@ struct FastNTT {
 template<u32 P,u32 G> vector<u32> FastNTT<P,G>::roots = {0u,1u};
 template<u32 P,u32 G> vector<int>  FastNTT<P,G>::rev;
 template<u32 P,u32 G> int FastNTT<P,G>::last_n = 0;
-
 // --- Three friendly primes for CRT (AtCoder/KACTL standard set)
 static constexpr u32 M1 = 167772161u,  G1 = 3;   // 2^25 * 5 + 1
 static constexpr u32 M2 = 469762049u,  G2 = 3;   // 2^26 * 7 + 1
@@ -93,7 +89,6 @@ static constexpr u32 M3 = 1224736769u, G3 = 3;   // 2^24 * 73 + 1
 using NTT1 = FastNTT<M1,G1>;
 using NTT2 = FastNTT<M2,G2>;
 using NTT3 = FastNTT<M3,G3>;
-
 // --- CRT merge (3 residues -> MOD)
 static inline vector<long long> crt_merge_3(const vector<u32>& c1,
                                             const vector<u32>& c2,
@@ -117,9 +112,7 @@ static inline vector<long long> crt_merge_3(const vector<u32>& c1,
   }
   return out;
 }
-
 // ================= Public: three convolutions you asked for =================
-
 // (1) Convolution mod 998244353 (small/normal n). Falls back to (3) if too big.
 static inline vector<long long> convolution_mod_998244353(vector<long long> A,
                                                           vector<long long> B){
@@ -157,7 +150,6 @@ static inline vector<long long> convolution_mod_998244353(vector<long long> A,
     return crt_merge_3(c1,c2,c3, (long long)P);
   }();
 }
-
 // (2) Convolution under MOD = 1e9+7 (using 3–prime CRT)
 static inline vector<long long> convolution_mod_1e9p7(vector<long long> A,
                                                        vector<long long> B){
@@ -177,7 +169,6 @@ static inline vector<long long> convolution_mod_1e9p7(vector<long long> A,
   auto c3 = NTT3::convolution(a3,b3);
   return crt_merge_3(c1,c2,c3, 1000000007LL);
 }
-
 // (3) Convolution mod 998244353 for BIG n via 3–prime CRT
 static inline vector<long long> convolution_mod_998244353_big(vector<long long> A,
                                                                vector<long long> B){

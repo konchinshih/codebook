@@ -5,21 +5,17 @@ n = 17
 n/i: 17  8  5  4  3  2  2  2  1  1  1  1  1  1  1  1  1
                      ^     ^
                    L(2)   R(2)
-
 L(x) :=  left bound for n/i = x
 R(x) := right bound for n/i = x
-
 ====== FORMULA ======
 >>> R = n / (n/L) <<<
 =====================
-
 Example: L(2) = 6
          R(2) = 17 / (17 / 6)
               = 17 / 2
               = 8
 */
 // ======= CODE ========
-
 for (ll l = 1, r = 1, q = n; l <= n; l = r + 1) {
     q = n/l;
     r = n/q;

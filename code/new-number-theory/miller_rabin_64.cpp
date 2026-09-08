@@ -8,17 +8,13 @@
 // Complexity: O(k * log n) modular multiplications, where k = 7 bases
 // (each base needs one binary-exponentiation with ~log n squarings/mults).
 // Notes: Skip small primes first; use 128-bit mul to avoid overflow.
-
 using u64 = uint64_t; using i64 = int64_t; using u128 = __uint128_t;
-
 static inline u64 mul_mod_u64(u64 a, u64 b, u64 mod){ return (u64)((u128)a * b % mod); }
-
 static inline u64 pow_mod_u64(u64 a, u64 e, u64 mod){
   u64 r = 1 % mod, x = a % mod;
   while(e){ if(e&1) r = mul_mod_u64(r, x, mod); x = mul_mod_u64(x, x, mod); e >>= 1; }
   return r;
 }
-
 // Deterministic bases for 64-bit: {2, 325, 9375, 28178, 450775, 9780504, 1795265022}
 static inline bool miller_rabin_64(u64 n){
   if(n < 2) return false;
@@ -36,4 +32,3 @@ static inline bool miller_rabin_64(u64 n){
   for(u64 a : A) if(!check(a)) return false;
   return true;
 }
-

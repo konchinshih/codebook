@@ -1,10 +1,8 @@
 // min_of_linear_mod — minimize (a*x + b) mod m for x in [0, n)
 // O(log max(|a|, m)). Handles negative a,b; uses __int128 for safety.
 // uses: using ll = long long;
-
 static inline ll _norm_mod(ll a, ll m){ a%=m; if(a<0) a+=m; return a; }
 static inline ll _ceil_div(ll p, ll q){ if(q<0) p=-p, q=-q; if(p>=0) return (p+q-1)/q; return p/q; }
-
 static inline ll min_of_linear_mod(ll n, ll m, ll a, ll b){
   if(n<=0) return 0; m = llabs(m); if(m==0) return 0;
   a = _norm_mod(a,m); b = _norm_mod(b,m); if(a==0) return b;
@@ -21,4 +19,3 @@ static inline ll min_of_linear_mod(ll n, ll m, ll a, ll b){
     n = y; ll t=a; a=m; m=t; b=b2;
   }
 }
-

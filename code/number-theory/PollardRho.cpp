@@ -1,6 +1,5 @@
 // Author: Unknown
 // Function: Find a non-trivial factor of a big number in O(n^(1/4) log^2(n))
-
 ll find_factor(ll number) {
     __int128 x = 2;
     for (__int128 cycle = 1; ; cycle++) {

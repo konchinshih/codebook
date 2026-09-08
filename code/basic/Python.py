@@ -3,7 +3,6 @@ input = sys.stdin.readline
 readStr  = lambda: input().rstrip('\r\n')
 readInt  = lambda: int(input())
 readInts = lambda: list(map(int, input().split()))
-
 from decimal import *
 getcontext().prec = 50  # precision
 x = Decimal(str(x))
@@ -19,4 +18,3 @@ print(x.quantize(Decimal("0.000001"), rounding=ROUND_HALF_EVEN))
 # ROUND_DOWN     : Truncate to 0    (2.9 -> 2, -2.9 -> -2)
 # <Default>: ROUND_HALF_EVEN
 # <Standard School Math>: ROUND_HALF_UP
-

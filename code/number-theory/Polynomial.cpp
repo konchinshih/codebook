@@ -9,18 +9,13 @@
 // convolution: a *= b
 // in-place modulo: mod(a, b)
 // in-place inversion under mod x^N: inv(ia, N)
-
-
 const int maxk = 20;
 const int maxn = 1<<maxk;
-
 using u64 = unsigned long long;
 using u128 = __uint128_t;
-
 int g;
 u64 MOD;
 u64 BARRETT_IM; // ⌊ 2^64 / MOD ⌋
-
 inline void set_mod(u64 m, int _g) {
     g = _g;
     MOD = m;
@@ -44,20 +39,17 @@ ll pw(ll a, ll n) {
     }
     return ret;
 }
-
 vector<ll> X, iX;
 vector<int> rev;
 void init_ntt() {
     X.assign(maxn, 1);  // x1 = g^((p-1)/n)
     iX.assign(maxn, 1);
- 
     ll u = pw(g, (MOD-1)/maxn);
     ll iu = pw(u, MOD-2);
     for (int i = 1; i < maxn; i++) {
         X[i] = mmul(X[i - 1], u);
         iX[i] = mmul(iX[i - 1], iu);
     }
- 
     if ((int)rev.size() == maxn) return;
     rev.assign(maxn, 0);
     for (int i = 1, hb = -1; i < maxn; i++) {
@@ -70,7 +62,6 @@ void NTT(vector<T>& a, bool inv=false) {
     int k = __lg(_n) + ((1<<__lg(_n)) != _n);
     int n = 1<<k;
     a.resize(n, 0);
- 
     short shift = maxk-k;
     for (int i = 0; i < n; i++)
         if (i > (rev[i]>>shift))
@@ -100,12 +91,10 @@ vector<T>& operator*=(vector<T>& a, vector<T> b) {
     int nb = (int)b.size();
     a.resize(na + nb - 1, 0);
     b.resize(na + nb - 1, 0);
-    
     NTT(a); NTT(b);
     for (int i = 0; i < (int)a.size(); i++)
         a[i] = mmul(a[i], b[i]);
     NTT(a, true);
- 
     shrink(a);
     return a;
 }
@@ -123,18 +112,15 @@ void mul_crt() {
     ll M1 = 998244353, M2 = 1004535809;
     g = 3; set_mod(M1); init_ntt(); a1 *= b1;
     g = 3, set_mod(M2); init_ntt(); a2 *= b2;
-
     ll inv_m1_mod_m2 = pw(M1, M2 - 2);
     for (int i = 2; i <= 2 * k; i++)
         cout << crt(a1[i], a2[i], M1, M2, inv_m1_mod_m2) << ' '; 
     cout << endl;
 }
-
 /* P = r*2^k + 1
 P                   r   k   g
 998244353           119 23  3
 1004535809          479 21  3
- 
 P                   r   k   g
 3                   1   1   2
 5                   1   2   2

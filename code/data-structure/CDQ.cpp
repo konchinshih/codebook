@@ -25,11 +25,9 @@ struct CDQ {
     if (l >= r) return;
     int mid = (l+r) >> 1;
     dfs(l, mid); dfs(mid+1, r);
-
     vector<info> tmp;
     vector<int> bit_op;
     int pl = l, pr = mid+1;
-
     while (pl <= mid && pr <= r) {
       if (v[pl].y <= v[pr].y) {
         tmp.emplace_back(v[pl]);

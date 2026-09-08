@@ -12,7 +12,6 @@ static inline std::vector<T> lcm_convolution(const std::vector<T>& f,
                                              const std::vector<T>& g){
   int n = (int)std::min(f.size(), g.size()) - 1;
   std::vector<T> A(f.begin(), f.begin()+n+1), B(g.begin(), g.begin()+n+1);
-
   auto div_zeta = [&](std::vector<T>& a){
     for (int i = 1; i <= n; ++i)
       for (int j = i + i; j <= n; j += i)
@@ -23,10 +22,8 @@ static inline std::vector<T> lcm_convolution(const std::vector<T>& f,
       for (int j = i + i; j <= n; j += i)
         a[j] -= a[i];            // inverse of the above
   };
-
   div_zeta(A); div_zeta(B);
   for (int i = 1; i <= n; ++i) A[i] *= B[i];  // H(n) = F(n)G(n)
   div_mobius(A);                              // recover h
   return A; // A[n] = ∑_{lcm(i,j)=n} f[i]g[j]
 }
-

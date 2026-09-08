@@ -1,9 +1,7 @@
 // requires: using ll = long long; assumes m > 0 and e >= 0
-
 static inline ll norm_mod(ll a, ll m) {
   a %= m; if (a < 0) a += m; return a;
 }
-
 static inline ll pow_mod_ll(ll a, long long e, ll m) {
   if (m == 1) return 0;                 // a^e mod 1 = 0
   __int128 base = norm_mod(a, m);
@@ -15,12 +13,10 @@ static inline ll pow_mod_ll(ll a, long long e, ll m) {
   }
   return (ll)res;                       // already reduced
 }
-
 // inverse modulo prime p (Fermat). Requires p prime and a % p != 0.
 static inline ll inv_mod_prime(ll a, ll p) {
   return pow_mod_ll(a, p - 2, p);
 }
-
 // inverse modulo any m > 0. Returns true iff gcd(a, m) == 1,
 // and sets inv in [0, m-1].  (requires extgcd(a,m,x,y) available)
 static inline bool inv_mod_any(ll a, ll m, ll &inv) {
@@ -30,4 +26,3 @@ static inline bool inv_mod_any(ll a, ll m, ll &inv) {
   inv = norm_mod(x, m);
   return true;
 }
-

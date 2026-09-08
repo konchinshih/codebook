@@ -4,7 +4,6 @@ struct Line {
   bool operator<(const Line& o) const { return m < o.m; }
   bool operator<(ll x) const { return p < x; }
 };
-
 struct LineContainer : multiset<Line, less<>> {
   // (for doubles, use inf = 1/.0, div(a,b) = a/b)
   const ll inf = LLONG_MAX;
@@ -29,4 +28,3 @@ struct LineContainer : multiset<Line, less<>> {
     return l.m * x + l.b;
   }
 };
-

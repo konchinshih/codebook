@@ -7,7 +7,6 @@ static inline ll extgcd(ll a, ll b, ll &x, ll &y) {
   y = x1 - (a / b) * y1;
   return g;
 }
-
 // Solve all solutions of a*x ≡ b (mod m), with m > 0.
 // If solvable, returns true and sets:
 //   x0  = the smallest non-negative solution
@@ -25,4 +24,3 @@ static inline bool solve_linear_congruence_all(ll a, ll b, ll m, ll &x0, ll &mod
   mod = m_red;
   return true;
 }
-

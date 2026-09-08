@@ -11,7 +11,6 @@
 //   - Strips a few small primes first, then uses MR to detect primes,
 //     otherwise splits with Rho and recurses.
 //   - Heuristic expected time ≈ Õ(n^{1/4}) on random composites.
-
 static inline void _factor_core(u64 n, std::vector<u64>& fac){
   if (n == 1) return;
   if ((n & 1ull) == 0){ fac.push_back(2); _factor_core(n >> 1, fac); return; }
@@ -24,7 +23,6 @@ static inline void _factor_core(u64 n, std::vector<u64>& fac){
   u64 d = pollard_rho_64(n);
   _factor_core(d, fac); _factor_core(n / d, fac);
 }
-
 static inline void factorize_u64(u64 n, std::vector<std::pair<u64,int>>& pf){
   std::vector<u64> fac; fac.reserve(16);
   if (n >= 2) _factor_core(n, fac);
@@ -36,4 +34,3 @@ static inline void factorize_u64(u64 n, std::vector<std::pair<u64,int>>& pf){
     i = j;
   }
 }
-

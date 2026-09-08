@@ -1,6 +1,5 @@
 // Author: Gino
 // Preparation: first implement pw(a, n), then call init_ntt()
- 
 // [Usage]
 // polynomial: vector<ll> a, b
 // negation: -a
@@ -11,12 +10,10 @@
 const int maxk = 20;
 const int maxn = 1<<maxk;
 const ll LINF = 1e18;
-
 /* P = r*2^k + 1
 P                   r   k   g
 998244353           119 23  3
 1004535809          479 21  3
-
 P                   r   k   g
 3                   1   1   2
 5                   1   2   2
@@ -58,14 +55,10 @@ P                   r   k   g
 1945555039024054273 27  56  5
 4179340454199820289 29  57  3
 9097271247288401921 505 54  6 */
-
 const int g = 3;
 const ll MOD = 998244353;
-
 ll pw(ll a, ll n) { /* fast pow */ }
-
 #define siz(x) (int)x.size()
-
 template<typename T>
 vector<T>& operator+=(vector<T>& a, const vector<T>& b) {
     if (siz(a) < siz(b)) a.resize(siz(b));
@@ -75,7 +68,6 @@ vector<T>& operator+=(vector<T>& a, const vector<T>& b) {
     }
     return a;
 }
-
 template<typename T>
 vector<T>& operator-=(vector<T>& a, const vector<T>& b) {
     if (siz(a) < siz(b)) a.resize(siz(b));
@@ -85,7 +77,6 @@ vector<T>& operator-=(vector<T>& a, const vector<T>& b) {
     }
     return a;
 }
-
 template<typename T>
 vector<T> operator-(const vector<T>& a) {
     vector<T> ret(siz(a));
@@ -94,49 +85,40 @@ vector<T> operator-(const vector<T>& a) {
     }
     return ret;
 }
-
 vector<ll> X, iX;
 vector<int> rev;
-
 void init_ntt() {
     X.clear(); X.resize(maxn, 1);  // x1 = g^((p-1)/n)
     iX.clear(); iX.resize(maxn, 1);
-
     ll u = pw(g, (MOD-1)/maxn);
     ll iu = pw(u, MOD-2);
-
     for (int i = 1; i < maxn; i++) {
         X[i] = X[i-1] * u;
         iX[i] = iX[i-1] * iu;
         if (X[i] >= MOD) X[i] %= MOD;
         if (iX[i] >= MOD) iX[i] %= MOD;
     }
-
     rev.clear(); rev.resize(maxn, 0);
     for (int i = 1, hb = -1; i < maxn; i++) {
         if (!(i & (i-1))) hb++;
         rev[i] = rev[i ^ (1<<hb)] | (1<<(maxk-hb-1));
 } }
-
 template<typename T>
 inline void resize(vector<T>& a) {
     int cnt = (int)a.size();
     for (; cnt > 0; cnt--) if (a[cnt-1]) break;
     a.resize(max(cnt, 1));
 }
-
 template<typename T>
 void NTT(vector<T>& a, bool inv=false) {
     int _n = (int)a.size();
     int k = __lg(_n) + ((1<<__lg(_n)) != _n);
     int n = 1<<k;
     a.resize(n, 0);
-
     short shift = maxk-k;
     for (int i = 0; i < n; i++)
         if (i > (rev[i]>>shift))
             swap(a[i], a[rev[i]>>shift]);
-
     for (int len = 2, half = 1, div = maxn>>1; len <= n; len<<=1, half<<=1, div>>=1) {
         for (int i = 0; i < n; i += len) {
             for (int j = 0; j < half; j++) {
@@ -145,46 +127,37 @@ void NTT(vector<T>& a, bool inv=false) {
                 a[i+j] = (u+v >= MOD ? u+v-MOD : u+v);
                 a[i+j+half] = (u-v < 0 ? u-v+MOD : u-v);
     } } }
-
     if (inv) {
         T dn = pw(n, MOD-2);
         for (auto& x : a) {
             x *= dn;
             if (x >= MOD) x %= MOD;
 } } }
-
-
 template<typename T>
 vector<T>& operator*=(vector<T>& a, vector<T> b) {
     int na = (int)a.size();
     int nb = (int)b.size();
     a.resize(na + nb - 1, 0);
     b.resize(na + nb - 1, 0);
-    
     NTT(a); NTT(b);
     for (int i = 0; i < (int)a.size(); i++) {
         a[i] *= b[i];
         if (a[i] >= MOD) a[i] %= MOD;
     }
     NTT(a, true);
-
     resize(a);
     return a;
 }
-
 template<typename T>
 void inv(vector<T>& ia, int N) {
     vector<T> _a(move(ia));
     ia.resize(1, pw(_a[0], MOD-2));
     vector<T> a(1, -_a[0] + (-_a[0] < 0 ? MOD : 0));
-
     for (int n = 1; n < N; n<<=1) {
         // n -> 2*n
         // ia' = ia(2-a*ia);
-
         for (int i = n; i < min(siz(_a), (n<<1)); i++)
             a.emplace_back(-_a[i] + (-_a[i] < 0 ? MOD : 0));
-
         vector<T> tmp = ia;
         ia *= a;
         ia.resize(n<<1);
@@ -194,28 +167,22 @@ void inv(vector<T>& ia, int N) {
     }
     ia.resize(N);
 }
-
 template<typename T>
 void mod(vector<T>& a, vector<T>& b) {
     int n = (int)a.size()-1, m = (int)b.size()-1;
     if (n < m) return;
-
     vector<T> ra = a, rb = b;
     reverse(ra.begin(), ra.end()); ra.resize(min(n+1, n-m+1));
     reverse(rb.begin(), rb.end()); rb.resize(min(m+1, n-m+1));
-
     inv(rb, n-m+1);
-
     vector<T> q = move(ra);
     q *= rb;
     q.resize(n-m+1);
     reverse(q.begin(), q.end());
-
     q *= b;
     a -= q;
     resize(a);
 }
-
 /* Kitamasa Method (Fast Linear Recurrence):
 Find a[K] (Given a[j] = c[0]a[j-N] + ... + c[N-1]a[j-1])
 Let B(x) = x^N - c[N-1]x^(N-1) - ... - c[1]x^1 - c[0]

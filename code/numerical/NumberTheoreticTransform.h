@@ -10,7 +10,6 @@
 * Time: O(N \log N)
 * Status: stress-tested */
 #include "../number-theory/ModPow.h"
-
 const ll mod = (119 << 23) + 1, root = 62; // = 998244353
 // For p < 2^30 there is also e.g. 5 << 25, 7 << 26, 479 << 21
 // and 483 << 21 (same root). The last two are > 10^9.

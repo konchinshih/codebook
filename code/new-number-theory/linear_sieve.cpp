@@ -9,7 +9,6 @@
 //
 // Complexity: O(n) time, O(n) memory.
 // Notes: Arrays are resized inside; primes is cleared and reserved. sigma uses ll to avoid 32-bit overflow.
-
 static inline void linear_sieve(
   int n,
   std::vector<int> &primes,
@@ -24,7 +23,6 @@ static inline void linear_sieve(
   std::vector<int> cnt(n + 1, 0), core(n + 1, 1);
   std::vector<ll>  p_pow(n + 1, 1), sum_p(n + 1, 1);
   phi[1] = mu[1] = d[1] = sigma[1] = 1;
-
   for (int i = 2; i <= n; ++i) {
     if (!lp[i]) {
       lp[i] = i; primes.push_back(i);
@@ -53,7 +51,6 @@ static inline void linear_sieve(
     }
   }
 }
-
 // Optional helper: factorize x in O(log x) using lp (requires x in [2..n])
 static inline std::vector<std::pair<int,int>> factorize(int x, const std::vector<int>& lp) {
   std::vector<std::pair<int,int>> res;
@@ -64,4 +61,3 @@ static inline std::vector<std::pair<int,int>> factorize(int x, const std::vector
   }
   return res;
 }
-

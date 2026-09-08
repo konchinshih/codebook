@@ -16,7 +16,6 @@
 //   });
 //
 using ll = long long;
-
 template<class F>
 static inline void enumerate_quotients(ll N, F fn){
   for(ll l = 1, r, q; l <= N; l = r + 1){
@@ -25,7 +24,6 @@ static inline void enumerate_quotients(ll N, F fn){
     fn(l, r, q);
   }
 }
-
 // 2) Vector version (if you need to store blocks)
 //
 // Returns vector of (L, R, q) with floor(N/i) == q on [L..R].
@@ -39,7 +37,6 @@ static inline std::vector<std::tuple<ll,ll,ll>> harmonic_blocks(ll N){
   }
   return v;
 }
-
 // 3) Common pattern helper: sum_{i=1..N} F(floor(N/i))
 //    Provide F(q) as a callable returning value type T.
 //
@@ -51,4 +48,3 @@ static inline T sum_over_quotients(ll N, F F_of_q){
   });
   return acc;
 }
-

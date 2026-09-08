@@ -1,6 +1,5 @@
 // enumerate_divisors — all positive divisors of n (ascending)
 // Requires: factorize_u64(u64 n, vector<pair<u64,int>>& pf)
-
 static inline void enumerate_divisors_from_pf(
   const std::vector<std::pair<uint64_t,int>>& pf,
   std::vector<uint64_t>& divs
@@ -16,7 +15,6 @@ static inline void enumerate_divisors_from_pf(
   }
   std::sort(divs.begin(), divs.end());
 }
-
 static inline void enumerate_divisors(uint64_t n, std::vector<uint64_t>& divs){
   if (n == 0) { divs.clear(); return; }        // convention: no divisors for 0
   if (n == 1) { divs.assign(1, 1); return; }
@@ -24,4 +22,3 @@ static inline void enumerate_divisors(uint64_t n, std::vector<uint64_t>& divs){
   factorize_u64(n, pf);
   enumerate_divisors_from_pf(pf, divs);
 }
-

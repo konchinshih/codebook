@@ -1,10 +1,8 @@
 int n, m;
- 
 // Graph
 vector<vector<pair<int, ll> > > g;
 vector<ll> dis;
 vector<bool> negCycle;
- 
 // SPFA
 vector<int> rlx;
 queue<int> q;
@@ -17,12 +15,10 @@ void SPFA(vector<int>& src) {
     while (!q.empty()) q.pop();
     inq.assign(n+1, false);
     pa.assign(n+1, -1);
-
     for (auto& s : src) {
         dis[s] = 0;
         q.push(s); inq[s] = true;
     }
-
     while (!q.empty()) {
         int u = q.front();
         q.pop(); inq[u] = false;
@@ -46,22 +42,17 @@ void NegCycleDetect() {
 Exist Any Neg Cycle:
 YES
 v0 v1 v2 ... vk v0 */
-
     vector<int> src;
     for (int i = 1; i <= n; i++)
         src.emplace_back(i);
-
     SPFA(src);
     int ptr = -1;
     for (int i = 1; i <= n; i++) if (negCycle[i])
         { ptr = i; break; }
- 
     if (ptr == -1) { return cout << "NO" << endl, void(); }
- 
     cout << "YES\n";
     vector<int> ans;
     vector<bool> vis(n+1, false);
-
     while (true) {
         ans.emplace_back(ptr);
         if (vis[ptr]) break;
@@ -69,7 +60,6 @@ v0 v1 v2 ... vk v0 */
         ptr = pa[ptr];
     }
     reverse(ans.begin(), ans.end());
- 
     vis.assign(n+1, false);
     for (auto& x : ans) {
         cout << x << ' ';
@@ -78,18 +68,15 @@ v0 v1 v2 ... vk v0 */
     }
     cout << endl;
 }
-
 // Distance Calculation
 void calcDis(int s) {
     vector<int> src;
     src.emplace_back(s);
     SPFA(src);
     // BellmanFord(src);
-
     while (!q.empty()) q.pop();
     for (int i = 1; i <= n; i++)
         if (negCycle[i]) q.push(i);
- 
     while (!q.empty()) {
         int u = q.front(); q.pop();
         for (auto& e : g[u]) {
