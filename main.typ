@@ -192,7 +192,13 @@
 
 #columns(2, gutter: 12pt)[
 
-#outline(title: none, indent: 1.2em, depth: 2)
+#let toc-content = outline(title: none, indent: 1.2em, depth: 2)
+#let toc-gutter = 8pt
+#layout(size => context {
+  let col-width = (size.width - toc-gutter) / 2
+  let h = measure(toc-content, width: col-width).height
+  block(height: h / 2 + 2pt, columns(2, gutter: toc-gutter, toc-content))
+})
 
 = Reminder
   == Observations and Tricks
