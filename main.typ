@@ -95,13 +95,27 @@
     width: 100%,
     inset: (x: 4pt, y: 2pt),
   )[
-    #text(size: heading2-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
-    #context {
+    #let gutter = 2pt
+    #layout(size => context {
+      let title = text(size: heading2-size, weight: "bold")[#counter(heading).display() #h(0.4em) #it.body]
       let hash = heading-hash.get()
       if hash != none {
-        place(right + horizon, text(size: hash-size, weight: "bold", fill: hash-color, font: "CodeNewRoman Nerd Font Propo")[#hash])
+        let hash-content = text(size: hash-size, weight: "bold", fill: hash-color, font: "CodeNewRoman Nerd Font Propo")[#hash]
+        let hash-w = measure(hash-content).width
+        let title-w = size.width - hash-w - gutter
+        let title-h = measure(box(width: title-w, title)).height
+        let line-h = measure(text(size: heading2-size, weight: "bold")[X]).height
+        let wrapped = title-h > line-h * 1.5
+        grid(
+          columns: (1fr, auto),
+          column-gutter: gutter,
+          align: (left + top, right + (if wrapped { bottom } else { horizon })),
+          title, hash-content,
+        )
+      } else {
+        title
       }
-    }
+    })
   ]
   v(-0.25em)
 }

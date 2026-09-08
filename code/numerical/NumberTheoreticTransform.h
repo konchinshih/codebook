@@ -9,8 +9,6 @@
 * Inputs must be in [0, mod).
 * Time: O(N \log N)
 * Status: stress-tested */
-#pragma once
-
 #include "../number-theory/ModPow.h"
 
 const ll mod = (119 << 23) + 1, root = 62; // = 998244353

@@ -175,9 +175,9 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                    code/new-number-theory/sum_phi_1_to_n.cpp 0a60ce0b79e6c0aa7ef4445871c85214a8bbc77e649d0002c2990554dc6a94ba
                     code/new-number-theory/tetration_mod.cpp 9421fe6ea3932f14d754b14e3e3dccbcdbc520c40b7ebcefa736a30a82572b74
                          code/new-number-theory/ex-lucas.cpp 3bed100da53b4014a6a5b1537fd6e481bd09bf5f84d02a7969bed7b42d575cc5
-                           code/new-number-theory/modSum.cpp 60beb8541b575ffb45107966c72acc4ce5cbf835a3a0682f30308f25616d5e05
                             code/new-number-theory/Black.cpp 22e0fdb9dd626717faefa4c722d1f44bf11c3e50a12de127d0554b70a8b152dc
                              code/new-number-theory/Lucy.cpp 0218eef55d671a0940275b2ec2d6e0cc4d1c3c3d129e4d31a9dfe38bb24ccf9e
+                           code/new-number-theory/modSum.cpp 60beb8541b575ffb45107966c72acc4ce5cbf835a3a0682f30308f25616d5e05
                          code/matching/BipartiteMatching.cpp f4292183551e550b24cb177b48372f81486faf06e476372057e269a9c7066c05
                  code/matching/BipartiteWeightedMatching.cpp 5933aa50bf728cfd8887093e4bbdc43359e40019e2aad68a35e0a8ba08812842
                            code/matching/GeneralMatching.cpp 93f94864a961aac960c5fc72d7008306be02759e8c1b9abcab380f8029f32b47
@@ -197,15 +197,15 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                            code/numerical/LinearRecurrence.h a364666405a5aaf2a36390d35267598068d16e76d32225b59f06f88df1f5ba6f
                           code/numerical/MatrixInverse-mod.h 54b95ba4c0f6bb067d94aef0e458339a26ebeeb3a71a87762b17008378333068
                               code/numerical/MatrixInverse.h de125427cd1d5509818f97ceab4961a8bd601a33c379d929313da6b11f1011fd
-                   code/numerical/NumberTheoreticTransform.h 8977c17f04d064cf5c2133d911597d308d967379aaadbe62f2b8fc58939a3442
-                            code/numerical/PolyInterpolate.h ef2f3a9a34ebe530a59a6e0e483bc114043bc9d6662224f9881f730a9932663b
                                   code/numerical/PolyRoots.h 184f12a5566bb1c3a96a00f16971c4906c905cf4bdac12079e5b91926daa7c57
-                                 code/numerical/Polynomial.h 1a06b9ab70d1ee88d5f0acf4fea0dd4dbd87d2485dcf1deb5e9542ca61567ae9
                                     code/numerical/Simplex.h 1500f7ee82e41d93ad9fe97487a43f95bfaf1a736a929ee66dbbb629c87fade3
                                 code/numerical/SolveLinear.h 6bcef3eb9d81379da9f07efe88646372f42ccbc4f9b4ef4e7a3f60af23fefbb3
                                code/numerical/SolveLinear2.h 4b71cc222e6949607bce6c2657ad885c37b408a9e87d5e4f732499c05b205432
                           code/numerical/SolveLinearBinary.h b4bf08d1257802b2ffda18bc60800866430002beda72f9cf990880d7786669b7
                                 code/numerical/Tridiagonal.h 5aa2ac5609c9978714a9ed8e01d78f5bf6cd984c947cc8ac0c8d69608f5febbe
+                            code/numerical/PolyInterpolate.h 15fefe7f6f166fc652f4614f2e015ad713319c407e7b8c956d635ee4a354acc9
+                                 code/numerical/Polynomial.h 705a76e707f505b983776042f8a6dea2e7ccec1ff4220c3d02393fe467b3e72b
+                   code/numerical/NumberTheoreticTransform.h f77ab13763b804d9abfaf476deecdbe06348f1d171c180dd714ac4bc47255b75
                                      code/stress-test/gen.py 0f363ebe89c3b303e199e9bf9717da003ae63509a854aed659f12cdf61d3a100
                                     code/stress-test/test.sh 7a4f7aea73f52f7b53c06c8445871cf67bbe5be80b3c7d1f8b9ab927684862fd
                          code/tree/RootedTreeIsomorphism.cpp f3f02923acdd1d1829dc847184288e565f81c6b48478487ddfc4bc09065dd949
