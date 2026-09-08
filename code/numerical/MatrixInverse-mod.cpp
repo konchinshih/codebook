@@ -5,7 +5,7 @@
 * the inverse of A mod p, and k is doubled in each step.
 * Time: O(n^3)
 * Status: Slightly tested */
-#include "../number-theory/ModPow.h"
+#include "../number-theory/ModPow.cpp"
 int matInv(vector<vector<ll>>& A) {
   int n = sz(A); vi col(n);
   vector<vector<ll>> tmp(n, vector<ll>(n));

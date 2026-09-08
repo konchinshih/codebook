@@ -6,7 +6,7 @@
 * Output will have size $\le n$.
 * Usage: berlekampMassey({0, 1, 1, 3, 5, 11}) // {1, 2}
 * Time: O(N^2), Status: bruteforce-tested mod 5 for n <= 5 and all s */
-#include "../number-theory/ModPow.h"
+#include "../number-theory/ModPow.cpp"
 vector<ll> berlekampMassey(vector<ll> s) {
   int n = sz(s), L = 0, m = 0;
   vector<ll> C(n), B(n), T;

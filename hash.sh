@@ -5,7 +5,7 @@ FILES="$(find "$SOURCEDIR" -type f)"
 while IFS='' read -r file; do
   tmpfile="$(mktemp)"
   if [[ "$file" == *.cpp ]]; then
-    cpp -dD -P < "$file" | tr -d '[:space:]' > "$tmpfile"
+    cpp -dD -P -I "$(dirname "$file")" < "$file" | tr -d '[:space:]' > "$tmpfile"
   else
     cp "$file" "$tmpfile"
   fi

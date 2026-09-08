@@ -1,20 +1,20 @@
                                            code/basic/bashrc c08ff498c1fc25b38fd8ca175d8990f53981319ab5378e5234c0f72644d4b957
                       code/basic/old_files/c++.sublime-build 86c1d30df131f45c96951aa652c1f1a6e20a2594d9deaf45b64ec980c3f9ad29
                               code/basic/old_files/vimrc_old f4bbc094a6a6030577f63ca90fda2f82410fcd8ea239a70cc7f6a26b341f29f5
-                            code/basic/old_files/Default.txt 9e4ae375b285a16f3b624a497a198a2125272682c61cbd8d9462fd6713d7fd89
                               code/basic/old_files/Vimrc.txt 3d6058f82eb25e76f721a6400d4561d670bbd47d53a52d0976139395e8b98ee1
+                              code/basic/old_files/stress.sh fa685017da8201cb83b8a404341ff586d4a9b6a8580d0acce4a9c43bd426bc7c
+                            code/basic/old_files/Default.txt 9e4ae375b285a16f3b624a497a198a2125272682c61cbd8d9462fd6713d7fd89
                                 code/basic/old_files/init.sh b840424a02981525192ff44648d1621dcacfb5fb8eaf55f319af99d8280f16e6
                                  code/basic/old_files/run.sh 942aafcf45db4af713bb8d32b952f7499e4f2208251b7a280f8d0c74df3b8319
-                              code/basic/old_files/stress.sh fa685017da8201cb83b8a404341ff586d4a9b6a8580d0acce4a9c43bd426bc7c
                 code/basic/old_files/開場流程 (Linux).sh bc40d885920d9e6a62daedc421a520cf34399fe613d0f7a393ca6aeeaf09ab5b
                                        code/basic/vimrc-gino 6ecd623617f043789d162b1e03fdd004f060d9d5460c52eb53692682bc4e298c
                                             code/basic/vimrc 541bffc240da488529248a3f75f2ed6ae953866c2b7c9ae4002c64b5be1cd5a3
                               code/basic/PBDS_and_Random.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
-                                        code/basic/Python.py b165080455d2face13b2d1ec3690f2b9f0f24405c6b4b30e4eccce6ed073ed32
                                     code/basic/SVGWriter.cpp f58f9e56e4ee5520f72f54a4c957ce0b1f2b5e8c05963ebaac4b8f8a343c444e
                                code/basic/SVGWriterUsage.cpp 030e6899e575852702df19c87f1d57c6b4379a84289a5964a004589595750b5a
                             code/basic/template_codebook.cpp 9f92044028ae524d9987e7e789602a01b7b5420a60b60633d3808a5b6d09fbf7
                                         code/basic/debug.cpp a265e167d590907eab67be44c7720d6f82cf8b2d2aaa18be1af482edb97d9781
+                                        code/basic/Python.py b165080455d2face13b2d1ec3690f2b9f0f24405c6b4b30e4eccce6ed073ed32
                        code/data-structure/old_files/BIT.cpp d68266c4d1964b255e9504d582bda8112ad27b06b27420a35b18e80a7372a9d5
    code/data-structure/old_files/SegmentTree-Instruction.cpp ea16d82226cf639c19ec5d96cfe8bb374df67df99c96592937c23b7df3f82c09
                  code/data-structure/old_files/skew-heap.cpp a14c90d8ac360de57bc9da2070e19aa39f65b47cb3dd0b62ef1f6f8b2d83d14f
@@ -24,41 +24,41 @@
                     code/data-structure/persistent-treap.cpp 803cce841a5fb6c2817dc4dec7e162a5516f998d793dc6b4485ae9331fb874ed
                         code/data-structure/li-chao-tree.cpp 6c33c234f3c24a7e6f58f5b4b5322ae4bf63b04e97707d6cb92fcb9734188874
                         code/data-structure/Mo-algorithm.cpp 8d7194392737fffc28d3599e9279088cb3961fcc09144822d73222d6a1d580a8
-                                 code/data-structure/CDQ.cpp 744a8004c7b736f096f3967dc4c896a5ef16ac3b92acf87809a2a40c4eb6ff17
                         code/data-structure/time-segtree.cpp 5197758763d65d3fde4a53973dbf17432de9c139e54509e4bbde97357e7cf770
                   code/data-structure/segment-tree-beats.cpp f686aae9c15934dc24ceecfd9bd436e2b78836f1afcfa5397496b55e9d8525ff
+                                 code/data-structure/CDQ.cpp 744a8004c7b736f096f3967dc4c896a5ef16ac3b92acf87809a2a40c4eb6ff17
                                 code/dp/old_files/Aliens.cpp 58a8c81c832065249f3b148b1c1aca5e6b5578975bf52fa93dd0485948410c08
                       code/dp/old_files/dice_expectation.cpp 9e4d170c89d9131735293ba63e0c626da7d89d409e12cd2746b8af19ccb80d5f
                       code/dp/old_files/digit_dp_sum_mod.cpp 73d99f27703389d4e9268d70dce601312a04de38655d783496cacd8edaeea3f8
                                           code/dp/SOS_DP.cpp 623a0889c4a7600c9326c0f5f35a71f8a4db8edc09cb05bcee504af5883421fc
-                              code/dp/DivideAndConquerDP.cpp d36c77e15b7dd3481cc37a5e7535c00b82329c5fcec9fb0184631eff6f8aee84
                                    code/dp/LineContainer.cpp bb4a1c56ff3c2240bcb687b627a236884bda976542833e88c385cafd8f0ad388
+                              code/dp/DivideAndConquerDP.cpp d36c77e15b7dd3481cc37a5e7535c00b82329c5fcec9fb0184631eff6f8aee84
                               code/flow/old_files/KM_old.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
                                  code/flow/CoverIndepend.txt 3b64c4883d23c40f94144f399122b182268796374517e5089d7a17dd75040d90
-                                  code/flow/HopcroftKarp.cpp 504e6d1cb30194199d4499b2a459410a3640b107714bfdfd89638ddf71652f69
                                 code/flow/BoundedMaxFlow.cpp aaf8c33acbf3e3a4c4d96233f12183b91886a23e24b242ba8fedf0f328106c85
                                   code/flow/GomoryHuTree.cpp 88b01482bab49c4f5a4625b7ad05120628052e4d4cc9229e896261769317c764
                                           code/flow/ISAP.cpp c13d55364c229dc2cdee2b085b915692af2e73d667cdeb08c41bf415d36b008d
                                           code/flow/MCMF.cpp 472be6914e9624ede4b5506084a57123aa94348a1768885fff19324ef1144936
-                                   code/flow/PushRelabel.cpp fae237ea7f2df7ef915d1807c86b301ee60ff31e7d2e98dcb23ac681a554bfa7
                                          code/flow/Dinic.cpp b8e775dc5da2429589bd0cbb8d93830a4d5b777d61c58707ca0840c9720da601
-                                    code/flow/FlowMethod.txt 9516b622ced2ffa555b8d83eaab6ce913c8791edfcd5e506d3e775feb45d1bf8
                                    code/flow/StoerWagner.cpp a040ee5e3f2770ecbf5163c436fcc05011a7c0dc907cde845cbb5ff55723941d
+                                    code/flow/FlowMethod.txt 9516b622ced2ffa555b8d83eaab6ce913c8791edfcd5e506d3e775feb45d1bf8
+                                  code/flow/HopcroftKarp.cpp 504e6d1cb30194199d4499b2a459410a3640b107714bfdfd89638ddf71652f69
+                                   code/flow/PushRelabel.cpp fae237ea7f2df7ef915d1807c86b301ee60ff31e7d2e98dcb23ac681a554bfa7
                          code/geometry/geometry-main-typ.typ 0cfacf5d92756a6b0f81527998c6274dfe6460614d9486425be43b7a94a0e41b
      code/geometry/old_files/basic-operations/01-default.cpp f63ea3ae93909cfb861ae6534c6425e48dfaf270cd6942960a07ba77338ec84e
        code/geometry/old_files/basic-operations/02-onseg.cpp 132de609df37620800195be83ed0b2d4133cb372529be8448811435c726e42ba
       code/geometry/old_files/basic-operations/03-banana.cpp 82f93a3e34c7920463c31c1372a560604a72cfa93ecc2de2d221bfad76e55edc
- code/geometry/old_files/basic-operations/04-bananaPoint.cpp d8c5d037aa83b1dc13a168a21316123a5b989da5aa6ada6048d3bf84f971a523
-code/geometry/old_files/basic-operations/ClosestPointPair.cpp 49d695cca8488f2eac45d8a939ce77f0a6c5d08fe2ee31a7ef316040ae351b01
      code/geometry/old_files/basic-operations/ConvexHull.cpp 8c9888aad04f32aa7c1530e59f197ff30947488cac7d47687cb00f671fd1aa47
 code/geometry/old_files/basic-operations/ConvexHullTrick.cpp e2902511d2d94d36938801c3617e956487cd0a625bbf602f44fa4f3afd816b4c
          code/geometry/old_files/basic-operations/InPoly.cpp 2293a256cc89f54ea826c4eb7ee524cab4a8439549887c253f4c7e1ba950a91d
-code/geometry/old_files/basic-operations/LowerConcaveHull.cpp 2a96ed6177ec22d1d87a376f4166a3753fb8ca9d859d10ccab5661a2bbfaf480
-code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e7431e2e5eeadb51e514d88d7156230de8fbf24acd71a15a7
    code/geometry/old_files/basic-operations/MinkowskiSum.cpp 7762c5db4f3ccd9536f85b9c17882f22a5c2511ff230396a15256f86a383a7b0
       code/geometry/old_files/basic-operations/PolyUnion.cpp 673fdd60ddd6d6918994e565bf7a7165e33a843bc7bc2c30ea9dc885112157a7
     code/geometry/old_files/basic-operations/PolygonArea.cpp 53a6a0ba8bb8e320150012c8b9115a04a0bb64c29bffbbc567cdf897b2e27e0e
     code/geometry/old_files/basic-operations/SortByAngle.cpp 73c489c461e27149612aba87e06920beaf57a95b9899e310bb32d6dde40556e2
+ code/geometry/old_files/basic-operations/04-bananaPoint.cpp d8c5d037aa83b1dc13a168a21316123a5b989da5aa6ada6048d3bf84f971a523
+code/geometry/old_files/basic-operations/ClosestPointPair.cpp 49d695cca8488f2eac45d8a939ce77f0a6c5d08fe2ee31a7ef316040ae351b01
+code/geometry/old_files/basic-operations/LowerConcaveHull.cpp 2a96ed6177ec22d1d87a376f4166a3753fb8ca9d859d10ccab5661a2bbfaf480
+code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e7431e2e5eeadb51e514d88d7156230de8fbf24acd71a15a7
                               code/geometry/3DConvexHull.cpp c9657bc38cfd048ce68acdce44017104418c40d5be8407bac932914f53bd7794
                                    code/geometry/3DPoint.cpp 1e44fd528b8f58ba46c8b697a2415eb3b973f06c09de71b020f9a1ff6d8a5f5c
                                   code/geometry/Bisector.cpp 5348b94709fa2931b0e1b8fe2fb6280985e0aea1518b09d46387e8b5b2a0a386
@@ -92,12 +92,12 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                            code/graph/old_files/Dijkstra.cpp 1b3766705143fab90ee5ee2db887a49bddb229e7dd73e00d44dcfe27a62f2c2a
                    code/graph/old_files/EulerianPath-Dir.cpp 4b8b7da4653ac4e230e12570b95cc2465b0d3eeb7e6a90d70d7a73d44d32a05c
                  code/graph/old_files/EulerianPath-Undir.cpp e220a8277d078b8873c6c7047f98ed74ff9462c08a2aa0e2614c138157d5c7fe
-                               code/graph/old_files/SPFA.cpp afde733677062e67f73fda9f7270d4e809cf253994e90d4f2f90c71da88078c8
                       code/graph/old_files/FloydWarshall.cpp 3fd62874750b3f60e64c2b9919bf941c63b40a963fa66ceb9a558305c7bdf1d7
                        code/graph/old_files/HamiltonPath.cpp 0bd21cb42ee28a62914ac2d568b0cc17fa89665676cc9ad0851dfe012bb7001c
                         code/graph/old_files/MST-kruskal.cpp 09dceb9c93c76b7ea8d4b0a02e7ea1dd45defc797aec06a05a47962ed4090596
                            code/graph/old_files/MST-prim.cpp 7ee9fa3550ed7f8a96e2a948e9e9a4ba4befd789f337aa7656974b3833a0225a
                                 code/graph/old_files/LCA.cpp 50473690dbf43f257d3566018ad00694f0919dad8da6201ff2b0691cf58843a9
+                               code/graph/old_files/SPFA.cpp afde733677062e67f73fda9f7270d4e809cf253994e90d4f2f90c71da88078c8
                                     code/graph/MaxClique.cpp 3a1fe577ae0050358f496d94c2c6e4d5446e227221398dd1af3a948dfc5f249c
                                           code/graph/SCC.cpp 7a063d525b6c0f081183cc17b1996e7247062b079a50a76d0cdde86109aa89da
                                          code/graph/VBCC.cpp e85b0a3c1bcf0ef92453635ec1d2e18d19edd9172eb7e5240fb3b4cd990b8d79
@@ -111,22 +111,22 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
           code/number-theory/old_files/Legacy-Polynomial.cpp cac4fb23fecbd01f38cf52239aa1aa1a9d2710cac8d657668baf9b91122fffbf
                                 code/number-theory/Basic.cpp baf27431bfdbe180125b7e1da172de44e381e702e6950fe0b8bad24ed47d8135
                                   code/number-theory/FFT.cpp a1c829199635fd12430e20eeacc6fc7d491e15069579eb84a0e9e50cd8d449f9
-                      code/number-theory/Harmonic_Series.cpp 7c56ccbb2a155771e48d719994a3e60e6ceea69a82e2682bafb818ffb13f15bf
                         code/number-theory/MatrixFastPow.cpp 1ceb380ddc7fe0971a66076a01da80dc964b0ac053dc80c8e770f7200d1716da
                              code/number-theory/Mu + Phi.cpp ab4a911ce7384863cc8c532b2e3d2bf2f737a2a1308c4543952528ac512e8157
                                   code/number-theory/NTT.cpp 185d30bbf8ed441e906b4180b1796f69d90a295e2aed42d1059fb4ca1a06d6e2
-                   code/number-theory/Number_of_Divisors.cpp 0a561603d6d78fce508eafc63ff3f8a347029b2dd6b59f64e9d22d45d728307a
-                           code/number-theory/PollardRho.cpp c80c05366fdcbc5f59efd906c88896894ead3a58824bcab49a4af58285ad3bbd
-                            code/number-theory/PollardRho.py 1ba6c833de99729601ca1c735e191e3b97ba3e57c808c942c028c501f9ba7919
                   code/number-theory/PrimeSeive+Defactor.cpp e2350f21758326a3a8f8f822a7f504807e69c7c14ab14ff56928fb531ba43c1a
-                         code/number-theory/數論分塊.cpp cd4e6b9ec17e10543b88eac1dd1fed31eaaf1927a94f1d42bbbc8d0bd7e9d0a4
                                code/number-theory/ExtGCD.cpp 50b7fce31941f985c217d671f8a88adab28750308f7e31d55cbced2a5a7f07cf
                           code/number-theory/DiscreteLog.cpp a04e88230c3c2acca555b65a1b2cdeaced8fde4712b3f3699c40cfcc5b7c34fd
                          code/number-theory/DiscreteSqrt.cpp 3f16e12a6aed04f8caec6b25b38c6f480625044bc30e485eb7e19dfe17e18d4b
                           code/number-theory/MillerRabin.cpp 68618704ed996b6da2dc5a7bf7e786863d9d1df5810d9eb6fe9c5e911720663d
-                          code/number-theory/Polynomial2.cpp 2841a334e23cbb41295fc760c911c45690d3448c03d56f31d615a0151c814653
-                           code/number-theory/Polynomial.cpp 57318bc26ecfbc98fcbf19f66514b335c2a482bbe36d913cb2ea3dc74008e5b1
                                code/number-theory/ModPow.cpp 98cfb183959e1db0ca1c8ff6f007b06714122d86d9dfcf23193d6e03855e96e5
+                      code/number-theory/Harmonic_Series.cpp 7c56ccbb2a155771e48d719994a3e60e6ceea69a82e2682bafb818ffb13f15bf
+                   code/number-theory/Number_of_Divisors.cpp 0a561603d6d78fce508eafc63ff3f8a347029b2dd6b59f64e9d22d45d728307a
+                           code/number-theory/PollardRho.cpp c80c05366fdcbc5f59efd906c88896894ead3a58824bcab49a4af58285ad3bbd
+                            code/number-theory/PollardRho.py 1ba6c833de99729601ca1c735e191e3b97ba3e57c808c942c028c501f9ba7919
+                           code/number-theory/Polynomial.cpp 57318bc26ecfbc98fcbf19f66514b335c2a482bbe36d913cb2ea3dc74008e5b1
+                          code/number-theory/Polynomial2.cpp 2841a334e23cbb41295fc760c911c45690d3448c03d56f31d615a0151c814653
+                         code/number-theory/數論分塊.cpp cd4e6b9ec17e10543b88eac1dd1fed31eaaf1927a94f1d42bbbc8d0bd7e9d0a4
                        code/string/old_files/ACAutomaton.txt edc31321f7ac714b47f86b9e697ee3255bf51d511773be175f4414741f96f699
                              code/string/old_files/SA-IS.cpp 0a6b298987135a8048a5d1fc7188644df541827997ba92cd1ee2d46398ccf37d
                       code/string/old_files/SA-Optimized.cpp 2aff40536e5224c746929550b3ee538a102025eea7cc5dd6f5704d4ad6ed5ee8
@@ -140,10 +140,13 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                                  code/string/MinRotation.cpp bb235fe6a4e1dbc1f6150be1f48ac5d601a792732fb735461ba7a3fbf0a6d814
                                  code/string/RollingHash.cpp c156595d07022cb2b075f4e041aaf72700f14e5a8707358719764742ab6d192b
                                           code/string/SA.cpp c1df5b81d7b178c0301f3ed5946ea341fb462cff85e64636e55d2266c9f48751
-                                         code/string/SAM.cpp 10f751b7fa905fbb72858b95d2e7b874fe67b11af564f84e6be026756d0895de
                                            code/string/Z.cpp d5b3b9b21d052b21ee430c09d20b9634fcf86c25d491af960f559f7d11f65e48
                                  code/string/AC-DictLink.cpp a62cfaa88c64a0a1414cdec8603a97f5e8d67335d90b45398a58142312626133
                                           code/string/AC.cpp 285968e2f83b8b368babf3f2562cb8818e2746cc8af872ba12baec8c7fed3a7c
+                                         code/string/SAM.cpp 10f751b7fa905fbb72858b95d2e7b874fe67b11af564f84e6be026756d0895de
+                         code/new-number-theory/ex-lucas.cpp 3bed100da53b4014a6a5b1537fd6e481bd09bf5f84d02a7969bed7b42d575cc5
+                             code/new-number-theory/Lucy.cpp 0218eef55d671a0940275b2ec2d6e0cc4d1c3c3d129e4d31a9dfe38bb24ccf9e
+                            code/new-number-theory/Black.cpp 22e0fdb9dd626717faefa4c722d1f44bf11c3e50a12de127d0554b70a8b152dc
                             code/new-number-theory/Combo.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
               code/new-number-theory/Enumerate_Quotients.cpp a20856311ed868e3e3800fe4b6a8aedc75e3aab8113f38aa5b62c3d918590cca
                              code/new-number-theory/bsgs.cpp 4bc15b25fed5d706ba02b57b9838d52cda298adeaa4b298759ce20e7295ef3d3
@@ -167,6 +170,7 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                      code/new-number-theory/linear_sieve.cpp d9fd0ba2663e71c8465428f4b51f83aef1ef7f57a31551e81b4a48882552df1c
                   code/new-number-theory/miller_rabin_64.cpp 33b8cf5b2c68b786231ca0be20dda49518f471f5f4c4125f3b3a7fd8f9ce2ac1
                 code/new-number-theory/min_of_linear_mod.cpp fb74034612e6f74789760fe480009e1ce545f438241bfc4222ca9f07ff0a0892
+                           code/new-number-theory/modSum.cpp 60beb8541b575ffb45107966c72acc4ce5cbf835a3a0682f30308f25616d5e05
                    code/new-number-theory/pollard_rho_64.cpp 326a92ac76f4c47da21efeeac5a6fcb16fa4e58fa8c95b838de666eeab331eb3
                              code/new-number-theory/poly.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
              code/new-number-theory/primitive_root_prime.cpp 160c33fcb1e7408f658a930e18e62c8dcf7d9ce896606dc8f9b468510f618041
@@ -174,43 +178,39 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                     code/new-number-theory/sum_mu_1_to_n.cpp d9e963ee6f243fd1bf115cb8db792155dc7e36d6ffe54d00b5b2a82c1234f320
                    code/new-number-theory/sum_phi_1_to_n.cpp 0a60ce0b79e6c0aa7ef4445871c85214a8bbc77e649d0002c2990554dc6a94ba
                     code/new-number-theory/tetration_mod.cpp 9421fe6ea3932f14d754b14e3e3dccbcdbc520c40b7ebcefa736a30a82572b74
-                         code/new-number-theory/ex-lucas.cpp 3bed100da53b4014a6a5b1537fd6e481bd09bf5f84d02a7969bed7b42d575cc5
-                            code/new-number-theory/Black.cpp 22e0fdb9dd626717faefa4c722d1f44bf11c3e50a12de127d0554b70a8b152dc
-                             code/new-number-theory/Lucy.cpp 0218eef55d671a0940275b2ec2d6e0cc4d1c3c3d129e4d31a9dfe38bb24ccf9e
-                           code/new-number-theory/modSum.cpp 60beb8541b575ffb45107966c72acc4ce5cbf835a3a0682f30308f25616d5e05
                          code/matching/BipartiteMatching.cpp f4292183551e550b24cb177b48372f81486faf06e476372057e269a9c7066c05
                  code/matching/BipartiteWeightedMatching.cpp 5933aa50bf728cfd8887093e4bbdc43359e40019e2aad68a35e0a8ba08812842
                            code/matching/GeneralMatching.cpp 93f94864a961aac960c5fc72d7008306be02759e8c1b9abcab380f8029f32b47
                    code/matching/GeneralWeightedMatching.cpp f9ce59f8f54b6b64883850c779f792f993be3b4dfd03da248b06ce12171537bf
                                   code/numerical/chapter.tex b21ef52b80bafab0d523c0426764ba78c513f3cfec4ecd3599eb9f499e1b98d0
-                            code/numerical/BerlekampMassey.h fa69b755a850229dcca0ee1a8fd9a6c1d13db10a667a08886ec158adb2936d59
-                                code/numerical/Determinant.h 6bef730383da59c2de51ec76829fcb62c0e683f41a341152382053c6bfd448ca
-                       code/numerical/FastFourierTransform.h d98af3a890ee4b8e392e47b9fbfbb4407047bade54d5925bb650cc88c6ae4778
-                    code/numerical/FastFourierTransformMod.h 58a14a04b96f5306a279063bd399b1343e3b6693bf048dca3462a58edce9158e
-                        code/numerical/FastSubsetTransform.h bd47fd5899d6a685a4b7bc3749809ebe22e96a24cdb74cdfd2301479fa2da8d2
-                        code/numerical/GoldenSectionSearch.h 320e3f14a76cd5d3994da5d60495a9cbfde308166077a69e41fa39f4e6c9655a
-                               code/numerical/HillClimbing.h 6919e0868f48862a757f9b5a21c34c5c57ecd635c1f53bfb83083997d3d1b6e8
-                             code/numerical/IntDeterminant.h c6cc9958614f9f28f16fc5aae53f314a6dcb1ff1f8ea6d338d98ccf947487dfc
-                                  code/numerical/Integrate.h b5c1013a5b39b1797f907e208cd702bbe8d4e20cd0601d942e06dafa2a354952
-                          code/numerical/IntegrateAdaptive.h e9b3da5c6472345063a3cee3bc71976edd24294701ca640dd222dea0cb9ba131
-                              code/numerical/Lagrange-iota.h fd72cf3226fe9e6e5f1630a3acfbc562d449c87da1dd233c216c21589ceaaa31
-                           code/numerical/LinearRecurrence.h a364666405a5aaf2a36390d35267598068d16e76d32225b59f06f88df1f5ba6f
-                          code/numerical/MatrixInverse-mod.h 54b95ba4c0f6bb067d94aef0e458339a26ebeeb3a71a87762b17008378333068
-                              code/numerical/MatrixInverse.h de125427cd1d5509818f97ceab4961a8bd601a33c379d929313da6b11f1011fd
-                                  code/numerical/PolyRoots.h 184f12a5566bb1c3a96a00f16971c4906c905cf4bdac12079e5b91926daa7c57
-                                    code/numerical/Simplex.h 1500f7ee82e41d93ad9fe97487a43f95bfaf1a736a929ee66dbbb629c87fade3
-                                code/numerical/SolveLinear.h 6bcef3eb9d81379da9f07efe88646372f42ccbc4f9b4ef4e7a3f60af23fefbb3
-                               code/numerical/SolveLinear2.h 4b71cc222e6949607bce6c2657ad885c37b408a9e87d5e4f732499c05b205432
-                          code/numerical/SolveLinearBinary.h b4bf08d1257802b2ffda18bc60800866430002beda72f9cf990880d7786669b7
-                                code/numerical/Tridiagonal.h 5aa2ac5609c9978714a9ed8e01d78f5bf6cd984c947cc8ac0c8d69608f5febbe
-                            code/numerical/PolyInterpolate.h 15fefe7f6f166fc652f4614f2e015ad713319c407e7b8c956d635ee4a354acc9
-                                 code/numerical/Polynomial.h 705a76e707f505b983776042f8a6dea2e7ccec1ff4220c3d02393fe467b3e72b
-                   code/numerical/NumberTheoreticTransform.h 8c611babdb4e8e5cb29cf747d7e6ae38c792d7f9ae46d556af1e234628b63eb7
-                                     code/stress-test/gen.py 1c796f9d94d400db50ca13111fbed1256d2c02ab184c487f0fc601c24a917d46
+                              code/numerical/Determinant.cpp f2582fb63154ecf14da74b3c043bfde1d51493943fb1a443d5eef81d702f0c0b
+                     code/numerical/FastFourierTransform.cpp 92581321be567211936cdbc3ce2763ecbb6663c24ab0aa0a995796fec10f3373
+                      code/numerical/FastSubsetTransform.cpp af2812ab7f214a4491ef61357faaa99cd5ba35d721f04fe5e93b788a40f8354c
+                      code/numerical/GoldenSectionSearch.cpp 5a045c148d62ad4fe404106ef3e8ff4d84ec731226dfd25bd8f2deb3f8e24819
+                             code/numerical/HillClimbing.cpp ad09b236ea5902a04674e01c79df52ba0cbfdabccf9e9084188a02cd7f62e5b7
+                           code/numerical/IntDeterminant.cpp d05863c1b4e259cc37dbbc42260f1f0f07250f00ea62961893da431c8d1bfa46
+                                code/numerical/Integrate.cpp b840be34bdc7bab711762b7f7a6b22f52da7b2b4bf1d8524ee472f6fc8b3e50a
+                        code/numerical/IntegrateAdaptive.cpp 7740a2ddb84649703524fb3a209e5c0d90ccb1f687fbce1f583a6cbf636f7dd3
+                            code/numerical/Lagrange-iota.cpp 1fd2503940dc3a3bf080da8091e232bd368ca0d93d571b74106723b35a33d18c
+                         code/numerical/LinearRecurrence.cpp 10a71f5106b4f1f4a9688f0b25e941b0aad74fcf748ea81f58ce268b524648b2
+                            code/numerical/MatrixInverse.cpp d30d5176586a2a024ee7e78ae6c91db9de87b3544ce1f89812a160ee208e03bc
+                                  code/numerical/Simplex.cpp 9424b4abca320b99af4c19d09616038b852aa06bc321c66fa57cc5e5adead228
+                              code/numerical/SolveLinear.cpp 97314fe9967b6b03b70ffed49c783448d20eee91d9905dbb4b1d7a8401a1d534
+                        code/numerical/SolveLinearBinary.cpp 127508d06b91d43c1c1e122ddb190367d60901e2d266f3ff454f468f77a943db
+                              code/numerical/Tridiagonal.cpp 4b069e9918ea04c354a2025828a9b3712df59c292421afb33199bde9862d5846
+                          code/numerical/PolyInterpolate.cpp e835f1c2fa3355fcae05a117368ac2fa85e8d2c5dfbe4e056ee5449343c638f9
+                               code/numerical/Polynomial.cpp bdd8e11460e5bfaf2bcccbca121505903dc2e84d90b587e2a25f730e477d1d69
+                  code/numerical/FastFourierTransformMod.cpp a696f8f9bfd1bf6e21d8bf580227257e0f6e576fdf3a7cc71ce41ef6f8eabc5d
+                                code/numerical/PolyRoots.cpp 0fb1acc912defd53a687e9893a990db447b32fbd804875a0832f15faaa2186d6
+                             code/numerical/SolveLinear2.cpp 68dc37bb012f5b342c9cdaf30627ddff1b31b15c394bafc1a558ec046227529b
+                          code/numerical/BerlekampMassey.cpp f710fb6fe33b2d47351bacf4fb6d9822d99c330bb0bfab2b025a89541db0f334
+                        code/numerical/MatrixInverse-mod.cpp 5e180479df80450ad898ddbbbccbced1517aea572382f071407881c4d474c1f0
+                 code/numerical/NumberTheoreticTransform.cpp fd55624b62a296cfed936b9c737bb6acf0b61a0d6f990426963b1090a5bb2089
                                     code/stress-test/test.sh 7a4f7aea73f52f7b53c06c8445871cf67bbe5be80b3c7d1f8b9ab927684862fd
+                                     code/stress-test/gen.py 1c796f9d94d400db50ca13111fbed1256d2c02ab184c487f0fc601c24a917d46
                           code/tree/old_files/HLD-Benson.cpp 56d88456e7d2c35f4265b1d3ff3d7d4c6f6eb13144ba3a8bb968a65037069cc6
-                            code/tree/old_files/HLD-Gino.cpp 5efeeedd2fe114d5d421d823ddc6dbd3c07d0d7eb3a5af0e49d862c785052a66
                        code/tree/old_files/tree_centroid.cpp 3013ef7608ed26ebb0579e0ee97a5ea3ff7cebeefd907aed9bd6d03071889a5d
+                            code/tree/old_files/HLD-Gino.cpp 5efeeedd2fe114d5d421d823ddc6dbd3c07d0d7eb3a5af0e49d862c785052a66
                          code/tree/RootedTreeIsomorphism.cpp f3f02923acdd1d1829dc847184288e565f81c6b48478487ddfc4bc09065dd949
                                            code/tree/HLD.cpp 53e45cf519c303c53c9f6414da9095eb05311543d9b26ea2729a0d46dd90967f
                                    code/tree/VirtualTree.cpp 17216643c7ef31df6b9ea32724891d47e97d1768d67ebc670aa222737e31b0b8
