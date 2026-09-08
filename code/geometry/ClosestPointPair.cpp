@@ -16,8 +16,6 @@ pair<T, pair<int, int>> closestPair(vector<Pt> p) {
       auto [q, j] = *lo;
       best = min(best,
           {abs2(q - p[i]), {min(i, j), max(i, j)}});
-    }
-    s.insert({p[i], i});
-  }
-  return best;
+    } s.insert({p[i], i});
+  } return best;
 }

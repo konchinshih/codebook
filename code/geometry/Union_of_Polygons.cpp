@@ -29,10 +29,7 @@ auto polysBorder(vector<vector<Pt>> poly, int id) {
           if (s1 ^ s2) {
             auto [p, d] = bananaPoint({a, b}, {s, t});
             vec.emplace_back(p / d, s1 ? 1 : -1);
-          }
-        }
-      }
-    }
+    } } } }
     sort(all(vec), [&](auto i, auto j) {
       return cmpLine(i.first, j.first, s, t);
     });
@@ -41,8 +38,7 @@ auto polysBorder(vector<vector<Pt>> poly, int id) {
     for (auto [cur, val] : vec) {
       if (!base) seg.emplace_back(lst, cur);
       lst = cur, base += val;
-    }
-  }
+  } }
   return seg;
 }
 double polysUnionArea(vector<vector<Pt>> poly) {
@@ -50,6 +46,5 @@ double polysUnionArea(vector<vector<Pt>> poly) {
   for (int i = 0; i < sz(poly); i++) {
     auto seg = polysBorder(poly, i);
     for (auto [l, r] : seg) res += l ^ r;
-  }
-  return res / 2;
+  } return res / 2;
 }

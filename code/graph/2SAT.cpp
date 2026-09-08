@@ -8,12 +8,9 @@ struct TwoSAT: SCC {
     G[b^1].push_back(a);
   }
   vector<int> solve() {
-    build();
-    vector<int> assignment(n/2,0);
+    build(); vector<int> assignment(n/2,0);
     for(int i=0; i<n/2; i++) {
       if (sccn[2*i] == sccn[2*i^1]) return {};
       assignment[i] = sccn[2*i] > sccn[2*i^1];
-    }
-    return assignment;
-  }
-};
+    } return assignment;
+} };

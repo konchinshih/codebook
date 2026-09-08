@@ -43,6 +43,5 @@ vector<Face> convexHull3D(vector<P3> pts) {
     for (auto& f : now)
       F(f.a, f.b), F(f.b, f.c), F(f.c, f.a);
     now = nxt;
-  }
-  return now;
+  } return now;
 }

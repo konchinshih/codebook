@@ -29,10 +29,8 @@ auto halfPlaneIntersection(vector<Line> arr) {
     while (sz(dq) >= t && !isin(p, dq[0], dq[1]))
       dq.pop_front();
   };
-  for (auto p : arr)
-    if (!sameVec(dq.back(), p, 1)) {
-      popBack(2, p), popFront(2, p), dq.pb(p);
-    }
+  for (auto p : arr) if (!sameVec(dq.back(), p, 1))
+    popBack(2, p), popFront(2, p), dq.pb(p);
   popBack(3, dq[0]), popFront(3, dq.back());
   return vector<Line>(all(dq));
 }

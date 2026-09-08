@@ -291,6 +291,7 @@
      $
   - 滿足 $(plus.o, times.o)$ 是半環（$times.o$ 對 $plus.o$ 有分配律、$times.o$ 和 $plus.o$ 有結合律、$plus.o$ 有交換律）
   - 此時便可用線段樹維護 $M_n M_(n-1) dots.c M_1$ 的乘積。線段樹上的 pos 是 $M_"pos"$，但 pull 時要 `st[idx] = mul(st[cr], st[cl])`
+  #sub("Convex Hull Trick", "code/dp/LineContainer.cpp")
 
   
 
@@ -330,7 +331,7 @@
   #sub("Bipartite Matching", "code/matching/BipartiteMatching.cpp")
   #sub("Bipartite Weighted Matching", "code/matching/BipartiteWeightedMatching.cpp")
   #sub("General Matching", "code/matching/GeneralMatching.cpp")
-  #sub("General Weighted Matching", "code/matching/GeneralWeightedMatching.cpp")
+  //#sub("General Weighted Matching", "code/matching/GeneralWeightedMatching.cpp")
 
 = Flow
   #sub("Flow Methods", "code/flow/FlowMethod.txt")
@@ -370,6 +371,7 @@
   #sub("Point-Line / Segment Distance", "code/geometry/PointLineSegDist.cpp")
   #sub("Sort", "code/geometry/Sort.cpp")
   #sub("Convex Hull", "code/geometry/ConvexHull.cpp")
+  #sub("Triangle Centers", "code/geometry/Heart.cpp")
   #sub("Point Inside", "code/geometry/PointInside.cpp")
   #sub("Point In Triangle", "code/geometry/PointInTriangle.cpp")
   #sub("Vector In Polygon", "code/geometry/VectorInPoly.cpp")
@@ -378,20 +380,19 @@
   #sub("Cyclic Ternary Search", "code/geometry/CycTsearch.cpp")
   #sub("Circle Intersections", "code/geometry/Intersections2.cpp")
   #sub("Tangents", "code/geometry/Tangents.cpp")
-  #sub("Triangle Centers", "code/geometry/Heart.cpp")
   #sub("Bisector", "code/geometry/Bisector.cpp")
   #sub("Minimum Enclosing Circle", "code/geometry/Minimum_Enclosing_Circle.cpp")
   #sub("Minkowski Sum", "code/geometry/MinkowskiSum.cpp")
   #sub("Convex Hull Distance", "code/geometry/ConvexHullDist.cpp")
   #sub("Closest Point Pair", "code/geometry/ClosestPointPair.cpp")
   #sub("Polygon-Circle Intersection", "code/geometry/Intersection_of_Polygon_and_Circle.cpp")
-  #sub("Union of Circles", "code/geometry/Union_of_Circles.cpp")
+  //#sub("Union of Circles", "code/geometry/Union_of_Circles.cpp")
   #sub("Union of Polygons", "code/geometry/Union_of_Polygons.cpp")
   #sub("Rotating Sweep Line", "code/geometry/RotatingSweepLine.cpp")
-  #sub("Delaunay Triangulation", "code/geometry/DelaunayTriangulation.cpp")
-  #sub("Voronoi", "code/geometry/Triangulation_Voronoi.cpp")
-  #sub("3D Point", "code/geometry/3DPoint.cpp")
-  #sub("3D Convex Hull", "code/geometry/3DConvexHull.cpp")
+  //#sub("Delaunay Triangulation", "code/geometry/DelaunayTriangulation.cpp")
+  //#sub("Voronoi", "code/geometry/Triangulation_Voronoi.cpp")
+  //#sub("3D Point", "code/geometry/3DPoint.cpp")
+  //#sub("3D Convex Hull", "code/geometry/3DConvexHull.cpp")
   == Pick's Theorem
   Consider a polygon which vertices are all lattice points.\
   Let $i$ = number of points inside the polygon.\

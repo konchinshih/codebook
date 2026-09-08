@@ -3,8 +3,7 @@
 // 1. construct (solve at same time):
 //      GeneralMatching M(G, n);  => M.ans
 // status: M.match[x] (== -1 if not matched, 1 <= x <= n)
-// Time: O(V^3), Space: O(V + E)
-// Test: V <= 500, 11ms
+// Time: O(V^3), Space: O(V + E), Test: V <= 500, 11ms
 struct GeneralMatching {
   queue<int> q; int ans, n;
   vector<int> fa, s, v, pre, match;
@@ -16,15 +15,13 @@ struct GeneralMatching {
       if (v[x] == tk) return x;
       v[x] = tk;
       x = Find(pre[match[x]]);
-    }
-  }
+  } }
   void Blossom(int x, int y, int l) {
     for (; Find(x) != l; x = pre[y]) {
       pre[x] = y, y = match[x];
       if (s[y] == 1) q.push(y), s[y] = 0;
       for (int z : {x, y}) if (fa[z] == z) fa[z] = l;
-    }
-  }
+  } }
   bool Bfs(auto &&g, int r) {
     iota(all(fa), 0); ranges::fill(s, -1);
     q = queue<int>(); q.push(r); s[r] = 0;
@@ -46,10 +43,9 @@ struct GeneralMatching {
     return false;
   }
   GeneralMatching(auto &&g, int n_) : ans(0), n(n_),
-  fa(n + 1), s(n + 1), v(n + 1), pre(n + 1, 0), match(n + 1, 0) {
+  fa(n+1), s(n+1), v(n+1), pre(n+1, 0), match(n+1, 0) {
     for (int x = 1; x <= n; ++x)
       if (match[x] == 0) ans += Bfs(g, x);
     for (int x = 1; x <= n; ++x)
       if (match[x] == 0) match[x] = -1;
-  }
-}; // tested @ yosupo judge
+} };

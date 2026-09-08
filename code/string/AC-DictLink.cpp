@@ -8,5 +8,4 @@ void build_dict() { // call this after build_fail()!
   for (int i = 0; i < order_cnt; i++) {
     int u = order[i], f = fail[u];
     dict[u] = is_pattern[f] ? f: dict[f];
-  }
-}
+} }

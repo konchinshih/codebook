@@ -22,8 +22,7 @@ double theta(Pt a) { return normalize(atan2(a.y, a.x)); }
 Pt unit(Pt a) { return a / abs(a); }
 Pt rot(Pt a, double o) { // CCW
   double c = cos(o), s = sin(o);
-  return Pt(c * a.x - s * a.y, s * a.x + c * a.y);
-}
+  return Pt(c * a.x - s * a.y, s * a.x + c * a.y); }
 Pt projVec(Pt a, Pt b, Pt c) // vector ac proj to ab
 { return (b - a) * ((c - a) * (b - a)) / abs2(b - a); }
 Pt projPt(Pt a, Pt b, Pt c) // point c proj to ab

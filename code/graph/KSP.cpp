@@ -23,8 +23,7 @@ struct KSP{ // 1-base
     for(int i=1;i<=n;i++){
       g[i].clear(); rg[i].clear();
       nxt[i]=NULL; head[i]=NULL; dst[i]=-1;
-    }
-  }
+  } }
   void addEdge(int ui,int vi,ll di){
     nd* e=new nd(ui,vi,di);
     g[ui].push_back(e); rg[vi].push_back(e);
@@ -37,8 +36,7 @@ struct KSP{ // 1-base
       node p=Q.top(); Q.pop(); if(dst[p.v]!=-1)continue;
       dst[p.v]=p.d; nxt[p.v]=p.E; dfsQ.push(p.v);
       for(auto e:rg[p.v]) Q.push(node(p.d+e->d,e->u,e));
-    }
-  }
+  } }
   heap* merge(heap* curNd,heap* newNd){
     if(curNd==nullNd) return newNd;
     heap* root=new heap;memcpy(root,curNd,sizeof(heap));
@@ -86,8 +84,7 @@ struct KSP{ // 1-base
         else V[i]->chd[3]=nullNd;
       }
       head[u]=merge(head[u],V.front());
-    }
-  }
+  } }
   vector<ll> ans;
   void first_K(){
     ans.clear(); priority_queue<node> Q;

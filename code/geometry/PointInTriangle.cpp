@@ -6,12 +6,9 @@ int edge(Pt a, Pt b) {}
 bool check(Pt p) {}
 // number of points that strictly inside the triangle
 int inTri(array<Pt, 3> arr) {
-  sort(all(arr));
-  auto [a, b, c] = arr;
-  int x = ori(b, a, c);
+  sort(all(arr)); auto [a, b, c] = arr; intx =ori(b, a, c);
   if (x == 0) return 0;
-  if (x == 1)
-    return under(a, b) + under(b, c) -
+  if (x == 1) return under(a, b) + under(b, c) -
       under(a, c) - edge(a, c);
   return under(a, c) - under(a, b) -
     under(b, c) - edge(a, b) - edge(b, c) - check(b);

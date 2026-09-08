@@ -3,16 +3,16 @@
 //    (1-based, 1 <= u, v <= n)
 // 2. add edges: M.set_edge(u, v, w);
 // 3. auto [tot_weight, n_matches] = M.solve();
-// 4. M.match[u] (== -1 if not matched, 1-based index if matched)
-// Time: O(V^3), Space: O(V^2)
-// Test: V <= 500, 369ms
+// 4. M.match[u]
+//    (== -1 if not matched, 1-based index if matched)
+// Time: O(V^3), Space: O(V^2), Test: V <= 500, 369ms
 struct GeneralWeightedMatching { // 1-based
   static const int inf = INT_MAX;
   struct edge { int u, v, w; }; int n, nx;
   vector<int> lab; vector<vector<edge>> g;
   vector<int> slack, match, st, pa, S, vis;
   vector<vector<int>> flo, flo_from; queue<int> q;
-  GeneralWeightedMatching(int n_) : n(n_), nx(n * 2), lab(nx + 1),
+GeneralWeightedMatching(int n) : n(n), nx(n*2), lab(nx+1),
     g(nx + 1, vector<edge>(nx + 1)), slack(nx + 1),
     flo(nx + 1), flo_from(nx + 1, vector(n + 1, 0)) {
     match = st = pa = S = vis = slack;

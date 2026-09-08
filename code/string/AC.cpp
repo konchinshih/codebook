@@ -1,9 +1,11 @@
 // Author: std_abs (slightly modified by Gino)
-// Recap: fail[s] = s 的出現在 trie 上（也就是某個 pattern 的前綴）的最長 proper 後綴
+// Recap: fail[s] = s 在 trie 上（也就是某個 pattern 的前綴
+//        的最長 proper 後綴
 // N := sum(length of all patterns) + 1
 // 1. ac.insert(pat) -> end-node id recorded in ac.pid)
 // 2. ac.build_fail()
-// 3. run text: ptr = to[ptr][c-'a'] each char; accumulate on your own arrays
+// 3. run text: ptr = to[ptr][c-'a'] each char; 
+//        accumulate on your own arrays
 // - pull: rep(i ac.order_cnt-1 ~ 0) val[fail[x]] += val[x]
 // - push: rep(i 0 ~ ac.order_cnt-1) val[x] += val[fail[x]]
 // Tested @yosupo, N <= 1e6, 323ms on building AC

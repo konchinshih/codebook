@@ -13,12 +13,12 @@
 struct EulerWalk {
   int n, m = 0; bool dir;
   vector<vector<pii>> G; vi deg;
-  EulerWalk(int n, bool dir) : n(n), dir(dir), G(n + 1), deg(n + 1) {}
+  EulerWalk(int n, bool dir) :
+    n(n), dir(dir), G(n + 1), deg(n + 1) {}
   void addEdge(int u, int v) {
     G[u].push_back({v, m});
     if (!dir) G[v].push_back({u, m});
-    deg[u]++, deg[v] += dir ? -1 : 1;
-    m++;
+    deg[u]++, deg[v] += dir ? -1 : 1;  m++;
   }
   vi path, path_edges;
   void walk(int src) {
@@ -49,9 +49,12 @@ struct EulerWalk {
       if (dir && abs(deg[u]) > 1) return -1;
     }
     if (!dir && odd != 0 && odd != 2) return -1;
-    if (dir && !((src == 0 && dst == 0) || (src == 1 && dst == 1))) return -1;
-    if (s == -1) for (int u = 1; u <= n; u++) if (!G[u].empty()) { s = u; break; }
+    if (dir && !((src == 0 && dst == 0)
+        || (src == 1 && dst == 1))) return -1;
+    if (s == -1) for (int u = 1; u <= n; u++)
+      if (!G[u].empty()) { s = u; break; }
     if (s == -1) s = 1;
-    walk(s);  return path.empty() ? -1 : path.front() == path.back() ? 2 : 1;
-  }
-};
+    walk(s); 
+    return path.empty() ? -1 : 
+      path.front() == path.back() ? 2 : 1;
+} };

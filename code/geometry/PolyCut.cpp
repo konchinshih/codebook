@@ -7,7 +7,6 @@ vector<Pt> polyCut(vector<Pt> poly, Pt s, Pt e) {
     if (side != (ori(s, e, prv) < 0)) {
       auto [p, d] = bananaPoint({s, e}, {cur, prv});
       res.pb(p / d);
-    }
-    if (side) res.pb(cur);
+    } if (side) res.pb(cur);
   } return res;
 }

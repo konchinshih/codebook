@@ -15,8 +15,7 @@ auto circlesBorder(vector<Cir> c, int id) {
       vec.emplace_back(l, 1);
       vec.emplace_back(r, -1);
       if (cmp(r, l)) base++;
-    }
-  }
+  } }
   vec.emplace_back(Pt(-c[id].r, 0), 0);
   sort(all(vec), [&](auto i, auto j) {
     return cmp(i.first, j.first);
@@ -45,7 +44,6 @@ double circlesUnionArea(vector<Cir> c) {
       double tr = theta(r - c[i].o);
       if (sgn(tl - tr) > 0) tr += PI * 2;
       res += F(tr) - F(tl);
-    }
-  }
+  } }
   return res / 2;
 }

@@ -15,8 +15,7 @@ auto phase(const auto &w, int n, vector<int> id) {
     s = t; t = c;
     id.erase(ranges::find(id, c));
     for (int i : id) g[i] += w[c][i];
-  }
-  return tuple{s, t, g[t]};
+  } return tuple{s, t, g[t]};
 }
 ll mincut(auto w, int n) {
   ll cut = numeric_limits<ll>::max();
@@ -27,6 +26,5 @@ ll mincut(auto w, int n) {
     cut = min(cut, gt);
     for (int j = 1; j <= n; ++j)
       w[s][j] += w[t][j], w[j][s] += w[j][t];
-  }
-  return cut;
+  } return cut;
 }

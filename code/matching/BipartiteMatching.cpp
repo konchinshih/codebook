@@ -1,20 +1,14 @@
 // Author: Gino
 // Function: Max Bipartite Matching in O(V sqrt(E))
-// Usage:
-// >>> init(nx, ny) -> add(x, y (+nx))
-// >>> hk.max_matching() := the matching plan stores in mx, my
-// >>> hk.min_vertex_cover() := the vertex cover plan stores in vcover
+//> hk.init(nx, ny) -> hk.add(x, y (+nx))
+//> hk.max_matching(): the matching plan stores in mx, my
+//> hk.min_vertex_cover():vertex cover plan stores in vcover
 // (!) vertices are 0-based: X = [0, nx), Y = [nx, nx+ny)
 #define pb emplace_back
 struct HopcroftKarp {
-  int n, nx, ny;
-  vector<vector<int> > G;
-  vector<int> mx, my;
-  void init(int _nx, int _ny) {
-    nx = _nx, ny = _ny;
-    n = nx + ny;
-    G.assign(n, vector<int>());
-  }
+  int n, nx, ny; vector<vector<int>> G; vector<int> mx, my;
+  void init(int nx, int ny): nx(nx), ny(ny), n(nx + ny) {
+    G.assign(n, vector<int>()); }
   void add(int x, int y) { G[x].pb(y); G[y].pb(x); }
   int max_matching() {
     vector<int> dis, vis;
@@ -23,7 +17,8 @@ struct HopcroftKarp {
       vis[x] = 1;
       for (int y : G[x]) {
         int p = my[y];
-        if (p == -1 || (dis[p] == dis[x] + 1 && !vis[p] && dfs(p)))
+        if (p == -1 ||
+          (dis[p] == dis[x] + 1 && !vis[p] && dfs(p)))
           return mx[x] = y, my[y] = x, true;
       }
       return false;
@@ -51,20 +46,18 @@ struct HopcroftKarp {
   }
   vector<int> vcover;
   int min_vertex_cover() {
-    int ans = max_matching();
-    vector<int> vis(n, 0);
+    int ans = max_matching(); vector<int> vis(n, 0);
     function<void(int)> dfs = [&](int x) {
       vis[x] = true;
       for (int y : G[x]) {
         if (y == mx[x] || my[y] == -1 || vis[y]) continue;
         vis[y] = true;
         dfs(my[y]);
-      }
-    };
+    } };
     for (int x = 0; x < nx; x++) if (mx[x] == -1) dfs(x);
     vcover.clear();
-    for (int x = 0; x < nx; x++) if (!vis[x]) vcover.pb(x);
-    for (int y = nx; y < nx + ny; y++) if (vis[y]) vcover.pb(y);
+    for (int x=0; x < nx; x++) if (!vis[x]) vcover.pb(x);
+    for (int y=nx; y < nx+ny; y++) if (vis[y]) vcover.pb(y);
     return ans;
   }
 } hk;

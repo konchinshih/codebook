@@ -34,8 +34,7 @@ struct EBCC {
         s.pop_back();
         bcc.back().push_back(p);
       } while (p != x); ncnt++;
-    }
-  }
+  } }
   void build() {
     isbr.assign(m, false);
     for (int i=0; i<n; i++) dfs(i, -1); }
