@@ -1,17 +1,9 @@
-// Author: Gino
-vector<Pt> hull;
-void convexHull() {
-hull.clear(); sort(E.begin(), E.end());
-for (int t : {0, 1}) {
-    int b = (int)hull.size();
-    for (auto& ei : E) {
-        while ((int)hull.size() - b >= 2 &&
-               ori(mv(hull[(int)hull.size()-2], hull.back()),
-                   mv(hull[(int)hull.size()-2], ei)) == -1) {
-            hull.pop_back();
-        }
-        hull.emplace_back(ei);
-    }
-    hull.pop_back();
-    reverse(E.begin(), E.end());
-} }
+auto convexHull(vector<Pt> pts) {
+  sort(all(pts)); vector<Pt> ans = {pts[0]};
+  for (int t = 0; t < 2; t++, reverse(all(pts))) {
+    for (int i = 1, m = sz(ans); i < sz(pts); i++) {
+      while (sz(ans) > m &&
+             ori(ans[sz(ans) - 2], ans.back(), pts[i]) <= 0)
+        ans.pop_back();
+      ans.pb(pts[i]); } }
+  if (sz(ans) > 1) ans.pop_back();   return ans; }

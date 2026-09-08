@@ -1,55 +1,23 @@
-// Author: Gino
-// Function: Find closest pair of points in O(n log n)
-#define x first
-#define y second
-int N;
-T ans = 9e18;  // don't use LINF!!!
-vector<Pt> p, tmp;
-
-void init() {
-    cin >> N;
-    p.clear(); p.resize(N);
-    for (auto& i : p) cin >> i.x >> i.y;
-    sort(p.begin(), p.end());
-}
-
-void divide(int l, int r) {
-
-int n = r-l+1;
-if (n <= 20) {
-    for (int i = l; i <= r; i++)
-        for (int j = l; j < i; j++)
-            ans = min(ans, dis(p[i], p[j]));
-    return;
-}
-
-int mid = (l+r) >> 1;
-int ml = mid, mr = mid;
-T midx = p[mid].x;
-while (l <= ml && p[ml].x == midx) ml--;
-while (mr <= r && p[mr].x == midx) mr++;
-divide(l, ml);
-divide(mr, r);
-
-tmp.clear();
-for (int i = mid; i >= l; i--) {
-    if ((p[i].x-midx) * (p[i].x-midx) <= ans)
-        tmp.emplace_back(p[i]);
-    else break;
-}
-for (int i = mid+1; i <= r; i++) {
-    if ((p[i].x-midx) * (p[i].x-midx) <= ans)
-        tmp.emplace_back(p[i]);
-    else break;
-}
-sort(tmp.begin(), tmp.end(),
-[&](const Pt& a, const Pt& b) {
-    return a.y < b.y;
-});
-
-int nt = (int)tmp.size();
-for (int i = 0; i < nt; i++)
-    for (int j = i+1, cnt = 0; j < nt && cnt < 3; j++, cnt++)
-        ans = min(ans, dis(tmp[i], tmp[j]));
-
+// returns {min squared dist, {i, j}}, n >= 2, |coord| < 1e9
+pair<T, pair<int, int>> closestPair(vector<Pt> p) {
+  vector<int> id(sz(p)); iota(all(id), 0);
+  sort(all(id),
+    [&](int a, int b) { return p[a].y < p[b].y; });
+  set<pair<Pt, int>> s; // (point, id)
+  pair<T, pair<int, int>> best = {(T)9e18, {-1, -1}};
+  int l = 0; for (int i : id) {
+    if (!best.first) break;
+    T d = sqrtl(best.first) + is_integral_v<T>;
+    while (p[id[l]].y <= p[i].y - d)
+      s.erase({p[id[l]], id[l]}), l++;
+    auto lo = s.lower_bound({p[i] - Pt{d, 0}, 0});
+    auto hi = s.upper_bound({p[i] + Pt{d, 0}, sz(p)});
+    for (; lo != hi; lo++) {
+      auto [q, j] = *lo;
+      best = min(best,
+          {abs2(q - p[i]), {min(i, j), max(i, j)}});
+    }
+    s.insert({p[i], i});
+  }
+  return best;
 }

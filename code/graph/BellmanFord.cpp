@@ -6,17 +6,18 @@
 // => bf.dis[u] := LINF  (s can't reach u)
 // => bf.dis[u] := -LINF (dis[u] can be arbitrary small)
 // 2-2: bf.findNegCycle();
-// => return false (if no neg cycle)
-// => return true  (has neg cycle, and gives an example: bf.neg_cycle)
+// => false (if no neg cycle)
+// => true  (has neg cycle & gives an example: bf.neg_cycle)
 // Time: O(VE), Space: O(V + E)
 const ll LINF = 4e18;
 struct BellmanFord {
   const vector<vector<pair<int, ll>>>& G;
   int n, m;  // #(vertices), #(edges)
-  BellmanFord(const auto& G, int n, int m): G(G), n(n), m(m) {}
+BellmanFord(const auto& G, int n, int m):G(G), n(n), m(m) {}
   vector<ll> dis; vector<int> nth_relax, pa;
   void run_bf(const auto& src) {
-dis.assign(n+1,LINF);nth_relax.assign(n+1,0);pa.assign(n+1,-1);
+    dis.assign(n+1, LINF);
+    nth_relax.assign(n+1, 0); pa.assign(n+1, -1);
     for (auto& s : src) dis[s] = 0;
     for (int rlx = 1; rlx <= n; rlx++) {
       for (int u = 1; u <= n; u++) {
@@ -39,7 +40,8 @@ dis.assign(n+1,LINF);nth_relax.assign(n+1,0);pa.assign(n+1,-1);
   vector<int> neg_cycle;
   bool findNegCycle() {
     auto src = views::iota(1, n + 1); run_bf(src);
-    auto it = ranges::find_if(src, [&](int s){ return nth_relax[s]; });
+    auto it = ranges::find_if(src,
+      [&](int s){ return nth_relax[s]; });
     if (it == src.end()) return false;
     int ptr = *it; for (int i=0; i<n; i++) ptr = pa[ptr];
     neg_cycle.clear(); int cur = ptr;
@@ -48,6 +50,5 @@ dis.assign(n+1,LINF);nth_relax.assign(n+1,0);pa.assign(n+1,-1);
       if (cur == ptr && neg_cycle.size() > 1) break;
       cur = pa[cur];
     }
-    ranges::reverse(neg_cycle);
-    return true;
+    ranges::reverse(neg_cycle); return true;
   } };

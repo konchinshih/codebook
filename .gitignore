@@ -4,6 +4,8 @@ legacy-main.pdf
 .DS_Store
 .vscode
 test-local/
+library-checker/
+stress-tests/
 
 # LaTeX build artifacts
 *.aux
