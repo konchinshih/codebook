@@ -22,11 +22,11 @@
                code/data-structure/old_files/SparseTable.cpp 0573bb71aa54f0aa605b3f3069be30191432127542a7f68d95b23821fedcafb6
               code/data-structure/old_files/leftist-heap.cpp 60886b33044eb9df63b74875fbd552f06c90e8bb5a60ad8634c38a1e5d42d16a
                     code/data-structure/persistent-treap.cpp 803cce841a5fb6c2817dc4dec7e162a5516f998d793dc6b4485ae9331fb874ed
-                        code/data-structure/li-chao-tree.cpp 6c33c234f3c24a7e6f58f5b4b5322ae4bf63b04e97707d6cb92fcb9734188874
                         code/data-structure/Mo-algorithm.cpp 8d7194392737fffc28d3599e9279088cb3961fcc09144822d73222d6a1d580a8
                         code/data-structure/time-segtree.cpp 5197758763d65d3fde4a53973dbf17432de9c139e54509e4bbde97357e7cf770
                   code/data-structure/segment-tree-beats.cpp f686aae9c15934dc24ceecfd9bd436e2b78836f1afcfa5397496b55e9d8525ff
                                  code/data-structure/CDQ.cpp 744a8004c7b736f096f3967dc4c896a5ef16ac3b92acf87809a2a40c4eb6ff17
+                        code/data-structure/li-chao-tree.cpp 5ad3d3cadae3bb448a196176d74f6bc99568c8783fe6d9be607b54fff051994f
                                 code/dp/old_files/Aliens.cpp 58a8c81c832065249f3b148b1c1aca5e6b5578975bf52fa93dd0485948410c08
                       code/dp/old_files/dice_expectation.cpp 9e4d170c89d9131735293ba63e0c626da7d89d409e12cd2746b8af19ccb80d5f
                       code/dp/old_files/digit_dp_sum_mod.cpp 73d99f27703389d4e9268d70dce601312a04de38655d783496cacd8edaeea3f8

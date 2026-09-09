@@ -32,6 +32,7 @@ endif
 else
 
 main.pdf: typst
+	pdfinfo $@
 
 typst: main.typ hash.sha256 code/**
 	python3 make-palette.py
