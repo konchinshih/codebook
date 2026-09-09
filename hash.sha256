@@ -71,7 +71,6 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                                      code/geometry/Heart.cpp 9c22fc3ba459abbd49ccc28fa416cfa69e3b1ff026356b2cd37f03adabe0ec0e
         code/geometry/Intersection_of_Polygon_and_Circle.cpp 18454b36c66cb1cf3733f5c4423c0641a26cc73828b36c591b31a9d9ff5fc0df
                              code/geometry/Intersections.cpp 7e8b65c8b3c0fbb3a5858445dccf0ad2e22ffded2a37321753c39e65e691c73f
-                            code/geometry/Intersections2.cpp 734f650a5ee15f24757af51efca17c9994e253e2bb03e36b29f3f332dfe9d289
                   code/geometry/Minimum_Enclosing_Circle.cpp 04b498fc4e70ecffc86f796eb1484b4cfb200236194231717b4eddb180afe241
                               code/geometry/MinkowskiSum.cpp fdd91587d91dedb20f19b42b8575b81eaac3d0cd5037815ebddcfa23a9cb1bc4
                            code/geometry/PointInTriangle.cpp 144fc01e9d2faa84500cbac47688b415203f5c03d2bc367cb1a676bbd17f3830
@@ -87,6 +86,7 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp 533348a0dcb02c9e
                               code/geometry/VectorInPoly.cpp 1b2dce423a643f90d11db3f3b87c67539f537091e9684c7454df1c6333055aa5
                                      code/geometry/basic.cpp 8507af9770082a8bba770d491077e6fe9f8991a421b597fe7da3c4177dd79a9a
                                    code/geometry/default.cpp acaf6b91e3315d1d31eeac7fe6e0b378d250ab69bd73313bb826b536c420c377
+                       code/geometry/CircleIntersections.cpp 734f650a5ee15f24757af51efca17c9994e253e2bb03e36b29f3f332dfe9d289
                              code/graph/old_files/BCC-AP.cpp d0d832d9004f9fb7e4de56db6b1380a3334c96eec2cac9e5338e8141fbac6967
                          code/graph/old_files/BCC-Bridge.cpp 6f03a99b5a1725bb6267ab7f5495f6825d816e62448a107589c192eb7c45f046
                            code/graph/old_files/Dijkstra.cpp 1b3766705143fab90ee5ee2db887a49bddb229e7dd73e00d44dcfe27a62f2c2a

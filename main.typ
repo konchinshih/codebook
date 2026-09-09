@@ -399,7 +399,7 @@
   #sub("Polygon Cut", "code/geometry/PolyCut.cpp")
   #sub("Half-Plane Intersection", "code/geometry/HalfPlaneIntersection.cpp")
   #sub("Cyclic Ternary Search", "code/geometry/CycTsearch.cpp")
-  #sub("Circle Intersections", "code/geometry/Intersections2.cpp")
+  #sub("Circle Intersections", "code/geometry/CircleIntersections.cpp")
   #sub("Tangents", "code/geometry/Tangents.cpp")
   #sub("Bisector", "code/geometry/Bisector.cpp")
   #sub("Minimum Enclosing Circle", "code/geometry/Minimum_Enclosing_Circle.cpp")
