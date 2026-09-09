@@ -14,7 +14,7 @@ bool inConvex(vector<Pt>& C, Pt p, bool strict = true) {
   }
   return ori(C[a], C[b], p) < r;
 }
-// -1: out, 0: edge, 1: in
+// need onseg(), -1: out, 0: edge, 1: in
 int inPoly(vector<Pt> poly, Pt o, int strict) {
   int cnt = 0;
   for (int i = 0; i < sz(poly); i++) {

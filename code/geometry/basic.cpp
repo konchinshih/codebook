@@ -1,7 +1,11 @@
+struct Cir { Pt o; double r; };
+// --------- 極角排序 ---------
 int ud(Pt a) // 0: upper half (incl. +x axis), 1: lower
 { return !sgn(a.y) ? sgn(a.x) < 0 : a.y < 0; }
-bool cmp(Pt a, Pt b) // polar angle in [0, 2PI)
+bool cmp(Pt a, Pt b) // polar angle in [0, 2PI),
 { return ud(a) == ud(b) ? sgn(a ^ b) > 0 : ud(a) < ud(b); }
+ranges::sort(p, [&](Pt a, Pt b){return cmp(a - o, b - o);});
+// ----------------------------
 bool sameVec(Pt a, Pt b, int d)//d=0: parallel,d=1: same dir
 { return !sgn(a ^ b) && sgn(a * b) > d * 2 - 2; }
 bool sameVec(Line a, Line b, int d)
@@ -12,6 +16,8 @@ T dbarea(vector<Pt>& p) { // doubled signed area, CCW > 0
   T res = 0; for (int i = 0; i < sz(p); i++)
     res += p[i] ^ p[(i+1) % sz(p)];
   return res; }
+bool onseg(Pt p, Pt a, Pt b) // p on segment ab?
+{ return !ori(p, a, b) && sgn((a - p) * (b - p)) <= 0; }
 // ---- T = double ----
 const double PI = acos(-1);
 double normalize(double x) { // to [0, 2pi)

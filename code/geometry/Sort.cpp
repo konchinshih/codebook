@@ -30,8 +30,7 @@ struct PolarSeg {
 } };
 struct Arc {
   // contain(a, b): circle a inside circle b
-  Cir c;
-  int id, s; // 0 -> up, 1 -> down
+  Cir c; int id, s; // 0 -> up, 1 -> down
   bool operator<(const Arc& b) const {
     if (id == b.id) return s < b.s;
     if (contain(c, b.c)) return b.s == 1;

@@ -13,14 +13,11 @@ struct Pt {
   { return tie(x, y) < tie(a.x, a.y); }
   bool operator==(Pt a) const
   { return !sgn(x - a.x) && !sgn(y - a.y); }
-  friend ostream& operator<<(ostream& o, Pt a)
-  { return o << "(" << a.x << ", " << a.y << ")"; }
+  //friend ostream& operator<<(ostream& o, Pt a)
+  //{ return o << "(" << a.x << ", " << a.y << ")"; }
 };
 struct Line { Pt a, b; }; // a -> b
-struct Cir { Pt o; double r; };
 T abs2(Pt a) { return a * a; }
 double abs(Pt a) { return sqrt(abs2(a)); }
 int ori(Pt o, Pt a, Pt b) // 1: CCW, -1: CW, 0: collinear
 { return sgn((a - o) ^ (b - o)); }
-bool onseg(Pt p, Pt a, Pt b) // p on segment ab?
-{ return !ori(p, a, b) && sgn((a - p) * (b - p)) <= 0; }

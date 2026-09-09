@@ -7,16 +7,15 @@
 #define pb emplace_back
 struct HopcroftKarp {
   int n, nx, ny; vector<vector<int>> G; vector<int> mx, my;
-  void init(int nx, int ny): nx(nx), ny(ny), n(nx + ny) {
-    G.assign(n, vector<int>()); }
+  HopcroftKarp(int nx, int ny): nx(nx), ny(ny), n(nx + ny)
+    { G.assign(n, vector<int>()); }
   void add(int x, int y) { G[x].pb(y); G[y].pb(x); }
   int max_matching() {
     vector<int> dis, vis;
     mx.assign(n, -1); my.assign(n, -1);
     function<bool(int)> dfs = [&](int x) {
       vis[x] = 1;
-      for (int y : G[x]) {
-        int p = my[y];
+      for (int y : G[x]) { int p = my[y];
         if (p == -1 ||
           (dis[p] == dis[x] + 1 && !vis[p] && dfs(p)))
           return mx[x] = y, my[y] = x, true;
@@ -59,5 +58,4 @@ struct HopcroftKarp {
     for (int x=0; x < nx; x++) if (!vis[x]) vcover.pb(x);
     for (int y=nx; y < nx+ny; y++) if (vis[y]) vcover.pb(y);
     return ans;
-  }
-} hk;
+} };

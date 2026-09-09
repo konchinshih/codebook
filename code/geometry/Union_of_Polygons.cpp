@@ -1,50 +1,53 @@
-// Dependency: sameVec(), bananaPoint(), cmpLine()
-// in CCW order, use index as tiebreaker when collinear
-auto polysBorder(vector<vector<Pt>> poly, int id) {
-  auto get = [&](auto& p, int i) {
-    return make_pair(p[i], p[(i + 1) % sz(p)]);
-  };
-  vector<pair<Pt, Pt>> seg;
-  for (int e = 0; e < sz(poly[id]); e++) {
-    auto [s, t] = get(poly[id], e);
-    vector<pair<Pt, int>> vec;
-    vec.emplace_back(s, -1 << 30);
-    vec.emplace_back(t, 1 << 30);
-    for (int i = 0; i < sz(poly); i++) {
-      int st = find_if(poly[i].begin(), poly[i].end(),
-        [&](Pt p) { return ori(p, s, t) == 1; }) -
-        poly[i].begin();
-      if (st == sz(poly[i])) continue;
-      for (int j = st; j < st + sz(poly[i]); j++) {
-        auto [a, b] = get(poly[i], j % sz(poly[i]));
-        if (sameVec(a - b, s - t, -1)) {
-          if (ori(a, b, s) == 0 &&
-              sameVec(a - b, s - t, 1) && i <= id) {
-            vec.emplace_back(a, -1);
-            vec.emplace_back(b, 1);
-          }
-        } else {
-          int s1 = ori(a, s, t) == 1;
-          int s2 = ori(b, s, t) == 1;
-          if (s1 ^ s2) {
-            auto [p, d] = bananaPoint({a, b}, {s, t});
-            vec.emplace_back(p / d, s1 ? 1 : -1);
-    } } } }
-    sort(all(vec), [&](auto i, auto j) {
-      return cmpLine(i.first, j.first, s, t);
-    });
-    int base = 1 << 30;
-    Pt lst(0, 0);
-    for (auto [cur, val] : vec) {
-      if (!base) seg.emplace_back(lst, cur);
-      lst = cur, base += val;
-  } }
-  return seg;
-}
+//Author:Gino, simple polygons any orientation, O((sum n)^2)
+// T = ll: exact (|coord| <= 1e9); T = double: also works
 double polysUnionArea(vector<vector<Pt>> poly) {
-  double res = 0;
-  for (int i = 0; i < sz(poly); i++) {
-    auto seg = polysBorder(poly, i);
-    for (auto [l, r] : seg) res += l ^ r;
-  } return res / 2;
+  struct Fr { T p, q; }; // p / q, q > 0
+  auto lt = [](Fr a, Fr b) {
+//return (__int128)a.p * b.q < (__int128)b.p * a.q;  // if T == long long
+    return a.p * b.q < b.p * a.q;
+  };
+  auto val = [&](Fr a) { // clamp to [0, 1], to double
+    if (lt(a, {0, 1})) return 0.;
+    if (lt({1, 1}, a)) return 1.;
+    return (double)a.p / a.q;
+  };
+  auto get = [&](int i, int e) {
+    return poly[i][(e + 1) % sz(poly[i])];
+  };
+  for (auto& p : poly)
+    if (dbarea(p) < 0) reverse(all(p));
+  double sum = 0;
+  for (int i = 0; i < sz(poly); i++)
+    for (int e = 0; e < sz(poly[i]); e++) {
+      Pt s = poly[i][e], t = get(i, e);
+      vector<pair<Fr, int>> c = {{{0, 1}, 0}, {{1, 1}, 0}};
+      for (int j = 0; j < sz(poly); j++) {
+        if (i == j) continue;
+        for (int f = 0; f < sz(poly[j]); f++) {
+          Pt a = poly[j][f], b = get(j, f);
+          int ta = ori(s, t, a), tb = ori(s, t, b);
+          if (!ta && !tb) {
+            if (j < i && sgn((b-a) * (t-s)) > 0) {
+              T d = abs2(t-s);
+              c.pb({Fr{(a-s) * (t-s), d}, 1});
+              c.pb({Fr{(b-s) * (t-s), d}, -1});
+            }
+          } else if ((ta >= 0) != (tb >= 0)) {
+            T x = (b-a) ^ (s-a), y = (b-a) ^ (t-a);
+            if (x < y) x = -x, y = -y;
+            c.pb({Fr{x, x-y}, ta >= 0 ? 1 : -1});
+          }
+        }
+      }
+      sort(all(c), [&](auto& u, auto& v)
+        { return lt(u.first, v.first); });
+      double z = val(c[0].first), r = 0;
+      for (int k = 1, d = c[0].second; k < sz(c); k++) {
+        double w = val(c[k].first);
+        if (!d) r += w - z;
+        d += c[k].second, z = w;
+      }
+      sum += (s^t) * r;
+    }
+  return sum / 2;
 }

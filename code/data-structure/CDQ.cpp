@@ -1,74 +1,36 @@
-// preparation
-// 1. write a 1-base BIT
-// 2. init(n, mxc): n is number of elements, mxc = 值域
-// 3. build info array CDQ.v by yourself (x, y, z, id)
-// 4. call solve()
-// => cdq.ans[i] is number of j s.t. (xj <= xi, yj <= yi, zj <= zi) (j != i)
+// sorted by x; type 0 = update (weight w), 1 = query
+// query: ans[id] = sum of w over updates with x' <= x,
+// y' <= y, z' <= z (< if strict[dim]). 值域 [1, mxc]
+// Dependency: 值域 BIT
+struct Info { int x, y, z, type; ll w; int id; };
 struct CDQ {
-  struct info {
-    int x, y, z, id;
-    info(int x, int y, int z, int id):
-      x(x), y(y), z(z), id(id) {}
-    info():
-      x(0), y(0), z(0), id(0) {}
-  };
-  int n, mxc;
-  BIT bit;
-  vector<info> v;
-  vector<ll> ans;
-  void init(int _n, int _mxc) {
-    n = _n; mxc = _mxc;
-    v.assign(n, info{});
-    ans.assign(n, 0);
+  static bool cy(const Info& p, const Info& q)
+  { return p.y < q.y; }
+  vector<Info> a; int n; array<bool, 3> strict;
+  vector<ll> ans; BIT bit;
+  void dfs(int l, int r) { if (r - l <= 1) return;
+    int m = (l + r) / 2, i = l;
+    dfs(l, m);
+    vector<Info> t(a.begin() + m, a.begin() + r);
+    ranges::sort(t, cy);
+    for (auto& q : t) {
+      for (; i < m && a[i].y < q.y + !strict[1]; i++)
+        if (!a[i].type) bit.upd(a[i].z, a[i].w);
+      if (q.type)
+        ans[q.id] += bit.qry(q.z - strict[2]);
+    }
+    for (int k = l; k < i; k++)
+      if (!a[k].type) bit.upd(a[k].z, -a[k].w);
+    dfs(m, r);
+    inplace_merge(a.begin() + l, a.begin() + m,
+                  a.begin() + r, cy);
   }
-  void dfs(int l, int r) {
-    if (l >= r) return;
-    int mid = (l+r) >> 1;
-    dfs(l, mid); dfs(mid+1, r);
-    vector<info> tmp;
-    vector<int> bit_op;
-    int pl = l, pr = mid+1;
-    while (pl <= mid && pr <= r) {
-      if (v[pl].y <= v[pr].y) {
-        tmp.emplace_back(v[pl]);
-        bit.upd(v[pl].z, 1);
-        bit_op.emplace_back(v[pl].z);
-        pl++;
-      }
-      else {
-        tmp.emplace_back(v[pr]);
-        ans[v[pr].id] += bit.qry(v[pr].z);
-        pr++;
-      }
-    }
-    while (pl <= mid) {
-      tmp.emplace_back(v[pl]);
-      pl++;
-    }
-    while (pr <= r) {
-      tmp.emplace_back(v[pr]);
-      ans[v[pr].id] += bit.qry(v[pr].z);
-      pr++;
-    }
-    for (int i = l, j = 0; i <= r; i++, j++) v[i] = tmp[j];
-    for (auto& op : bit_op) bit.upd(op, -1);
-  }
-  void solve() {
-    bit.init(mxc);
-    sort(v.begin(), v.end(), [&](const info& a, const info& b){
-        return (a.x == b.x ? (a.y == b.y ? (a.z == b.z ? a.id < b.id : a.z < b.z) : a.y < b.y) : a.x < b.x);
-        });
-    dfs(0, n-1);
-    map<pair<int, pii>, int> s;
-    sort(v.begin(), v.end(), [&](const info& a, const info& b){
-        return a.id > b.id;
-        });
-    for (int i = 0, id = n-1; i < n; i++, id--) {
-      pair<int, pii> tmp = make_pair(v[i].x, make_pair(v[i].y, v[i].z));
-      auto it = s.find(tmp);
-      if (it != s.end())
-        ans[id] += it->second;
-      s[tmp]++;
-    }
+  CDQ(vector<Info> _a, int mxc, array<bool, 3> _s = {}):
+      a(_a), n(a.size()), strict(_s) {
+    ans.assign(n, 0); bit.init(mxc);
+    auto key = [&](Info& p) { return
+      make_tuple(p.x, p.type != strict[0], p.y, p.z); };
+    ranges::sort(a, {}, key); dfs(0, n);
   }
 };
+
