@@ -1,14 +1,23 @@
-// Author: Unknown
-// Function: Find a non-trivial factor of a big number in O(n^(1/4) log^2(n))
-ll find_factor(ll number) {
-    __int128 x = 2;
-    for (__int128 cycle = 1; ; cycle++) {
-        __int128 y = x;
-        for (int i = 0; i < (1<<cycle); i++) {
-            x = (x * x + 1) % number; 
-            __int128 factor = __gcd(x - y, number);
-            if (factor > 1)
-                return factor;
-        }
-    }
+// factor(n): prime factors with multiplicity; 1e18 semiprime ~0.65ms
+// needs: MillerRabin
+
+ull pollard(ull n) {
+  ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
+  auto f = [&](ull x) { return modmul(x, x, n) + i; };
+  while (t++ % 40 || __gcd(prd, n) == 1) {
+    if (x == y) x = ++i, y = f(x);
+    if ((q = modmul(prd, max(x, y) - min(x, y), n))) prd = q;
+    x = f(x);
+    y = f(f(y));
+  }
+  return __gcd(prd, n);
+}
+
+vector<ull> factor(ull n) {
+  if (n == 1) return {};
+  if (isPrime(n)) return {n};
+  ull x = pollard(n);
+  auto l = factor(x), r = factor(n / x);
+  l.insert(l.end(), all(r));
+  return l;
 }
