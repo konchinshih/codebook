@@ -422,110 +422,89 @@
   $ "Area" = i + b \/ 2 - 1 $
 
 
+= Modular
+  #sub("Basic", "code/modular/ModBasic.cpp")
+  #sub("Mod Sum / Floor Sum", "code/modular/ModSum.cpp")
+  #sub("Mod Sqrt", "code/modular/ModSqrt.cpp")
+  #sub("BSGS / exBSGS", "code/modular/BSGS.cpp")
+
 = Number Theory
-  #sub("Mod Sum", "code/new-number-theory/modSum.cpp")
-  #sub("Extended Lucas Theorem", "code/new-number-theory/ex-lucas.cpp")
-  #sub("Prime Sieve and Defactor", "code/number-theory/PrimeSeive+Defactor.cpp")
-  #sub("Harmonic Series", "code/number-theory/Harmonic_Series.cpp")
-  #sub("Count Number of Divisors", "code/number-theory/Number_of_Divisors.cpp")
-  #sub("數論分塊", "code/number-theory/數論分塊.cpp")
-  == Pollard's rho
-  #listing("code/number-theory/PollardRho.cpp")
-  #py("code/number-theory/PollardRho.py")
   #sub("Miller Rabin", "code/number-theory/MillerRabin.cpp")
-  #sub("Discrete Log", "code/number-theory/DiscreteLog.cpp")
-  #sub("Discrete Sqrt", "code/number-theory/DiscreteSqrt.cpp")
-  == Fast Power
-  Note: $a^n equiv a^((n mod (p-1))) (mod p)$
-  #sub("Extend GCD", "code/number-theory/ExtGCD.cpp")
-  #sub("Mu + Phi", "code/number-theory/Mu + Phi.cpp")
+  #sub("Pollard Rho", "code/number-theory/PollardRho.cpp")
+  == Linear Sieve
+  $O(n)$, each $i$ crossed out once by its least prime $p$:
+  ```
+  for i in 2..n:
+    if lpf[i] == 0: lpf[i] = i, primes.pb(i), f[i] = f(p)
+    for p in primes:
+      if p > lpf[i] or i * p > n: break
+      lpf[i*p] = p
+      f[i*p] = (i % p ? f[i] * f[p] : <recurrence>)
+  ```
+  Recurrence for $i p$ when $p | i$ (let $i = p^k m$, $p ∤ m$):
+  - $phi(i p) = phi(i) dot p$, $quad mu(i p) = 0$, $quad sigma_0 (i p) = sigma_0 (i) dot (k+2)/(k+1)$
+  - General: keep $"pw"[i] = p^k$; $f(i p) = f(i / "pw"[i]) dot f("pw"[i] dot p)$
+  - $phi(i p) = phi(i) dot (p - [p ∤ i])$ (one formula for both cases)
+  Euler phi table alone (no primes): $O(n log log n)$ \
+  `for i: phi[i]=i; for p prime: for j=p,2p..: phi[j] -= phi[j]/p`
+  #sub("Lucy (prime counting / prime sum)", "code/number-theory/Lucy.cpp")
+  #sub("Black (Min25 sieve)", "code/number-theory/Black.cpp")
+  #sub("Fast GCD", "code/number-theory/FastGCD.cpp")
+  #sub("CRT", "code/number-theory/CRT.cpp")
+  #sub("Extended Lucas", "code/number-theory/ExLucas.cpp")
+  #sub("Divisor Block", "code/number-theory/DivisorBlock.cpp")
+  == Formulas
+  - Pisano Period: 任何線性遞迴（比如費氏數列）模任何一個數字 $M$ 都會循環，找循環節 $pi(M)$ 先質因數分解 $M = product p_i^(e_i)$，然後 $pi(M) = lcm(pi(p_i^(e_i)))$
+  - Inversion: $a a^(-1) equiv 1 (mod m)$, exists iff $gcd(a,m)=1$. Linear: $a^(-1) equiv (m - floor(m/a)) times (m mod a)^(-1) (mod m)$
+  - Fermat: $a^p equiv a (mod p)$; Euler: $a^(phi(n)) equiv 1 (mod n)$ if $gcd(a,n)=1$. Not coprime: 分解 $n = product p_i^(e_i)$，對每個 $p_i^(e_i)$ 分開看（互質：Euler／不互質：指數 $>= e_i$ 直接是 $0$），最後 CRT 合併. Also $a^b equiv a^(b mod phi(n) + phi(n))$ for $b >= log_2 n$.
+  - Wilson: $(p-1)! equiv -1 (mod p)$
+  - $phi(n)=n product_(p|n) (1 - 1/p)$, $quad sum_(d|n) phi(d) = n$
+  - Divisor function: $n=product p_i^(a_i)$, $sigma_x (n)=product (p_i^((a_i+1)x)-1)/(p_i^x-1)$ ($x != 0$), $sigma_0 (n)=product (a_i+1)$
+  - CRT (coprime): $M=product m_i$, $M_i=M/m_i$, $x = sum a_i M_i (M_i^(-1) mod m_i) (mod M)$ \
+    General: $x = m_1 p + a_1 = m_2 q + a_2 => m_1 p - m_2 q = a_2 - a_1$, solve by extgcd, answer mod $lcm(m_1,m_2)$
+  - Avoiding overflow: $c a mod c b = c(a mod b)$
+  - Dirichlet convolution: $(f * g)(n) = sum_(d|n) f(d)g(n/d)$. $epsilon(n)=[n=1]$, $1(n)=1$, $italic("id")(n)=n$;
+    $mu * 1 = epsilon$, $phi = mu * italic("id")$, $italic("id") = phi * 1$, $sigma_0 = 1 * 1$, $sigma_1 = italic("id") * 1$
+  - $[gcd(a,b)=1] = sum_(d | gcd(a,b)) mu(d)$; Möbius inversion: $f = g * 1 <=> g = f * mu$
+  - $sum_(i=1)^n sum_(j=1)^m [gcd(i,j)=1] = sum_d mu(d) floor(n/d) floor(m/d)$ (divisor block, $O(sqrt n)$ per query)
+  - Legendre: $v_p (n!) = sum_(k>=1) floor(n / p^k) = (n - s_p (n)) / (p - 1)$, $s_p$ = digit sum in base $p$
+  - Lucas ($p$ prime): $binom(n, m) equiv product_i binom(n_i, m_i) (mod p)$ over base-$p$ digits; Kummer: $v_p binom(n, m)$ = number of carries adding $m + (n-m)$ in base $p$
 
-  == Other Formulas
-  - Pisano Period: 任何線性遞迴（比如費氏數列）模任何一個數字 $M$ 都會循環，找循環節 $pi(M)$ 先質因數分解 $M = product p_i^(e_i)$，然後 $pi(M) = lcm(pi(p_i^(e_i)))$，
-  - Inversion: \
-    $a a^(-1) equiv 1 (mod m)$. $a^(-1)$ exists iff $gcd(a,m)=1$.
-  - Linear inversion: \
-    $a^(-1) equiv (m - floor(m/a)) times (m mod a)^(-1) (mod m)$
-  - Fermat's little theorem: \
-    $a^p equiv a (mod p)$ if $p$ is prime.
-  - Euler function: \
-    $phi(n)=n product_(p|n) (p-1)/p$
-  - Euler theorem: \
-    $a^(phi(n)) equiv 1 (mod n)$ if $gcd(a,n) = 1$. If a, n are not coprime: 質因數分解 $n = product p_i^(e_i)$，對每個 $p_i^(e^i)$ 分開看他們跟 $a$ 是否互質（互質：Fermat／不互質：夠大的指數會直接削成 $0$），最後用 CRT 合併。
-  - Extended Euclidean algorithm: \
-    $a x+b y=gcd(a,b)=gcd(b, a mod b)=gcd(b, a-floor(a/b) b)=b x_1+(a-floor(a/b) b) y_1=a y_1+b(x_1-floor(a/b) y_1)$
-  - Divisor function: \
-    $sigma_x (n) = sum_(d|n) d^x$. $n=product_(i=1)^r p_i^(a_i)$. \
-    $sigma_x (n)=product_(i=1)^r (p_i^((a_i+1)x)-1)/(p_i^x-1)$ if $x != 0$. $sigma_0 (n)=product_(i=1)^r (a_i+1)$.
-  - Chinese remainder theorem (Coprime Moduli): \
-    $x equiv a_i (mod m_i)$. \
-    $M=product m_i$. $M_i=M/m_i$. $t_i=M_i^(-1)$. \
-    $x = k M + sum a_i t_i M_i$, $k in bb(Z)$.
-  - Chinese remainder theorem: \
-    $x equiv a_1 (mod m_1), x equiv a_2 (mod m_2) => x = m_1 p + a_1 = m_2 q + a_2 => m_1 p - m_2 q = a_2 - a_1$ \
-    Solve for $(p, q)$ using ExtGCD. \
-    $x equiv m_1 p + a_1 equiv m_2 q + a_2 (mod lcm(m_1, m_2))$
-  - Avoiding Overflow: $c a mod c b = c(a mod b)$
-  - Dirichlet Convolution: $(f * g)(n) = sum_(d|n) f(n)g(n/d)$
-  - Important Multiplicative Functions + Properties:
-    + $epsilon(n) = [n = 1]$
-    + $1(n) = 1$
-    + $italic("id") (n) = n$
-    + $mu(n) = 0$ if $n$ has squared prime factor
-    + $mu(n) = (-1)^k$ if $n = p_1 p_2 dots.h.c p_k$
-    + $epsilon = mu * 1$
-    + $phi = mu * italic("id")$
-    + $[n=1] = sum_(d|n) mu(d)$
-    + $[gcd=1] = sum_(d|gcd) mu(d)$
-  - Möbius inversion: $f = g * 1 <=> g = f * mu$
+= Polynomial
+  == Generating Functions
+  OGF $A(x) = sum a_i x^i$:
+  $A(r x) => r^n a_n$; $A B => sum_(i) a_i b_(n-i)$; $A^k => sum_(i_1+dots+i_k=n) a_(i_1) dots a_(i_k)$;
+  $x A'(x) => n a_n$; $A(x)/(1-x) => sum_(i<=n) a_i$. \
+  EGF $A(x) = sum a_i x^i / i!$:
+  $A^((k))(x) => a_(n+k)$; $A B => sum_i binom(n, i) a_i b_(n-i)$; $A^k => sum n! / (i_1! dots i_k!) a_(i_1) dots a_(i_k)$; $x A' => n a_n$. \
+  $(1+x)^n = sum binom(n, i) x^i$, $quad 1/(1-x)^n = sum_i binom(i+n-1, n-1) x^i$, $quad 1/(1-x) = sum x^i$, $quad e^x = sum x^i / i!$, $quad -ln(1-x) = sum_(i>=1) x^i / i$ \
+  Catalan $C(x) = (1 - sqrt(1-4x)) / (2x)$; Fibonacci $x / (1 - x - x^2)$; $sum_i i x^i = x / (1-x)^2$; partitions $product_k 1/(1-x^k)$.
+  #sub("NTT", "code/polynomial/NTT.cpp")
+  NTT primes (root): 998244353 (3), 167772161 (3), 469762049 (3), 1004535809 (3), 2013265921 (31), 1224736769 (3), 7340033 (3), 65537 (3); $ 985661441 (3)$, $2281701377 (3)$ (32-bit unsigned), $1945555039024054273 (5)$, $4179340454199820289 (3)$ (64-bit).
+  #sub("FFT", "code/polynomial/FFT.cpp")
+  #sub("FFT Mod (arbitrary modulus)", "code/polynomial/FFTMod.cpp")
+  #sub("FWHT", "code/polynomial/FWHT.cpp")
+  #sub("Polynomial Operations", "code/polynomial/PolyOps.cpp")
+  #sub("Berlekamp Massey", "code/polynomial/BerlekampMassey.cpp")
+  #sub("Linear Recurrence (Kitamasa)", "code/polynomial/LinearRec.cpp")
+  #sub("Lagrange Interpolation (iota points)", "code/polynomial/LagrangeIota.cpp")
 
-    #sub("Polynomial", "code/number-theory/Polynomial.cpp")
-    #sub("Counting Primes", "code/new-number-theory/counting_primes.cpp")
-    #sub("Linear Sieve for Other Number Theoretic Functions", "code/new-number-theory/linear_sieve.cpp")
-
-// = Linear Algebra
-
-// == Gaussian-Jordan Elimination
-// #listing("code/linear-algebra/GaussElimination.cpp")
-
-// == Determinant
-// + Use GJ Elimination, if there's any row consists of only 0, then det = 0, otherwise det = product of diagonal elements.
-// + Properties of det:
-//   - Transpose: Unchanged
-//   - Row Operation 1 - Swap 2 rows: $-det$
-//   - Row Operation 2 - $k accent(r_i, arrow)$: $k times det$
-//   - Row Operation 3 - $k accent(r_i, arrow)$ add to $accent(r_j, arrow)$: Unchanged
+= Linear Algebra
+  #sub("Gauss (mod p)", "code/linear-algebra/Gauss.cpp")
+  #sub("Gauss (GF(2) / XOR basis)", "code/linear-algebra/GaussBinary.cpp")
+  == Determinant
+  - Row swap: $-det$; $k accent(r_i, arrow)$: $k det$; $accent(r_i, arrow) += k accent(r_j, arrow)$: unchanged; $det(A^T) = det(A)$, $det(A B) = det(A) det(B)$.
+  - Matrix-tree: number of spanning trees = any cofactor of Laplacian $D - A$. Directed (arborescences rooted at $r$): delete row/col $r$ of $D_"in" - A$.
+  - Cayley: $n^(n-2)$ labeled trees; forests of $k$ rooted trees on given roots: $k n^(n-k-1)$.
 
 = Numerical
-  == Polynomials and recurrences
-  #listing("code/numerical/Polynomial.cpp")
-  #listing("code/numerical/PolyRoots.cpp")
-  #listing("code/numerical/PolyInterpolate.cpp")
-  #listing("code/numerical/Lagrange-iota.cpp")
-  #listing("code/numerical/BerlekampMassey.cpp")
-  #listing("code/numerical/LinearRecurrence.cpp")
-  == Optimization
-  #listing("code/numerical/GoldenSectionSearch.cpp")
-  #listing("code/numerical/HillClimbing.cpp")
-  #listing("code/numerical/Integrate.cpp")
-  #listing("code/numerical/IntegrateAdaptive.cpp")
-  #listing("code/numerical/Simplex.cpp")
-  == Matrices
-  #listing("code/numerical/Determinant.cpp")
-  #listing("code/numerical/IntDeterminant.cpp")
-  #listing("code/numerical/SolveLinear.cpp")
-  #listing("code/numerical/SolveLinear2.cpp")
-  #listing("code/numerical/SolveLinearBinary.cpp")
-  #listing("code/numerical/MatrixInverse.cpp")
-  #listing("code/numerical/MatrixInverse-mod.cpp")
-  #listing("code/numerical/Tridiagonal.cpp")
-  == Fourier transforms
-  // #listing("code/numerical/FastFourierTransform.cpp")
-  #listing("code/numerical/FastFourierTransformMod.cpp")
-  // #listing("code/numerical/NumberTheoreticTransform.cpp")
-  #listing("code/numerical/FastSubsetTransform.cpp")
-
-
+  #sub("Integrate (Simpson / adaptive)", "code/numerical/Integrate.cpp")
+  == Linear Programming
+  Standard form: max $bold(c)^T bold(x)$ s.t. $A bold(x) <= bold(b)$, $bold(x) >= 0$.
+  Dual: min $bold(b)^T bold(y)$ s.t. $A^T bold(y) >= bold(c)$, $bold(y) >= 0$; optima equal (strong duality).
+  Complementary slackness: $overline(x), overline(y)$ optimal iff for all $i$: $overline(x)_i = 0$ or $sum_j A_(j i) overline(y)_j = c_i$, and for all $j$: $overline(y)_j = 0$ or $sum_i A_(j i) overline(x)_i = b_j$.
+  To standard form: minimize $=>$ negate $c$; $>=$ row $=>$ negate row; $=$ row $=>$ both $<=$ and $>=$; free $x_i$ $=>$ $x_i - x_i'$.
+  #sub("Simplex", "code/numerical/Simplex.cpp")
 
 = Combinatorics
   == Catalan Number
@@ -547,6 +526,23 @@
   Let $X^g$ be the set of $x$ not affected by $g$.\
   Let $X"/"G$ be the set of orbits.  Then the following equation holds:\
   $ |X"/"G| = 1/(|G|) sum_(g in G) |X^g| $
+
+  == Binomial Identities
+  - Vandermonde: $sum_k binom(m, k) binom(n, r-k) = binom(m+n, r)$; $sum_k binom(n, k)^2 = binom(2n, n)$; $sum_(k=0)^n binom(k, a) binom(n-k, b) = binom(n+1, a+b+1)$
+  - Hockey stick: $sum_(i=r)^n binom(i, r) = binom(n+1, r+1)$; $sum_k k binom(n, k) = n 2^(n-1)$; $binom(n, k) = n/k binom(n-1, k-1)$
+  - Stars and bars: $x_1 + dots + x_k = n$, $x_i >= 0$: $binom(n+k-1, k-1)$
+  - Catalan: $C_n = 1/(n+1) binom(2n, n) = binom(2n, n) - binom(2n, n+1)$; paths from $(0,0)$ to $(a,b)$ never above $y = x$ ($a >= b$): $binom(a+b, b) - binom(a+b, b-1)$
+  == Stirling Numbers
+  - 1st kind (permutations of $n$ with $k$ cycles): $c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k)$; $sum_k c(n,k) x^k = x(x+1) dots.c (x+n-1)$
+  - 2nd kind (partitions of $n$ into $k$ nonempty sets): $S(n,k) = S(n-1,k-1) + k S(n-1,k) = 1/k! sum_(j=0)^k (-1)^(k-j) binom(k, j) j^n$ (a convolution, one row in $O(n log n)$)
+  - $x^n = sum_k S(n,k) x^(underline(k))$, $x^(underline(k)) = x(x-1) dots.c (x-k+1)$; Bell $B_n = sum_k S(n,k)$
+  - Surjections $n -> k$: $k! S(n,k)$
+  == Derangement / Inclusion-Exclusion
+  - $D_n = (n-1)(D_(n-1) + D_(n-2)) = n D_(n-1) + (-1)^n = n! sum_(k=0)^n (-1)^k / k!$; $D_0=1, D_1=0, D_2=1, D_3=2, D_4=9, D_5=44$
+  - $|union A_i| = sum_(emptyset != S) (-1)^(|S|+1) |∩_(i in S) A_i|$; "exactly $k$ of $n$ properties": $sum_(j>=k) (-1)^(j-k) binom(j, k) N_j$ where $N_j$ = sum over $j$-subsets of $|∩|$
+  - Binomial inversion: $f(n) = sum_k binom(n, k) g(k) <=> g(n) = sum_k (-1)^(n-k) binom(n, k) f(k)$
+  == Pólya (necklaces)
+  - Colorings of $n$-cycle with $m$ colors under rotation: $1/n sum_(d | n) phi(d) m^(n/d)$; with reflection too ($n$ odd): add $n m^((n+1)/2)$, ($n$ even): add $n/2 (m^(n/2) + m^(n/2+1))$, then divide by $2n$ instead of $n$.
 
 = Special Numbers
   == Fibonacci Series
