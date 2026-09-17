@@ -2,7 +2,8 @@
 // Safe when N log2(N) M < 8.6e14.
 // Inputs are in [0,M), with M < 2^31-ish.
 // needs: FFT
-vector<ll> convMod(const vector<ll>& a, const vector<ll>& b, ll M) {
+vector<ll> convMod(const vector<ll>& a,
+                   const vector<ll>& b, ll M) {
   if (a.empty() || b.empty()) return {};
   vector<ll> res(sz(a) + sz(b) - 1);
   int B = 32 - __builtin_clz(sz(res)), n = 1 << B;
@@ -16,7 +17,8 @@ vector<ll> convMod(const vector<ll>& a, const vector<ll>& b, ll M) {
   for (int i = 0; i < n; i++) {
     int j = -i & (n - 1);
     outl[j] = (L[i] + conj(L[j])) * R[i] / (2.0 * n);
-    outs[j] = (L[i] - conj(L[j])) * R[i] / (2.0 * n * C(0, 1));
+    outs[j] = (L[i] - conj(L[j])) * R[i]
+              / (2.0 * n * C(0, 1));
   }
   fft(outl), fft(outs);
   for (int i = 0; i < sz(res); i++) {

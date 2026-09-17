@@ -23,6 +23,7 @@ ll linearRec(Poly S, Poly tr, ll k) {
     e = combine(e, e);
   }
   ll res = 0;
-  for (int i = 0; i < n; i++) res = add(res, mul(pol[i + 1], S[i]));
+  for (int i = 0; i < n; i++)
+    res = add(res, mul(pol[i + 1], S[i]));
   return res;
 }

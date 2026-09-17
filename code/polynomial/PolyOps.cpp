@@ -35,7 +35,8 @@ pair<Poly, Poly> polyDiv(Poly a, Poly b) {
   return {q, r};
 }
 
-// polySqrt(a): square root modulo x^n; asserts if a[0] not a residue.
+// polySqrt(a): square root modulo x^n; asserts if a[0]
+// not a residue.
 Poly polySqrt(Poly a) {
   if (a.empty()) return {0};
   int n = sz(a), m = 0;
@@ -64,7 +65,8 @@ Poly polySqrt(Poly a) {
 Poly deriv(Poly a) {
   int n = sz(a);
   Poly res(max(0, n - 1));
-  for (int i = 0; i < n - 1; i++) res[i] = mul(a[i + 1], i + 1);
+  for (int i = 0; i < n - 1; i++)
+    res[i] = mul(a[i + 1], i + 1);
   return res;
 }
 
@@ -115,7 +117,8 @@ Poly polyPow(Poly a, ll k) {
   b = polyLn(b);
   for (ll& x : b) x = mul(x, k % mod);
   b = polyExp(b);
-  for (int i = lead; i < n; i++) ans[i] = mul(b[i - lead], base);
+  for (int i = lead; i < n; i++)
+    ans[i] = mul(b[i - lead], base);
   return ans;
 }
 
@@ -142,7 +145,8 @@ Poly interpolate(vector<ll> x, vector<ll> y) {
   for (int i = n - 1; i > 0; i--)
     up[i] = polyMul(up[i * 2], up[i * 2 + 1]);
   Poly a = evaluate(deriv(up[1]), x);
-  for (int i = 0; i < n; i++) a[i] = mul(y[i], Pow(a[i], mod - 2));
+  for (int i = 0; i < n; i++)
+    a[i] = mul(y[i], Pow(a[i], mod - 2));
   vector<Poly> down(n * 2);
   for (int i = 0; i < n; i++) down[i + n] = {a[i]};
   for (int i = n - 1; i > 0; i--) {

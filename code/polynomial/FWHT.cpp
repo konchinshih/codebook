@@ -1,7 +1,8 @@
 using Poly = vector<ll>;
 
 // op: 0 = AND, 1 = OR, 2 = XOR; inv = inverse transform
-// conv: fwt(a,op), fwt(b,op), a[i] = mul(a[i], b[i]), fwt(a,op,1)
+// conv: fwt(a,op), fwt(b,op), a[i] = mul(a[i], b[i]),
+// fwt(a,op,1)
 void fwt(Poly& a, int op, bool inv = false) {
   int n = sz(a);
   ll i2 = (mod + 1) / 2;

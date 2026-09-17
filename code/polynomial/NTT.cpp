@@ -1,4 +1,5 @@
-const int N = 1 << 20, G = 3; // mod 998244353; 1e9+7 is NOT ntt-friendly
+// mod 998244353; 1e9+7 is NOT ntt-friendly
+const int N = 1 << 20, G = 3;
 using Poly = vector<ll>;
 
 struct NTT {
