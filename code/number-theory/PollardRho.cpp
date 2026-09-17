@@ -1,5 +1,5 @@
-// factor(n): prime factors with multiplicity; 1e18 semiprime ~0.65ms
-// needs: MillerRabin
+// factor(n): prime factors with multiplicity
+// 1e18 semiprime ~0.65ms; needs: MillerRabin
 
 ull pollard(ull n) {
   ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
