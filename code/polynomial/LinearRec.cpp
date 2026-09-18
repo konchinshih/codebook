@@ -1,6 +1,7 @@
 // k-th term of a recurrence in O(n^2 log k)
 // S[i] = \sum C[j] * S[i-1-j]
 // Example: linearRec({0,1},{1,1},k) returns Fib(k).
+// Require: ModBasic.cpp
 using Poly = vector<ll>;
 ll linearRec(Poly S, Poly C, ll k) {
   int n = C.size();
