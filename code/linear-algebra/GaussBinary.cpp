@@ -1,9 +1,10 @@
 // In-place RREF over GF(2); rows are bitsets, m = #columns,
-// b = RHS (all-zero if unused); returns rank.
+// b = RHS (all-zero if unused); returns {rank, det}.
+// det is valid only when A is square (n == m).
 // For an XOR basis, use all-zero b and read the nonzero rows.
 const int N = 1000;
 using bs = bitset<N>;
-int gaussBinary(vector<bs>& A, vector<int>& b, int m) {
+pair<int, int> gaussBinary(vector<bs>& A, vector<int>& b, int m) {
   int n = A.size(), rank = 0;
   for (int c = 0; c < m && rank < n; c++) {
     int piv = rank;
@@ -14,5 +15,5 @@ int gaussBinary(vector<bs>& A, vector<int>& b, int m) {
       A[i] ^= A[rank], b[i] ^= b[rank];
     rank++;
   }
-  return rank;
+  return {rank, n == m && rank == n};
 }

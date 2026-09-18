@@ -2,7 +2,8 @@
 // nullity == -1 if no solution
 struct BinSolution { int nullity; bs xp; vector<bs> basis; };
 BinSolution solveBinary(vector<bs>& A, vector<int>& b, int m) {
-  int n = A.size(), rank = gaussBinary(A, b, m);
+  int n = A.size();
+  auto [rank, det] = gaussBinary(A, b, m);
   for (int i = rank; i < n; i++) if (b[i]) return {-1, {}, {}};
   BinSolution sol{m - rank, {}, {}};
   vector<int> pcol(rank);  // pivot columns
