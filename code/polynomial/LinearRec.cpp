@@ -1,9 +1,9 @@
-// k-th term of a recurrence in O(n^2 log k), mod < 2^31.
+// k-th term of a recurrence in O(n^2 log k)
+// S[i] = \sum C[j] * S[i-1-j]
 // Example: linearRec({0,1},{1,1},k) returns Fib(k).
 using Poly = vector<ll>;
-
-ll linearRec(Poly S, Poly tr, ll k) {
-  int n = sz(tr);
+ll linearRec(Poly S, Poly C, ll k) {
+  int n = C.size();
   auto combine = [&](Poly a, Poly b) {
     Poly res(n * 2 + 1);
     for (int i = 0; i <= n; i++)
@@ -12,7 +12,7 @@ ll linearRec(Poly S, Poly tr, ll k) {
     for (int i = 2 * n; i > n; i--)
       for (int j = 0; j < n; j++)
         res[i - 1 - j] = add(res[i - 1 - j],
-                              mul(res[i], tr[j]));
+                              mul(res[i], C[j]));
     res.resize(n + 1);
     return res;
   };
