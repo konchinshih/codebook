@@ -106,6 +106,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp cc150c
                 code/numerical/old_files/PolyInterpolate.cpp 5e90dc3777b53e3ad611e407f1b9c4332c7100fbe9e1024aaac4c0fb1c2928a0
                         code/data-structure/time-segtree.cpp e8ac315e371b0bf08beae9bbae1a5414fee8cb824be90c7e89a834431cc3084b
                   code/data-structure/segment-tree-beats.cpp d7946d709844ebe87502f0081d7b8b63ed93102be256fd14da1157bce63843d9
+                            code/data-structure/RangeSet.cpp a2366aee0f220f3f45a3fd0ddbc2e97c744b4dd205272f9f8d39fd8bd7b97050
                code/data-structure/range-affine-metadata.cpp 32a90535c197695703dff4aaf4bcf09a00c8d6e2bc394f961b721be8896d249b
                         code/data-structure/Mo-algorithm.cpp 5308dd39b0f7f5652e5f25204a3661a49bed8553e7f10462fc16e506626f43c7
                     code/data-structure/persistent-treap.cpp 5f64dab70c61479fa27c807caf55c3ff0979f9afc06ec132a6cddf6df92c4718
@@ -113,6 +114,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp cc150c
                                  code/data-structure/CDQ.cpp e1864b772fec1029065533e63aded13d46e205ccaacf03eb2146cc33d76d7a88
           code/data-structure/range-affine-binary-search.cpp 658c187b2fe70fe40bcc3f3ec52f0cca66e57f84da3815cdfc57e99be8855fc2
                 code/data-structure/range-affine-segtree.cpp a2785df2663828f47599e9d8fe925259b9d99714752f145ff91cb330e5a8146d
+                       code/data-structure/WaveletMatrix.cpp d6d98380398e5f63fc859f0c24deba0496bc0a25eece71dcd1e8e1b57e291564
 code/data-structure/old_files/li-chao-segment-insert-notes.typ 2747454b2037d932a541705ab72703353eabaa80341bdaba06934d1f113a0de3
                        code/data-structure/old_files/BIT.cpp 63ced6089127ff3c619771c8507c9bb270c4efef49214553bce816f558075010
                  code/data-structure/old_files/skew-heap.cpp bdc60edbdded71b0923e5cb9d43ec8a86a0747d7822b142864634f6bc797c1b7
@@ -120,6 +122,7 @@ code/data-structure/old_files/li-chao-segment-insert-notes.typ 2747454b2037d932a
    code/data-structure/old_files/SegmentTree-Instruction.cpp 6437aff1043a0f1d598dbd202a311c8e330c7c7457a939c69bf8e0926a6a8296
               code/data-structure/old_files/leftist-heap.cpp b878a48a43bd5cf7ffa1bd169443eedcb4351b26a5f797839ef23899e7ac44bf
                code/data-structure/old_files/SparseTable.cpp 02ec2bbfa250b714da525ceeab2a1b0bbe333ffe3e0f21433274b43171da9623
+                   code/data-structure/IncrementalMinSum.cpp b3e8aca8968208e903fe5f3c65ceb43ff988853ab97c19dd086284fb654b92a5
                                code/linear-algebra/Gauss.cpp dad24a516f7a6221222727d274ffcd3f4ecdbb5010314051adb7bc2ea5d79572
                          code/linear-algebra/GaussBinary.cpp c8d7036045a3a1d12ad011e3e8cdadf86bd60da34770271e31328c4a65a9dc44
                          code/linear-algebra/solveBinary.cpp 7324a9d6b7abfdd62b9bd64c6e174dbe3847fb18fd7060efddf9926b2e18288a
