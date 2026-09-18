@@ -546,6 +546,19 @@
   == Pólya (necklaces)
   - Colorings of $n$-cycle with $m$ colors under rotation: $1/n sum_(d | n) phi(d) m^(n/d)$; with reflection too ($n$ odd): add $n m^((n+1)/2)$, ($n$ even): add $n/2 (m^(n/2) + m^(n/2+1))$, then divide by $2n$ instead of $n$.
 
+= Game Theory
+  == Nim
+  - $n$ piles $a_1, dots, a_n$；兩人輪流選一堆拿走 $>= 1$ 顆，拿不了的人輸（normal play）。
+  - 先手必勝 $<=> X = a_1 xor dots xor a_n != 0$。必勝走法：找一堆 $a_i$ 使 $a_i xor X < a_i$（即 $a_i$ 在 $X$ 最高位為 1），拿成 $a_i xor X$，讓 XOR 歸零。
+  - Misère（拿到最後一顆的人輸）：若所有 $a_i <= 1$ 則勝負相反（堆數為偶數先手勝），否則判定同 normal。
+  - 變形：每次最多拿 $k$ 顆 $=>$ 用 $a_i mod (k+1)$ 代入；Staircase Nim：只看奇數階的 XOR。
+  == Sprague-Grundy
+  - $"SG"(s) = "mex"{"SG"(t_1), "SG"(t_2), dots}$，$t_i$ 為對 $s$ 做一步操作後的狀態；終止態 $"SG" = 0$（mex = 最小未出現的非負整數）。
+  - $"SG"(s) != 0 <=>$ 先手必勝；必勝走法：走到任一 $"SG"(t) = 0$ 的 $t$。
+  - 多個獨立子遊戲同時進行（每步只能動一個）：$"SG" = xor.big "SG"(s_i)$；Nim 一堆 $a$ 就是 $"SG" = a$。
+  - 一步可把一局分裂成多局（如 Kayles）：$t$ 的 SG 是各分裂部分的 XOR，再取 mex。
+  - 狀態小時直接打表 $O(|S| dot "moves")$，大狀態先打表找週期／規律。
+
 = Special Numbers
   == Fibonacci Series
   #align(center)[#numtable((
@@ -624,6 +637,6 @@
   - Number of square-free divisors $= 2^omega(n)$
     - $n <= 10^9 => <= 512$, $n <= 10^18 => <= 32768$
 
-#gridbox(16cm)
+#gridbox(1fr)
 
 ]
