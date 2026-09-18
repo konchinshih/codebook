@@ -1,9 +1,9 @@
                                   code/number-theory/CRT.cpp 3721bc1cbd14a2945037403ec458df4eb158282fd9937b86907f955399fdfb40
                                  code/number-theory/Lucy.cpp 22d9822583abe8dbb42aecd812d0827858b05f95c23fab893e28efe1943bfc18
-                           code/number-theory/PollardRho.cpp d819f631388b5704e2ab72683d216ca28d27c8e1f0d6e1c3c1f09d4b1858b174
+                           code/number-theory/PollardRho.cpp 8c53d51c2fa1e607bac182128b9ff0c0738e1c88c25b990f3bedb0f0f72c4322
                               code/number-theory/ExLucas.cpp 18001d7e2be06e4c7ebb6caeaccc976ea67648a3ebffadbba5cc5d761f5f682d
                               code/number-theory/FastGCD.cpp 7975634262d050af22536574b1e89082f03e15b7a3f40c4560822b5ef5b4078c
-                          code/number-theory/MillerRabin.cpp 2502ec558d5a774562be02736aab85d6b139db6940f1fdebdb652b7e514a8c93
+                          code/number-theory/MillerRabin.cpp a27cc797b83803baffdfc5e13506da769ba30b2dd4976eecc129c9267149c5f9
                      code/number-theory/old_files/ModPow.cpp cc5dfe2c69d56d5bf3e47a5bf014a8945682e6f6c302783524466fb0679ad67f
                         code/number-theory/old_files/FFT.cpp db8f903db1fd4931c38a6f7f8ea4f45f9ebe345992d1bc1975db6ee80cba1fdf
                 code/number-theory/old_files/DiscreteLog.cpp c16a003bc1e5665a7a3a545a74904275963a75752cf7f2a7b5e8e4b5d2c2225c
@@ -215,7 +215,7 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp daa7eefb55f28ea8
                                      code/stress-test/gen.py 1c796f9d94d400db50ca13111fbed1256d2c02ab184c487f0fc601c24a917d46
                                     code/stress-test/test.sh 7a4f7aea73f52f7b53c06c8445871cf67bbe5be80b3c7d1f8b9ab927684862fd
                                    code/modular/ModBasic.cpp 032b2b071714618d3e9e11ddf9bf2fe0419cf679ec766ded9085e194c738773b
-                                    code/modular/ModSqrt.cpp a6ac85267e55bd74b8a1e4f0f00ccde38febe007b6b49d36b53ea4fd804cd8cc
+                                    code/modular/ModSqrt.cpp cd046be7f1efd5f22f6d1cedfa3e9480f19603f4835d07a340dea1b9c6dec4f2
                                      code/modular/ModSum.cpp 9081a96f1c87697a0c9ebdb768ef9d166459f4ae598a06fc154c92189924db67
                                   code/modular/DiscreteLog.h 9fb605a9b0e0a1187ac9250f3fd5438df3b55ce9ac9964bd892b1ede99259fc2
                              code/modular/old_files/BSGS.cpp 9b8b0f373fe70cd6b4ce36883c608da2d1e4a810fe1b8b4b6e9d5b0fac792265
