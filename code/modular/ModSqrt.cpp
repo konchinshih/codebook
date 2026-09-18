@@ -8,7 +8,8 @@ ll sqrtMod(ll a, ll p) { a = (a % p + p) % p;
   if (p == 2) return a;
   if (a == 0) return 0;
   if (Pow(a, (p - 1) / 2, p) != 1) return -1;
-  if (p % 4 == 3) return Pow(a, (p + 1) / 4, p);
+  if (p % 4 == 3) {
+    ll x = Pow(a, (p + 1) / 4, p); return min(x, p - x); }
   ll s = p - 1, n = 2;
   int r = 0, m;
   while (s % 2 == 0) r++, s /= 2;
