@@ -493,6 +493,7 @@
   #sub("Gauss (mod p)", "code/linear-algebra/Gauss.cpp")
   #sub("Solve Linear Equations", "code/linear-algebra/solveLinearEquations.cpp")
   #sub("Gauss (GF(2) / XOR basis)", "code/linear-algebra/GaussBinary.cpp")
+  #sub("Solve Linear Equations (GF(2))", "code/linear-algebra/solveBinary.cpp")
   == Determinant
   - Row swap: $-det$; $k accent(r_i, arrow)$: $k det$; $accent(r_i, arrow) += k accent(r_j, arrow)$: unchanged; $det(A^T) = det(A)$, $det(A B) = det(A) det(B)$.
   - Matrix-tree: number of spanning trees = any cofactor of Laplacian $D - A$. Directed (arborescences rooted at $r$): delete row/col $r$ of $D_"in" - A$.

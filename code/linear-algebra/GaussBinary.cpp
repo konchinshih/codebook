@@ -1,13 +1,12 @@
 // Solves Ax=b over GF(2), returning rank or -1
 // if inconsistent.
 // For an XOR basis, use all-zero b and read the nonzero rows.
-using bs = bitset<1000>;
-
-int gaussBinary(vector<bs>& A, vi& b, bs& x, int m) {
-  int n = sz(A), rank = 0, br;
-  assert(m <= sz(x));
-  vi col(m);
-  iota(all(col), 0);
+const int N = 1000;
+using bs = bitset<N>;
+int gaussBinary(vector<bs>& A, vector<int>& b, bs& x, int m) {
+  int n = A.size(), rank = 0, br;
+  vector<int> col(m);
+  iota(col.begin(), col.end(), 0);
   for (int i = 0; i < n; i++) {
     for (br = i; br < n; br++)
       if (A[br].any()) break;
@@ -21,18 +20,14 @@ int gaussBinary(vector<bs>& A, vi& b, bs& x, int m) {
     swap(b[i], b[br]);
     swap(col[i], col[bc]);
     for (int j = 0; j < n; j++) if (A[j][i] != A[j][bc]) {
-      A[j].flip(i);
-      A[j].flip(bc);
+      A[j].flip(i); A[j].flip(bc);
     }
     for (int j = i + 1; j < n; j++) if (A[j][i]) {
-      b[j] ^= b[i];
-      A[j] ^= A[i];
+      b[j] ^= b[i]; A[j] ^= A[i];
     }
     rank++;
   }
-  x = bs();
-  for (int i = rank; i--;) {
-    if (!b[i]) continue;
+  x = bs(); for (int i = rank; i--;) if (b[i]) {
     x[col[i]] = 1;
     for (int j = 0; j < i; j++) b[j] ^= A[j][i];
   }
