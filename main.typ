@@ -426,7 +426,7 @@
   #sub("Basic", "code/modular/ModBasic.cpp")
   #sub("Mod Sum / Floor Sum", "code/modular/ModSum.cpp")
   #sub("Mod Sqrt", "code/modular/ModSqrt.cpp")
-  #sub("BSGS / exBSGS", "code/modular/BSGS.cpp")
+  #sub("Discrete Log (exBSGS)", "code/modular/DiscreteLog.h")
 
 = Number Theory
   #sub("Miller Rabin", "code/number-theory/MillerRabin.cpp")
