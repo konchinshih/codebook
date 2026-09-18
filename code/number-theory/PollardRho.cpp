@@ -10,19 +10,14 @@ ll pollard(ll n) {
   }
   return gcd(prd, n);
 }
-vector<ll> factor(ll x) {
-  if (x == 1) return {};
-  if (isPrime(x)) return {x};
-  ll d = pollard(x);
-  auto l = factor(d), r = factor(x / d);
-  l.insert(l.end(), all(r));
-  return l;
-}
 vector<pair<ll, int>> factorization(ll x) {
-  auto f = factor(x); sort(all(f));
-  vector<pair<ll, int>> res;
-  for (ll p : f)
-    if (!res.empty() && res.back().first == p) res.back().second++;
-    else res.emplace_back(p, 1);
-  return res;
+  map<ll, int> cnt;
+  auto rec = [&](auto&& self, ll x) -> void {
+    if (x == 1) return;
+    if (isPrime(x)) { cnt[x]++; return; }
+    ll d = pollard(x);
+    self(self, d), self(self, x / d);
+  };
+  rec(rec, x);
+  return {all(cnt)};
 }
