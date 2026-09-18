@@ -2,7 +2,6 @@
 // O(n^2); you should provide at least 2k samples for order k.
 // Require: ModBasic.cpp
 using Poly = vector<ll>;
-
 Poly berlekampMassey(Poly s) {
   int n = s.size(), L = 0, m = 0;
   Poly C(n), B(n), T;
