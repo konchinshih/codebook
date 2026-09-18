@@ -100,6 +100,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                     code/data-structure/persistent-treap.cpp f03e62240a71c763a59232e9901ccd9460f62267345b7e68bc575da22caf1ba1
                         code/data-structure/li-chao-tree.cpp bd358de7d3b860157a7c169b8beb5beef2d68dd16f7cc3443a0fd25274be4ebc
                                  code/data-structure/CDQ.cpp aaab6c52cdea70c8c3307dafed73ff00f27109abc47ef5356b74e993a119b2b6
+          code/data-structure/range-affine-binary-search.cpp ce89a40dd4db040bbd9ef88cf033639c7767cfea1e9f788ea69ac93433b77d45
                        code/data-structure/old_files/BIT.cpp 9458fc6513fe0ca930f574a0fd0cb58bbb5637a3aa52620d7ce082cd345b373b
                  code/data-structure/old_files/skew-heap.cpp 9ed233f0fee9ef5d04409586da594e970d4cb3cf63c0093f573475f7b29312e8
                code/data-structure/old_files/SegmentTree.cpp d91dd195d2568c77bd259fad574835418533417518100c5192077656386822ed
