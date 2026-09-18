@@ -1,4 +1,4 @@
-// isPrime(n): deterministic for n < 2^63; 1e6 calls ~0.3s
+// isPrime(n): deterministic for n < 2^63; 1e6 calls ~0.25s
 // Pow(b, e, p) here is the same as ModSqrt's but with
 // __int128 mul, so it is safe for p up to 2^63.
 ll mul(ll a, ll b, ll p) { return (__int128)a * b % p; }

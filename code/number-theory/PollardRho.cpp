@@ -1,5 +1,5 @@
 // factor(n): prime factors with multiplicity, n < 2^62
-// 1e18 semiprime ~1ms; needs: MillerRabin
+// 1e18 semiprime ~0.5ms; needs: MillerRabin
 ll pollard(ll n) {
   ll x = 0, y = 0, t = 30, prd = 2, i = 1, q;
   auto f = [&](ll x) { return mul(x, x, n) + i; };
