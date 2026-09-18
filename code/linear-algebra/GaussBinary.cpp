@@ -1,7 +1,5 @@
-// In-place RREF over GF(2) on the first m columns of A
-// (rows are bitsets; extra columns, e.g. an augmented b,
-// are carried along). Returns {rank, det}; det is valid
-// only when A is n x m square.
+// In-place RREF over GF(2); rows are bitsets, m = #columns.
+// Returns {rank, det}; det is valid only when A is square.
 // For an XOR basis, run it and read the nonzero rows.
 const int N = 1000;
 using bs = bitset<N>;
