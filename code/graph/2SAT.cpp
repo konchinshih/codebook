@@ -1,7 +1,11 @@
 // Author: Ian, CRyptoGRapheR
 struct TwoSAT: SCC {
   TwoSAT(int n): SCC(2*n) {}
-  // (var a == na) ∨ (var b == nb)
+  // clause (var a == na) ∨ (var b == nb); na, nb ∈ {0, 1}
+  // a -> b        : (a,0,b,1)     not both a, b : (a,0,b,0)
+  // a or b        : (a,1,b,1)     a xor b : (a,1,b,1),(a,0,b,0)
+  // a == b : (a,0,b,1),(a,1,b,0)  force a = v : (a,v,a,v)
+  // solve(): assignment[i] = value of var i, {} if UNSAT
   void add_disjunction(int a,int na,int b,int nb) {
     a = 2*a^na, b = 2*b^nb;
     G[a^1].push_back(b);

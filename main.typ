@@ -480,7 +480,6 @@
   $(1+x)^n = sum binom(n, i) x^i$, $quad 1/(1-x)^n = sum_i binom(i+n-1, n-1) x^i$, $quad 1/(1-x) = sum x^i$, $quad e^x = sum x^i / i!$, $quad -ln(1-x) = sum_(i>=1) x^i / i$ \
   Catalan $C(x) = (1 - sqrt(1-4x)) / (2x)$; Fibonacci $x / (1 - x - x^2)$; $sum_i i x^i = x / (1-x)^2$; partitions $product_k 1/(1-x^k)$.
   #sub("NTT", "code/polynomial/NTT.cpp")
-  NTT primes (root): 998244353 (3), 167772161 (3), 469762049 (3), 1004535809 (3), 2013265921 (31), 1224736769 (3), 7340033 (3), 65537 (3); $ 985661441 (3)$, $2281701377 (3)$ (32-bit unsigned), $1945555039024054273 (5)$, $4179340454199820289 (3)$ (64-bit).
   #sub("FFT", "code/polynomial/FFT.cpp")
   #sub("FFT Mod (arbitrary modulus)", "code/polynomial/FFTMod.cpp")
   #sub("FWHT", "code/polynomial/FWHT.cpp")
