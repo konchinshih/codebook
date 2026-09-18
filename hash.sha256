@@ -214,7 +214,7 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp daa7eefb55f28ea8
                                       code/geometry/Sort.cpp 3515b8bc284183d1b72a61a6458276a62e8919c67d702433dab4606615a091ec
                                      code/stress-test/gen.py 1c796f9d94d400db50ca13111fbed1256d2c02ab184c487f0fc601c24a917d46
                                     code/stress-test/test.sh 7a4f7aea73f52f7b53c06c8445871cf67bbe5be80b3c7d1f8b9ab927684862fd
-                                   code/modular/ModBasic.cpp 032b2b071714618d3e9e11ddf9bf2fe0419cf679ec766ded9085e194c738773b
+                                   code/modular/ModBasic.cpp e9d03352b070e8342b41152165795b6c10df12ce6ceb75e035ad3418d0a798ea
                                     code/modular/ModSqrt.cpp 83aaa0b283f728c6ead289b6fca3d2d373bae21f829f295b9d12592e90d8fcac
                                      code/modular/ModSum.cpp 9081a96f1c87697a0c9ebdb768ef9d166459f4ae598a06fc154c92189924db67
                                   code/modular/DiscreteLog.h 9fb605a9b0e0a1187ac9250f3fd5438df3b55ce9ac9964bd892b1ede99259fc2
