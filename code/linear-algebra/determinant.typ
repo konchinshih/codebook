@@ -1,0 +1,3 @@
+  - Row swap: $-det$; $k accent(r_i, arrow)$: $k det$; $accent(r_i, arrow) += k accent(r_j, arrow)$: unchanged; $det(A^T) = det(A)$, $det(A B) = det(A) det(B)$.
+  - Matrix-tree: number of spanning trees = any cofactor of Laplacian $D - A$. Directed (arborescences rooted at $r$): delete row/col $r$ of $D_"in" - A$.
+  - Cayley: $n^(n-2)$ labeled trees; forests of $k$ rooted trees on given roots: $k n^(n-k-1)$.

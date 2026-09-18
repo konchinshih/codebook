@@ -1,0 +1,1 @@
+  - Colorings of $n$-cycle with $m$ colors under rotation: $1/n sum_(d | n) phi(d) m^(n/d)$; with reflection too ($n$ odd): add $n m^((n+1)/2)$, ($n$ even): add $n/2 (m^(n/2) + m^(n/2+1))$, then divide by $2n$ instead of $n$.

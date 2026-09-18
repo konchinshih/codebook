@@ -1,0 +1,10 @@
+  - Contribution Technique
+  - 二分圖/Spanning Tree/DFS Tree
+  - 行、列操作互相獨立
+  - 奇偶性
+  - 當 $s, t$ 遞增並且 $t = f(s)$，對 $s$ 二分搜不好做，可以改成對 $t$ 二分搜，再算 $f(t)$
+  - 啟發式合併
+  - Permutation Normalization（做一些平移對齊兩個 permutation）
+  - 枚舉 $a_1 tilde.op a_n$ 再枚舉 $a_n tilde.op a_1$ 可以包在一個迴圈
+  - 兩個凸型函數相加還是凸型函數，相減不一定
+  - 一個區間的 mex $= k$，表示這個區間包含 $0 tilde.op k - 1$ 所有數字，並且「$U -$ 區間」的最小值 $= k$。

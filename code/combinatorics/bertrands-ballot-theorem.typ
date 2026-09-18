@@ -1,0 +1,2 @@
+  - $A$ always $> B$: $C(p+q, p) - 2 C(p+q-1, p)$
+  - $A$ always >= $B$: $C(p+q, p) times (p + 1 - q)/(p + 1)$
