@@ -107,7 +107,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                          code/linear-algebra/solveBinary.cpp 6a7027b2f85c7f720b37b943299b6f76281ea5470942dc09bb1bf7c0fa418913
                 code/linear-algebra/solveLinearEquations.cpp 5a7bdd3247f1abd0c14afb35d5f63ab3de096f34436979e0a3af5952884a94b6
           code/linear-algebra/old_files/GaussElimination.cpp e8c66e57a512145691969d3951c3d5422d4c8798d161f391b7a7b6fee86a2d84
-                         code/polynomial/BerlekampMassey.cpp 39b0fdf3130b46d2f0c5f621aad0e82083e156972ef87bf52b87a5f9ce91915e
+                         code/polynomial/BerlekampMassey.cpp 236e52cb67c028c11d2ff08139ea2d2f5a32b16368ff4ef9a00dec8b01868347
                                      code/polynomial/FFT.cpp 5568a899f2217ff7d6f3e04bfc9d4cc2ca658afd9dcaf5aa2c5b45a7a1384a8c
                                      code/polynomial/NTT.cpp 131fe6e0a3bd4308081a0690ed66d08be76df5d7cc4e447f9a3fb827c91ea9c4
                                  code/polynomial/PolyOps.cpp 00d95f6da7483ad9b32e94f6218d9565c0fc7d1356766ca7ff80e59e28a9941a
