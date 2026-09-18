@@ -183,7 +183,7 @@ code/data-structure/old_files/li-chao-segment-insert-notes.typ 2747454b2037d932a
                                           code/graph/KSP.cpp b340af2821cc89c03978c1d7c1a5978698476debf496e6f8cc3286849bb868d0
                                   code/graph/BellmanFord.cpp 87882162d5f9189856ddb9990c683a2fbb21fa5b313f13d66bb7515d51fc16c5
                                           code/graph/SCC.cpp 298974d4dbaa5a25e4e537d4bf275ca19199ea25cfa5341089f37756abe85725
-                       code/graph/difference-constraints.typ 11826e18539ff9cf6a9ee63019852df33160a108c7099d8de6e5395da5767773
+                       code/graph/difference-constraints.typ 6496edc40adc501d818c6a51b340a4543a56151439a423f0bae9dd020bafea21
                               code/graph/DiffConstraints.cpp 371c507251bbbb043e7222d402276e64255ac2a449829b5819057759e7c98dfa
                                          code/graph/2SAT.cpp e5fb57b1858bf260ac9cb2833923edce8ff629b120464ba6208c79c30a49fba1
                                          code/graph/EBCC.cpp de44ee741d35edbed3bf3ee8ceaefac89061dc9d7795d23f599f72400c880975
