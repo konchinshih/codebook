@@ -1,6 +1,9 @@
                                   code/number-theory/CRT.cpp 3721bc1cbd14a2945037403ec458df4eb158282fd9937b86907f955399fdfb40
                                  code/number-theory/Lucy.cpp 22d9822583abe8dbb42aecd812d0827858b05f95c23fab893e28efe1943bfc18
+                          code/number-theory/DiscreteLog.cpp 072ba8c06b2fe0d9a2414826f8debc5196f9f1d6c6888fbbbd6190f3da90108d
                            code/number-theory/PollardRho.cpp 9398ac64c581fa191c2f33d8a9059032b5066a13939598045c02678bba3f12e5
+                              code/number-theory/ModSqrt.cpp 83aaa0b283f728c6ead289b6fca3d2d373bae21f829f295b9d12592e90d8fcac
+                               code/number-theory/ModSum.cpp 9081a96f1c87697a0c9ebdb768ef9d166459f4ae598a06fc154c92189924db67
                               code/number-theory/ExLucas.cpp 18001d7e2be06e4c7ebb6caeaccc976ea67648a3ebffadbba5cc5d761f5f682d
                               code/number-theory/FastGCD.cpp a4e779d5630eab30544910498fc99e19ec5b25009ee04fef782a89227d53d679
                           code/number-theory/MillerRabin.cpp 4c963c989e57a37d8ee46be9ca42312b5dfde434a5ffd7339f8d2ad160c29fac
@@ -45,6 +48,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
               code/number-theory/old_files/MatrixFastPow.cpp 8aefc0dbf9b8d14261e397e1d97164c517e151b3ce0effcfb00749272eb6704f
          code/number-theory/old_files/Number_of_Divisors.cpp 948b568e7657df32405d892638e28cae7b46d30468227662a474c4a6f193a002
                      code/number-theory/old_files/ExtGCD.cpp 9043e73aae3ad1a5a0490ec55d7aa9d43e008223114178e0f3371d4fbdbe1970
+                       code/number-theory/old_files/BSGS.cpp 9b8b0f373fe70cd6b4ce36883c608da2d1e4a810fe1b8b4b6e9d5b0fac792265
                code/number-theory/old_files/DiscreteSqrt.cpp e42eb57a881c95dc49f0bbe9dba3d7a3d708eb4b25af9d343c4d9ca3b9ed93ee
                   code/number-theory/old_files/PollardRho.py 1ba6c833de99729601ca1c735e191e3b97ba3e57c808c942c028c501f9ba7919
                    code/number-theory/old_files/Mu + Phi.cpp db96f242c1f705157a272de4ab61dde4c4517bd69599507d05f04040466ca56c
@@ -138,6 +142,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                                 code/string/old_files/SA.cpp 387669d18dc1b7b76dce1a8eea0ad1a4222d09daf132d6c13780d1079fdbc87c
                       code/string/old_files/SA-Optimized.cpp 99885b46273b84a92be261c6eaa746ae0cfa0906f9d630ec0594f9138b48ac53
                               code/string/old_files/Trie.cpp 9ea19b1fe7c78485e51558905ef9fb827b5fa744de0e44c02b1b2267d2056c91
+                                code/math-basic/ModBasic.cpp e9d03352b070e8342b41152165795b6c10df12ce6ceb75e035ad3418d0a798ea
                                   code/flow/GomoryHuTree.cpp 7f6c17b201fe2d1ae78cbc52ab9d49c90d7e4a9e38b40f922bad65ba0d38e2f6
                                           code/flow/MCMF.cpp 9f4297c32efb614ae4c444ddd58dc5dd770eb809ce13f1ab7c7aa2a8a8d971e8
                                          code/flow/Dinic.cpp 55581b43457c58b913bcdce6b01a3ef5703be193c53288a5afc47faab2afc237
@@ -214,11 +219,6 @@ code/geometry/old_files/basic-operations/MinEnclosingCircle.cpp daa7eefb55f28ea8
                                       code/geometry/Sort.cpp 3515b8bc284183d1b72a61a6458276a62e8919c67d702433dab4606615a091ec
                                      code/stress-test/gen.py 1c796f9d94d400db50ca13111fbed1256d2c02ab184c487f0fc601c24a917d46
                                     code/stress-test/test.sh 7a4f7aea73f52f7b53c06c8445871cf67bbe5be80b3c7d1f8b9ab927684862fd
-                                code/modular/DiscreteLog.cpp 072ba8c06b2fe0d9a2414826f8debc5196f9f1d6c6888fbbbd6190f3da90108d
-                                   code/modular/ModBasic.cpp e9d03352b070e8342b41152165795b6c10df12ce6ceb75e035ad3418d0a798ea
-                                    code/modular/ModSqrt.cpp 83aaa0b283f728c6ead289b6fca3d2d373bae21f829f295b9d12592e90d8fcac
-                                     code/modular/ModSum.cpp 9081a96f1c87697a0c9ebdb768ef9d166459f4ae598a06fc154c92189924db67
-                             code/modular/old_files/BSGS.cpp 9b8b0f373fe70cd6b4ce36883c608da2d1e4a810fe1b8b4b6e9d5b0fac792265
                                         code/basic/debug.cpp def40cdded7e68aa50244c26de0ec7cb17d5fa246ce0dd995e55d28d2f660d10
                                     code/basic/SVGWriter.cpp ef2220053aa43baa0c983b0093034312d9892f7ba7dae6120fa3df17f795b5f6
                             code/basic/template_codebook.cpp 5cacbfa7583bfa80be15493a8867357b5b72638bcfd240a1eabfe5d1f26a86a6

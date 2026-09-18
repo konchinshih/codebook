@@ -422,13 +422,13 @@
   $ "Area" = i + b \/ 2 - 1 $
 
 
-= Modular
-  #sub("Basic", "code/modular/ModBasic.cpp")
-  #sub("Mod Sum / Floor Sum", "code/modular/ModSum.cpp")
-  #sub("Mod Sqrt", "code/modular/ModSqrt.cpp")
-  #sub("Discrete Log (exBSGS)", "code/modular/DiscreteLog.cpp")
+= Math Basic
+  #sub("Basic", "code/math-basic/ModBasic.cpp")
 
 = Number Theory
+  #sub("Mod Sum / Floor Sum", "code/number-theory/ModSum.cpp")
+  #sub("Mod Sqrt", "code/number-theory/ModSqrt.cpp")
+  #sub("Discrete Log (exBSGS)", "code/number-theory/DiscreteLog.cpp")
   #sub("Miller Rabin", "code/number-theory/MillerRabin.cpp")
   #sub("Pollard Rho", "code/number-theory/PollardRho.cpp")
   == Linear Sieve
