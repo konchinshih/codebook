@@ -104,7 +104,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                code/data-structure/old_files/SparseTable.cpp 93e18a5cfdd20481f998cc3c90b6f22583eb74dfa3b0507184c2e66cb94598c0
                                code/linear-algebra/Gauss.cpp 7021b433623c698f54c3085addc8f4d4fce5a07259678fe9d83a7b47b768b17c
                          code/linear-algebra/GaussBinary.cpp 1e8e426d31363bbc0e726248d96d9124a0f4918b0ef0fb43e82e902dbf66a4b3
-                         code/linear-algebra/solveBinary.cpp 53869ee0803bbd709715196d812173b47d61012c51a2b89b7aaea881f593a63b
+                         code/linear-algebra/solveBinary.cpp 6a7027b2f85c7f720b37b943299b6f76281ea5470942dc09bb1bf7c0fa418913
                 code/linear-algebra/solveLinearEquations.cpp 5a7bdd3247f1abd0c14afb35d5f63ab3de096f34436979e0a3af5952884a94b6
           code/linear-algebra/old_files/GaussElimination.cpp e8c66e57a512145691969d3951c3d5422d4c8798d161f391b7a7b6fee86a2d84
                          code/polynomial/BerlekampMassey.cpp 39b0fdf3130b46d2f0c5f621aad0e82083e156972ef87bf52b87a5f9ce91915e

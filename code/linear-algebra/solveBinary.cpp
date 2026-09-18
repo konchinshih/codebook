@@ -5,7 +5,7 @@ BinSolution solveBinary(vector<bs>& A, int m) {
   int n = A.size();
   auto [rank, det] = gaussBinary(A, m + 1);
   for (int i = 0; i < n; i++)  // row: 0 ... 0 | 1
-    if (A[i]._Find_first() == m) return {-1, {}, {}};
+    if ((int)A[i]._Find_first() == m) return {-1, {}, {}};
   BinSolution sol{m - rank, {}, {}};
   vector<int> pcol(rank);  // pivot columns
   bs isp;  // is the column a pivot?
