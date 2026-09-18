@@ -1,3 +1,4 @@
+// rep(i,a,b) here is INCLUSIVE: for (i = a; i <= b; i++)
 i64 BSGS(i64 X, i64 Y, i64 P) {
   X %= P, Y %= P;
   assert(gcd(X, P) == 1);

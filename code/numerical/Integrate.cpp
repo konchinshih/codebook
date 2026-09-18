@@ -24,7 +24,7 @@ double adaptiveSimpson(F& f, double a, double b,
   double right = simpsonPart(c, b, f);
   double sum = left + right;
   if (abs(sum - whole) <= 15 * eps ||
-      b - a < 1e-10)
+      abs(b - a) < 1e-10)
     return sum + (sum - whole) / 15;
   return adaptiveSimpson(f, a, c, eps / 2, left) +
          adaptiveSimpson(f, c, b, eps / 2, right);

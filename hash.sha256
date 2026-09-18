@@ -66,7 +66,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                          code/matching/BipartiteMatching.cpp 0e5f0d8e4cff4ecc89b9726685194ca33f059d352ca5af5059393e8caa480cf8
                            code/matching/GeneralMatching.cpp 2e49623b8096c8eed4ff087b06c8301dde400e87a6e5486edd26bcabab94dd7b
                  code/matching/BipartiteWeightedMatching.cpp 2b5b69f1fa7bee081e0da3c29a91cd1e3fb4662ddc63341e227c2e243e5a06d9
-                                code/numerical/Integrate.cpp c183d8fa7916733d844efac9890f0691b17468f833852deaa3c415872bbfae6c
+                                code/numerical/Integrate.cpp ff9766a4b86b6152f49e3041ff487c8fdb20eae879bafb1de0162773c94002d7
                                   code/numerical/Simplex.cpp 8ad018df0f42564370fc5584ed9a4acaf4076b1d28f1f08934c158819a5fb983
                 code/numerical/old_files/BerlekampMassey.cpp 9cbc6024437075685a5a601c23b23377275bc3067bc3cfc3cebfc3fb48a1143a
                code/numerical/old_files/LinearRecurrence.cpp b573261697453f22f0d1bdc8589a6f8382ce53043b9db13253a3cbf7ef99fa4a

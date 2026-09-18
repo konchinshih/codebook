@@ -34,6 +34,7 @@ struct NTT {
 } ntt;
 
 // polyMul: a*b truncated to bound terms, O(n log n).
+// Result length must be <= N.
 Poly polyMul(Poly a, Poly b, int bound = N) {
   int m = sz(a) + sz(b) - 1, n = 1;
   while (n < m) n <<= 1;
