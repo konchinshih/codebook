@@ -28,4 +28,4 @@ Poly berlekampMassey(Poly s) {
 /* Example: Fibonacci
 Poly s = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
 Poly c = berlekampMassey(s);  // c = {1, 1}, k = 2
-ll ans = linearRec(c, s, (ll)1e18); // find fib(1e18) */
+ll ans = linearRec(s, c, (ll)1e18); // find fib(1e18) */
