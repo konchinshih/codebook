@@ -1,4 +1,4 @@
-// Add-on for the lazy SegT (S/op/e, T/mapping/composition/id).
+// Add-on: paste inside SegT (before #undef mid/cl/cr).
 // g: bool(S), monotone along the range, g(e()) must be true.
 // e.g. first r with sum[l, r) >= k:
 //   max_right(l, [&](S s) { return s.x < k; })  (n if none)

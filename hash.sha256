@@ -96,11 +96,13 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                 code/numerical/old_files/PolyInterpolate.cpp 7d80eb745e6c4ac7b488bff8ab8890bc367cf0c2ef0ac9480f36a8f1b87cf53a
                         code/data-structure/time-segtree.cpp c6cb66bd3e72fd526b25badd7e7610d099951017273dd13508dca5d38333811a
                   code/data-structure/segment-tree-beats.cpp 9938f4670092a0b40837862ba095260e4075e42cb61c48adc3839714d8c0feda
+               code/data-structure/range-affine-metadata.cpp 7452a2ba353bcd6a92ed1dca1ac951b3ce25703f95d8eb3faaf6dc38e5d61d30
                         code/data-structure/Mo-algorithm.cpp 0e54b16fd892c46cb7e6051129d8e8da90635fcda0aeca163c3caa9d4e4f8520
                     code/data-structure/persistent-treap.cpp f03e62240a71c763a59232e9901ccd9460f62267345b7e68bc575da22caf1ba1
                         code/data-structure/li-chao-tree.cpp bd358de7d3b860157a7c169b8beb5beef2d68dd16f7cc3443a0fd25274be4ebc
                                  code/data-structure/CDQ.cpp aaab6c52cdea70c8c3307dafed73ff00f27109abc47ef5356b74e993a119b2b6
           code/data-structure/range-affine-binary-search.cpp ce89a40dd4db040bbd9ef88cf033639c7767cfea1e9f788ea69ac93433b77d45
+                code/data-structure/range-affine-segtree.cpp 2717ba33d13c2a4f3e78816adbd579f9e292d9cc8d35973403c4cab1664051b4
                        code/data-structure/old_files/BIT.cpp 9458fc6513fe0ca930f574a0fd0cb58bbb5637a3aa52620d7ce082cd345b373b
                  code/data-structure/old_files/skew-heap.cpp 9ed233f0fee9ef5d04409586da594e970d4cb3cf63c0093f573475f7b29312e8
                code/data-structure/old_files/SegmentTree.cpp d91dd195d2568c77bd259fad574835418533417518100c5192077656386822ed
