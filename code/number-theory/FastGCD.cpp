@@ -5,17 +5,13 @@ struct GCD {
   array<int, 3> fac[N];
   void init(const int n) {
     sq = int(sqrt(n));
-    for (int i = 0; i <= sq; ++i) {
+    for (int i = 0; i <= sq; ++i)
       gcd_table[0][i] = gcd_table[i][0] = i;
-    }
-    for (int i = 1; i <= sq; ++i) {
-      for (int j = 1; j <= i; ++j) {
+    for (int i = 1; i <= sq; ++i)
+      for (int j = 1; j <= i; ++j)
         gcd_table[i][j] = gcd_table[j][i] = gcd_table[j][i % j];
-      }
-    }
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i)
       minp[i] = i;
-    }
     fac[1] = {1, 1, 1};
     for (int i = 2; i <= n; ++i) {
       if (minp[i] == i) {
@@ -30,21 +26,14 @@ struct GCD {
         fac[j][0] *= p;
         ranges::sort(fac[j]);
         if (i % p == 0) break;
-      }
-    }
-  }
+  } } }
   int fastGCD(int x, int y) {
     int g = 1;
     for (const int &f : fac[x]) {
       int c = 1;
-      if (f <= sq) {
-        c = gcd_table[f][y % f];
-      } else if (y % f == 0) {
-        c = f;
-      }
-      y /= c;
-      g *= c;
+      if (f <= sq) c = gcd_table[f][y % f];
+      else if (y % f == 0) c = f;
+      y /= c; g *= c;
     }
     return g;
-  }
-};
+} };
