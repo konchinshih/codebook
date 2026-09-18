@@ -2,15 +2,12 @@
 // det is valid only when A is square.
 // Values must be normalized.
 pair<int, ll> gauss(vector<vector<ll>>& A) {
-  int n = sz(A), m = sz(A[0]), rank = 0;
-  ll det = 1;
+  int n = A.size(), m = A[0].size();
+  int rank = 0; ll det = 1;
   for (int c = 0; c < m && rank < n; c++) {
     int piv = rank;
     while (piv < n && !A[piv][c]) piv++;
-    if (piv == n) {
-      det = 0;
-      continue;
-    }
+    if (piv == n) { det = 0; continue; }
     if (piv != rank) {
       swap(A[piv], A[rank]);
       det = sub(0, det);
