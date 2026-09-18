@@ -1,9 +1,7 @@
 // sqrtMod(a, p) finds x with x^2 = a (mod p), p prime
 // 2 Roots: (x, p - x), returns the smaller one
 // (Tonelli-Shanks) O(log^2 p), usually O(log p).
-ll Pow(ll b, ll e, ll p) { ll r = 1;
-  for (; e; e >>= 1, b = b * b % p) if (e & 1) r = r * b % p;
-  return r; }
+// Pow(b, e, p): b^e mod p
 ll sqrtMod(ll a, ll p) { a = (a % p + p) % p;
   if (p == 2) return a;
   if (a == 0) return 0;
