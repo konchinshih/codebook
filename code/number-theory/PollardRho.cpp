@@ -1,5 +1,7 @@
 // factorization(x): sorted (p, e) with x = prod p^e, x < 2^62
-// 1e18 semiprime ~0.5ms; needs: MillerRabin
+// needs: MillerRabin. Avg time per x (-O2, worst = semiprime):
+// x~1e9: 0.003ms | x~1e12: 0.004ms, semi 0.012ms
+// x~1e18: 0.016ms, semi 0.33ms (~3000 semiprimes / s)
 ll pollard(ll n) {
   ll x = 0, y = 0, t = 30, prd = 2, i = 1, q;
   auto f = [&](ll x) { return mul(x, x, n) + i; };
