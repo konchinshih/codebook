@@ -14,8 +14,12 @@ forward; `main.tex` is kept only for reference/fallback.
   `== Title` heading + single-file listing into one call (auto-detects
   language from the file extension, and stamps the first 6 hex digits of the
   file's SHA-256 — from `hash.sha256` — into the heading's title row).
-  Sections with prose, tables, math, or more than one listing under one
-  heading stay hand-written with `==` + `#listing(...)`/`#sh(...)`/etc.
+  Sections with more than one listing under one heading stay hand-written
+  with `==` + `#listing(...)`/`#sh(...)`/etc. Prose/formula/table sections
+  (theorems, cheat-sheets) live in `code/<topic>/<slug>.typ` and are pulled
+  in with `== Title` + `#include "code/<topic>/<slug>.typ"`, so `main.typ`
+  itself only shows the chapter/section structure. Shared Typst helpers
+  needed by those files (e.g. `numtable`) are in `lib.typ`.
 - `main.tex` — legacy LaTeX source (pre-Typst). Not actively maintained;
   `main.typ` is authoritative.
 - `code/<topic>/` — one file per algorithm/snippet, grouped by topic

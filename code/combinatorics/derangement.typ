@@ -1,0 +1,3 @@
+  - $D_n = (n-1)(D_(n-1) + D_(n-2)) = n D_(n-1) + (-1)^n = n! sum_(k=0)^n (-1)^k / k!$; $D_0=1, D_1=0, D_2=1, D_3=2, D_4=9, D_5=44$
+  - $|union A_i| = sum_(emptyset != S) (-1)^(|S|+1) |∩_(i in S) A_i|$; "exactly $k$ of $n$ properties": $sum_(j>=k) (-1)^(j-k) binom(j, k) N_j$ where $N_j$ = sum over $j$-subsets of $|∩|$
+  - Binomial inversion: $f(n) = sum_k binom(n, k) g(k) <=> g(n) = sum_k (-1)^(n-k) binom(n, k) f(k)$

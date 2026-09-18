@@ -1,11 +1,17 @@
+                 code/special-numbers/number-of-divisors.typ ca756a951144d77ab0202a68a8264ecdca356a793b947fc828c4310a0b01dc78
+             code/special-numbers/distinct-prime-factors.typ 46d31b0c1b1c102699c01c3fd81d044ae08ef36bf29cc1f20e3b047d22066f5f
+                   code/special-numbers/fibonacci-series.typ 0f09fb6251f6865a8568f20089245c84703c331857340a27881c346224f06545
+                      code/special-numbers/prime-numbers.typ 43693f38d7c2a4ba083ad47b7fd2788bfda609491e042052560e901ad2f1a1af
                                   code/number-theory/CRT.cpp 3721bc1cbd14a2945037403ec458df4eb158282fd9937b86907f955399fdfb40
                                  code/number-theory/Lucy.cpp 22d9822583abe8dbb42aecd812d0827858b05f95c23fab893e28efe1943bfc18
                           code/number-theory/DiscreteLog.cpp 072ba8c06b2fe0d9a2414826f8debc5196f9f1d6c6888fbbbd6190f3da90108d
                            code/number-theory/PollardRho.cpp 9398ac64c581fa191c2f33d8a9059032b5066a13939598045c02678bba3f12e5
                               code/number-theory/ModSqrt.cpp 83aaa0b283f728c6ead289b6fca3d2d373bae21f829f295b9d12592e90d8fcac
+                             code/number-theory/formulas.typ 7151b74a206b3f123a77da92533816df4e6253449fc2fe14e1bcc51b42a20ef2
                                code/number-theory/ModSum.cpp 9081a96f1c87697a0c9ebdb768ef9d166459f4ae598a06fc154c92189924db67
                               code/number-theory/ExLucas.cpp 18001d7e2be06e4c7ebb6caeaccc976ea67648a3ebffadbba5cc5d761f5f682d
                               code/number-theory/FastGCD.cpp a4e779d5630eab30544910498fc99e19ec5b25009ee04fef782a89227d53d679
+                         code/number-theory/linear-sieve.typ 4124080fd18daf6cb9c549e6b62aeb230aebe7cf33bd412b4b534c54264fe0bf
                           code/number-theory/MillerRabin.cpp 4c963c989e57a37d8ee46be9ca42312b5dfde434a5ffd7339f8d2ad160c29fac
                      code/number-theory/old_files/ModPow.cpp cc5dfe2c69d56d5bf3e47a5bf014a8945682e6f6c302783524466fb0679ad67f
                         code/number-theory/old_files/FFT.cpp db8f903db1fd4931c38a6f7f8ea4f45f9ebe345992d1bc1975db6ee80cba1fdf
@@ -60,7 +66,10 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                  code/number-theory/old_files/Polynomial.cpp 029eda977879de8ad882ca78a77d7d7afd94e82c7f85f52950304238ea93d862
                          code/number-theory/DivisorBlock.cpp 3ae3d44e3f8367260984040c410883e2452ee66314e9c01ca77b6fe7ad191b97
                                 code/number-theory/Black.cpp 225afdd7125b88c83d3081dc4edda887872a66e99ffee45c3798d85ac2f1691f
+                   code/reminder/observations-and-tricks.typ 992194ff9f0913aa08751ed6abd92b98c8fbc01ed0938cf881c520ebc0cc07a0
+                                  code/reminder/bug-list.typ 6cddf877bd24307e573a181e16b2ab4f0f0d88a16ea7801f995749cdcacd909b
                                            code/tree/HLD.cpp 6518aaf8810956cdac3b2d951f2f118d6c15ffcbab06ede48fd83589460f4631
+                              code/tree/tree-isomorphism.typ 3ba9006a347a71fb0ffe462b3d70971b35f948b94f653babd4d8e3247fd1d036
                                    code/tree/VirtualTree.cpp cbdb827bb9a30c07f76c987499ed552b9fcc9203f3c96203b2479e7bf71664b1
                          code/tree/RootedTreeIsomorphism.cpp 83f86d023d4e88d9a214ddd6acef5afaf5dbf9721fd89d14ded79ee97e2c9f0f
                        code/tree/old_files/tree_centroid.cpp ff732ab5c2c5c8630ef9482ceefa407889843341aaef279b02228e564a6da043
@@ -72,6 +81,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                  code/matching/BipartiteWeightedMatching.cpp 2b5b69f1fa7bee081e0da3c29a91cd1e3fb4662ddc63341e227c2e243e5a06d9
                                 code/numerical/Integrate.cpp ff9766a4b86b6152f49e3041ff487c8fdb20eae879bafb1de0162773c94002d7
                                   code/numerical/Simplex.cpp 8ad018df0f42564370fc5584ed9a4acaf4076b1d28f1f08934c158819a5fb983
+                       code/numerical/linear-programming.typ eacb87acd8f6d43834127d80e0b1204e928a281a1d138fe4486bb6a06b05b27f
                 code/numerical/old_files/BerlekampMassey.cpp 9cbc6024437075685a5a601c23b23377275bc3067bc3cfc3cebfc3fb48a1143a
                code/numerical/old_files/LinearRecurrence.cpp b573261697453f22f0d1bdc8589a6f8382ce53043b9db13253a3cbf7ef99fa4a
                     code/numerical/old_files/Tridiagonal.cpp b42dec653187a7743664c9c16fabbe96697fa8308720729868eaab274d6c59ac
@@ -103,6 +113,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                                  code/data-structure/CDQ.cpp aaab6c52cdea70c8c3307dafed73ff00f27109abc47ef5356b74e993a119b2b6
           code/data-structure/range-affine-binary-search.cpp ce89a40dd4db040bbd9ef88cf033639c7767cfea1e9f788ea69ac93433b77d45
                 code/data-structure/range-affine-segtree.cpp 2717ba33d13c2a4f3e78816adbd579f9e292d9cc8d35973403c4cab1664051b4
+code/data-structure/old_files/li-chao-segment-insert-notes.typ 2747454b2037d932a541705ab72703353eabaa80341bdaba06934d1f113a0de3
                        code/data-structure/old_files/BIT.cpp 9458fc6513fe0ca930f574a0fd0cb58bbb5637a3aa52620d7ce082cd345b373b
                  code/data-structure/old_files/skew-heap.cpp 9ed233f0fee9ef5d04409586da594e970d4cb3cf63c0093f573475f7b29312e8
                code/data-structure/old_files/SegmentTree.cpp d91dd195d2568c77bd259fad574835418533417518100c5192077656386822ed
@@ -112,6 +123,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                                code/linear-algebra/Gauss.cpp 7021b433623c698f54c3085addc8f4d4fce5a07259678fe9d83a7b47b768b17c
                          code/linear-algebra/GaussBinary.cpp 1e8e426d31363bbc0e726248d96d9124a0f4918b0ef0fb43e82e902dbf66a4b3
                          code/linear-algebra/solveBinary.cpp 6a7027b2f85c7f720b37b943299b6f76281ea5470942dc09bb1bf7c0fa418913
+                         code/linear-algebra/determinant.typ cca13076f82ac9089795d4ee1cbeb4a74ec5cced17be11df8d601567578c085d
                 code/linear-algebra/solveLinearEquations.cpp 5a7bdd3247f1abd0c14afb35d5f63ab3de096f34436979e0a3af5952884a94b6
           code/linear-algebra/old_files/GaussElimination.cpp e8c66e57a512145691969d3951c3d5422d4c8798d161f391b7a7b6fee86a2d84
                          code/polynomial/BerlekampMassey.cpp 236e52cb67c028c11d2ff08139ea2d2f5a32b16368ff4ef9a00dec8b01868347
@@ -121,18 +133,28 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                             code/polynomial/LagrangeIota.cpp c651fdeca2ed120bd181a89df94cf671315c1cbb7312e811ec6760616044e28c
                                   code/polynomial/FFTMod.cpp 1448ddcf197164103b2be622d8c9b0d47fcc1accc66da23cc9c47870c35ceef1
                                code/polynomial/LinearRec.cpp 08ac3d2df29570cf1af86e8838225e340d4b2279e3bb94e1a27ae4ed37c30178
+                    code/polynomial/generating-functions.typ 98c5b61a898da5bf25a8af0da8ed132566801a4f5698af52a99fbc3dd611c754
                                     code/polynomial/FWHT.cpp bd83193a6e9e3844f78affafc5da6731909d60c8aad0fd23a4b893a7cd9d5b3f
                                           code/dp/SOS_DP.cpp a14872b640ddf2291725827297e32eeffdf16097e57c46bcff80d2a30e9de289
                                    code/dp/LineContainer.cpp 182553cc2d53785e9d331cd71fe018fb5cbbdd7d640bce8072f8c0a70f30d89c
+                                      code/dp/dynamic-dp.typ 027755b802adfb1d27546b893af15db929a8a13eb645799de992fa93131dbb2a
                               code/dp/DivideAndConquerDP.cpp d7f9a991dd5cbdabbb20ae2e110a41546504d6eee1f58c8c0e3ec9c29bf991c0
                       code/dp/old_files/digit_dp_sum_mod.cpp 0f478f50f288c1cd47609597c2c417739235af7ec69d27a39bca347cd2f93a13
                                 code/dp/old_files/Aliens.cpp 4d32e5f9f536082cee54f3a71624aaa4579e440257429980e100698894387dc5
                       code/dp/old_files/dice_expectation.cpp 2b0bc1193a2629e2fb238a87162a7e05b5464242a301794b9d5511c7543bfcbf
+                     code/combinatorics/stirling-numbers.typ a217263869dbf461b46bf992c7335125509796317065526c177e8e7253c39b1d
+                  code/combinatorics/binomial-identities.typ a43688f5a9e9686f78b047a893623b49a97061500de38b84a6b4ec2e9d08caca
+                       code/combinatorics/catalan-number.typ 66712238901b6ac59f9c83e8be744457526b7e4e668a79ab67ee4f74e4027c02
+                      code/combinatorics/burnsides-lemma.typ 0899b76a6c086dd9ed7ed774fc953e41a810c139a0b7ae4ad5be4dec7d68a88c
+                                code/combinatorics/polya.typ 80e09bdd8d9e58b792b912095b7e6005c7f6eebc4993e780774187c294881e18
+             code/combinatorics/bertrands-ballot-theorem.typ 4a5a4cbd61314e9d9cd2b4cf2860b439560384370cfd3533074127a8fd388d64
+                          code/combinatorics/derangement.typ 2e6c44518b504f2396210d8b0573e54c368a0b35c9be7294a61bc44af7ec55ec
                                     code/string/Manacher.cpp d1eea55de8a045255aff8a0b5ac436a8f708784248ede66f87d473d210592748
                                  code/string/AC-DictLink.cpp 2e252fc3ce23a53573e19ad1f86d665dabff4ed73415977d3d8a4463ad64e40a
                                            code/string/Z.cpp b28f2091a9d6aa0523c28d0f59a506521c74ff7d7ab005ff09eaf147e2f280b8
                                           code/string/AC.cpp a67b1f5e487998797f3d810270a24a184a931eb9e099d78d9e5c01a817f9bc38
                                           code/string/SA.cpp a4c8354efcfc84c9fe546e84062717359a9374751d91f5f86990a89deb1ffb9e
+               code/string/ac-automaton-pattern-position.typ ed6b2c9daa8839dbb3ad8c58b86f53575f134eb6e4cdeb19f74482044986bbbd
                             code/string/AC-CountPatterns.cpp abf7fe8e3a802f06aed6845531ac5384edcca6c9ad2c4c57466c4dcb09a2b8ef
                                          code/string/KMP.cpp 7d5bf566dc73d4a07db96b9ea1a60c72bab324c8c57c8dfef3457266de5680a6
                                  code/string/MinRotation.cpp 47e675460273087e9d642f4bcf08d0b2b17fbeec41a855ce0a6b15bb64e7180c
@@ -157,9 +179,11 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                                 code/flow/BoundedMaxFlow.cpp 10dd735772f74e2a30a929017ac3f425a211b4a5314b07ba27ae24da3f7c3986
                                   code/flow/HopcroftKarp.cpp 7f0c48819fba80fc83becd1c40aa64c8d1956c495f234a7d55cbfdea26ed33e9
                                  code/flow/CoverIndepend.txt 3b64c4883d23c40f94144f399122b182268796374517e5089d7a17dd75040d90
+                                  code/graph/graph-girth.typ 0027e00177822d94a4afd98477003357c19856b06353bcd704690b38e1aeae05
                                           code/graph/KSP.cpp b340af2821cc89c03978c1d7c1a5978698476debf496e6f8cc3286849bb868d0
                                   code/graph/BellmanFord.cpp 87882162d5f9189856ddb9990c683a2fbb21fa5b313f13d66bb7515d51fc16c5
                                           code/graph/SCC.cpp 298974d4dbaa5a25e4e537d4bf275ca19199ea25cfa5341089f37756abe85725
+                       code/graph/difference-constraints.typ 10d2f5014011baf12918b9744db8d5f02215a9060260a941e40c9be45392183c
                               code/graph/DiffConstraints.cpp 371c507251bbbb043e7222d402276e64255ac2a449829b5819057759e7c98dfa
                                          code/graph/2SAT.cpp e5fb57b1858bf260ac9cb2833923edce8ff629b120464ba6208c79c30a49fba1
                                          code/graph/EBCC.cpp de44ee741d35edbed3bf3ee8ceaefac89061dc9d7795d23f599f72400c880975
@@ -177,6 +201,8 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                                      code/graph/Eulerian.cpp e950cd4a5b276630961338e3b38a41798b7a50ccdebf9f61247e9732bc09d32d
                                          code/graph/VBCC.cpp 207b54e6e60be0c1fc7322ac69c8e5f28d9d45ef1e0b994253adc3d20578ed00
                                     code/graph/MaxClique.cpp 5621c4ded6d18557071a2afe0dac3f2d22eb5ee8fe475b2da02ea49a809b00c6
+                                    code/game-theory/nim.typ cb4037d008cb71e4ddaa09796d2773a496754f8e6aff3af61896467d2f27e6fd
+                         code/game-theory/sprague-grundy.typ 479e2e3d19f6d6d6dbf4d4a2c591df9a84be0786d3d5c814a07b0d6d23eef6ac
                               code/geometry/VectorInPoly.cpp 4e01308e75f867e3d45ccbfa3d0c349b9ccaa59fb765603d6fbee6b7801989f9
                              code/geometry/Intersections.cpp 5d5bb0eaa249abd34ebf37a730e152c1a2845fef945d6138656f4de90225fdf1
                        code/geometry/CircleIntersections.cpp 226689476a515d21877884ff7b17139ec71c00df040b754c7717064f03c3ec6e
@@ -184,6 +210,7 @@ code/number-theory/old_files/new-number-theory/divisor_zeta_transform.cpp 799ccf
                               code/geometry/3DConvexHull.cpp 6b592836e2e04d29c308397f20d101e8efdc89d89713e7a23b3bfa87fa53c260
                   code/geometry/Minimum_Enclosing_Circle.cpp 4fc473dce53fef60023afb10caa7c4be00d7be13fe81bc46a0ae9fc35de5f617
                                 code/geometry/ConvexHull.cpp 268463736fab21d1e26506d3e98cc941456334106233d2f3552def9f545069c6
+                             code/geometry/picks-theorem.typ 6ebe9e9cd17d0db5c5021c5a471c23c558b5339675b30609e632192f7092ea4f
                             code/geometry/ConvexHullDist.cpp d820cb375a42c36d1330c57ae2719a29666110cdbe285d6d7db107fd6d5de785
                           code/geometry/ClosestPointPair.cpp e7d4d5f27857fad8379496029d4d80c31ed2b5c199a28f4dc60b0564e9836a49
         code/geometry/Intersection_of_Polygon_and_Circle.cpp 8d92c8da00470462ab82a52cfc4d4ea8050fa988b8b4ad2d1513bfa2efa35a48

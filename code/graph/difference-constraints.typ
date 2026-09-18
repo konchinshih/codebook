@@ -1,0 +1,7 @@
+  - $x_u - x_v <= c =>$ `add(v, u, c)`
+  - $x_u - x_v >= c =>$ `add(u, v, -c)`
+  - $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`
+  - $x_u >= c =>$ add super vertex $x_0 = 0$, then $x_u - x_0 >= c$ $=>$ `add(u, 0, -c)`
+  - Don't for get non-negative constraints for every variable if specified implicitly.
+  - Interval sum $=>$ Use prefix sum to transform into differential constraints. Don't for get $S_(i+1) - S_i >= 0$ if $x_i$ needs to be non-negative.
+  - $x_u \/ x_v <= c =>$ $log x_u - log x_v <= log c$

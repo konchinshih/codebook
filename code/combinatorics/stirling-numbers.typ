@@ -1,0 +1,4 @@
+  - 1st kind (permutations of $n$ with $k$ cycles): $c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k)$; $sum_k c(n,k) x^k = x(x+1) dots.c (x+n-1)$
+  - 2nd kind (partitions of $n$ into $k$ nonempty sets): $S(n,k) = S(n-1,k-1) + k S(n-1,k) = 1/k! sum_(j=0)^k (-1)^(k-j) binom(k, j) j^n$ (a convolution, one row in $O(n log n)$)
+  - $x^n = sum_k S(n,k) x^(underline(k))$, $x^(underline(k)) = x(x-1) dots.c (x-k+1)$; Bell $B_n = sum_k S(n,k)$
+  - Surjections $n -> k$: $k! S(n,k)$
