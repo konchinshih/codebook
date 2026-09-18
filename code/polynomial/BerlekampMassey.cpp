@@ -4,7 +4,7 @@
 using Poly = vector<ll>;
 
 Poly berlekampMassey(Poly s) {
-  int n = sz(s), L = 0, m = 0;
+  int n = s.size(), L = 0, m = 0;
   Poly C(n), B(n), T;
   C[0] = B[0] = 1; ll b = 1;
   for (int i = 0; i < n; i++) {
@@ -26,6 +26,6 @@ Poly berlekampMassey(Poly s) {
   return C;
 }
 /* Example: Fibonacci
-Poly s = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+Poly s = {0, 1, 1, 2, 3, 5, 8, 13};
 Poly c = berlekampMassey(s);  // c = {1, 1}, k = 2
 ll ans = linearRec(s, c, (ll)1e18); // find fib(1e18) */
