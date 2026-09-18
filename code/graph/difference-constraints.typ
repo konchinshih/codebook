@@ -1,3 +1,4 @@
+  #listing("code/graph/DiffConstraints.cpp")
   - $x_u - x_v <= c =>$ `add(v, u, c)`
   - $x_u - x_v >= c =>$ `add(u, v, -c)`
   - $x_u - x_v = c =>$ `add(v, u, c), add(u, v -c)`

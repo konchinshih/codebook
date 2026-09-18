@@ -255,7 +255,7 @@
 = Graph
   #sub("Max Clique", "code/graph/MaxClique.cpp")
   #sub("Bellman-Ford", "code/graph/BellmanFord.cpp")
-  #sub("System of Difference Constraints", "code/graph/DiffConstraints.cpp")
+  == System of Difference Constraints
   #include "code/graph/difference-constraints.typ"
   == Graph Girth
   #include "code/graph/graph-girth.typ"
