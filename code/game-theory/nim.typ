@@ -1,0 +1,4 @@
+  - $n$ piles $a_1, dots, a_n$；兩人輪流選一堆拿走 $>= 1$ 顆，拿不了的人輸（normal play）。
+  - 先手必勝 $<=> X = a_1 xor dots xor a_n != 0$。必勝走法：找一堆 $a_i$ 使 $a_i xor X < a_i$（即 $a_i$ 在 $X$ 最高位為 1），拿成 $a_i xor X$，讓 XOR 歸零。
+  - Misère（拿到最後一顆的人輸）：若所有 $a_i <= 1$ 則勝負相反（堆數為偶數先手勝），否則判定同 normal。
+  - 變形：每次最多拿 $k$ 顆 $=>$ 用 $a_i mod (k+1)$ 代入；Staircase Nim：只看奇數階的 XOR。

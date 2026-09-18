@@ -1,0 +1,4 @@
+  - Vandermonde: $sum_k binom(m, k) binom(n, r-k) = binom(m+n, r)$; $sum_k binom(n, k)^2 = binom(2n, n)$; $sum_(k=0)^n binom(k, a) binom(n-k, b) = binom(n+1, a+b+1)$
+  - Hockey stick: $sum_(i=r)^n binom(i, r) = binom(n+1, r+1)$; $sum_k k binom(n, k) = n 2^(n-1)$; $binom(n, k) = n/k binom(n-1, k-1)$
+  - Stars and bars: $x_1 + dots + x_k = n$, $x_i >= 0$: $binom(n+k-1, k-1)$
+  - Catalan: $C_n = 1/(n+1) binom(2n, n) = binom(2n, n) - binom(2n, n+1)$; paths from $(0,0)$ to $(a,b)$ never above $y = x$ ($a >= b$): $binom(a+b, b) - binom(a+b, b-1)$
