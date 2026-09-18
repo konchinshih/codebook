@@ -1,35 +1,18 @@
-// Solves Ax=b over GF(2), returning rank or -1
-// if inconsistent.
+// In-place RREF over GF(2); rows are bitsets, m = #columns,
+// b = RHS (all-zero if unused); returns rank.
 // For an XOR basis, use all-zero b and read the nonzero rows.
 const int N = 1000;
 using bs = bitset<N>;
-int gaussBinary(vector<bs>& A, vector<int>& b, bs& x, int m) {
-  int n = A.size(), rank = 0, br;
-  vector<int> col(m);
-  iota(col.begin(), col.end(), 0);
-  for (int i = 0; i < n; i++) {
-    for (br = i; br < n; br++)
-      if (A[br].any()) break;
-    if (br == n) {
-      for (int j = i; j < n; j++)
-        if (b[j]) return -1;
-      break;
-    }
-    int bc = (int)A[br]._Find_next(i - 1);
-    swap(A[i], A[br]);
-    swap(b[i], b[br]);
-    swap(col[i], col[bc]);
-    for (int j = 0; j < n; j++) if (A[j][i] != A[j][bc]) {
-      A[j].flip(i); A[j].flip(bc);
-    }
-    for (int j = i + 1; j < n; j++) if (A[j][i]) {
-      b[j] ^= b[i]; A[j] ^= A[i];
-    }
+int gaussBinary(vector<bs>& A, vector<int>& b, int m) {
+  int n = A.size(), rank = 0;
+  for (int c = 0; c < m && rank < n; c++) {
+    int piv = rank;
+    while (piv < n && !A[piv][c]) piv++;
+    if (piv == n) continue;
+    swap(A[piv], A[rank]); swap(b[piv], b[rank]);
+    for (int i = 0; i < n; i++) if (i != rank && A[i][c])
+      A[i] ^= A[rank], b[i] ^= b[rank];
     rank++;
-  }
-  x = bs(); for (int i = rank; i--;) if (b[i]) {
-    x[col[i]] = 1;
-    for (int j = 0; j < i; j++) b[j] ^= A[j][i];
   }
   return rank;
 }
